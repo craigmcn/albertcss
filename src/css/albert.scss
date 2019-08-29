@@ -1,0 +1,30 @@
+/* Dependencies
+ *
+ * Normalize 8.0.1 - github.com/necolas/normalize.css
+ */
+
+// Core variables and mixins
+@import "scss/variables";
+@import "scss/mixins";
+
+// Reset and dependencies
+@import "scss/normalize";
+@import "scss/fonts";
+
+// Core
+@import "scss/base";
+
+// Layouts
+@import "scss/layouts/header";
+@import "scss/layouts/main";
+@import "scss/layouts/sections";
+
+// Components
+@import "scss/alerts";
+@import "scss/buttons";
+@import "scss/cards";
+@import "scss/forms";
+
+// Utilities
+@import "scss/utilities";
+@import "scss/flex";

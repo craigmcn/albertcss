@@ -1,0 +1,106 @@
+/**
+  * Flex
+  */
+
+.flex {
+    display: flex;
+    display: -webkit-flex;
+    margin-bottom: $spacing;
+    
+    &--container {
+        flex-wrap: wrap;
+        margin-left: -( $spacing / 2 );
+        margin-right: -( $spacing / 2 );
+    }
+    
+    &__contained {
+        flex-basis: 100%;
+        margin-bottom: $spacing;
+        margin-left: $spacing / 2;
+        margin-right: $spacing / 2;
+
+        @include layout-md {
+            flex-basis: auto;
+        }
+    }
+    
+    &--wrap {
+        flex-wrap: wrap;
+    }
+    
+    &--column {
+        flex-direction: column;
+    }
+    
+    &--grow {
+        flex-grow: 1;
+    }
+    
+    &--fixed {
+        flex-shrink: 0;
+    }
+
+    &--2 {
+        flex-basis: calc(50% - #{$spacing}); /* account for margin */
+    }
+    &--3 {
+        flex-basis: calc(33.3333% - #{$spacing});
+    }
+    &--4 {
+        flex-basis: calc(25% - #{$spacing}); /* account for margin */
+    }
+    &--5 {
+        flex-basis: calc(20% - #{$spacing});
+    }
+    &--6 {
+        flex-basis: calc(16.6666% - #{$spacing});
+    }
+    &--7 {
+        flex-basis: calc(14.2857% - #{$spacing});
+    }
+    &--8 {
+        flex-basis: calc(12.5% - #{$spacing});
+    }
+    &--9 {
+        flex-basis: calc(11.1111% - #{$spacing});
+    }
+    &--10 {
+        flex-basis: calc(10% - #{$spacing});
+    }
+    &--11 {
+        flex-basis: calc(9.0909% - #{$spacing});
+    }
+    &--12 {
+        flex-basis: calc(8.3333% - #{$spacing});
+    }
+    
+    &--ai {
+        &-start {
+            align-items: flex-start;
+        }
+        &-end {
+            align-items: flex-end;
+        }
+        &-center {
+            align-items: center;
+        }
+        &-baseline {
+            align-items: baseline;
+        }
+    }
+    
+    &--jc {
+        &-end {
+            justify-content: flex-end;
+        }
+        &-center {
+            justify-content: center;
+        }
+        &-between {
+            justify-content: space-between;
+        }
+        &-around {
+            justify-content: space-around;
+        }
+    }
+}

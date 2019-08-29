@@ -1,0 +1,60 @@
+/**
+  * Forms
+  */
+
+.form {
+    &__group {
+        margin-bottom: 1rem;
+    }
+    &__label {
+        display: block;
+        padding-bottom: $spacing / 2;
+    }
+    &__control {
+        background-color: $white;
+        background-clip: padding-box;
+        border: 1px solid $grey-600;
+        border-radius: 0.25em;
+        display: block;
+        /* stolen from getbootstrap.com
+           corrects <select> size */
+        height: calc(1.5em + .75rem + 2px);
+        margin-bottom: $spacing / 4;
+        padding: 0.5em;
+        width: 100%;
+
+        &--file {
+            border: none;
+            padding: calc(0.5em + 1px); /* account for removed border */
+            padding-left: 0;
+        }
+
+        &-error {
+            color: $red;
+            margin-bottom: $spacing / 4;
+        }
+
+        &--hasError {
+            border-color: $red;
+        }
+    }
+    &__check {
+        margin-bottom: $spacing / 2;
+
+        input[type=checkbox],
+        input[type=radio] {
+            margin-right: $spacing / 4; /* spacing between control and text */
+        }
+    }
+}
+.input {
+    &--large {
+        font-size: 1.125em;
+    }
+}
+
+fieldset.form__group {
+    border: none;
+    padding: 0;
+}
+

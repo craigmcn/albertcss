@@ -1,0 +1,22 @@
+/**
+  * Sections
+  */
+
+.section {
+  padding-top: $spacing * 2;
+  padding-bottom: $spacing * 2;
+  position: relative;
+
+  &--alt::before {
+    background-color: $silver;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 50%;
+    margin-left: -50vw;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: -1;
+  }
+}

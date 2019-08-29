@@ -1,0 +1,126 @@
+/**
+  * Cards
+  */
+  
+.card {
+    $self: &;
+    background-color: $white;
+    border: 1px solid $grey-400;
+    border-radius: 0.25rem;
+    &--primary {
+        border-color: $primary;
+        #{ $self }__title {
+            background-color: $white;
+            border-color: $primary;
+            color: $primary;
+        }
+        &-dark {
+          border-color: $primaryDark;
+          #{ $self }__title {
+              background-color: $primary;
+              border-color: $primaryDark;
+              color: $white;
+          }
+        }
+    }
+    &--secondary {
+        border-color: $secondary;
+        #{ $self }__title {
+            background-color: $white;
+            border-color: $secondary;
+            color: $secondary;
+        }
+        &-dark {
+          border-color: $secondaryDark;
+          #{ $self }__title {
+              background-color: $secondary;
+              border-color: $secondaryDark;
+              color: $white;
+          }
+        }
+    }
+    &--info {
+        border-color: $info;
+        #{ $self }__title {
+            background-color: $white;
+            border-color: $info;
+            color: $info;
+        }
+        &-dark {
+          border-color: $infoDark;
+          #{ $self }__title {
+              background-color: $info;
+              border-color: $infoDark;
+              color: $white;
+          }
+        }
+    }
+    &--success {
+        border-color: $green;
+        #{ $self }__title {
+            background-color: $white;
+            border-color: $green;
+            color: $green;
+        }
+        &-dark {
+          border-color: $successDark;
+          #{ $self }__title {
+              background-color: $green;
+              border-color: $successDark;
+              color: $white;
+          }
+        }
+    }
+    &--warning {
+        border-color: $warning;
+        #{ $self }__title {
+            background-color: $white;
+            border-color: $warning;
+            color: $warning;
+        }
+        &-dark {
+          border-color: $warningDark;
+          #{ $self }__title {
+              background-color: $warning;
+              border-color: $warningDark;
+              color: $white;
+          }
+        }
+    }
+    &--danger {
+        border-color: $red;
+        #{ $self }__title {
+            background-color: $white;
+            border-color: $red;
+            color: $red;
+        }
+        &-dark {
+          border-color: $dangerDark;
+          #{ $self }__title {
+              background-color: $red;
+              border-color: $dangerDark;
+              color: $white;
+          }
+        }
+    }
+
+    &__title {
+        background-color: $silver;
+        border-bottom: 1px solid $grey-400;
+        padding: 1rem;
+        & > * {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+    }
+
+    &__body {
+        padding: 1rem;
+        & > * {
+            margin-bottom: 1em;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

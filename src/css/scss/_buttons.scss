@@ -1,0 +1,205 @@
+/**
+  * Buttons
+  */
+
+// button reset
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
+.button {
+    background-color: $white;
+    border: solid $grey-400;
+    border-radius: 0.25em;
+    border-width: 1px 1px 3px 1px;
+    color: $black;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:hover,
+    &:active {
+        background-color: $grey-800;
+        border-color: $black;
+        border-width: 1px;
+        color: $white;
+        padding-bottom: calc(0.5em + 2px) ;
+    }
+    &--dark {
+        background-color: $grey-800;
+        border-color: $black;
+        color: $white;
+        &:hover,
+        &:active {
+            background-color: $black;
+        }
+    }
+
+    &--primary {
+        border-color: $primary;
+        color: $primary;
+        &:hover,
+        &:active {
+            background-color: $primary;
+            border-color: $primaryDark;
+            color: $white;
+        }
+        &-dark {
+            background-color: $primary;
+            border-color: $primary;
+            color: $white;
+            &:hover,
+            &:active {
+                background-color: darken($primary, 8%);
+                border-color: $primaryDark;
+                color: $white;
+            }
+        }
+    }
+
+    &--secondary {
+        border-color: $secondary;
+        color: $secondary;
+        &:hover,
+        &:active {
+            background-color: $secondary;
+            border-color: $secondaryDark;
+            color: $white;
+        }
+        &-dark {
+            background-color: $secondary;
+            border-color: $secondary;
+            color: $white;
+            &:hover,
+            &:active {
+                background-color: darken($secondary, 8%);
+                border-color: $secondaryDark;
+                color: $white;
+            }
+        }
+    }
+
+    &--danger {
+        border-color: $red;
+        color: $red;
+        &:hover,
+        &:active {
+            background-color: $red;
+            border-color: $dangerDark;
+            color: $white;
+        }
+        &-dark {
+            background-color: $red;
+            border-color: $red;
+            color: $white;
+            &:hover,
+            &:active {
+                background-color: darken($red, 8%);
+                border-color: $dangerDark;
+                color: $white;
+            }
+        }
+    }
+
+    &--warning {
+        border-color: $warning;
+        color: $warning;
+        &:hover,
+        &:active {
+            background-color: $warning;
+            border-color: $warningDark;
+            color: $white;
+        }
+        &-dark {
+            background-color: $warning;
+            border-color: $warning;
+            color: $white;
+            &:hover,
+            &:active {
+                background-color: darken($warning, 8%);
+                border-color: $warningDark;
+                color: $white;
+            }
+        }
+    }
+
+    &--success {
+        border-color: $green;
+        color: $green;
+        &:hover,
+        &:active {
+            background-color: $green;
+            border-color: $successDark;
+            color: $white;
+        }
+        &-dark {
+            background-color: $green;
+            border-color: $green;
+            color: $white;
+            &:hover,
+            &:active {
+                background-color: darken($green, 8%);
+                border-color: $successDark;
+                color: $white;
+            }
+        }
+    }
+
+    &--info {
+        border-color: $info;
+        color: $info;
+        &:hover,
+        &:active {
+            background-color: $info;
+            border-color: $infoDark;
+            color: $white;
+        }
+        &-dark {
+            background-color: $info;
+            border-color: $info;
+            color: $white;
+            &:hover,
+            &:active {
+                background-color: darken($info, 8%);
+                border-color: $infoDark;
+                color: $white;
+            }
+        }
+    }
+
+    &--link {
+        background-color: transparent;
+        border: none;
+        color: $primary;
+        padding: calc(0.5em + 1px) calc(1em + 1px);
+        text-decoration: underline;
+        &:hover,
+        &:active {
+            background-color: inherit;
+            color: darken($primary, 12%);
+        }
+    }
+
+    &--lg {
+        font-size: 1.25em;
+    }
+
+    &--sm {
+        font-size: 0.9em;
+        padding: 0.25em 0.5em;
+
+        &:hover,
+        &:active {
+            padding-bottom: calc(0.25em + 2px) 
+        }
+    }
+}

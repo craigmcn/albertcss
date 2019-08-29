@@ -1,0 +1,12 @@
+/**
+  * Main
+  */
+
+.main {
+  margin: $spacing auto 0 auto;
+  padding: 0 $spacing;
+
+  &--fixed {
+      max-width: 60em;
+  }
+}

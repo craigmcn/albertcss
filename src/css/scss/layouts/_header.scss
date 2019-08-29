@@ -1,0 +1,17 @@
+/**
+  * Header
+  */
+
+  .header {
+    background-color: $silver;
+    border-bottom: 1px solid darken($silver, 10%);
+    color: $grey-800;
+    height: 54px; /* text 21px, padding 16px * 2, border 1px */
+    padding: 1rem;
+
+    h1 {
+        font-family: $raleway-stack;
+        font-size: 1.1rem;
+        margin: 0;
+    }
+}

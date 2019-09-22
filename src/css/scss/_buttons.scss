@@ -17,36 +17,39 @@ button,
 
 .button {
     background-color: $white;
-    border: solid $grey-400;
+    border: solid $grey-400 1px;
     border-radius: 0.25em;
-    border-width: 1px 1px 3px 1px;
+    box-shadow:  0 1px 3px $grey-600;
     color: $black;
     display: inline-block;
     padding: 0.5em 1em;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    &:focus,
     &:hover,
     &:active {
-        background-color: $grey-800;
+        background-color: $grey-700;    
         border-color: $black;
         border-width: 1px;
+        box-shadow: none;
         color: $white;
-        padding-bottom: calc(0.5em + 2px) ;
     }
     &--dark {
-        background-color: $grey-800;
+        background-color: $grey-700;
         border-color: $black;
         color: $white;
+        &:focus,
         &:hover,
         &:active {
-            background-color: $black;
+            background-color: $grey-900;
         }
     }
 
     &--primary {
         border-color: $primary;
         color: $primary;
+        &:focus,
         &:hover,
         &:active {
             background-color: $primary;
@@ -57,6 +60,7 @@ button,
             background-color: $primary;
             border-color: $primary;
             color: $white;
+            &:focus,
             &:hover,
             &:active {
                 background-color: darken($primary, 8%);
@@ -69,6 +73,7 @@ button,
     &--secondary {
         border-color: $secondary;
         color: $secondary;
+        &:focus,
         &:hover,
         &:active {
             background-color: $secondary;
@@ -79,6 +84,7 @@ button,
             background-color: $secondary;
             border-color: $secondary;
             color: $white;
+            &:focus,
             &:hover,
             &:active {
                 background-color: darken($secondary, 8%);
@@ -91,6 +97,7 @@ button,
     &--danger {
         border-color: $red;
         color: $red;
+        &:focus,
         &:hover,
         &:active {
             background-color: $red;
@@ -101,6 +108,7 @@ button,
             background-color: $red;
             border-color: $red;
             color: $white;
+            &:focus,
             &:hover,
             &:active {
                 background-color: darken($red, 8%);
@@ -113,6 +121,7 @@ button,
     &--warning {
         border-color: $warning;
         color: $warning;
+        &:focus,
         &:hover,
         &:active {
             background-color: $warning;
@@ -123,6 +132,7 @@ button,
             background-color: $warning;
             border-color: $warning;
             color: $white;
+            &:focus,
             &:hover,
             &:active {
                 background-color: darken($warning, 8%);
@@ -135,6 +145,7 @@ button,
     &--success {
         border-color: $green;
         color: $green;
+        &:focus,
         &:hover,
         &:active {
             background-color: $green;
@@ -145,6 +156,7 @@ button,
             background-color: $green;
             border-color: $green;
             color: $white;
+            &:focus,
             &:hover,
             &:active {
                 background-color: darken($green, 8%);
@@ -157,6 +169,7 @@ button,
     &--info {
         border-color: $info;
         color: $info;
+        &:focus,
         &:hover,
         &:active {
             background-color: $info;
@@ -167,6 +180,7 @@ button,
             background-color: $info;
             border-color: $info;
             color: $white;
+            &:focus,
             &:hover,
             &:active {
                 background-color: darken($info, 8%);
@@ -179,9 +193,11 @@ button,
     &--link {
         background-color: transparent;
         border: none;
+        box-shadow: none;
         color: $primary;
         padding: calc(0.5em + 1px) calc(1em + 1px);
         text-decoration: underline;
+        &:focus,
         &:hover,
         &:active {
             background-color: inherit;
@@ -196,10 +212,5 @@ button,
     &--sm {
         font-size: 0.9em;
         padding: 0.25em 0.5em;
-
-        &:hover,
-        &:active {
-            padding-bottom: calc(0.25em + 2px) 
-        }
     }
 }

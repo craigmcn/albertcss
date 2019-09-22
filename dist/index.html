@@ -6,15 +6,19 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Style Guide</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#005b99" />
-  <meta name="theme-color" content="#005b99" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=wAdO0d8bp8">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=wAdO0d8bp8">
+  <link rel="icon" type="image/png" sizes="194x194" href="/favicon-194x194.png?v=wAdO0d8bp8">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=wAdO0d8bp8">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=wAdO0d8bp8">
+  <link rel="manifest" href="/site.webmanifest?v=wAdO0d8bp8">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=wAdO0d8bp8" color="#005b99">
+  <link rel="shortcut icon" href="/favicon.ico?v=wAdO0d8bp8">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#005b99">
 
   <link rel="stylesheet" href="./css/albert.css">
-  <script src="https://kit.fontawesome.com/453b852cdd.js"></script>
 </head>
 
 <body>
@@ -27,8 +31,8 @@
 
     <section class="section">
       <h1>Colours</h1>
-      <div class="flex flex--container flex--wrap">
-        <div class="card flex__contained flex--4">
+      <div class="flex flex--grid">
+        <div class="card flex__item flex__item--4">
           <div class="card__title">
             <h2>Black</h2>
           </div>
@@ -39,7 +43,7 @@
           </div>
         </div>
 
-        <div class="card card--primary flex__contained flex--4">
+        <div class="card card--primary flex__item flex__item--4">
           <div class="card__title">
             <h2>Primary</h2>
           </div>
@@ -50,7 +54,7 @@
           </div>
         </div>
 
-        <div class="card card--secondary flex__contained flex--4">
+        <div class="card card--secondary flex__item flex__item--4">
           <div class="card__title">
             <h2>Secondary</h2>
           </div>
@@ -61,7 +65,7 @@
           </div>
         </div>
 
-        <div class="card card--info flex__contained flex--4">
+        <div class="card card--info flex__item flex__item--4">
           <div class="card__title">
             <h2>Information</h2>
           </div>
@@ -72,7 +76,7 @@
           </div>
         </div>
 
-        <div class="card card--success flex__contained flex--4">
+        <div class="card card--success flex__item flex__item--4">
           <div class="card__title">
             <h2>Success</h2>
           </div>
@@ -83,7 +87,7 @@
           </div>
         </div>
 
-        <div class="card card--warning flex__contained flex--4">
+        <div class="card card--warning flex__item flex__item--4">
           <div class="card__title">
             <h2>Warning</h2>
           </div>
@@ -94,7 +98,7 @@
           </div>
         </div>
 
-        <div class="card card--danger flex__contained flex--4">
+        <div class="card card--danger flex__item flex__item--4">
           <div class="card__title">
             <h2>Danger</h2>
           </div>
@@ -375,9 +379,9 @@
 
       <p>Already used as an example for Colours, cards have a title and body.</p>
 
-      <div class="flex flex--container flex--wrap">
+      <div class="flex flex--grid">
 
-        <div class="card flex__contained flex--3">
+        <div class="card flex__item flex__item--3">
           <div class="card__title">
             <h2>Default</h2>
           </div>
@@ -386,7 +390,7 @@
           </div>
         </div>
 
-        <div class="card card--primary flex__contained flex--3">
+        <div class="card card--primary flex__item flex__item--3">
           <div class="card__title">
             <h2>Primary</h2>
           </div>
@@ -395,7 +399,7 @@
           </div>
         </div>
 
-        <div class="card card--secondary flex__contained flex--3">
+        <div class="card card--secondary flex__item flex__item--3">
           <div class="card__title">
             <h2>Secondary</h2>
           </div>
@@ -404,7 +408,7 @@
           </div>
         </div>
 
-        <div class="card card--info flex__contained flex--3">
+        <div class="card card--info flex__item flex__item--3">
           <div class="card__title">
             <h2>Information</h2>
           </div>
@@ -413,7 +417,7 @@
           </div>
         </div>
 
-        <div class="card card--success flex__contained flex--3">
+        <div class="card card--success flex__item flex__item--3">
           <div class="card__title">
             <h2>Success</h2>
           </div>
@@ -422,7 +426,7 @@
           </div>
         </div>
 
-        <div class="card card--warning flex__contained flex--3">
+        <div class="card card--warning flex__item flex__item--3">
           <div class="card__title">
             <h2>Warning</h2>
           </div>
@@ -431,7 +435,7 @@
           </div>
         </div>
 
-        <div class="card card--danger flex__contained flex--3">
+        <div class="card card--danger flex__item flex__item--3">
           <div class="card__title">
             <h2>Danger</h2>
           </div>
@@ -446,9 +450,9 @@
 
       <p>As with buttons, cards also come in a <code>-dark</code> variant.</p>
 
-      <div class="flex flex--container flex--wrap">
+      <div class="flex flex--grid">
 
-        <div class="card card--primary-dark flex__contained flex--2">
+        <div class="card card--primary-dark flex__item flex__item--12 flex__item--6-sm flex__item--2-md">
           <div class="card__title">
             <h2>Primary dark</h2>
           </div>
@@ -457,7 +461,7 @@
           </div>
         </div>
 
-        <div class="card card--secondary-dark flex__contained flex--4">
+        <div class="card card--secondary-dark flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
           <div class="card__title">
             <h2>Secondary</h2>
           </div>
@@ -466,7 +470,7 @@
           </div>
         </div>
 
-        <div class="card card--info-dark flex__contained flex--4">
+        <div class="card card--info-dark flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
           <div class="card__title">
             <h2>Information</h2>
           </div>
@@ -475,7 +479,7 @@
           </div>
         </div>
 
-        <div class="card card--success-dark flex__contained flex--2">
+        <div class="card card--success-dark flex__item flex__item--12 flex__item--6-sm flex__item--2-md">
           <div class="card__title">
             <h2>Success</h2>
           </div>
@@ -484,7 +488,7 @@
           </div>
         </div>
 
-        <div class="card card--warning-dark flex__contained flex--2">
+        <div class="card card--warning-dark flex__item flex__item--12 flex__item--6-sm flex__item--2-md">
           <div class="card__title">
             <h2>Warning</h2>
           </div>
@@ -493,7 +497,7 @@
           </div>
         </div>
 
-        <div class="card card--danger-dark flex__contained flex--2">
+        <div class="card card--danger-dark flex__item flex__item--12 flex__item--6-sm flex__item--2-md">
           <div class="card__title">
             <h2>Danger</h2>
           </div>
@@ -507,6 +511,7 @@
     </section>
   </main>
   <script src="./js/albertcss.js"></script>
+  <script src="https://kit.fontawesome.com/453b852cdd.js"></script>
 
 </body>
 

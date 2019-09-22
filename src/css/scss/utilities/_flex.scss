@@ -1,0 +1,112 @@
+/**
+  * Flex
+  */
+
+  .flex {
+    display: flex;
+    display: -webkit-flex;
+    margin-bottom: $spacing;
+
+    &--grid {
+        flex-wrap: wrap;
+        margin-bottom: $spacing;
+        margin-left: -($spacing / 2);
+        margin-right: -($spacing / 2);
+        margin-top: -($spacing / 2);
+    }
+
+    &--wrap {
+        flex-wrap: wrap;
+    }
+
+    &--column {
+        flex-direction: column;
+    }
+
+    &--ai {
+        &-start {
+            align-items: flex-start;
+        }
+        &-end {
+            align-items: flex-end;
+        }
+        &-center {
+            align-items: center;
+        }
+        &-baseline {
+            align-items: baseline;
+        }
+    }
+
+    &--jc {
+        &-end {
+            justify-content: flex-end;
+        }
+        &-center {
+            justify-content: center;
+        }
+        &-between {
+            justify-content: space-between;
+        }
+        &-around {
+            justify-content: space-around;
+        }
+    }
+
+    &__item {
+        flex: 1;
+        margin: $spacing / 2;
+
+        & > .flex {
+            margin-bottom: 0;
+        }
+
+        &--grow {
+            flex-grow: 1;
+        }
+
+        &--fixed {
+            flex-shrink: 0;
+        }
+
+        &--as {
+            &-start {
+                align-self: flex-start;
+            }
+            &-end {
+                align-self: flex-end;
+            }
+            &-center {
+                align-self: center;
+            }
+            &-baseline {
+                align-self: baseline;
+            }
+        }
+
+        @for $i from 12 through 1 {
+            $p: ($i / 12 * 100%);
+            &--#{$i} {
+                flex: 0 0 calc(#{$p} - #{$spacing});
+            }
+
+            @include layout-sm {
+                &--#{$i}-sm {
+                    flex: 0 0 calc(#{$p} - #{$spacing});
+                }
+            }
+
+            @include layout-md {
+                &--#{$i}-md {
+                    flex: 0 0 calc(#{$p} - #{$spacing});
+                }
+            }
+
+            @include layout-lg {
+                &--#{$i}-lg {
+                    flex: 0 0 calc(#{$p} - #{$spacing});
+                }
+            }
+        }
+    }
+}

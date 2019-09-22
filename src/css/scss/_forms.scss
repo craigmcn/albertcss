@@ -24,6 +24,7 @@
         width: 100%;
 
         &--file {
+            background-color: transparent;
             border: none;
             padding: calc(0.5em + 1px); /* account for removed border */
             padding-left: 0;

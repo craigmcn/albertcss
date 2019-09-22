@@ -1,0 +1,61 @@
+$spaceamounts: (
+    0: 0,
+    xs: 0.25,
+    sm: 0.5,
+    md: 1,
+    lg: 1.5,
+    xl: 2
+);
+$sides: (
+    top,
+    bottom,
+    left,
+    right,
+    horiz,
+    vert,
+    all
+);
+
+@each $space, $x in $spaceamounts {
+    @each $side in $sides {
+        $thisSpacing: ($spacing * $x);
+
+        @if $side == "all" {
+            .m-#{$space} {
+                margin: $thisSpacing;
+            }
+
+            .p-#{$space} {
+                padding: $thisSpacing;
+            }
+        } @else if $side == "horiz" {
+            .m-#{str-slice($side, 0, 1)}-#{$space} {
+                margin-bottom: $thisSpacing;
+                margin-top: $thisSpacing;
+            }
+
+            .p-#{str-slice($side, 0, 1)}-#{$space} {
+                padding-bottom: $thisSpacing;
+                padding-top: $thisSpacing;
+            }
+        } @else if $side == "vert" {
+            .m-#{str-slice($side, 0, 1)}-#{$space} {
+                margin-left: $thisSpacing;
+                margin-right: $thisSpacing;
+            }
+
+            .p-#{str-slice($side, 0, 1)}-#{$space} {
+                padding-left: $thisSpacing;
+                padding-right: $thisSpacing;
+            }
+        } @else {
+            .m-#{str-slice($side, 0, 1)}-#{$space} {
+                margin-#{$side}: $thisSpacing;
+            }
+
+            .p-#{str-slice($side, 0, 1)}-#{$space} {
+                padding-#{$side}: $thisSpacing;
+            }
+        }
+    }
+}

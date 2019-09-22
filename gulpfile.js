@@ -9,28 +9,30 @@ const sass = require('gulp-sass'),
 const inputScss = './src/**/*.scss'
 
 const sassOptions = {
-  dev: {
+  default: {
     errLogToConsole: true,
     outputStyle: 'expanded'
   },
-  prod: {
+  minified: {
     outputStyle: 'compressed'
   }
 };
 
-gulp.task('sass-dev', function () {
+gulp.task('sass', done => {
   return gulp.src(inputScss)
-    .pipe(sass(sassOptions.dev).on('error', sass.logError))
+    .pipe(sass(sassOptions.default).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest(output))
+  done()
 });
 
-gulp.task('sass-prod', function () {
+gulp.task('sass-min', done => {
   return gulp.src(inputScss)
-    .pipe(sass(sassOptions.prod))
+    .pipe(sass(sassOptions.minified))
     .pipe(autoprefixer())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(output))
+  done()
 });
 
 // JS
@@ -43,22 +45,24 @@ const browserify = require('browserify'),
 
 const inputJs = 'src/js/scripts.js'
 
-gulp.task('js-dev', () => {
+gulp.task('js', done => {
   const b = browserify({
     entries: inputJs,
-    debug: true
+    debug: false
   })
 
   return b.transform(babelify.configure({
-    presets: ["@babel/preset-env"]
+    presets: ["@babel/preset-env"],
+    sourceMaps: false
   }))
     .bundle()
     .pipe(source('js/albertcss.js'))
     .pipe(buffer())
     .pipe(gulp.dest(output))
+  done()
 });
 
-gulp.task('js-prod', () => {
+gulp.task('js-min', done => {
   const b = browserify({
     entries: inputJs,
     debug: true
@@ -74,7 +78,10 @@ gulp.task('js-prod', () => {
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(output))
+  done()
 });
 
-gulp.task('dev', gulp.parallel('js-dev', 'sass-dev'))
-gulp.task('build', gulp.parallel('js-prod', 'sass-prod'))
+gulp.task('assets', gulp.parallel(
+  gulp.series('sass', 'sass-min'),
+  gulp.series('js', 'js-min')
+))

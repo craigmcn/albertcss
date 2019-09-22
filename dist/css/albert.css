@@ -1101,6 +1101,7 @@ fieldset.form__group {
 }
 
 .flex__item {
+  flex-grow: 1;
   margin: 0.5rem;
 }
 

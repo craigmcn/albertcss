@@ -54,6 +54,7 @@
     }
 
     &__item {
+        flex-grow: 1;
         margin: $spacing / 2;
 
         & > .flex {

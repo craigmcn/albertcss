@@ -6,6 +6,7 @@
 /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 *,
 *:before,
@@ -136,6 +137,7 @@ code {
 pre {
   background-color: $silver;
   padding: $spacing / 2;
+  white-space: pre-wrap;
   width: 100%;
 
   code {

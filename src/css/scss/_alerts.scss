@@ -42,12 +42,19 @@
 
     &--overlay {
         background-color: $white;
-        width: 66.667%;
-        left: 50%;
-        margin-left: -33.333%;
+        box-shadow:  0 1px 3px $grey-600;
         position: absolute;
-        top: 3rem;
+        top: 5rem;
+        width: 100%;
         z-index: 1000;
+
+        @include layout-md {
+            & {
+                left: 50%;
+                margin-left: -33.333%;
+                width: 66.667%;
+            }
+        }
     }
 
     &--info {

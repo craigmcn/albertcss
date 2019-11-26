@@ -3,6 +3,7 @@
   */
   
 .alert {
+    $self: &;
     background-color: $white;
     border: 1px solid $grey-400;
     border-radius: 0.25em;
@@ -72,5 +73,23 @@
     &--warning {
         border-color: $warning;
         color: $warning;
+    }
+
+    &--sm {
+        padding: 0 0.5rem;
+
+        & > #{ $self }__text {
+            line-height: normal;
+        }
+
+        & > #{ $self }__icon {
+            margin-right: 0.25em;
+        }
+
+        & > #{ $self }__icon,
+        & > #{ $self }__close {
+            padding-top: 0.3333em;
+            opacity: 0.75;
+        }
     }
 }

@@ -12,6 +12,7 @@ button,
     color: inherit;
     cursor: pointer;
     font: inherit;
+    outline: none;
     padding: 0;
 }
 
@@ -36,6 +37,9 @@ button,
         box-shadow: none;
         color: $white;
     }
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($grey-700, 0.5);
+    }
     &--dark {
         background-color: $grey-700;
         border-color: $black;
@@ -44,6 +48,9 @@ button,
         &:hover,
         &:active {
             background-color: $grey-900;
+        }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($grey-900, 0.5);
         }
     }
 
@@ -57,6 +64,9 @@ button,
             border-color: $primaryDark;
             color: $white;
         }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+        }
         &-dark {
             background-color: $primary;
             border-color: $primary;
@@ -67,6 +77,9 @@ button,
                 background-color: darken($primary, 8%);
                 border-color: $primaryDark;
                 color: $white;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(darken($primary, 8%), 0.5);
             }
         }
     }
@@ -81,6 +94,9 @@ button,
             border-color: $secondaryDark;
             color: $white;
         }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($secondary, 0.5);
+        }
         &-dark {
             background-color: $secondary;
             border-color: $secondary;
@@ -91,6 +107,9 @@ button,
                 background-color: darken($secondary, 8%);
                 border-color: $secondaryDark;
                 color: $white;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(darken($secondary, 8%), 0.5);
             }
         }
     }
@@ -105,6 +124,9 @@ button,
             border-color: $dangerDark;
             color: $white;
         }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
+        }
         &-dark {
             background-color: $red;
             border-color: $red;
@@ -115,6 +137,9 @@ button,
                 background-color: darken($red, 8%);
                 border-color: $dangerDark;
                 color: $white;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(darken($red, 8%), 0.5);
             }
         }
     }
@@ -129,6 +154,9 @@ button,
             border-color: $warningDark;
             color: $white;
         }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($warning, 0.5);
+        }
         &-dark {
             background-color: $warning;
             border-color: $warning;
@@ -139,6 +167,9 @@ button,
                 background-color: darken($warning, 8%);
                 border-color: $warningDark;
                 color: $white;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(darken($warning, 8%), 0.5);
             }
         }
     }
@@ -153,6 +184,9 @@ button,
             border-color: $successDark;
             color: $white;
         }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($green, 0.5);
+        }
         &-dark {
             background-color: $green;
             border-color: $green;
@@ -163,6 +197,9 @@ button,
                 background-color: darken($green, 8%);
                 border-color: $successDark;
                 color: $white;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(darken($green, 8%), 0.5);
             }
         }
     }
@@ -177,6 +214,9 @@ button,
             border-color: $infoDark;
             color: $white;
         }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($info, 0.5);
+        }
         &-dark {
             background-color: $info;
             border-color: $info;
@@ -187,6 +227,9 @@ button,
                 background-color: darken($info, 8%);
                 border-color: $infoDark;
                 color: $white;
+            }
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba(darken($info, 8%), 0.5);
             }
         }
     }
@@ -203,6 +246,9 @@ button,
         &:active {
             background-color: inherit;
             color: darken($primary, 12%);
+        }
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
         }
     }
 

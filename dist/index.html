@@ -282,41 +282,43 @@
       <p>will be hidden (<code>display: none;</code>) when closed. Alerts with the <code>alert--removable</code> class
         will be removed from the DOM when closed.</p>
 
-      <p>The <code>alert--overlay</code> class will overlay the alert at the top of its <code>position: relative</code> container.</p>
+      <p>The <code>alert--overlay</code> class will overlay the alert at the top of its <code>position: relative</code>
+        container.</p>
 
-      <p>The <code>alert--sm</code> class is intended to be used inside a component, and generally not at a page level.</p>
+      <p>The <code>alert--sm</code> class is intended to be used inside a component, and generally not at a page level.
+      </p>
 
-      <div class="alert">
-        <div class="alert__icon"><i class="far fa-2x fa-question-circle" aria-hidden="true"></i></div>
+      <div class="alert" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-2x fa-question-circle"></i></div>
         <div class="alert__text">Single line message</div>
       </div>
 
-      <div class="alert alert--info">
-        <div class="alert__icon"><i class="far fa-2x fa-info-circle" aria-hidden="true"></i></div>
+      <div class="alert alert--info" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-2x fa-info-circle"></i></div>
         <div class="alert__text">Single line informational message</div>
       </div>
-      <div class="alert alert--sm alert--info">
-        <div class="alert__icon"><i class="far fa-info-circle" aria-hidden="true"></i></div>
+      <div class="alert alert--sm alert--info" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-info-circle"></i></div>
         <div class="alert__text">Small single line informational message using <code>alert--sm</code> modifier</div>
       </div>
-      <div class="alert alert--success alert--removable">
-        <div class="alert__icon"><i class="far fa-2x fa-check-circle" aria-hidden="true"></i></div>
+      <div class="alert alert--success alert--removable" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-2x fa-check-circle"></i></div>
         <div class="alert__text">Single <a href="#">line success</a> message that&rsquo;s a little long</div>
         <button type="button" class="alert__close" aria-label="Close"><i class="fas fa-2x fa-times"
             aria-hidden="true"></i></button>
       </div>
-      <div class="alert alert--sm alert--success alert--removable">
-        <div class="alert__icon"><i class="far fa-check-circle" aria-hidden="true"></i></div>
+      <div class="alert alert--sm alert--success alert--removable" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-check-circle"></i></div>
         <div class="alert__text">Small single <a href="#">line success</a> message that&rsquo;s a little long</div>
         <button type="button" class="alert__close" aria-label="Close"><i class="fas fa-times"
             aria-hidden="true"></i></button>
       </div>
-      <div class="alert alert--warning">
-        <div class="alert__icon"><i class="far fa-2x fa-exclamation-triangle" aria-hidden="true"></i></div>
+      <div class="alert alert--warning" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-2x fa-exclamation-triangle"></i></div>
         <div class="alert__text">Single line warning message</div>
       </div>
-      <div class="alert alert--danger">
-        <div class="alert__icon"><i class="far fa-2x fa-exclamation-circle" aria-hidden="true"></i></div>
+      <div class="alert alert--danger" role="alert">
+        <div class="alert__icon" aria-hidden="true"><i class="far fa-2x fa-exclamation-circle"></i></div>
         <div class="alert__text">
           <p>Multiple line error message that&rsquo;s a little long</p>
           <p>Multiple line error message</p>

@@ -3,6 +3,7 @@
   */
   
 .alert {
+    $self: &;
     background-color: $white;
     border: 1px solid $grey-400;
     border-radius: 0.25em;
@@ -16,6 +17,9 @@
     a {
         color: inherit;
         font-weight: bold;
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+        }
     }
 
     &__text {
@@ -33,10 +37,16 @@
         align-self: baseline;
         margin-left: auto;
         opacity: 0.5;
+        outline: none;
         padding: 0;
 
+        &:focus,
         &:hover {
             opacity: 1;
+        }
+        &:focus {
+            border-radius: 0.25em;
+            box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
         }
     }
 
@@ -60,17 +70,51 @@
     &--info {
         border-color: $info;
         color: $info;
+        a:focus,
+        & > #{ $self }__close:focus {
+            box-shadow: 0 0 0 0.2rem rgba($info, 0.5);
+        }
     }
     &--success {
         border-color: $green;
         color: $green;
+        a:focus,
+        & > #{ $self }__close:focus {
+            box-shadow: 0 0 0 0.2rem rgba($green, 0.5);
+        }
     }
     &--danger {
         border-color: $red;
         color: $red;
+        a:focus,
+        & > #{ $self }__close:focus {
+            box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
+        }
     }
     &--warning {
         border-color: $warning;
         color: $warning;
+        a:focus,
+        & > #{ $self }__close:focus {
+            box-shadow: 0 0 0 0.2rem rgba($warning, 0.5);
+        }
+    }
+
+    &--sm {
+        padding: 0 0.5rem;
+
+        & > #{ $self }__text {
+            line-height: normal;
+        }
+
+        & > #{ $self }__icon {
+            margin-right: 0.25em;
+        }
+
+        & > #{ $self }__icon,
+        & > #{ $self }__close {
+            margin-top: 0.25em;
+            opacity: 0.75;
+        }
     }
 }

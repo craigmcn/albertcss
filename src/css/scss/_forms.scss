@@ -3,6 +3,12 @@
   */
 
 .form {
+    input[type=radio]:focus,
+    input[type=checkbox]:focus {
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+        outline: none;
+    }
+
     &__group {
         margin-bottom: 1rem;
     }
@@ -20,12 +26,18 @@
            corrects <select> size */
         height: calc(1.5em + .75rem + 2px);
         margin-bottom: $spacing / 4;
+        outline: none;
         padding: 0.5em;
         width: 100%;
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+        }
 
         &--file {
             background-color: transparent;
             border: none;
+            height: auto;
             padding: calc(0.5em + 1px); /* account for removed border */
             padding-left: 0;
         }
@@ -37,6 +49,9 @@
 
         &--hasError {
             border-color: $red;
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
+            }
         }
     }
     &__check {

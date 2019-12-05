@@ -73,6 +73,11 @@ a {
     &:visited {
         color: lighten($primary, 8%);
     }
+    &:focus {
+        border-radius: 0.25em;
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+        outline: none;
+    }
     &.permanent {
         &:hover,
         &:active,

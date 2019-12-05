@@ -703,7 +703,7 @@ pre code {
 
 .alert--sm > .alert__icon,
 .alert--sm > .alert__close {
-  padding-top: 0.3333em;
+  margin-top: 0.25em;
   opacity: 0.75;
 }
 
@@ -727,7 +727,7 @@ button,
   background-color: #fff;
   border: solid #a7a7a7 1px;
   border-radius: 0.25em;
-  box-shadow: 0 1px 3px #7a7a7a;
+  /*box-shadow:  0 1px 3px $grey-600;*/
   color: #222;
   display: inline-block;
   margin-top: 4px;

@@ -518,15 +518,19 @@ pre code {
   color: #4e4e4e;
   display: -webkit-box;
   display: flex;
+  flex-wrap: wrap;
   -webkit-box-pack: justify;
           justify-content: space-between;
   padding: 0.5rem 1rem;
 }
 
 .header h1 {
+  flex-shrink: 0;
   font-family: Raleway, Verdana, "Lucida Grande", "Gill Sans", Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   margin: 0;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .brand {

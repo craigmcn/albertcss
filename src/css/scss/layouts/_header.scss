@@ -8,13 +8,17 @@
   border-bottom: 1px solid darken($silver, 10%);
   color: $grey-800;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 0.5rem 1rem;
 
   h1 {
+    flex-shrink: 0;
     font-family: $raleway-stack;
     font-size: 1.25rem;
     margin: 0;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
   }
 }
 

@@ -24,7 +24,7 @@ button,
     color: $black;
     display: inline-block;
     margin-top: 4px;
-    padding: 0.5em 1em;
+    padding: calc(0.5em + 1px) 1em;
     text-decoration: none;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
         border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -254,6 +254,7 @@ button,
 
     &--lg {
         font-size: 1.25em;
+        padding: 0.5em 1em calc(0.5em - 1px) 1em;
     }
 
     &--sm {

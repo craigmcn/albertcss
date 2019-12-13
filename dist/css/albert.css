@@ -735,7 +735,7 @@ button,
   color: #222;
   display: inline-block;
   margin-top: 4px;
-  padding: 0.5em 1em;
+  padding: calc(0.5em + 1px) 1em;
   text-decoration: none;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -973,6 +973,7 @@ button,
 
 .button--lg {
   font-size: 1.25em;
+  padding: 0.5em 1em calc(0.5em - 1px) 1em;
 }
 
 .button--sm {
@@ -1141,6 +1142,32 @@ button,
   outline: none;
 }
 
+.form--inline {
+  display: -webkit-box;
+  display: flex;
+  margin: 0 0.2rem;
+}
+
+.form--inline input,
+.form--inline select {
+  width: auto;
+}
+
+.form--inline .form__label,
+.form--inline .form__control {
+  display: inline-block;
+}
+
+.form--inline > .form__group {
+  margin-bottom: 0;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+.form--inline > .form__group > .button {
+  margin-top: 0;
+}
+
 .form__group {
   margin-bottom: 1rem;
 }
@@ -1163,6 +1190,10 @@ button,
   outline: none;
   padding: 0.5em;
   width: 100%;
+}
+
+select.form__control {
+  padding: 0.25em 0.25em;
 }
 
 .form__control:focus {
@@ -1202,7 +1233,7 @@ button,
 }
 
 .input--large {
-  font-size: 1.125em;
+  font-size: 1.25em;
 }
 
 fieldset.form__group {

@@ -9,6 +9,31 @@
         outline: none;
     }
 
+    &--inline {
+        display: flex;
+        margin: 0 0.2rem;
+
+        & input,
+        & select {
+            width: auto;
+        }
+
+        & .form__label,
+        & .form__control {
+            display: inline-block;
+        }
+
+        & > .form__group {
+            margin-bottom: 0;
+            margin-right: 4px;
+            margin-top: 4px;
+
+            & > .button {
+                margin-top: 0;
+            }
+        }
+    }
+
     &__group {
         margin-bottom: 1rem;
     }
@@ -29,6 +54,10 @@
         outline: none;
         padding: 0.5em;
         width: 100%;
+
+        @at-root #{selector-append(select, &)} {
+            padding: 0.25em 0.25em;
+        }
 
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
@@ -65,7 +94,7 @@
 }
 .input {
     &--large {
-        font-size: 1.125em;
+        font-size: 1.25em;
     }
 }
 

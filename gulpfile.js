@@ -1,5 +1,15 @@
-const gulp = require('gulp'),
-  output = './dist'
+const gulp = require('gulp')
+const mode = require('gulp-mode')({
+  modes: ['production', 'development'],
+  default: 'development',
+  verbose: false
+})
+const output = {
+  dev: './tmp',
+  prod: './dist'
+}
+const env = mode.production() ? 'prod' : 'dev'
+const browserSync = require('browser-sync').create()
 
 // CSS
 const sass = require('gulp-sass'),
@@ -19,19 +29,19 @@ const sassOptions = {
 };
 
 gulp.task('sass', done => {
-  return gulp.src(inputScss)
+  gulp.src(inputScss)
     .pipe(sass(sassOptions.default).on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest(output))
+    .pipe(gulp.dest(output[env]))
   done()
 });
 
 gulp.task('sass-min', done => {
-  return gulp.src(inputScss)
+  gulp.src(inputScss)
     .pipe(sass(sassOptions.minified))
     .pipe(autoprefixer())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(output))
+    .pipe(gulp.dest(output[env]))
   done()
 });
 
@@ -51,14 +61,14 @@ gulp.task('js', done => {
     debug: false
   })
 
-  return b.transform(babelify.configure({
+  b.transform(babelify.configure({
     presets: ["@babel/preset-env"],
     sourceMaps: false
   }))
     .bundle()
     .pipe(source('js/albertcss.js'))
     .pipe(buffer())
-    .pipe(gulp.dest(output))
+    .pipe(gulp.dest(output[env]))
   done()
 });
 
@@ -68,7 +78,7 @@ gulp.task('js-min', done => {
     debug: true
   })
 
-  return b.transform(babelify.configure({
+  b.transform(babelify.configure({
     presets: ["@babel/preset-env"]
   }))
     .bundle()
@@ -77,11 +87,40 @@ gulp.task('js-min', done => {
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(output))
+    .pipe(gulp.dest(output[env]))
   done()
 });
 
-gulp.task('assets', gulp.parallel(
+// HTML
+gulp.task('html', done => {
+  gulp.src('./src/**/*.html')
+    .pipe(gulp.dest(output[env]))
+  done()
+})
+
+// Build
+// production
+gulp.task('build', gulp.parallel(
   gulp.series('sass', 'sass-min'),
-  gulp.series('js', 'js-min')
+  gulp.series('js', 'js-min'),
+  'html'
 ))
+// development
+gulp.task('develop', gulp.parallel('sass', 'js', 'html'))
+
+// Reload browser
+gulp.task('reload', done => {
+  browserSync.reload()
+  done()
+})
+
+// Browser sync
+gulp.task('browserSync', () => {
+  browserSync.init({
+    server: './tmp'
+  })
+  gulp.watch(['src/css/**/*.scss', 'src/js/**/*.js', 'src/**/*.html'], gulp.series('develop', 'reload'))
+})
+
+// Dev server
+gulp.task('serve', gulp.series('develop', 'browserSync'))

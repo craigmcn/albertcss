@@ -1,10 +1,10 @@
 {
   "name": "albertcss",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Personal CSS framework",
   "main": "index.html",
   "scripts": {
-    "build": "gulp build --production",
+    "build": "gulp build --env=production",
     "dev": "gulp develop",
     "serve": "gulp serve"
   },
@@ -32,11 +32,11 @@
     "formbouncerjs": "^1.4.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
-    "gulp-mode": "^1.0.2",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+    "minimist": "^1.2.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }

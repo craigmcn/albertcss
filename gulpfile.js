@@ -1,14 +1,10 @@
 const gulp = require('gulp')
-const mode = require('gulp-mode')({
-  modes: ['production', 'development'],
-  default: 'development',
-  verbose: false
-})
+const argv = require('minimist')(process.argv.slice(2))
+const env = argv.env ? argv.env : 'development'
 const output = {
-  dev: './tmp',
-  prod: './dist'
+  development: './tmp',
+  production: './dist'
 }
-const env = mode.production() ? 'prod' : 'dev'
 const browserSync = require('browser-sync').create()
 
 // CSS

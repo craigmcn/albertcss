@@ -25,10 +25,20 @@
 
   <header class="header">
     <div class="brand">
-      <img src="/nameplate.2019-11-24.png" alt="">
+      <img src="/nameplate.2019-11-24.png" alt="" width="40">
       craigmcn
     </div>
-    <h1>Style Guide</h1>
+    <h1><a class="header__link" href="/">Style Guide</a></h1>
+    <nav id="nav-collapse" class="nav collapsed">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#">Navigation 1</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">Navigation 2</a></li>
+      </ul>
+    </nav>
+    <button class="nav__control button button--default js-collapse" type="button" data-target="nav-collapse"
+      aria-controls="nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fas fa-bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span>
+    </button>
   </header>
 
   <main class="main main--fixed">
@@ -248,7 +258,7 @@
 
         <div class="form__group">
           <label class="form__label visually-hidden">Select label</label>
-          <select id="select-control" name="select_control" class="form__control">
+          <select id="select-control-2" name="select_control_2" class="form__control">
             <option value="">Select</option>
             <option value="1">Option 1</option>
             <option value="2">Option 2</option>

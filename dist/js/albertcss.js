@@ -26,9 +26,49 @@ exports.initAlertClose = initAlertClose;
 },{}],3:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initCollapse = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var initCollapse = function initCollapse() {
+  ;
+
+  _toConsumableArray(document.querySelectorAll('.js-collapse')).forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      var target = document.getElementById(el.dataset.target);
+      var expanded = el.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+
+      if (target.classList.contains('expanded')) {
+        target.classList.add('collapsed');
+        target.classList.remove('expanded');
+      } else {
+        target.classList.add('expanded');
+        target.classList.remove('collapsed');
+      }
+
+      el.setAttribute('aria-expanded', expanded);
+    });
+  });
+};
+
+exports.initCollapse = initCollapse;
+},{}],4:[function(require,module,exports){
+"use strict";
+
 var _formbouncerjs = _interopRequireDefault(require("formbouncerjs"));
 
 var _alerts = require("./alerts");
+
+var _collapse = require("./collapse");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -39,5 +79,6 @@ window.addEventListener('load', function () {
     errorClass: 'form__control-error'
   });
   (0, _alerts.initAlertClose)();
+  (0, _collapse.initCollapse)();
 });
-},{"./alerts":2,"formbouncerjs":1}]},{},[3]);
+},{"./alerts":2,"./collapse":3,"formbouncerjs":1}]},{},[4]);

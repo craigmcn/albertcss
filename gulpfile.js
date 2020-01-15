@@ -3,7 +3,7 @@ const argv = require('minimist')(process.argv.slice(2))
 const env = argv.env ? argv.env : 'development'
 const output = {
   development: './tmp',
-  production: './dist'
+  production: './dist',
 }
 const browserSync = require('browser-sync').create()
 
@@ -17,33 +17,35 @@ const inputScss = './src/**/*.scss'
 const sassOptions = {
   default: {
     errLogToConsole: true,
-    outputStyle: 'expanded'
+    outputStyle: 'expanded',
   },
   minified: {
-    outputStyle: 'compressed'
-  }
-};
+    outputStyle: 'compressed',
+  },
+}
 
 gulp.task('sass', done => {
-  gulp.src(inputScss)
+  gulp
+    .src(inputScss)
     .pipe(sass(sassOptions.default).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest(output[env]))
   done()
-});
+})
 
 gulp.task('sass-min', done => {
-  gulp.src(inputScss)
+  gulp
+    .src(inputScss)
     .pipe(sass(sassOptions.minified))
     .pipe(autoprefixer())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(output[env]))
   done()
-});
+})
 
 // JS
 const browserify = require('browserify'),
-  babelify = require("babelify"),
+  babelify = require('babelify'),
   source = require('vinyl-source-stream'),
   buffer = require('vinyl-buffer'),
   sourcemaps = require('gulp-sourcemaps'),
@@ -54,29 +56,33 @@ const inputJs = 'src/js/scripts.js'
 gulp.task('js', done => {
   const b = browserify({
     entries: inputJs,
-    debug: false
+    debug: false,
   })
 
-  b.transform(babelify.configure({
-    presets: ["@babel/preset-env"],
-    sourceMaps: false
-  }))
+  b.transform(
+    babelify.configure({
+      presets: ['@babel/preset-env'],
+      sourceMaps: false,
+    })
+  )
     .bundle()
     .pipe(source('js/albertcss.js'))
     .pipe(buffer())
     .pipe(gulp.dest(output[env]))
   done()
-});
+})
 
 gulp.task('js-min', done => {
   const b = browserify({
     entries: inputJs,
-    debug: true
+    debug: true,
   })
 
-  b.transform(babelify.configure({
-    presets: ["@babel/preset-env"]
-  }))
+  b.transform(
+    babelify.configure({
+      presets: ['@babel/preset-env'],
+    })
+  )
     .bundle()
     .pipe(source('js/albertcss.min.js'))
     .pipe(buffer())
@@ -85,22 +91,24 @@ gulp.task('js-min', done => {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(output[env]))
   done()
-});
+})
 
 // HTML
 gulp.task('html', done => {
-  gulp.src('./src/**/*.html')
-    .pipe(gulp.dest(output[env]))
+  gulp.src('./src/**/*.html').pipe(gulp.dest(output[env]))
   done()
 })
 
 // Build
 // production
-gulp.task('build', gulp.parallel(
-  gulp.series('sass', 'sass-min'),
-  gulp.series('js', 'js-min'),
-  'html'
-))
+gulp.task(
+  'build',
+  gulp.parallel(
+    gulp.series('sass', 'sass-min'),
+    gulp.series('js', 'js-min'),
+    'html'
+  )
+)
 // development
 gulp.task('develop', gulp.parallel('sass', 'js', 'html'))
 
@@ -113,9 +121,12 @@ gulp.task('reload', done => {
 // Browser sync
 gulp.task('browserSync', () => {
   browserSync.init({
-    server: './tmp'
+    server: './tmp',
   })
-  gulp.watch(['src/css/**/*.scss', 'src/js/**/*.js', 'src/**/*.html'], gulp.series('develop', 'reload'))
+  gulp.watch(
+    ['src/css/**/*.scss', 'src/js/**/*.js', 'src/**/*.html'],
+    gulp.series('develop', 'reload')
+  )
 })
 
 // Dev server

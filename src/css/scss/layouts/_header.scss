@@ -7,27 +7,52 @@
   background-color: $silver;
   border-bottom: 1px solid darken($silver, 10%);
   color: $grey-800;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  column-gap: 1rem;
+  display: grid;
+  grid-template-areas:
+    'brand site navToggle'
+    'navList navList navList';
+  grid-template-columns: min-content auto min-content;
   padding: 0.5rem 1rem;
 
+  @include layout-md {
+    grid-template-areas: 'brand navList site';
+  }
+
   h1 {
-    flex-shrink: 0;
     font-family: $raleway-stack;
     font-size: 1.25rem;
-    margin: 0;
+    grid-area: site;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-top: 0;
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
+    white-space: nowrap;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+      color: inherit;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+    }
   }
 }
 
 .brand {
   align-items: center;
   display: flex;
-  font-weight: 700;
+  font-weight: 600; // aligned with standard h*
   font-family: $raleway-stack;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  grid-area: brand;
 
   img {
     margin-right: 0.5rem;

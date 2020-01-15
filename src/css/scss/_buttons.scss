@@ -26,8 +26,7 @@ button,
     margin-top: 4px;
     padding: calc(0.5em + 1px) 1em;
     text-decoration: none;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
     &:focus,
     &:hover,
     &:active {

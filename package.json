@@ -1,6 +1,6 @@
 {
   "name": "albertcss",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Personal CSS framework",
   "main": "index.html",
   "scripts": {

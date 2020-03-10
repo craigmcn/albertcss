@@ -20,7 +20,6 @@ button,
     background-color: $white;
     border: solid $grey-400 1px;
     border-radius: 0.25em;
-    /*box-shadow:  0 1px 3px $grey-600;*/
     color: $black;
     display: inline-block;
     margin-top: 4px;
@@ -29,6 +28,7 @@ button,
     transition: all 0.15s ease-in-out;
     &:focus,
     &:hover,
+    &:hover:visited,
     &:active {
         background-color: $grey-700;    
         border-color: $black;
@@ -39,17 +39,24 @@ button,
     &:focus {
         box-shadow: 0 0 0 0.2rem rgba($grey-700, 0.5);
     }
+    &:visited {
+        color: $black;
+    }
     &--dark {
         background-color: $grey-700;
         border-color: $black;
         color: $white;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $grey-900;
         }
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($grey-900, 0.5);
+        }
+        &:visited {
+            color: $white;
         }
     }
 
@@ -58,6 +65,7 @@ button,
         color: $primary;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $primary;
             border-color: $primaryDark;
@@ -66,12 +74,16 @@ button,
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
         }
+        &:visited {
+            color: $primary;
+        }
         &-dark {
             background-color: $primary;
             border-color: $primary;
             color: $white;
             &:focus,
             &:hover,
+            &:hover:visited,
             &:active {
                 background-color: darken($primary, 8%);
                 border-color: $primaryDark;
@@ -79,6 +91,9 @@ button,
             }
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba(darken($primary, 8%), 0.5);
+            }
+            &:visited {
+                color: $white;
             }
         }
     }
@@ -88,6 +103,7 @@ button,
         color: $secondary;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $secondary;
             border-color: $secondaryDark;
@@ -96,12 +112,16 @@ button,
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($secondary, 0.5);
         }
+        &:visited {
+            color: $secondary;
+        }
         &-dark {
             background-color: $secondary;
             border-color: $secondary;
             color: $white;
             &:focus,
             &:hover,
+            &:hover:visited,
             &:active {
                 background-color: darken($secondary, 8%);
                 border-color: $secondaryDark;
@@ -109,6 +129,9 @@ button,
             }
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba(darken($secondary, 8%), 0.5);
+            }
+            &:visited {
+                color: $white;
             }
         }
     }
@@ -118,6 +141,7 @@ button,
         color: $red;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $red;
             border-color: $dangerDark;
@@ -126,12 +150,16 @@ button,
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
         }
+        &:visited {
+            color: $red;
+        }
         &-dark {
             background-color: $red;
             border-color: $red;
             color: $white;
             &:focus,
             &:hover,
+            &:hover:visited,
             &:active {
                 background-color: darken($red, 8%);
                 border-color: $dangerDark;
@@ -139,6 +167,9 @@ button,
             }
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba(darken($red, 8%), 0.5);
+            }
+            &:visited {
+                color: $white;
             }
         }
     }
@@ -148,6 +179,7 @@ button,
         color: $warning;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $warning;
             border-color: $warningDark;
@@ -156,12 +188,16 @@ button,
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($warning, 0.5);
         }
+        &:visited {
+            color: $warning;
+        }
         &-dark {
             background-color: $warning;
             border-color: $warning;
             color: $white;
             &:focus,
             &:hover,
+            &:hover:visited,
             &:active {
                 background-color: darken($warning, 8%);
                 border-color: $warningDark;
@@ -169,6 +205,9 @@ button,
             }
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba(darken($warning, 8%), 0.5);
+            }
+            &:visited {
+                color: $white;
             }
         }
     }
@@ -178,6 +217,7 @@ button,
         color: $green;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $green;
             border-color: $successDark;
@@ -186,12 +226,16 @@ button,
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($green, 0.5);
         }
+        &:visited {
+            color: $green;
+        }
         &-dark {
             background-color: $green;
             border-color: $green;
             color: $white;
             &:focus,
             &:hover,
+            &:hover:visited,
             &:active {
                 background-color: darken($green, 8%);
                 border-color: $successDark;
@@ -199,6 +243,9 @@ button,
             }
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba(darken($green, 8%), 0.5);
+            }
+            &:visited {
+                color: $white;
             }
         }
     }
@@ -208,6 +255,7 @@ button,
         color: $info;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: $info;
             border-color: $infoDark;
@@ -216,12 +264,16 @@ button,
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($info, 0.5);
         }
+        &:visited {
+            color: $info;
+        }
         &-dark {
             background-color: $info;
             border-color: $info;
             color: $white;
             &:focus,
             &:hover,
+            &:hover:visited,
             &:active {
                 background-color: darken($info, 8%);
                 border-color: $infoDark;
@@ -229,6 +281,9 @@ button,
             }
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba(darken($info, 8%), 0.5);
+            }
+            &:visited {
+                color: $white;
             }
         }
     }
@@ -242,12 +297,16 @@ button,
         text-decoration: underline;
         &:focus,
         &:hover,
+        &:hover:visited,
         &:active {
             background-color: inherit;
             color: darken($primary, 12%);
         }
         &:focus {
             box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+        }
+        &:visited {
+            color: $primary;
         }
     }
 

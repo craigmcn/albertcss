@@ -5,9 +5,12 @@
 .alert {
     $self: &;
     background-color: $white;
-    border: 1px solid $grey-400;
+    background-color: var(--white);
+    border: 1px solid;
+    border-color: var(--grey400);
     border-radius: 0.25em;
     color: $grey-800;
+    color: var(--grey800);
     display: flex;
     display: -ms-flexbox;
     justify-content: space-between;
@@ -18,7 +21,7 @@
         color: inherit;
         font-weight: bold;
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
         }
     }
 
@@ -46,13 +49,14 @@
         }
         &:focus {
             border-radius: 0.25em;
-            box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
         }
     }
 
     &--overlay {
         background-color: $white;
-        box-shadow:  0 1px 3px $grey-600;
+        background-color: var(--white);
+        box-shadow: 0 1px 3px $grey-600;
         position: absolute;
         top: 5rem;
         width: 100%;
@@ -69,34 +73,42 @@
 
     &--info {
         border-color: $info;
+        border-color: var(--info);
         color: $info;
+        color: var(--info);
         a:focus,
         & > #{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem rgba($info, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
         }
     }
     &--success {
         border-color: $green;
+        border-color: var(--green);
         color: $green;
+        color: var(--green);
         a:focus,
         & > #{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem rgba($green, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
         }
     }
     &--danger {
         border-color: $red;
+        border-color: var(--red);
         color: $red;
+        color: var(--red);
         a:focus,
         & > #{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
         }
     }
     &--warning {
         border-color: $warning;
+        border-color: var(--warn);
         color: $warning;
+        color: var(--warn);
         a:focus,
         & > #{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem rgba($warning, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
         }
     }
 

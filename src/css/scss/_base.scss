@@ -20,8 +20,11 @@ html {
 }
 
 body {
-    font-family: $system-stack;
+    background-color: $white;
+    background-color: var(--bodyBg);
     color: $black;
+    color: var(--black);
+    font-family: $system-stack;
     font-variant-ligatures: common-ligatures;
 }
 
@@ -45,6 +48,7 @@ h6 {
 
 .subheading {
   color: $grey-700;
+  color: var(--grey700);
   h1 &,
   h2 & {
       font-size: 0.8em;
@@ -66,16 +70,20 @@ p + div {
 
 a {
     color: $primary;
+    color: var(--primary);
     &:hover,
     &:active {
         color: darken($primary, 12%);
+        color: var(--primaryActive);
     }
     &:visited {
         color: lighten($primary, 8%);
+        color: var(--primaryVisited);
     }
     &:focus {
         border-radius: 0.25em;
         box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+        box-shadow: 0 0 0 0.2rem var(--focusShadow);
         outline: none;
     }
     &.permanent {
@@ -83,6 +91,7 @@ a {
         &:active,
         &:visited {
             color: $primary;
+            color: var(--primary);
         }
     }
 }
@@ -132,6 +141,7 @@ blockquote {
 
 code {
   color: $pink;
+  color: var(--pink);
   display: inline-block;
   font-family: monospace;
   padding: 0 2px;
@@ -140,11 +150,13 @@ code {
 
 pre {
   background-color: $silver;
+  background-color: var(--silver);
   padding: $spacing / 2;
   white-space: pre-wrap;
   width: 100%;
 
   code {
       color: $grey-800;
+      color: var(--grey800);
   }
 }

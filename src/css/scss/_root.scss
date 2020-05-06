@@ -1,0 +1,97 @@
+:root {
+    --white: #{$white};
+    --black: #{$black};
+    --primary: #{$primary};
+    --primaryDark: #{$primaryDark};
+    --secondary: #{$secondary};
+    --secondaryDark: #{$secondaryDark};
+    --green: #{$green};
+    --successDark: #{$successDark};
+    --info: #{$info};
+    --infoDark: #{infoDark};
+    --red: #{$red};
+    --dangerDark: #{$dangerDark};
+    --warn: #{$warning};
+    --warningDark: #{$warningDark};
+    --pink: #{$pink};
+    --silver: #{$silver};
+    --grey900: #{$grey-900};
+    --grey800: #{$grey-800};
+    --grey700: #{$grey-700};
+    --grey600: #{$grey-600};
+    --grey500: #{$grey-500};
+    --grey400: #{$grey-400};
+    --grey300: #{$grey-300};
+    --grey200: #{$grey-200};
+    --grey100: #{$grey-100};
+    
+    --primaryActive: #{$primaryActive};
+    --primaryVisited: #{$primaryVisited};
+
+    --bodyBg: #{$white};
+
+    --headerBg: #{$silver};
+    --headerBorder: #{darken($silver, 20%)};
+
+    --sectionAltBg: #{$silver};
+
+    --focusShadow: #{rgba($primary, 0.5)};
+    --errorShadow: #{rgba($red, 0.5)};
+    --secondaryFocusShadow: #{rgba(darken($secondary, 8%), 0.5)};
+    --greyFocusShadow: #{rgba($grey-800, 0.5)};
+    --grey900FocusShadow: #{rgba($grey-900, 0.5)};
+    --grey700FocusShadow: #{rgba($grey-700, 0.5)};
+    --infoFocusShadow: #{rgba($info, 0.5)};
+    --greenFocusShadow: #{rgba($green, 0.5)};
+    --redFocusShadow: #{rgba($red, 0.5)};
+    --warnFocusShadow: #{rgba($warning, 0.5)};
+}
+
+html[data-mode="dark"] {
+    --white: #{$black};
+    --black: #{$white};
+    --primary: #{$primaryDarkMode};
+    --primaryDark: #{darken($primaryDarkMode, 20%)};
+    --secondary: #{$secondaryDarkMode};
+    --secondaryDark: #{darken($secondaryDarkMode, 20%)};
+    --green: #{$greenDarkMode};
+    --successDark: #{darken($greenDarkMode, 20%)};
+    --info: #{$infoDarkMode};
+    --infoDark: #{darken($infoDarkMode, 20%)};
+    --red: #{$redDarkMode};
+    --dangerDark: #{darken($redDarkMode, 20%)};
+    --warn: #{$warnDarkMode};
+    --warningDark: #{darken($warnDarkMode, 20%)};
+    --pink: #{$pinkDarkMode};
+    --silver: #{$grey-900};
+    --grey900: #{$silver};
+    --grey800: #{$grey-100};
+    --grey700: #{$grey-200};
+    --grey600: #{$grey-300};
+    --grey500: #{$grey-400};
+    --grey400: #{$grey-500};
+    --grey300: #{$grey-600};
+    --grey200: #{$grey-700};
+    --grey100: #{$grey-800};
+    
+    --primaryActive: #{$primaryDarkModeActive};
+    --primaryVisited: #{$primaryDarkModeVisited};
+
+    --bodyBg: #{$fullBlack};
+
+    --headerBg: #{$black};
+    --headerBorder: #{lighten($black, 20%)};
+
+    --sectionAltBg: #{$black};
+
+    --focusShadow: #{rgba($primaryDarkMode, 0.5)};
+    --errorShadow: #{rgba($redDarkMode, 0.5)};
+    --secondaryFocusShadow: #{rgba(darken($secondaryDarkMode, 8%), 0.5)};
+    --greyFocusShadow: #{rgba($grey-100, 0.5)};
+    --grey900FocusShadow: #{rgba($silver, 0.5)};
+    --grey700FocusShadow: #{rgba($grey-200, 0.5)};
+    --infoFocusShadow: #{rgba($infoDarkMode, 0.5)};
+    --greenFocusShadow: #{rgba($greenDarkMode, 0.5)};
+    --redFocusShadow: #{rgba($redDarkMode, 0.5)};
+    --warnFocusShadow: #{rgba($warnDarkMode, 0.5)};
+}

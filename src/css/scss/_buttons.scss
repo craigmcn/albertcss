@@ -18,9 +18,13 @@ button,
 
 .button {
     background-color: $white;
-    border: solid $grey-400 1px;
+    background-color: var(--white);
+    border: solid 1px;
+    border-color: $grey-400;
+    border-color: var(--grey400);
     border-radius: 0.25em;
     color: $black;
+    color: var(--black);
     display: inline-block;
     margin-top: 4px;
     padding: calc(0.5em + 1px) 1em;
@@ -30,17 +34,19 @@ button,
     &:hover,
     &:hover:visited,
     &:active {
-        background-color: $grey-700;    
+        background-color: $grey-700;
         border-color: $black;
+        border-color: var(--black);
         border-width: 1px;
         box-shadow: none;
         color: $white;
     }
     &:focus {
-        box-shadow: 0 0 0 0.2rem rgba($grey-700, 0.5);
+        box-shadow: 0 0 0 0.2rem var(--grey700FocusShadow);
     }
     &:visited {
         color: $black;
+        color: var(--black);
     }
     &--dark {
         background-color: $grey-700;
@@ -51,9 +57,10 @@ button,
         &:hover:visited,
         &:active {
             background-color: $grey-900;
+            border-color: $black;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($grey-900, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--grey900FocusShadow);
         }
         &:visited {
             color: $white;
@@ -62,20 +69,24 @@ button,
 
     &--primary {
         border-color: $primary;
+        border-color: var(--primary);
         color: $primary;
+        color: var(--primary);
         &:focus,
         &:hover,
         &:hover:visited,
         &:active {
             background-color: $primary;
             border-color: $primaryDark;
+            border-color: var(--primaryDark);
             color: $white;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--focusShadow);
         }
         &:visited {
             color: $primary;
+            color: var(--primary);
         }
         &-dark {
             background-color: $primary;
@@ -90,7 +101,7 @@ button,
                 color: $white;
             }
             &:focus {
-                box-shadow: 0 0 0 0.2rem rgba(darken($primary, 8%), 0.5);
+                box-shadow: 0 0 0 0.2rem var(--focusShadow);
             }
             &:visited {
                 color: $white;
@@ -100,17 +111,20 @@ button,
 
     &--secondary {
         border-color: $secondary;
+        border-color: var(--secondary);
         color: $secondary;
+        color: var(--secondary);
         &:focus,
         &:hover,
         &:hover:visited,
         &:active {
             background-color: $secondary;
             border-color: $secondaryDark;
+            border-color: var(--secondaryDark);
             color: $white;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($secondary, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
         }
         &:visited {
             color: $secondary;
@@ -128,7 +142,7 @@ button,
                 color: $white;
             }
             &:focus {
-                box-shadow: 0 0 0 0.2rem rgba(darken($secondary, 8%), 0.5);
+                box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
             }
             &:visited {
                 color: $white;
@@ -138,17 +152,20 @@ button,
 
     &--danger {
         border-color: $red;
+        border-color: var(--red);
         color: $red;
+        color: var(--red);
         &:focus,
         &:hover,
         &:hover:visited,
         &:active {
             background-color: $red;
             border-color: $dangerDark;
+            border-color: var(--dangerDark);
             color: $white;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
         }
         &:visited {
             color: $red;
@@ -166,7 +183,7 @@ button,
                 color: $white;
             }
             &:focus {
-                box-shadow: 0 0 0 0.2rem rgba(darken($red, 8%), 0.5);
+                box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
             }
             &:visited {
                 color: $white;
@@ -176,17 +193,20 @@ button,
 
     &--warning {
         border-color: $warning;
+        border-color: var(--warn);
         color: $warning;
+        color: var(--warn);
         &:focus,
         &:hover,
         &:hover:visited,
         &:active {
             background-color: $warning;
             border-color: $warningDark;
+            border-color: var(--warningDark);
             color: $white;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($warning, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
         }
         &:visited {
             color: $warning;
@@ -204,7 +224,7 @@ button,
                 color: $white;
             }
             &:focus {
-                box-shadow: 0 0 0 0.2rem rgba(darken($warning, 8%), 0.5);
+                box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
             }
             &:visited {
                 color: $white;
@@ -214,17 +234,20 @@ button,
 
     &--success {
         border-color: $green;
+        border-color: var(--green);
         color: $green;
+        color: var(--green);
         &:focus,
         &:hover,
         &:hover:visited,
         &:active {
             background-color: $green;
             border-color: $successDark;
+            border-color: var(--successDark);
             color: $white;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($green, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
         }
         &:visited {
             color: $green;
@@ -242,7 +265,7 @@ button,
                 color: $white;
             }
             &:focus {
-                box-shadow: 0 0 0 0.2rem rgba(darken($green, 8%), 0.5);
+                box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
             }
             &:visited {
                 color: $white;
@@ -252,17 +275,20 @@ button,
 
     &--info {
         border-color: $info;
+        border-color: var(--info);
         color: $info;
+        color: var(--info);
         &:focus,
         &:hover,
         &:hover:visited,
         &:active {
             background-color: $info;
             border-color: $infoDark;
+            border-color: var(--infoDark);
             color: $white;
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($info, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
         }
         &:visited {
             color: $info;
@@ -280,7 +306,7 @@ button,
                 color: $white;
             }
             &:focus {
-                box-shadow: 0 0 0 0.2rem rgba(darken($info, 8%), 0.5);
+                box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
             }
             &:visited {
                 color: $white;
@@ -293,6 +319,7 @@ button,
         border: none;
         box-shadow: none;
         color: $primary;
+        color: var(--primary);
         padding: calc(0.5em + 1px) calc(1em + 1px);
         text-decoration: underline;
         &:focus,
@@ -300,13 +327,15 @@ button,
         &:hover:visited,
         &:active {
             background-color: inherit;
-            color: darken($primary, 12%);
+            color: $primaryActive;
+            color: var(--primaryActive);
         }
         &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
+            box-shadow: 0 0 0 0.2rem var(--focusShadow);
         }
         &:visited {
             color: $primary;
+            color: var(--primary);
         }
     }
 

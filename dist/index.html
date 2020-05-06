@@ -124,6 +124,12 @@
         </div>
       </div>
 
+      <h2>Dark mode</h2>
+
+      <p>A dark mode is available by adding <code>data-mode="dark"</code> to the <code>&lt;html&gt;</code> tag.</p>
+
+      <p><button id="toggleDarkMode" class="button" type="button" data-mode="dark">Toggle dark mode</button></p>
+
     </section>
 
     <section class="section section--alt">
@@ -632,6 +638,16 @@
   </main>
   <script src="./js/albert.js"></script>
   <script src="https://kit.fontawesome.com/453b852cdd.js"></script>
+
+  <script>
+    const toggleDarkModeButton = document.getElementById("toggleDarkMode")
+    toggleDarkModeButton.addEventListener("click", () => {
+      const mode = toggleDarkModeButton.dataset.mode
+      document.querySelector("html").setAttribute("data-mode", mode)
+      toggleDarkModeButton.dataset.mode = (mode === "dark") ? "light" : "dark"
+      toggleDarkModeButton.innerText = `Toggle ${toggleDarkModeButton.dataset.mode} mode`
+    })
+  </script>
 
 </body>
 

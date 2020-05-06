@@ -4,9 +4,10 @@
 
 .header {
   align-items: center;
-  background-color: $silver;
-  border-bottom: 1px solid darken($silver, 10%);
+  background-color: var(--headerBg);
+  border-bottom: 1px solid var(--headerBorder);
   color: $grey-800;
+  color: var(--grey800);
   column-gap: 1rem;
   display: grid;
   grid-template-areas:
@@ -42,6 +43,7 @@
 
     &:focus {
       box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(var(--grey800), 0.5);
     }
   }
 }

@@ -2,8 +2,8 @@
   * Colours
   */
 $white: #fff;
-$silver: #f9f9fc;
 $black: #222;
+$fullBlack: #000;
 $pink: #e83e8c;
 $primary: #005b99; /* https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/official-symbols/colour-values.html */
 $primaryDark: darken($primary, 20%);
@@ -20,16 +20,31 @@ $warning: #695802;
 $warningDark: darken($warning, 20%);
 $linkColor: $primary;
 
+$primaryDarkMode: #4cb5fa;
+$secondaryDarkMode: #fa924c;
+$greenDarkMode: #09c809;
+$infoDarkMode: #0bbaef;
+$redDarkMode: #f49090;
+$warnDarkMode: #f9d615;
+$pinkDarkMode: #f28cbc;
+
+$primaryActive: darken($primary, 12%);
+$primaryVisited: lighten($primary, 8%);
+
+$primaryDarkModeActive: darken($primaryDarkMode, 12%);
+$primaryDarkModeVisited: lighten($primaryDarkMode, 8%);
+
 /* Greys */
-$grey-900: #383842;
-$grey-800: #4e4e52;
-$grey-700: #646468;
-$grey-600: #7a7a7e;
-$grey-500: #919195;
-$grey-400: #a7a7ab;
-$grey-300: #bdbdc1;
-$grey-200: #d3d3d8;
-$grey-100: #e9e9ed;
+$grey-900: #363640;
+$grey-800: #4a4a4e;
+$grey-700: #5e5e62;
+$grey-600: #727276;
+$grey-500: #868690;
+$grey-400: #9b9b9f;
+$grey-300: #afafb3;
+$grey-200: #c3c3c7;
+$grey-100: #d7d7db;
+$silver: #ebebef;
 
 /**
   * Spacing

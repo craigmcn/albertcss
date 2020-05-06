@@ -9,6 +9,7 @@
 
   &--alt::before {
     background-color: $silver;
+    background-color: var(--sectionAltBg);
     content: '';
     display: block;
     height: 100%;

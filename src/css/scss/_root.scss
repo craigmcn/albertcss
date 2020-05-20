@@ -33,6 +33,9 @@
     --headerBg: #{$silver};
     --headerBorder: #{darken($silver, 20%)};
 
+    --npBg: #{$white};
+    --npTxt: #{$primary};
+
     --sectionAltBg: #{$silver};
 
     --focusShadow: #{rgba($primary, 0.5)};
@@ -47,7 +50,8 @@
     --warnFocusShadow: #{rgba($warning, 0.5)};
 }
 
-html[data-mode="dark"] {
+html[data-mode="dark"],
+body.theme--dark {
     --white: #{$black};
     --black: #{$white};
     --primary: #{$primaryDarkMode};
@@ -81,6 +85,9 @@ html[data-mode="dark"] {
 
     --headerBg: #{$black};
     --headerBorder: #{lighten($black, 20%)};
+
+    --npBg: #{$fullBlack};
+    --npTxt: #{$primaryDarkMode};
 
     --sectionAltBg: #{$black};
 

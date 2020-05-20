@@ -56,8 +56,21 @@
   font-size: 1.25rem;
   grid-area: brand;
 
-  img {
+  img,
+  svg {
     margin-right: 0.5rem;
     width: 40px;
+  }
+
+  svg {
+    .np__bg {
+      fill: $white;
+      fill: var(--npBg);
+    }
+    
+    .np__txt {
+      fill: $primary;
+      fill: var(--npTxt);
+    }
   }
 }

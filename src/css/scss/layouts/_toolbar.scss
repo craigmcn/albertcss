@@ -1,0 +1,16 @@
+.toolbar {
+    background-color: $grey-100;
+    background-color: var(--grey100);
+    border-bottom: 1px solid;
+    border-bottom-color: $grey-300;
+    border-bottom-color: var(--grey300);
+    padding: 0.5rem 1rem;
+
+    &--right {
+        text-align: right;
+    }
+
+    .button {
+        margin-top: 0;
+    }
+}

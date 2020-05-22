@@ -47,6 +47,24 @@
     </button>
   </header>
 
+  <div class="toolbar toolbar--right">
+    <span class="fad fa-user" aria-hidden="true"></span>
+    <span>User Name</span>
+    <button class="button button--dark button--sm js-toggleDarkMode" type="button" title="Toggle dark mode"
+      data-mode="dark">
+      <span class="fad fa-eclipse-alt" aria-hidden="true"></span>
+      <span class="visually-hidden">Toggle dark mode</span>
+    </button>
+    <button class="button button--dark button--sm" type="button" title="Settings">
+      <span class="fad fa-cog" aria-hidden="true"></span>
+      <span class="visually-hidden">Settings</span>
+    </button>
+    <button class="button button--dark button--sm" type="button" title="Sign out">
+      <span class="fad fa-sign-out-alt" aria-hidden="true"></span>
+      <span class="visually-hidden">Sign out</span>
+    </button>
+  </div>
+
   <main class="main main--fixed">
 
     <section class="section">
@@ -170,7 +188,8 @@
       <p>A dark mode is available by adding <code>data-mode="dark"</code> to the <code>&lt;html&gt;</code> tag or
         <code>class="theme--dark"</code> to the <code>&lt;body&gt;</code> tag.</p>
 
-      <p><button id="toggleDarkMode" class="button" type="button" data-mode="dark">Toggle dark mode</button></p>
+      <p><button class="button js-toggleDarkMode" type="button" data-mode="dark">Toggle <span
+            data-color="light">dark</span><span data-color="dark" style="display: none">light</span> mode</button></p>
 
     </section>
 
@@ -682,17 +701,20 @@
   <script src="https://kit.fontawesome.com/453b852cdd.js"></script>
 
   <script>
-    const toggleDarkModeButton = document.getElementById("toggleDarkMode")
+    const toggleDarkModeButtons = document.querySelectorAll(".js-toggleDarkMode")
     const body = document.querySelector("body")
-    toggleDarkModeButton.addEventListener("click", () => {
-      const mode = toggleDarkModeButton.dataset.mode
-      const inverseMode = (mode === "dark") ? "light" : "dark"
-      body.classList.add(`theme--${mode}`)
-      body.classList.remove(`theme--${inverseMode}`)
-      toggleDarkModeButton.dataset.mode = inverseMode
-      toggleDarkModeButton.innerText = `Toggle ${inverseMode} mode`
-      document.querySelectorAll(`[data-color="${mode}"]`).forEach(el => el.style.display = "")
-      document.querySelectorAll(`[data-color="${inverseMode}"]`).forEach(el => el.style.display = "none")
+    toggleDarkModeButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const mode = button.dataset.mode
+        const inverseMode = (mode === "dark") ? "light" : "dark"
+        body.classList.add(`theme--${mode}`)
+        body.classList.remove(`theme--${inverseMode}`)
+        toggleDarkModeButtons.forEach(toggle => {
+          toggle.dataset.mode = inverseMode
+        })
+        document.querySelectorAll(`[data-color="${mode}"]`).forEach(el => el.style.display = "")
+        document.querySelectorAll(`[data-color="${inverseMode}"]`).forEach(el => el.style.display = "none")
+      })
     })
   </script>
 

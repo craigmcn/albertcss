@@ -5,16 +5,25 @@
 .header {
   align-items: center;
   background-color: var(--headerBg);
-  border-bottom: 1px solid var(--headerBorder);
+  border-bottom: 1px solid;
+  border-bottom-color: $grey-200;
+  border-bottom-color: var(--grey200);
   color: $grey-800;
   color: var(--grey800);
   column-gap: 1rem;
   display: grid;
   grid-template-areas:
-    'brand site navToggle'
+    'brand brand brand'
+    'site site navToggle'
     'navList navList navList';
   grid-template-columns: min-content auto min-content;
   padding: 0.5rem 1rem;
+
+  @include layout-sm {
+    grid-template-areas:
+      'brand site navToggle'
+      'navList navList navList';
+  }
 
   @include layout-md {
     grid-template-areas: 'brand navList site';
@@ -25,11 +34,14 @@
     font-size: 1.25rem;
     grid-area: site;
     margin-bottom: 0;
-    margin-left: auto;
     margin-top: 0;
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
     white-space: nowrap;
+
+    @include layout-sm {
+      margin-left: auto;
+    }
   }
 
   &__link {

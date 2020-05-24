@@ -29,9 +29,7 @@
     --primaryVisited: #{$primaryVisited};
 
     --bodyBg: #{$white};
-
     --headerBg: #{$silver};
-    --headerBorder: #{darken($silver, 20%)};
 
     --npBg: #{$white};
     --npTxt: #{$primary};
@@ -82,9 +80,7 @@ body.theme--dark {
     --primaryVisited: #{$primaryDarkModeVisited};
 
     --bodyBg: #{$fullBlack};
-
     --headerBg: #{$black};
-    --headerBorder: #{lighten($black, 20%)};
 
     --npBg: #{$fullBlack};
     --npTxt: #{$primaryDarkMode};

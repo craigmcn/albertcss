@@ -24,10 +24,10 @@
   "homepage": "https://github.com/craigmcn/albertcss#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "babelify": "^10.0.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.10",
     "browserify": "^16.5.1",
     "formbouncerjs": "^1.4.6",
     "gulp": "^4.0.2",

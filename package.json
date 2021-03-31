@@ -1,6 +1,6 @@
 {
   "name": "albertcss",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "Personal CSS framework",
   "main": "index.html",
   "scripts": {
@@ -22,12 +22,11 @@
     "url": "https://github.com/craigmcn/albertcss/issues"
   },
   "homepage": "https://github.com/craigmcn/albertcss#readme",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "babelify": "^10.0.0",
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.14",
     "browserify": "^16.5.2",
     "formbouncerjs": "^1.4.6",
     "gulp": "^4.0.2",

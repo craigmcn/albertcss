@@ -117,6 +117,10 @@
 
         & > #{ $self }__text {
             line-height: normal;
+
+            & > p {
+                line-height: normal;
+            }
         }
 
         & > #{ $self }__icon {

@@ -877,6 +877,10 @@ pre code {
   line-height: normal;
 }
 
+.alert--sm > .alert__text > p {
+  line-height: normal;
+}
+
 .alert--sm > .alert__icon {
   margin-right: 0.25em;
 }

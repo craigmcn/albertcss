@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .nav {
     display: flex;
     grid-area: navList;
@@ -8,18 +10,18 @@
 
     &__list {
         background-color: $white;
-        background-color: var(--white);
+        background-color: var(--bodyBg);
         border: 1px solid;
         border-color: $grey-100;
         border-color: var(--grey100);
-        border-radius: $spacing / 4;
+        border-radius: math.div($spacing, 4);
         display: flex;
         flex-basis: 100%;
         flex-direction: column;
         list-style: none;
         margin-bottom: 0;
         margin-left: 0;
-        margin-top: $spacing / 2;
+        margin-top: math.div($spacing, 2);
         @include layout-md {
             background-color: transparent;
             border: none;
@@ -30,17 +32,15 @@
     }
 
     &__item {
-        background-color: $white;
-        background-color: var(--bodyBg);
         border-bottom: 1px solid;
         border-bottom-color: $grey-100;
         border-bottom-color: var(--grey100);
         margin-bottom: 0;
-        padding: $spacing / 2;
+        padding: math.div($spacing, 2);
         @include layout-md {
             background-color: transparent;
             border-bottom: none;
-            margin-right: $spacing / 2;
+            margin-right: math.div($spacing, 2);
             padding: 0;
         }
         &:last-child {

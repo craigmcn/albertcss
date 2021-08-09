@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
   * Flex
   */
@@ -10,9 +12,9 @@
     &--grid {
         flex-wrap: wrap;
         margin-bottom: $spacing;
-        margin-left: -($spacing / 2);
-        margin-right: -($spacing / 2);
-        margin-top: -($spacing / 2);
+        margin-left: -(math.div($spacing, 2));
+        margin-right: -(math.div($spacing, 2));
+        margin-top: -(math.div($spacing, 2));
     }
 
     &--wrap {
@@ -55,7 +57,7 @@
 
     &__item {
         flex-grow: 1;
-        margin: $spacing / 2;
+        margin: math.div($spacing, 2);
 
         & > .flex {
             margin-bottom: 0;
@@ -85,7 +87,7 @@
         }
 
         @for $i from 12 through 1 {
-            $p: ($i / 12 * 100%);
+            $p: (math.div($i, 12) * 100%);
             &--#{$i} {
                 flex: 0 0 calc(#{$p} - #{$spacing});
             }

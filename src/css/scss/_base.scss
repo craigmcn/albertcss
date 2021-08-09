@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /**
   * Base elements
   */
@@ -151,7 +153,7 @@ code {
 pre {
   background-color: $silver;
   background-color: var(--silver);
-  padding: $spacing / 2;
+  padding: math.div($spacing, 2);
   white-space: pre-wrap;
   width: 100%;
 

@@ -3,7 +3,7 @@ const argv = require('minimist')(process.argv.slice(2))
 const env = argv.env ? argv.env : 'development'
 const output = {
   development: './tmp',
-  production: './dist',
+  production: './dist/albertcss',
 }
 const browserSync = require('browser-sync').create()
 

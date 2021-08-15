@@ -61,12 +61,18 @@
 }
 
 .brand {
-  align-items: center;
-  display: flex;
   font-weight: 600; // aligned with standard h*
   font-family: $raleway-stack;
   font-size: 1.25rem;
   grid-area: brand;
+
+  & > a {
+    align-items: center;
+    color: $grey-800;
+    color: var(--grey800);
+    display: flex;
+    text-decoration: none;
+  }
 
   img,
   svg {

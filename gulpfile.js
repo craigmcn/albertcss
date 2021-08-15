@@ -2,7 +2,7 @@ const gulp = require('gulp')
 const argv = require('minimist')(process.argv.slice(2))
 const env = argv.env ? argv.env : 'development'
 const output = {
-  development: './tmp',
+  development: './tmp/albertcss',
   production: './dist/albertcss',
 }
 const browserSync = require('browser-sync').create()
@@ -122,7 +122,8 @@ gulp.task('reload', (done) => {
 gulp.task('browserSync', () => {
   browserSync.init({
     port: 1233,
-    server: output[env],
+    server: './tmp',
+    startPath: `/albertcss/index.html`,
     ui: false,
   })
   gulp.watch(

@@ -16,6 +16,32 @@ $sides: (
     all
 );
 
+.m {
+    &-auto {
+        margin: auto;
+    }
+    &-h-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &-v-auto {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    &-l-auto {
+        margin-left: auto;
+    }
+    &-r-auto {
+        margin-right: auto;
+    }
+    &-t-auto {
+        margin-top: auto;
+    }
+    &-b-auto {
+        margin-bottom: auto;
+    }
+}
+
 @each $space, $x in $spaceamounts {
     @each $side in $sides {
         $thisSpacing: ($spacing * $x);

@@ -1,10 +1,13 @@
 const gulp = require('gulp')
+const gulpif = require('gulp-if')
 const argv = require('minimist')(process.argv.slice(2))
 const env = argv.env ? argv.env : 'development'
 const output = {
-  development: './tmp/albertcss',
-  production: './dist/albertcss',
+  development: './tmp',
+  production: './dist',
+  netlify: './netlify',
 }
+const outputNetlify = `${output[env]}/albertcss`
 const browserSync = require('browser-sync').create()
 
 // CSS
@@ -24,23 +27,23 @@ const sassOptions = {
   },
 }
 
-gulp.task('sass', (done) => {
-  gulp
+gulp.task('sass', function () {
+  return gulp
     .src(inputScss)
     .pipe(sass(sassOptions.default).on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(gulp.dest(output[env]))
-  done()
+    .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)))
 })
 
-gulp.task('sass-min', (done) => {
-  gulp
+gulp.task('sass-min', function () {
+  return gulp
     .src(inputScss)
     .pipe(sass(sassOptions.minified))
     .pipe(autoprefixer())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(output[env]))
-  done()
+    .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)))
 })
 
 // JS
@@ -53,36 +56,38 @@ const browserify = require('browserify'),
 
 const inputJs = 'src/js/scripts.js'
 
-gulp.task('js', (done) => {
+gulp.task('js', function () {
   const b = browserify({
     entries: inputJs,
     debug: false,
   })
 
-  b.transform(
-    babelify.configure({
-      presets: ['@babel/preset-env'],
-      sourceMaps: false,
-    })
-  )
+  return b
+    .transform(
+      babelify.configure({
+        presets: ['@babel/preset-env'],
+        sourceMaps: false,
+      })
+    )
     .bundle()
     .pipe(source('js/albert.js'))
     .pipe(buffer())
     .pipe(gulp.dest(output[env]))
-  done()
+    .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)))
 })
 
-gulp.task('js-min', (done) => {
+gulp.task('js-min', function () {
   const b = browserify({
     entries: inputJs,
     debug: true,
   })
 
-  b.transform(
-    babelify.configure({
-      presets: ['@babel/preset-env'],
-    })
-  )
+  return b
+    .transform(
+      babelify.configure({
+        presets: ['@babel/preset-env'],
+      })
+    )
     .bundle()
     .pipe(source('js/albert.min.js'))
     .pipe(buffer())
@@ -90,13 +95,15 @@ gulp.task('js-min', (done) => {
     .pipe(uglify())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(output[env]))
-  done()
+    .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)))
 })
 
 // HTML
-gulp.task('html', (done) => {
-  gulp.src('./src/**/*.html').pipe(gulp.dest(output[env]))
-  done()
+gulp.task('html', function () {
+  return gulp
+    .src('./src/**/*.html')
+    .pipe(gulp.dest(output[env]))
+    .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)))
 })
 
 // Build
@@ -123,7 +130,6 @@ gulp.task('browserSync', () => {
   browserSync.init({
     port: 1233,
     server: './tmp',
-    startPath: `/albertcss/index.html`,
     ui: false,
   })
   gulp.watch(

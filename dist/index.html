@@ -230,6 +230,9 @@
 
       <h2>Links</h2>
 
+      <h2><a href="#">Heading 2 link</a></h2>
+      <h3><a href="#">Heading 3 link</a></h3>
+
       <p>Lorem ipsum dolor <a href="#">sit amet,</a> consectetur adipiscing elit.</p>
       <p>Nulla tempus <a href="#">massa eu est</a> ullamcorper, luctus pellentesque leo molestie.</p>
       <p>Etiam ipsum magna, <a href="#">egestas ac massa gravida,</a> condimentum scelerisque leo.</p>
@@ -645,6 +648,68 @@
     </section>
 
     <section class="section section--alt">
+
+      <h1>Images</h1>
+
+      <p>Only a few classes exist to display images, and they&rsquo;re only to apply a little style around images:</p>
+
+      <ul>
+        <li><code>img img--default</code>: padded with rounded border</li>
+        <li><code>img--round</code>: with <code>img</code>, circular</li>
+        <li><code>img--rounded</code>:  with <code>img</code>, rounded corners</li>
+        <li><code>img--padded</code>:  with <code>img</code>, padded, white background</li>
+        <li><code>img--border</code>:  with <code>img</code>, grey border</li>
+      </ul>
+
+      <div class="flex flex--grid">
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--default" src="https://placebeard.it/320x240" alt="">
+          <figcaption class="text--small text--muted"><code>img img--default</code></figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--round" src="https://placebeard.it/640x640" alt="">
+          <figcaption class="text--small text--muted"><code>img img--round</code>. A circle requires a square image.</figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--rounded" src="https://placebeard.it/360x270" alt="">
+          <figcaption class="text--small text--muted"><code>img img--rounded</code></figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--padded" src="https://placebeard.it/480x360" alt="">
+          <figcaption class="text--small text--muted"><code>img img--padded</code></figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--round img--padded" src="https://placebeard.it/400x300" alt="">
+          <figcaption class="text--small text--muted"><code>img img--round img--padded</code></figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--border img--padded" src="https://placebeard.it/640x480" alt="">
+          <figcaption class="text--small text--muted"><code>img img--border img--padded</code></figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img img--border img--rounded" src="https://placebeard.it/240x180" alt="">
+          <figcaption class="text--small text--muted"><code>img img--border img--rounded</code></figcaption>
+        </figure>
+
+        <figure class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <img class="img" src="https://placebeard.it/520x390" alt="">
+          <figcaption class="text--small text--muted"><code>img</code></figcaption>
+        </figure>
+
+      </div>
+
+      <p class="text--small text--muted"><i class="fas fa-asterisk"></i> Images from <a href="https://placebeard.it/">placebeard.it</a>.</p>
+
+    </section>
+
+    <section class="section">
       <h1>Utilities</h1>
 
       <p>Some utility classes are available to handle specific needs, not handled by other components.</p>

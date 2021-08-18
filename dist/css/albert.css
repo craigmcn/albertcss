@@ -656,12 +656,17 @@ pre code {
 }
 
 .brand {
-  align-items: center;
-  display: flex;
   font-weight: 600;
   font-family: Raleway, Verdana, "Lucida Grande", "Gill Sans", Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   grid-area: brand;
+}
+.brand > a {
+  align-items: center;
+  color: #4a4a4e;
+  color: var(--grey800);
+  display: flex;
+  text-decoration: none;
 }
 .brand img,
 .brand svg {

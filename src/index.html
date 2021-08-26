@@ -454,14 +454,25 @@
 
     <section class="section section--alt">
       <h1>Lists</h1>
-      <p>There&rsquo;s nothing special about lists. They are generally default-styled, with a little extra margin and
-        line-spacing. The bullets are outside, allowing the text to align with other body text.</p>
+
+      <p>Lists are default-styled, with a little extra margin and line-spacing.
+        The bullets are outside, allowing the text to align with other body
+        text.</p>
+      <p>Classes can be applied at the <code>ol</code> and <code>ul</code> level
+        to specify the type of number or bullet to be applied:
+        <code>list list--alpha</code> (a, b, c),
+        <code>list list--roman</code> (i, ii, iii),
+        <code>list list--circle</code>,
+        <code>list list--disc</code>,
+        <code>list list--square</code>,
+        <code>list list--none</code>.</p>
+
       <h2>Ordered lists</h2>
       <h3>List 1</h3>
       <ol>
         <li>List item<br>multi-line</li>
         <li>List item
-          <ol>
+          <ol class="list list--roman">
             <li>Nested ordered item</li>
             <li>Nested ordered item</li>
             <li>Nested ordered item</li>
@@ -474,7 +485,7 @@
       <ol>
         <li>List item</li>
         <li>List item
-          <ul>
+          <ul class="list list--square">
             <li>Nested unordered item</li>
             <li>Nested unordered item</li>
             <li>Nested unordered item</li>
@@ -501,11 +512,25 @@
       <ul>
         <li>List item</li>
         <li>List item
-          <ol>
+          <ol class="list list--alpha">
             <li>Nested ordered item</li>
             <li>Nested ordered item</li>
             <li>Nested ordered item</li>
           </ol>
+        </li>
+        <li>List item</li>
+      </ul>
+
+      <h2>Plain lists</h2>
+      <h3>List</h3>
+      <ul class="list list--none">
+        <li>List item</li>
+        <li>List item
+          <ul class="list list--disc">
+            <li>Nested item</li>
+            <li>Nested item</li>
+            <li>Nested item</li>
+          </ul>
         </li>
         <li>List item</li>
       </ul>

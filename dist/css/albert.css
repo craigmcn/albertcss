@@ -1455,6 +1455,26 @@ fieldset.form__group {
   border: 1px solid var(--grey100);
 }
 
+.list--none {
+  list-style: none;
+  margin-left: 0;
+}
+.list--alpha {
+  list-style-type: lower-alpha;
+}
+.list--roman {
+  list-style-type: lower-roman;
+}
+.list--circle {
+  list-style-type: circle;
+}
+.list--disc {
+  list-style-type: disc;
+}
+.list--square {
+  list-style-type: square;
+}
+
 .nav {
   display: flex;
   grid-area: navList;

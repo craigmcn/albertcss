@@ -14,5 +14,13 @@
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
     "css.validate": false,
-    "scss.validate": false
+    "scss.validate": false,
+    "cSpell.words": [
+        "albertcss",
+        "craigmcn",
+        "focusring",
+        "formbouncerjs",
+        "getbootstrap",
+        "necolas"
+    ]
 }

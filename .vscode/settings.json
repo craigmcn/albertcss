@@ -1,26 +1,44 @@
+
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    },
     "editor.formatOnSave": false,
-    "editor.rulers": [ 80, 120 ],
     "[html]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "vscode.html-language-features"
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "vscode.html-language-features"
     },
     "[javascript]": {
-        "editor.formatOnSave": true,
+      "editor.formatOnSave": true,
     },
-    "files.eol": "\n",
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "es5",
+    "[css]": {
+      "editor.formatOnSave": true,
+    },
     "css.validate": false,
-    "scss.validate": false,
+    "editor.detectIndentation": false,
+    "eslint.validate": [
+        "javascript"
+    ],
+    "stylelint.validate": [
+        "css",
+        "html",
+        "postcss",
+        "scss"
+    ],
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
     "cSpell.words": [
         "albertcss",
         "craigmcn",
         "focusring",
         "formbouncerjs",
         "getbootstrap",
-        "necolas"
-    ]
-}
+        "gulpif",
+        "msapplication",
+        "necolas",
+        "placebeard"
+    ],
+    "cSpell.language": "en,lorem"
+  }
+  

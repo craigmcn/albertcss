@@ -45,7 +45,7 @@
 
         &:focus,
         &:hover {
-            opacity: 1;
+            opacity: 1 !important;
         }
         &:focus {
             border-radius: 0.25em;

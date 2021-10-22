@@ -20,6 +20,13 @@
 
     <link rel="stylesheet" href="./css/albert.css">
 
+    <script>
+        (function () {
+            if (!window.location.pathname.endsWith("/")) {
+                window.location = window.location + "/"
+            }
+        }())
+    </script>
     <script src="https://kit.fontawesome.com/453b852cdd.js" crossorigin="anonymous" defer></script>
 </head>
 

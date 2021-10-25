@@ -4,7 +4,7 @@
   * Flex
   */
 
-  .flex {
+.flex {
     display: flex;
     display: -webkit-flex;
     margin-bottom: $spacing;
@@ -29,12 +29,15 @@
         &-start {
             align-items: flex-start;
         }
+
         &-end {
             align-items: flex-end;
         }
+
         &-center {
             align-items: center;
         }
+
         &-baseline {
             align-items: baseline;
         }
@@ -44,12 +47,15 @@
         &-end {
             justify-content: flex-end;
         }
+
         &-center {
             justify-content: center;
         }
+
         &-between {
             justify-content: space-between;
         }
+
         &-around {
             justify-content: space-around;
         }
@@ -59,7 +65,7 @@
         flex-grow: 1;
         margin: math.div($spacing, 2);
 
-        & > .flex {
+        &>.flex {
             margin-bottom: 0;
         }
 
@@ -75,12 +81,15 @@
             &-start {
                 align-self: flex-start;
             }
+
             &-end {
                 align-self: flex-end;
             }
+
             &-center {
                 align-self: center;
             }
+
             &-baseline {
                 align-self: baseline;
             }
@@ -88,6 +97,7 @@
 
         @for $i from 12 through 1 {
             $p: (math.div($i, 12) * 100%);
+
             &--#{$i} {
                 flex: 0 0 calc(#{$p} - #{$spacing});
             }

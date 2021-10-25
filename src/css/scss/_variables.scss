@@ -5,9 +5,11 @@ $white: #fff;
 $black: #222;
 $fullBlack: #000;
 $pink: #e83e8c;
-$primary: #005b99; /* https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/official-symbols/colour-values.html */
+$primary: #005b99;
+/* https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/official-symbols/colour-values.html */
 $primaryDark: darken($primary, 20%);
-$secondary: #993d00; /* 180deg from primary*/
+$secondary: #993d00;
+/* 180deg from primary*/
 $secondaryDark: darken($secondary, 20%);
 $green: #036803;
 $successDark: darken($green, 20%);

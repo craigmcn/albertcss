@@ -1,8 +1,6 @@
-
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.fixAll.stylelint": true
+        "source.fixAll.eslint": true
     },
     "editor.formatOnSave": false,
     "[html]": {
@@ -12,22 +10,18 @@
     "[javascript]": {
       "editor.formatOnSave": true,
     },
-    "[css]": {
+    "[scss]": {
       "editor.formatOnSave": true,
     },
-    "css.validate": false,
     "editor.detectIndentation": false,
     "eslint.validate": [
         "javascript"
     ],
-    "stylelint.validate": [
-        "css",
-        "html",
-        "postcss",
-        "scss"
-    ],
     "files.eol": "\n",
     "files.insertFinalNewline": true,
+    "beautify.language": {
+      "css": ["css", "scss"],
+    },
     "cSpell.words": [
         "albertcss",
         "craigmcn",
@@ -35,10 +29,21 @@
         "formbouncerjs",
         "getbootstrap",
         "gulpif",
+        "horiz",
+        "lede",
         "msapplication",
         "necolas",
-        "placebeard"
+        "placebeard",
+        "spaceamounts"
     ],
-    "cSpell.language": "en,lorem"
-  }
-  
+    "cSpell.language": "en,lorem",
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        ".eslintrc.json"
+    ]
+}

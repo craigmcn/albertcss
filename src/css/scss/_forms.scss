@@ -5,6 +5,7 @@
   */
 
 .form {
+
     input[type=radio]:focus,
     input[type=checkbox]:focus {
         box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
@@ -26,12 +27,12 @@
             display: inline-block;
         }
 
-        & > .form__group {
+        &>.form__group {
             margin-bottom: 0;
             margin-right: 4px;
             margin-top: 4px;
 
-            & > .button {
+            &>.button {
                 margin-top: 0;
             }
         }
@@ -40,10 +41,12 @@
     &__group {
         margin-bottom: 1rem;
     }
+
     &__label {
         display: block;
         padding-bottom: math.div($spacing, 2);
     }
+
     &__control {
         background-color: $white;
         background-color: var(--white);
@@ -76,7 +79,8 @@
             background-color: transparent;
             border: none;
             height: auto;
-            padding: calc(0.5em + 1px); /* account for removed border */
+            padding: calc(0.5em + 1px);
+            /* account for removed border */
             padding-left: 0;
         }
 
@@ -89,21 +93,25 @@
         &--hasError {
             border-color: $red;
             border-color: var(--red);
+
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
                 box-shadow: 0 0 0 0.2rem var(--errorShadow);
             }
         }
     }
+
     &__check {
         margin-bottom: math.div($spacing, 2);
 
         input[type=checkbox],
         input[type=radio] {
-            margin-right: math.div($spacing, 4); /* spacing between control and text */
+            margin-right: math.div($spacing, 4);
+            /* spacing between control and text */
         }
     }
 }
+
 .input {
     &--large {
         font-size: 1.25em;
@@ -114,4 +122,3 @@ fieldset.form__group {
     border: none;
     padding: 0;
 }
-

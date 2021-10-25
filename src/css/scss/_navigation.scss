@@ -22,6 +22,7 @@
         margin-bottom: 0;
         margin-left: 0;
         margin-top: math.div($spacing, 2);
+
         @include layout-md {
             background-color: transparent;
             border: none;
@@ -37,12 +38,14 @@
         border-bottom-color: var(--grey100);
         margin-bottom: 0;
         padding: math.div($spacing, 2);
+
         @include layout-md {
             background-color: transparent;
             border-bottom: none;
             margin-right: math.div($spacing, 2);
             padding: 0;
         }
+
         &:last-child {
             border-bottom: none;
             margin-right: 0;
@@ -54,15 +57,18 @@
         color: var(--grey800);
         display: block;
         text-decoration: none;
+
         &:hover {
             color: $grey-800;
             color: var(--grey800);
             text-decoration: underline;
         }
+
         &:visited {
             color: $grey-800;
             color: var(--grey800);
         }
+
         // focus style uses primary (default) color box shadow
     }
 
@@ -71,6 +77,7 @@
         grid-area: navToggle;
         margin-left: auto;
         margin-top: 0;
+
         @include layout-md {
             display: none;
         }

@@ -3,92 +3,92 @@
   */
 
 .header {
-  align-items: center;
-  background-color: var(--headerBg);
-  border-bottom: 1px solid;
-  border-bottom-color: $grey-200;
-  border-bottom-color: var(--grey200);
-  color: $grey-800;
-  color: var(--grey800);
-  column-gap: 1rem;
-  display: grid;
-  grid-template-areas:
-    'brand brand brand'
-    'site site navToggle'
-    'navList navList navList';
-  grid-template-columns: min-content auto min-content;
-  padding: 0.5rem 1rem;
-
-  @include layout-sm {
+    align-items: center;
+    background-color: var(--headerBg);
+    border-bottom: 1px solid;
+    border-bottom-color: $grey-200;
+    border-bottom-color: var(--grey200);
+    color: $grey-800;
+    color: var(--grey800);
+    column-gap: 1rem;
+    display: grid;
     grid-template-areas:
-      'brand site navToggle'
-      'navList navList navList';
-  }
-
-  @include layout-md {
-    grid-template-areas: 'brand navList site';
-  }
-
-  h1 {
-    font-family: $raleway-stack;
-    font-size: 1.25rem;
-    grid-area: site;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    white-space: nowrap;
+        'brand brand brand'
+        'site site navToggle'
+        'navList navList navList';
+    grid-template-columns: min-content auto min-content;
+    padding: 0.5rem 1rem;
 
     @include layout-sm {
-      margin-left: auto;
-    }
-  }
-
-  &__link {
-    color: inherit;
-    text-decoration: none;
-
-    &:hover,
-    &:visited {
-      color: inherit;
+        grid-template-areas:
+            'brand site navToggle'
+            'navList navList navList';
     }
 
-    &:focus {
-      box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
-      box-shadow: 0 0 0 0.2rem rgba(var(--grey800), 0.5);
+    @include layout-md {
+        grid-template-areas: 'brand navList site';
     }
-  }
+
+    h1 {
+        font-family: $raleway-stack;
+        font-size: 1.25rem;
+        grid-area: site;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        white-space: nowrap;
+
+        @include layout-sm {
+            margin-left: auto;
+        }
+    }
+
+    &__link {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:visited {
+            color: inherit;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(var(--grey800), 0.5);
+        }
+    }
 }
 
 .brand {
-  font-weight: 600; // aligned with standard h*
-  font-family: $raleway-stack;
-  font-size: 1.25rem;
-  grid-area: brand;
+    font-weight: 600; // aligned with standard h*
+    font-family: $raleway-stack;
+    font-size: 1.25rem;
+    grid-area: brand;
 
-  & > a {
-    align-items: center;
-    color: $grey-800;
-    color: var(--grey800);
-    display: flex;
-    text-decoration: none;
-  }
-
-  img,
-  svg {
-    margin-right: 0.5rem;
-    width: 40px;
-  }
-
-  svg {
-    .np__bg {
-      fill: $white;
-      fill: var(--npBg);
+    &>a {
+        align-items: center;
+        color: $grey-800;
+        color: var(--grey800);
+        display: flex;
+        text-decoration: none;
     }
-    
-    .np__txt {
-      fill: $primary;
-      fill: var(--npTxt);
+
+    img,
+    svg {
+        margin-right: 0.5rem;
+        width: 40px;
     }
-  }
+
+    svg {
+        .np__bg {
+            fill: $white;
+            fill: var(--npBg);
+        }
+
+        .np__txt {
+            fill: $primary;
+            fill: var(--npTxt);
+        }
+    }
 }

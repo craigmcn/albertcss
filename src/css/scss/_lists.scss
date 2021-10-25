@@ -1,26 +1,26 @@
 .list {
-  &--none {
-    list-style: none;
-    margin-left: 0;
-  }
+    &--none {
+        list-style: none;
+        margin-left: 0;
+    }
 
-  &--alpha {
-    list-style-type: lower-alpha;
-  }
+    &--alpha {
+        list-style-type: lower-alpha;
+    }
 
-  &--roman {
-    list-style-type: lower-roman;
-  }
+    &--roman {
+        list-style-type: lower-roman;
+    }
 
-  &--circle {
-    list-style-type: circle;
-  }
+    &--circle {
+        list-style-type: circle;
+    }
 
-  &--disc {
-    list-style-type: disc;
-  }
+    &--disc {
+        list-style-type: disc;
+    }
 
-  &--square {
-    list-style-type: square;
-  }
+    &--square {
+        list-style-type: square;
+    }
 }

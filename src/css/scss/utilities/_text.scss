@@ -9,41 +9,49 @@
 }
 
 .text {
-  &--primary {
-      color: $primary;
-      color: var(--primary);
-  }
-  &--secondary {
-      color: $secondary;
-      color: var(--secondary);
-  }
-  &--info {
-      color: $info;
-      color: var(--info);
-  }
-  &--success {
-      color: $green;
-      color: var(--green);
-  }
-  &--warning {
-      color: $warning;
-      color: var(--warn);
-  }
-  &--danger {
-      color: $red;
-      color: var(--red);
-  }
-  &--muted {
-      color: $grey-700;
-      color: var(--grey700);
-  }
-  &--small {
-      /* consistent with <small> */
-      font-size: 0.8em;
-  }
-  &--large {
-      font-size: 2em;
-  }
+    &--primary {
+        color: $primary;
+        color: var(--primary);
+    }
+
+    &--secondary {
+        color: $secondary;
+        color: var(--secondary);
+    }
+
+    &--info {
+        color: $info;
+        color: var(--info);
+    }
+
+    &--success {
+        color: $green;
+        color: var(--green);
+    }
+
+    &--warning {
+        color: $warning;
+        color: var(--warn);
+    }
+
+    &--danger {
+        color: $red;
+        color: var(--red);
+    }
+
+    &--muted {
+        color: $grey-700;
+        color: var(--grey700);
+    }
+
+    &--small {
+        /* consistent with <small> */
+        font-size: 0.8em;
+    }
+
+    &--large {
+        font-size: 2em;
+    }
 }
 
 /* https://a11yproject.com/posts/how-to-hide-content/ */

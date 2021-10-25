@@ -1,7 +1,7 @@
 /**
   * Alerts
   */
-  
+
 .alert {
     $self: &;
     background-color: $white;
@@ -20,6 +20,7 @@
     a {
         color: inherit;
         font-weight: bold;
+
         &:focus {
             box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
         }
@@ -30,7 +31,7 @@
         margin-right: auto;
         padding: 0.25em 0;
     }
-    
+
     &__icon {
         margin-right: 0.5em;
         opacity: 0.5;
@@ -47,6 +48,7 @@
         &:hover {
             opacity: 1 !important;
         }
+
         &:focus {
             border-radius: 0.25em;
             box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
@@ -76,38 +78,45 @@
         border-color: var(--info);
         color: $info;
         color: var(--info);
+
         a:focus,
-        & > #{ $self }__close:focus {
+        &>#{ $self }__close:focus {
             box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
         }
     }
+
     &--success {
         border-color: $green;
         border-color: var(--green);
         color: $green;
         color: var(--green);
+
         a:focus,
-        & > #{ $self }__close:focus {
+        &>#{ $self }__close:focus {
             box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
         }
     }
+
     &--danger {
         border-color: $red;
         border-color: var(--red);
         color: $red;
         color: var(--red);
+
         a:focus,
-        & > #{ $self }__close:focus {
+        &>#{ $self }__close:focus {
             box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
         }
     }
+
     &--warning {
         border-color: $warning;
         border-color: var(--warn);
         color: $warning;
         color: var(--warn);
+
         a:focus,
-        & > #{ $self }__close:focus {
+        &>#{ $self }__close:focus {
             box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
         }
     }
@@ -115,20 +124,20 @@
     &--sm {
         padding: 0 0.5rem;
 
-        & > #{ $self }__text {
+        &>#{ $self }__text {
             line-height: normal;
 
-            & > p {
+            &>p {
                 line-height: normal;
             }
         }
 
-        & > #{ $self }__icon {
+        &>#{ $self }__icon {
             margin-right: 0.25em;
         }
 
-        & > #{ $self }__icon,
-        & > #{ $self }__close {
+        &>#{ $self }__icon,
+        &>#{ $self }__close {
             margin-top: 0.25em;
             opacity: 0.75;
         }

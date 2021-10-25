@@ -1,7 +1,7 @@
 /**
   * Cards
   */
-  
+
 .card {
     $self: &;
     background-color: $white;
@@ -15,6 +15,7 @@
     &--primary {
         border-color: $primary;
         border-color: var(--primary);
+
         #{ $self }__title {
             background-color: $white;
             background-color: var(--white);
@@ -23,20 +24,24 @@
             color: $primary;
             color: var(--primary);
         }
+
         &-dark {
-          border-color: $primaryDark;
-          border-color: var(--primaryDark);
-          #{ $self }__title {
-              background-color: $primary;
-              border-color: $primaryDark;
-              border-color: var(--primaryDark);
-              color: $white;
-          }
+            border-color: $primaryDark;
+            border-color: var(--primaryDark);
+
+            #{ $self }__title {
+                background-color: $primary;
+                border-color: $primaryDark;
+                border-color: var(--primaryDark);
+                color: $white;
+            }
         }
     }
+
     &--secondary {
         border-color: $secondary;
         border-color: var(--secondary);
+
         #{ $self }__title {
             background-color: $white;
             background-color: var(--white);
@@ -45,20 +50,24 @@
             color: $secondary;
             color: var(--secondary);
         }
+
         &-dark {
-          border-color: $secondaryDark;
-          border-color: var(--secondaryDark);
-          #{ $self }__title {
-              background-color: $secondary;
-              border-color: $secondaryDark;
-              border-color: var(--secondaryDark);
-              color: $white;
-          }
+            border-color: $secondaryDark;
+            border-color: var(--secondaryDark);
+
+            #{ $self }__title {
+                background-color: $secondary;
+                border-color: $secondaryDark;
+                border-color: var(--secondaryDark);
+                color: $white;
+            }
         }
     }
+
     &--info {
         border-color: $info;
         border-color: var(--info);
+
         #{ $self }__title {
             background-color: $white;
             background-color: var(--white);
@@ -67,20 +76,24 @@
             color: $info;
             color: var(--info);
         }
+
         &-dark {
-          border-color: $infoDark;
-          border-color: var(--infoDark);
-          #{ $self }__title {
-              background-color: $info;
-              border-color: $infoDark;
-              border-color: var(--infoDark);
-              color: $white;
-          }
+            border-color: $infoDark;
+            border-color: var(--infoDark);
+
+            #{ $self }__title {
+                background-color: $info;
+                border-color: $infoDark;
+                border-color: var(--infoDark);
+                color: $white;
+            }
         }
     }
+
     &--success {
         border-color: $green;
         border-color: var(--green);
+
         #{ $self }__title {
             background-color: $white;
             background-color: var(--white);
@@ -89,20 +102,24 @@
             color: $green;
             color: var(--green);
         }
+
         &-dark {
-          border-color: $successDark;
-          border-color: var(--successDark);
-          #{ $self }__title {
-              background-color: $green;
-              border-color: $successDark;
-              border-color: var(--successDark);
-              color: $white;
-          }
+            border-color: $successDark;
+            border-color: var(--successDark);
+
+            #{ $self }__title {
+                background-color: $green;
+                border-color: $successDark;
+                border-color: var(--successDark);
+                color: $white;
+            }
         }
     }
+
     &--warning {
         border-color: $warning;
         border-color: var(--warn);
+
         #{ $self }__title {
             background-color: $white;
             background-color: var(--white);
@@ -111,20 +128,24 @@
             color: $warning;
             color: var(--warn);
         }
+
         &-dark {
-          border-color: $warningDark;
-          border-color: var(--warningDark);
-          #{ $self }__title {
-              background-color: $warning;
-              border-color: $warningDark;
-              border-color: var(--warningDark);
-              color: $white;
-          }
+            border-color: $warningDark;
+            border-color: var(--warningDark);
+
+            #{ $self }__title {
+                background-color: $warning;
+                border-color: $warningDark;
+                border-color: var(--warningDark);
+                color: $white;
+            }
         }
     }
+
     &--danger {
         border-color: $red;
         border-color: var(--red);
+
         #{ $self }__title {
             background-color: $white;
             background-color: var(--white);
@@ -133,15 +154,17 @@
             color: $red;
             color: var(--red);
         }
+
         &-dark {
-          border-color: $dangerDark;
-          border-color: var(--dangerDark);
-          #{ $self }__title {
-              background-color: $red;
-              border-color: $dangerDark;
-              border-color: var(--dangerDark);
-              color: $white;
-          }
+            border-color: $dangerDark;
+            border-color: var(--dangerDark);
+
+            #{ $self }__title {
+                background-color: $red;
+                border-color: $dangerDark;
+                border-color: var(--dangerDark);
+                color: $white;
+            }
         }
     }
 
@@ -152,7 +175,8 @@
         border-bottom-color: $grey-400;
         border-bottom-color: var(--grey400);
         padding: 1rem;
-        & > * {
+
+        &>* {
             font-size: 1.2rem;
             margin: 0;
         }
@@ -160,8 +184,10 @@
 
     &__body {
         padding: 1rem;
-        & > * {
+
+        &>* {
             margin-bottom: 1em;
+
             &:last-child {
                 margin-bottom: 0;
             }

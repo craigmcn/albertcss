@@ -1,52 +1,55 @@
-$spaceamounts: (
-    0: 0,
+$spaceamounts: (0: 0,
     xs: 0.25,
     sm: 0.5,
     md: 1,
     lg: 1.5,
-    xl: 2
-);
-$sides: (
-    top,
+    xl: 2);
+$sides: (top,
     bottom,
     left,
     right,
     horiz,
     vert,
-    all
-);
+    all);
 
 .m {
     &-auto {
         margin: auto;
     }
+
     &-h-auto {
         margin-left: auto;
         margin-right: auto;
     }
+
     &-v-auto {
         margin-top: auto;
         margin-bottom: auto;
     }
+
     &-l-auto {
         margin-left: auto;
     }
+
     &-r-auto {
         margin-right: auto;
     }
+
     &-t-auto {
         margin-top: auto;
     }
+
     &-b-auto {
         margin-bottom: auto;
     }
 }
 
-@each $space, $x in $spaceamounts {
+@each $space,
+$x in $spaceamounts {
     @each $side in $sides {
         $thisSpacing: ($spacing * $x);
 
-        @if $side == "all" {
+        @if $side=="all" {
             .m-#{$space} {
                 margin: $thisSpacing;
             }
@@ -54,7 +57,9 @@ $sides: (
             .p-#{$space} {
                 padding: $thisSpacing;
             }
-        } @else if $side == "horiz" {
+        }
+
+        @else if $side=="horiz" {
             .m-#{str-slice($side, 0, 1)}-#{$space} {
                 margin-left: $thisSpacing;
                 margin-right: $thisSpacing;
@@ -64,7 +69,9 @@ $sides: (
                 padding-left: $thisSpacing;
                 padding-right: $thisSpacing;
             }
-        } @else if $side == "vert" {
+        }
+
+        @else if $side=="vert" {
             .m-#{str-slice($side, 0, 1)}-#{$space} {
                 margin-bottom: $thisSpacing;
                 margin-top: $thisSpacing;
@@ -74,7 +81,9 @@ $sides: (
                 padding-bottom: $thisSpacing;
                 padding-top: $thisSpacing;
             }
-        } @else {
+        }
+
+        @else {
             .m-#{str-slice($side, 0, 1)}-#{$space} {
                 margin-#{$side}: $thisSpacing;
             }

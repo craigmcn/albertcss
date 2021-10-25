@@ -3,10 +3,10 @@
   */
 
 .main {
-  margin: $spacing auto 0 auto;
-  padding: 0 $spacing;
+    margin: $spacing auto 0 auto;
+    padding: 0 $spacing;
 
-  &--fixed {
-      max-width: 60em;
-  }
+    &--fixed {
+        max-width: 60em;
+    }
 }

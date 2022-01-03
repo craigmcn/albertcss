@@ -1,10 +1,11 @@
 .toolbar {
     background-color: $grey-100;
     background-color: var(--grey100);
-    border-bottom: 1px solid;
-    border-bottom-color: $grey-300;
-    border-bottom-color: var(--grey300);
-    padding: 0.5rem 1rem;
+    border-top: 1px solid;
+    border-top-color: $grey-200;
+    border-top-color: var(--grey200);
+    grid-area: toolbar;
+    padding: 0.25rem 1rem;
 
     &--right {
         text-align: right;

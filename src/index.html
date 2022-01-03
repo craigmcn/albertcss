@@ -29,6 +29,7 @@
 <body>
 
     <header class="header">
+
         <div class="brand">
             <a href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40">
@@ -41,36 +42,43 @@
                 craigmcn
             </a>
         </div>
+
         <h1>Style Guide</h1>
-        <nav id="nav-collapse" class="nav collapsed">
+
+        <nav id="navigation" class="nav collapsed">
             <ul class="nav__list">
                 <li class="nav__item"><a class="nav__link" href="#">Navigation 1</a></li>
                 <li class="nav__item"><a class="nav__link" href="#">Navigation 2</a></li>
             </ul>
         </nav>
-        <button class="nav__control button button--default js-collapse" type="button" data-target="nav-collapse"
-            aria-controls="nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+
+        <div id="toolbar" class="toolbar toolbar--right collapsed">
+            <span class="fa-duotone fa-user-hair-buns"></span>
+            <span>User Name</span>
+
+            <button class="button button--dark button--sm js-toggleDarkMode" type="button" title="Toggle dark mode"
+                data-mode="dark">
+                <span class="fa-duotone fa-eclipse-alt"></span>
+                <span class="visually-hidden">Toggle dark mode</span>
+            </button>
+
+            <button class="button button--dark button--sm" type="button" title="Settings">
+                <span class="fa-duotone fa-cog"></span>
+                <span class="visually-hidden">Settings</span>
+            </button>
+
+            <button class="button button--dark button--sm" type="button" title="Sign out">
+                <span class="fa-duotone fa-sign-out-alt"></span>
+                <span class="visually-hidden">Sign out</span>
+            </button>
+        </div>
+
+        <button id="menu-toggle" class="nav__control button button--default" type="button"
+            aria-controls="navigation, toolbar" aria-expanded="false" aria-label="Toggle navigation and toolbar">
             <span class="fa-solid fa-bars"></span><span class="visually-hidden">Menu</span>
         </button>
-    </header>
 
-    <div class="toolbar toolbar--right">
-        <span class="fa-duotone fa-user"></span>
-        <span>User Name</span>
-        <button class="button button--dark button--sm js-toggleDarkMode" type="button" title="Toggle dark mode"
-            data-mode="dark">
-            <span class="fa-duotone fa-eclipse-alt"></span>
-            <span class="visually-hidden">Toggle dark mode</span>
-        </button>
-        <button class="button button--dark button--sm" type="button" title="Settings">
-            <span class="fa-duotone fa-cog"></span>
-            <span class="visually-hidden">Settings</span>
-        </button>
-        <button class="button button--dark button--sm" type="button" title="Sign out">
-            <span class="fa-duotone fa-sign-out-alt"></span>
-            <span class="visually-hidden">Sign out</span>
-        </button>
-    </div>
+    </header>
 
     <main class="main main--fixed">
 

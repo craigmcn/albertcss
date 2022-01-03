@@ -1,6 +1,6 @@
 import Bouncer from 'formbouncerjs'
 import { initAlertClose } from './alerts'
-import { initCollapse } from './collapse'
+import { initMenuToggle } from './menuToggle'
 
 window.addEventListener('load', function () {
     const validate = new Bouncer('form', { // eslint-disable-line
@@ -10,5 +10,5 @@ window.addEventListener('load', function () {
     })
 
     initAlertClose()
-    initCollapse()
+    initMenuToggle()
 })

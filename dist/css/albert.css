@@ -22,7 +22,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -404,6 +404,52 @@ template {
   --warnFocusShadow: rgba(105, 88, 2, 0.5);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #222;
+    --black: #fff;
+    --primary: #4cb5fa;
+    --primaryDark: #0686da;
+    --secondary: #fa924c;
+    --secondaryDark: #da5b06;
+    --green: #09c809;
+    --successDark: #056605;
+    --info: #0bbaef;
+    --infoDark: #076e8d;
+    --red: #f49090;
+    --dangerDark: #eb3333;
+    --warn: #f9d615;
+    --warningDark: #a48b04;
+    --pink: #f28cbc;
+    --silver: #363640;
+    --grey900: #ebebef;
+    --grey800: #d7d7db;
+    --grey700: #c3c3c7;
+    --grey600: #afafb3;
+    --grey500: #9b9b9f;
+    --grey400: #868690;
+    --grey300: #727276;
+    --grey200: #5e5e62;
+    --grey100: #4a4a4e;
+    --primaryActive: #109cf8;
+    --primaryVisited: #74c5fb;
+    --bodyBg: #000;
+    --headerBg: #222;
+    --npBg: #000;
+    --npTxt: #4cb5fa;
+    --sectionAltBg: #222;
+    --focusShadow: rgba(76, 181, 250, 0.5);
+    --errorShadow: rgba(244, 144, 144, 0.5);
+    --secondaryFocusShadow: rgba(249, 122, 36, 0.5);
+    --greyFocusShadow: rgba(215, 215, 219, 0.5);
+    --grey900FocusShadow: rgba(235, 235, 239, 0.5);
+    --grey700FocusShadow: rgba(195, 195, 199, 0.5);
+    --infoFocusShadow: rgba(11, 186, 239, 0.5);
+    --greenFocusShadow: rgba(9, 200, 9, 0.5);
+    --redFocusShadow: rgba(244, 144, 144, 0.5);
+    --warnFocusShadow: rgba(249, 214, 21, 0.5);
+  }
+}
 html[data-mode=dark],
 body.theme--dark {
   --white: #222;
@@ -448,6 +494,52 @@ body.theme--dark {
   --greenFocusShadow: rgba(9, 200, 9, 0.5);
   --redFocusShadow: rgba(244, 144, 144, 0.5);
   --warnFocusShadow: rgba(249, 214, 21, 0.5);
+}
+
+html[data-mode=light],
+body.theme--light {
+  --white: #fff;
+  --black: #222;
+  --primary: #005b99;
+  --primaryDark: #001e33;
+  --secondary: #993d00;
+  --secondaryDark: #331400;
+  --green: #036803;
+  --successDark: #000500;
+  --info: #03607d;
+  --infoDark: infoDark;
+  --red: #b60202;
+  --dangerDark: #510101;
+  --warn: #695802;
+  --warningDark: #050400;
+  --pink: #e83e8c;
+  --silver: #ebebef;
+  --grey900: #363640;
+  --grey800: #4a4a4e;
+  --grey700: #5e5e62;
+  --grey600: #727276;
+  --grey500: #868690;
+  --grey400: #9b9b9f;
+  --grey300: #afafb3;
+  --grey200: #c3c3c7;
+  --grey100: #d7d7db;
+  --primaryActive: #00375c;
+  --primaryVisited: #0073c2;
+  --bodyBg: #fff;
+  --headerBg: #ebebef;
+  --npBg: #fff;
+  --npTxt: #005b99;
+  --sectionAltBg: #ebebef;
+  --focusShadow: rgba(0, 91, 153, 0.5);
+  --errorShadow: rgba(182, 2, 2, 0.5);
+  --secondaryFocusShadow: rgba(112, 45, 0, 0.5);
+  --greyFocusShadow: rgba(74, 74, 78, 0.5);
+  --grey900FocusShadow: rgba(54, 54, 64, 0.5);
+  --grey700FocusShadow: rgba(94, 94, 98, 0.5);
+  --infoFocusShadow: rgba(3, 96, 125, 0.5);
+  --greenFocusShadow: rgba(3, 104, 3, 0.5);
+  --redFocusShadow: rgba(182, 2, 2, 0.5);
+  --warnFocusShadow: rgba(105, 88, 2, 0.5);
 }
 
 /**
@@ -622,33 +714,49 @@ pre code {
   align-items: center;
   background-color: var(--headerBg);
   border-bottom: 1px solid;
-  border-bottom-color: #c3c3c7;
-  border-bottom-color: var(--grey200);
+  border-bottom-color: #afafb3;
+  border-bottom-color: var(--grey300);
   color: #4a4a4e;
   color: var(--grey800);
   -moz-column-gap: 1rem;
        column-gap: 1rem;
   display: grid;
-  grid-template-areas: "brand brand brand" "site site navToggle" "navList navList navList";
+  grid-template-areas: "brand brand navToggle" "site site site" "navigation navigation navigation" "toolbar toolbar toolbar";
   grid-template-columns: -webkit-min-content auto -webkit-min-content;
   grid-template-columns: min-content auto min-content;
-  padding: 0.5rem 1rem;
+}
+.header--fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 @media (min-width: 544px) {
   .header {
-    grid-template-areas: "brand site navToggle" "navList navList navList";
+    grid-template-areas: "brand site navToggle" "navigation navigation navigation" "toolbar toolbar toolbar";
   }
 }
 @media (min-width: 768px) {
   .header {
-    grid-template-areas: "brand navList site";
+    grid-template-areas: "brand navigation site" "toolbar toolbar toolbar";
   }
+}
+.header--scroll {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+.header--scroll.hidden {
+  top: calc(var(--headerHeight) * -1 - 1px);
 }
 .header h1 {
   font-family: Raleway, Verdana, "Lucida Grande", "Gill Sans", Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   grid-area: site;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
   margin-top: 0;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
@@ -657,6 +765,12 @@ pre code {
 @media (min-width: 544px) {
   .header h1 {
     margin-left: auto;
+    margin-top: 0.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .header h1 {
+    margin-right: 1rem;
   }
 }
 .header__link {
@@ -676,6 +790,7 @@ pre code {
   font-family: Raleway, Verdana, "Lucida Grande", "Gill Sans", Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
   grid-area: brand;
+  margin: 0.5rem 0 0.5rem 1rem;
 }
 .brand > a {
   align-items: center;
@@ -734,10 +849,11 @@ pre code {
 .toolbar {
   background-color: #d7d7db;
   background-color: var(--grey100);
-  border-bottom: 1px solid;
-  border-bottom-color: #afafb3;
-  border-bottom-color: var(--grey300);
-  padding: 0.5rem 1rem;
+  border-top: 1px solid;
+  border-top-color: #c3c3c7;
+  border-top-color: var(--grey200);
+  grid-area: toolbar;
+  padding: 0.25rem 1rem;
 }
 .toolbar--right {
   text-align: right;
@@ -787,7 +903,7 @@ pre code {
   padding: 0;
 }
 .alert__close:focus, .alert__close:hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 .alert__close:focus {
   border-radius: 0.25em;
@@ -1371,7 +1487,7 @@ button,
   display: block;
   /* stolen from getbootstrap.com
      corrects <select> size */
-  height: calc(1.5em + .75rem + 2px);
+  height: calc(1.5em + 0.75rem + 2px);
   margin-bottom: 0.25rem;
   outline: none;
   padding: 0.5em;
@@ -1477,10 +1593,12 @@ fieldset.form__group {
 
 .nav {
   display: flex;
-  grid-area: navList;
+  grid-area: navigation;
+  margin: 0 1rem 0.5rem 1rem;
 }
 @media (min-width: 768px) {
   .nav {
+    margin-bottom: 0;
     margin-left: auto;
   }
 }
@@ -1497,7 +1615,6 @@ fieldset.form__group {
   list-style: none;
   margin-bottom: 0;
   margin-left: 0;
-  margin-top: 0.5rem;
 }
 @media (min-width: 768px) {
   .nav__list {
@@ -1546,6 +1663,7 @@ fieldset.form__group {
   display: block;
   grid-area: navToggle;
   margin-left: auto;
+  margin-right: 1rem;
   margin-top: 0;
 }
 @media (min-width: 768px) {
@@ -2286,6 +2404,18 @@ fieldset.form__group {
 }
 .text--large {
   font-size: 2em;
+}
+.text--normal {
+  font-weight: normal;
+}
+.text--bold {
+  font-weight: 600;
+}
+.text--light {
+  font-weight: 300;
+}
+.text--upper {
+  text-transform: uppercase;
 }
 
 /* https://a11yproject.com/posts/how-to-hide-content/ */

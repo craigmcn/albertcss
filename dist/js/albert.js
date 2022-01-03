@@ -14,8 +14,7 @@ exports.initAlertClose = void 0;
 var initAlertClose = function initAlertClose() {
   document.querySelectorAll('.alert__close').forEach(function (a) {
     a.addEventListener('click', function (e) {
-      var closeButton = a,
-          alertBlock = closeButton.parentNode;
+      var alertBlock = a.parentNode;
       alertBlock.style.display = 'none';
       if (alertBlock.classList.contains('alert--removable')) alertBlock.remove();
     });
@@ -29,42 +28,32 @@ exports.initAlertClose = initAlertClose;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.initCollapse = void 0;
+exports.initMenuToggle = void 0;
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+var initMenuToggle = function initMenuToggle() {
+  var menuToggle = document.getElementById('menu-toggle');
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-var initCollapse = function initCollapse() {
-  ;
-
-  _toConsumableArray(document.querySelectorAll('.js-collapse')).forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      var target = document.getElementById(el.dataset.target);
-      var expanded = el.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-
-      if (target.classList.contains('expanded')) {
-        target.classList.add('collapsed');
-        target.classList.remove('expanded');
-      } else {
-        target.classList.add('expanded');
-        target.classList.remove('collapsed');
-      }
-
-      el.setAttribute('aria-expanded', expanded);
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function (e) {
+      var targets = [document.getElementById('navigation'), document.getElementById('toolbar')];
+      var expanded = menuToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+      targets.forEach(function (target) {
+        if (target) {
+          if (target.classList.contains('expanded')) {
+            target.classList.add('collapsed');
+            target.classList.remove('expanded');
+          } else {
+            target.classList.add('expanded');
+            target.classList.remove('collapsed');
+          }
+        }
+      });
+      menuToggle.setAttribute('aria-expanded', expanded);
     });
-  });
+  }
 };
 
-exports.initCollapse = initCollapse;
+exports.initMenuToggle = initMenuToggle;
 },{}],4:[function(require,module,exports){
 "use strict";
 
@@ -72,17 +61,100 @@ var _formbouncerjs = _interopRequireDefault(require("formbouncerjs"));
 
 var _alerts = require("./alerts");
 
-var _collapse = require("./collapse");
+var _menuToggle = require("./menuToggle");
+
+var _scrollHeader = _interopRequireDefault(require("./scrollHeader"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 window.addEventListener('load', function () {
   var validate = new _formbouncerjs["default"]('form', {
+    // eslint-disable-line
     messageAfterField: false,
     fieldClass: 'form__control--hasError',
     errorClass: 'form__control-error'
   });
   (0, _alerts.initAlertClose)();
-  (0, _collapse.initCollapse)();
+  (0, _menuToggle.initMenuToggle)();
+  (0, _scrollHeader["default"])();
 });
-},{"./alerts":2,"./collapse":3,"formbouncerjs":1}]},{},[4]);
+},{"./alerts":2,"./menuToggle":3,"./scrollHeader":5,"formbouncerjs":1}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = scrollHeader;
+
+var _throttle = _interopRequireDefault(require("./throttle"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// https://codingreflections.com/hide-header-on-scroll-down/
+var setBodyProperties = function setBodyProperties(height) {
+  var body = document.querySelector('body');
+  body.style.setProperty('--headerHeight', height + 'px');
+  body.style.paddingTop = height + 'px';
+};
+
+function scrollHeader() {
+  var header = document.querySelector('header.header--scroll');
+
+  if (header) {
+    var doc = document.documentElement;
+    var w = window;
+    var prevScroll = w.scrollY || doc.scrollTop;
+    var curScroll;
+    var direction = 0;
+    var prevDirection = 0;
+    var headerHeight = header.offsetHeight;
+    setBodyProperties(headerHeight);
+    var observer = new ResizeObserver(function (entries) {
+      setBodyProperties(entries[0].target.offsetHeight);
+    });
+    observer.observe(header);
+
+    var checkScroll = function checkScroll() {
+      curScroll = w.scrollY || doc.scrollTop;
+
+      if (curScroll > headerHeight) {
+        direction = curScroll > prevScroll ? 2 : curScroll < prevScroll ? 1 : 0;
+        direction !== prevDirection && toggleHeader();
+      }
+
+      if (curScroll <= headerHeight) {
+        direction = 1;
+        toggleHeader();
+      }
+
+      prevScroll = curScroll;
+    };
+
+    var toggleHeader = function toggleHeader() {
+      if (direction) {
+        header.classList.toggle('hidden', direction === 2 && curScroll > headerHeight);
+        prevDirection = direction;
+      }
+    };
+
+    window.addEventListener('scroll', (0, _throttle["default"])(checkScroll, 100));
+  }
+}
+},{"./throttle":6}],6:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = throttle;
+
+function throttle(fn, wait) {
+  var time = Date.now();
+  return function () {
+    if (time + wait - Date.now() < 0) {
+      fn();
+      time = Date.now();
+    }
+  };
+}
+},{}]},{},[4]);

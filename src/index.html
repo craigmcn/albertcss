@@ -27,8 +27,9 @@
 </head>
 
 <body>
+    <!-- with .header--fixed: style="padding-top: 57px" -- default, 91.75px w/ toolbar -->
+    <header class="header header--scroll">
 
-    <header class="header">
         <div class="brand">
             <a href="/">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40">
@@ -41,36 +42,43 @@
                 craigmcn
             </a>
         </div>
+
         <h1>Style Guide</h1>
-        <nav id="nav-collapse" class="nav collapsed">
+
+        <nav id="navigation" class="nav collapsed">
             <ul class="nav__list">
                 <li class="nav__item"><a class="nav__link" href="#">Navigation 1</a></li>
                 <li class="nav__item"><a class="nav__link" href="#">Navigation 2</a></li>
             </ul>
         </nav>
-        <button class="nav__control button button--default js-collapse" type="button" data-target="nav-collapse"
-            aria-controls="nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+
+        <div id="toolbar" class="toolbar toolbar--right collapsed">
+            <span class="fa-duotone fa-user-hair-buns"></span>
+            <span>User Name</span>
+
+            <button class="button button--dark button--sm js-toggleDarkMode" type="button" title="Toggle dark mode"
+                data-mode="dark">
+                <span class="fa-duotone fa-eclipse-alt"></span>
+                <span class="visually-hidden">Toggle dark mode</span>
+            </button>
+
+            <button class="button button--dark button--sm" type="button" title="Settings">
+                <span class="fa-duotone fa-cog"></span>
+                <span class="visually-hidden">Settings</span>
+            </button>
+
+            <button class="button button--dark button--sm" type="button" title="Sign out">
+                <span class="fa-duotone fa-sign-out-alt"></span>
+                <span class="visually-hidden">Sign out</span>
+            </button>
+        </div>
+
+        <button id="menu-toggle" class="nav__control button button--default" type="button"
+            aria-controls="navigation, toolbar" aria-expanded="false" aria-label="Toggle navigation and toolbar">
             <span class="fa-solid fa-bars"></span><span class="visually-hidden">Menu</span>
         </button>
-    </header>
 
-    <div class="toolbar toolbar--right">
-        <span class="fa-duotone fa-user"></span>
-        <span>User Name</span>
-        <button class="button button--dark button--sm js-toggleDarkMode" type="button" title="Toggle dark mode"
-            data-mode="dark">
-            <span class="fa-duotone fa-eclipse-alt"></span>
-            <span class="visually-hidden">Toggle dark mode</span>
-        </button>
-        <button class="button button--dark button--sm" type="button" title="Settings">
-            <span class="fa-duotone fa-cog"></span>
-            <span class="visually-hidden">Settings</span>
-        </button>
-        <button class="button button--dark button--sm" type="button" title="Sign out">
-            <span class="fa-duotone fa-sign-out-alt"></span>
-            <span class="visually-hidden">Sign out</span>
-        </button>
-    </div>
+    </header>
 
     <main class="main main--fixed">
 
@@ -828,6 +836,8 @@
 
             <p class="text--muted">Muted colour text using <code>class="text--muted"</code>.</p>
 
+            <h3>Text size</h3>
+
             <p>Text size utilities are relative to the containing element (<code>em</code> not <code>rem</code>):</p>
 
             <p class="text--small">Small text using <code>class="text--small"</code>. This size matches the
@@ -835,14 +845,39 @@
             </p>
 
             <p class="text--large">Large text using <code>class="text--large"</code>.</p>
+
+            <h3>Other text utilities</h3>
+
+            <h4 class="text--normal">&ldquo;Normal&rdquo; weight <code>h4</code> heading with
+                <code>class="text--normal"</code>. It can be used to reset font weight in headings or bold text.
+            </h4>
+
+            <p><span class="text--bold">
+                    Bold text using <code>class="text--bold"</code>. It&rsquo;s not
+                    quite as bold as
+                    <code>&lt;strong&gt;</code>
+                </span>.<br>
+                <strong>Strong text, for reference.</strong>
+            </p>
+
+            <p class="text--light">Light text using <code>class="text--light"</code>.</p>
+
+            <p><span class="text--upper">Uppercase text using <code>class="text--upper"</code></span>. For example, use
+                it
+                with
+                <code>text--small</code> and <code>text--light</code> for <span
+                    class="text--upper text--light text--small">fun variations</span>.
+            </p>
         </section>
     </main>
 
     <script src="./js/albert.js"></script>
     <script>
+        const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         const toggleDarkModeButtons = document.querySelectorAll(".js-toggleDarkMode")
         const body = document.querySelector("body")
         toggleDarkModeButtons.forEach(button => {
+            button.dataset.mode = dark ? 'light' : 'dark'
             button.addEventListener("click", () => {
                 const mode = button.dataset.mode
                 const inverseMode = (mode === "dark") ? "light" : "dark"

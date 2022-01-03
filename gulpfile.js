@@ -132,7 +132,7 @@ gulp.task('reload', (done) => {
 // Browser sync
 gulp.task('browserSync', () => {
     browserSync.init({
-        port: 1233,
+        port: 3020,
         server: './tmp',
         ui: false,
     })

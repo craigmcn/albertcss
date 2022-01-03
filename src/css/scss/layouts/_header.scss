@@ -19,6 +19,13 @@
         'toolbar toolbar toolbar';
     grid-template-columns: min-content auto min-content;
 
+    &--fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
     @include layout-sm {
         grid-template-areas:
             'brand site navToggle'
@@ -30,6 +37,18 @@
         grid-template-areas: 'brand navigation site'
             'toolbar toolbar toolbar';
     }
+
+    &--scroll {
+        // https://codingreflections.com/hide-header-on-scroll-down/
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        transition: top .3s ease;
+
+        &.hidden {
+            top: calc((var(--headerHeight) * -1) - 1px);
+        }
     }
 
     h1 {

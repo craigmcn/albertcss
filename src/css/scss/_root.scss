@@ -1,4 +1,4 @@
-:root {
+@mixin light-vars {
     --white: #{$white};
     --black: #{$black};
     --primary: #{$primary};
@@ -48,8 +48,7 @@
     --warnFocusShadow: #{rgba($warning, 0.5)};
 }
 
-html[data-mode="dark"],
-body.theme--dark {
+@mixin dark-vars {
     --white: #{$black};
     --black: #{$white};
     --primary: #{$primaryDarkMode};
@@ -97,4 +96,24 @@ body.theme--dark {
     --greenFocusShadow: #{rgba($greenDarkMode, 0.5)};
     --redFocusShadow: #{rgba($redDarkMode, 0.5)};
     --warnFocusShadow: #{rgba($warnDarkMode, 0.5)};
+}
+
+:root {
+    @include light-vars;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-vars;
+    }
+}
+
+html[data-mode="dark"],
+body.theme--dark {
+    @include dark-vars;
+}
+
+html[data-mode="light"],
+body.theme--light {
+    @include light-vars;
 }

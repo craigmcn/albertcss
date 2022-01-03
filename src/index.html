@@ -873,9 +873,11 @@
 
     <script src="./js/albert.js"></script>
     <script>
+        const dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         const toggleDarkModeButtons = document.querySelectorAll(".js-toggleDarkMode")
         const body = document.querySelector("body")
         toggleDarkModeButtons.forEach(button => {
+            button.dataset.mode = dark ? 'light' : 'dark'
             button.addEventListener("click", () => {
                 const mode = button.dataset.mode
                 const inverseMode = (mode === "dark") ? "light" : "dark"

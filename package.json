@@ -1,13 +1,14 @@
 {
   "name": "albertcss",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "description": "Personal CSS framework",
   "main": "index.html",
   "scripts": {
     "build": "gulp build --env=production",
     "build:netlify": "gulp build --env=netlify",
     "dev": "gulp develop",
-    "serve": "gulp serve"
+    "serve": "gulp serve",
+    "lint": "./node_modules/.bin/eslint"
   },
   "repository": {
     "type": "git",
@@ -29,11 +30,12 @@
     "babelify": "^10.0.0",
     "browser-sync": "^2.27.7",
     "browserify": "^17.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
+    "eslint": "^8.19.0",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-n": "^15.2.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-promise": "^6.0.0",
     "formbouncerjs": "^1.4.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",

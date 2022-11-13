@@ -1,6 +1,6 @@
 {
   "name": "albertcss",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "description": "Personal CSS framework",
   "main": "index.html",
   "scripts": {
@@ -25,17 +25,17 @@
   },
   "homepage": "https://github.com/craigmcn/albertcss#readme",
   "devDependencies": {
-    "@babel/core": "^7.17.5",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
     "babelify": "^10.0.0",
     "browser-sync": "^2.27.7",
     "browserify": "^17.0.0",
-    "eslint": "^8.19.0",
+    "eslint": "^8.27.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-n": "^15.5.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "formbouncerjs": "^1.4.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -44,8 +44,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "minimist": "^1.2.6",
-    "sass": "^1.49.9",
+    "minimist": "^1.2.7",
+    "sass": "^1.56.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }

@@ -4,4 +4,13 @@ favicon
 favicon-2019-11-24
 Fiverr
 tmp
+dist
 netlify
+.vscode
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

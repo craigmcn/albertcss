@@ -39,11 +39,13 @@ gulp.task('sass', function () {
 gulp.task('sass-min', function () {
     return gulp
         .src(inputScss)
+        .pipe(sourcemaps.init())
         .pipe(sass(sassOptions.minified))
         .pipe(autoprefixer())
         .pipe(rename({
             suffix: '.min',
         }))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(output[env]))
         .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)))
 })

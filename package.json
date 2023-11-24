@@ -3,6 +3,7 @@
   "version": "0.13.0",
   "description": "Personal CSS framework",
   "packageManager": "yarn@3.3.1",
+  "type": "module",
   "scripts": {
     "build": "gulp build --env=production",
     "build:netlify": "gulp build --env=netlify",

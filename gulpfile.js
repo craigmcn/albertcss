@@ -1,6 +1,19 @@
-const gulp = require('gulp')
-const gulpif = require('gulp-if')
-const argv = require('minimist')(process.argv.slice(2))
+import gulp from 'gulp'
+import gulpif from 'gulp-if'
+import parseArgs from 'minimist'
+import * as sassInit from 'sass'
+import gulpSass from 'gulp-sass'
+import autoprefixer from 'gulp-autoprefixer'
+import rename from 'gulp-rename'
+import browserSyncCreate from 'browser-sync'
+import browserify from 'browserify'
+import babelify from 'babelify'
+import source from 'vinyl-source-stream'
+import buffer from 'vinyl-buffer'
+import sourcemaps from 'gulp-sourcemaps'
+import uglify from 'gulp-uglify'
+
+const argv = parseArgs(process.argv.slice(2))
 const env = argv.env ? argv.env : 'development'
 const output = {
     development: './tmp',
@@ -8,12 +21,10 @@ const output = {
     netlify: './netlify',
 }
 const outputNetlify = `${output[env]}/albertcss`
-const browserSync = require('browser-sync').create()
+const browserSync = browserSyncCreate.create()
 
 // CSS
-const sass = require('gulp-sass')(require('sass'))
-const autoprefixer = require('gulp-autoprefixer')
-const rename = require('gulp-rename')
+const sass = gulpSass(sassInit)
 
 const inputScss = './src/**/*.scss'
 
@@ -51,12 +62,12 @@ gulp.task('sass-min', function () {
 })
 
 // JS
-const browserify = require('browserify')
-const babelify = require('babelify')
-const source = require('vinyl-source-stream')
-const buffer = require('vinyl-buffer')
-const sourcemaps = require('gulp-sourcemaps')
-const uglify = require('gulp-uglify')
+// const browserify = require('browserify')
+// const babelify = require('babelify')
+// const source = require('vinyl-source-stream')
+// const buffer = require('vinyl-buffer')
+// const sourcemaps = require('gulp-sourcemaps')
+// const uglify = require('gulp-uglify')
 
 const inputJs = 'src/js/scripts.js'
 

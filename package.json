@@ -35,7 +35,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-n": "^16.3.1",
-    "eslint-plugin-node": "^1.0.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "formbouncerjs": "^1.4.6",
     "gulp": "^4.0.2",

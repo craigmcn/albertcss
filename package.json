@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/craigmcn/albertcss#readme",
   "devDependencies": {
-    "@babel/core": "^7.23.3",
+    "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.5",
     "babelify": "^10.0.0",
     "browser-sync": "^2.29.3",

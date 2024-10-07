@@ -2341,7 +2341,7 @@ __metadata:
     "@babel/preset-env": ^7.25.4
     babelify: ^10.0.0
     browser-sync: ^3.0.3
-    browserify: ^17.0.0
+    browserify: ^17.0.1
     eslint: ^8.57.0
     eslint-config-standard: ^17.1.0
     eslint-plugin-import: ^2.31.0
@@ -3007,9 +3007,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserify@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "browserify@npm:17.0.0"
+"browserify@npm:^17.0.1":
+  version: 17.0.1
+  resolution: "browserify@npm:17.0.1"
   dependencies:
     JSONStream: ^1.0.3
     assert: ^1.4.0
@@ -3028,7 +3028,7 @@ __metadata:
     duplexer2: ~0.1.2
     events: ^3.0.0
     glob: ^7.1.0
-    has: ^1.0.0
+    hasown: ^2.0.0
     htmlescape: ^1.1.0
     https-browserify: ^1.0.0
     inherits: ~2.0.1
@@ -3061,7 +3061,7 @@ __metadata:
     xtend: ^4.0.0
   bin:
     browserify: bin/cmd.js
-  checksum: 6b1dda742eb0eaef8bddffc00328fe4a874e4db251fcea85402663aa74c41d39bee424bedab6094ea9e965b9207cb0ac836f44c024e47045fde5ccb2bb845cb8
+  checksum: 49fd3dc5099a115c33e546d099fcbc3bd7384f90869152924f38af7a5a65cb8bfe36a0368202868291d376aaf94a87fd9e0324ca31b1a600dcb3b5aeccaad2b8
   languageName: node
   linkType: hard
 
@@ -5716,7 +5716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"has@npm:^1.0.0, has@npm:^1.0.3":
+"has@npm:^1.0.3":
   version: 1.0.3
   resolution: "has@npm:1.0.3"
   dependencies:

@@ -1874,7 +1874,7 @@ __metadata:
     gulp-autoprefixer: ^9.0.0
     gulp-if: ^3.0.0
     gulp-rename: ^2.0.0
-    gulp-sass: ^5.1.0
+    gulp-sass: ^6.0.0
     gulp-sourcemaps: ^3.0.0
     gulp-uglify: ^3.0.2
     minimist: ^1.2.8
@@ -4961,9 +4961,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-sass@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "gulp-sass@npm:5.1.0"
+"gulp-sass@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "gulp-sass@npm:6.0.0"
   dependencies:
     lodash.clonedeep: ^4.5.0
     picocolors: ^1.0.0
@@ -4971,7 +4971,7 @@ __metadata:
     replace-ext: ^2.0.0
     strip-ansi: ^6.0.1
     vinyl-sourcemaps-apply: ^0.2.1
-  checksum: 9aba052c76e808321f9ecf70885806a389e73b87005c3c4f47beba7050ef280d06402f1ac19105b32407170b6fdef5c9e26ed0560074dd5a949197b50e82604d
+  checksum: ff0cd9c428a20889e39f8606839cfff29f60f9806057ccd2fdddda341409681a7522965823e77c1c05bc3f3598c092b3538799df1a135287086d801c8f34cb92
   languageName: node
   linkType: hard
 

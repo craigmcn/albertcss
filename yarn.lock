@@ -1906,7 +1906,7 @@ __metadata:
     eslint: ^9.17.0
     eslint-config-standard: ^17.1.0
     eslint-plugin-import: ^2.31.0
-    eslint-plugin-n: ^17.15.0
+    eslint-plugin-n: ^17.15.1
     eslint-plugin-node: ^11.1.0
     eslint-plugin-promise: ^7.2.1
     formbouncerjs: ^1.4.6
@@ -4044,9 +4044,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^17.15.0":
-  version: 17.15.0
-  resolution: "eslint-plugin-n@npm:17.15.0"
+"eslint-plugin-n@npm:^17.15.1":
+  version: 17.15.1
+  resolution: "eslint-plugin-n@npm:17.15.1"
   dependencies:
     "@eslint-community/eslint-utils": ^4.4.1
     enhanced-resolve: ^5.17.1
@@ -4058,7 +4058,7 @@ __metadata:
     semver: ^7.6.3
   peerDependencies:
     eslint: ">=8.23.0"
-  checksum: 08cd1a8047393d9f75f149520354932a2b543d250ad6f806971c3a2b3e7603854be79ea1e8cf5db2bb2e66fac909972281e806c05294be6aba0990158c2e419a
+  checksum: daf93ad160adbdd1fdd68e739f9f6e94802410b31c197fa38302d8cbe8bb26e9766d186a43c775d485b975c65cbbb8783723a41c31751ac543699ccbf528dd20
   languageName: node
   linkType: hard
 

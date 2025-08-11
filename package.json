@@ -31,7 +31,7 @@
     "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",
     "browserify": "^17.0.1",
-    "eslint": "^9.32.0",
+    "eslint": "^9.33.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-n": "^17.21.3",

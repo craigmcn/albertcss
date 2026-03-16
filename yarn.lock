@@ -2167,7 +2167,7 @@ __metadata:
     gulp-sourcemaps: ^3.0.0
     gulp-uglify: ^3.0.2
     minimist: ^1.2.8
-    sass: ^1.97.3
+    sass: ^1.98.0
     vinyl-buffer: ^1.0.1
     vinyl-source-stream: ^2.0.0
   languageName: unknown
@@ -5962,10 +5962,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"immutable@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "immutable@npm:5.0.2"
-  checksum: 4adbd70580c78fafa7e367473e4f307f78f6768372ef464d45ba55f670b7f61d92c71461da571d80011544b61416d3dee0132736d9b592f33dcfa86e43bdd8f1
+"immutable@npm:^5.1.5":
+  version: 5.1.5
+  resolution: "immutable@npm:5.1.5"
+  checksum: 6aa0ed4ba7eac225982fea7adbee16e939744e9d20bf15e0f5d4561d7fa2fe69aee6e63ccdb0dffa22e012f6a690ee5359783471ecd0782de6125f2214de3dd8
   languageName: node
   linkType: hard
 
@@ -8551,20 +8551,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.97.3":
-  version: 1.97.3
-  resolution: "sass@npm:1.97.3"
+"sass@npm:^1.98.0":
+  version: 1.98.0
+  resolution: "sass@npm:1.98.0"
   dependencies:
     "@parcel/watcher": ^2.4.1
     chokidar: ^4.0.0
-    immutable: ^5.0.2
+    immutable: ^5.1.5
     source-map-js: ">=0.6.2 <2.0.0"
   dependenciesMeta:
     "@parcel/watcher":
       optional: true
   bin:
     sass: sass.js
-  checksum: 781c1c8179453b048f0cb9f5e3b89ded34727ddc8203fbe9b630fe266dac6c001d497eaba9eeadf701eeb55c86d8e23c609732c9cc95f88815554561d26733ef
+  checksum: d47220069f506703437c1ecc7d18049de7b4075eea66d734be7ee58e85ad426bfdc305683cff6673e65c14f6f315723d769fe40554cf6b02cb11e758b0b888b4
   languageName: node
   linkType: hard
 

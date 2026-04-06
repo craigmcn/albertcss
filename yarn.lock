@@ -2158,7 +2158,7 @@ __metadata:
     gulp-sourcemaps: ^3.0.0
     gulp-uglify: ^3.0.2
     minimist: ^1.2.8
-    sass: ^1.98.0
+    sass: ^1.99.0
     vinyl-buffer: ^1.0.1
     vinyl-source-stream: ^2.0.0
   languageName: unknown
@@ -8542,9 +8542,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.98.0":
-  version: 1.98.0
-  resolution: "sass@npm:1.98.0"
+"sass@npm:^1.99.0":
+  version: 1.99.0
+  resolution: "sass@npm:1.99.0"
   dependencies:
     "@parcel/watcher": ^2.4.1
     chokidar: ^4.0.0
@@ -8555,7 +8555,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: d47220069f506703437c1ecc7d18049de7b4075eea66d734be7ee58e85ad426bfdc305683cff6673e65c14f6f315723d769fe40554cf6b02cb11e758b0b888b4
+  checksum: 8993e6ba4b7e1b52619bea90206ce0401586e233b6b81acbba7466c7b0596deaf0454ec1b783f86d33ba4d1c6394846f3dd55299cf370f5a0ebc69f2c4d9baf2
   languageName: node
   linkType: hard
 

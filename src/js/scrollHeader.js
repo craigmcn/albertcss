@@ -15,7 +15,7 @@ export default function scrollHeader () {
         const doc = document.documentElement
         const w = window
 
-        let prevScroll = w.scrollY || doc.scrollTop
+        let prevScroll = w.scrollY ?? doc.scrollTop
         let curScroll
         let direction = 0
         let prevDirection = 0
@@ -29,7 +29,7 @@ export default function scrollHeader () {
         observer.observe(header)
 
         const checkScroll = () => {
-            curScroll = w.scrollY || doc.scrollTop
+            curScroll = w.scrollY ?? doc.scrollTop
 
             if (curScroll > headerHeight) {
                 direction = (curScroll > prevScroll) ? 2 : (curScroll < prevScroll) ? 1 : 0

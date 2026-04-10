@@ -21,17 +21,15 @@ const fireScroll = (scrollY) => {
 
 describe('scrollHeader', () => {
     let observeMock
-    let disconnectMock
     let resizeObserverCallback
 
     beforeEach(() => {
         vi.useFakeTimers()
         observeMock = vi.fn()
-        disconnectMock = vi.fn()
 
         global.ResizeObserver = vi.fn(function (cb) {
             resizeObserverCallback = cb
-            return { observe: observeMock, disconnect: disconnectMock }
+            return { observe: observeMock }
         })
 
         Object.defineProperty(window, 'scrollY', { value: 0, configurable: true })

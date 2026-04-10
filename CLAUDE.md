@@ -2,6 +2,11 @@
 
 Personal CSS framework based on Bootstrap v4. Vanilla JS, no framework dependencies.
 
+## Requirements
+
+- Node v24 (see `.nvmrc`)
+- Yarn v3
+
 ## Commands
 
 ```bash
@@ -9,6 +14,8 @@ yarn serve          # Dev server with live reload (BrowserSync, port 3020) → .
 yarn dev            # One-off development build → ./tmp/
 yarn build          # Production build → ./dist/
 yarn build:netlify  # Netlify build → ./netlify/ and ./netlify/albertcss/
+yarn test           # Run the Vitest suite
+yarn test:coverage  # Run tests with coverage output → ./coverage/
 ```
 
 ## Architecture
@@ -95,11 +102,11 @@ JS pipeline: Browserify + Babelify (@babel/preset-env) → Uglify (min only) →
 
 ### ESLint
 
-Config in `.eslintrc.json` — extends `eslint-config-standard` with overrides:
+Config in `eslint.config.js` using ESLint flat config with `neostandard` and overrides:
 - Single quotes, no semicolons, 4-space indent
 - `console` statements: warn
 
-Run `yarn lint <file or glob>` before committing JS changes.
+Run `yarn lint` before committing JS changes.
 
 ## Releasing a version
 
@@ -115,6 +122,9 @@ git push origin v0.14.0
 
 The workflow builds and deploys to the `gh-pages` branch at `/v0.14.0/`, served at:  
 `https://albertcss.craigmcn.com/v0.14.0/css/albert.min.css`
+
+The latest published release is always available at:  
+`https://www.craigmcn.com/albertcss/`
 
 **Backfill an older tag:**
 

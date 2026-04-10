@@ -117,11 +117,12 @@ git push origin v0.14.0
 The workflow builds and deploys to the `gh-pages` branch at `/v0.14.0/`, served at:  
 `https://craigmcn.github.io/albertcss/v0.14.0/css/albert.min.css`
 
-**Backfill an older tag (no `v` prefix):**
+**Backfill an older tag:**
 
 Run the workflow manually from the Actions tab:  
-Actions → Release to GitHub Pages → Run workflow → enter tag (e.g. `0.13.0`)  
-The `v` prefix is added automatically to the destination path.
+Actions → Release to GitHub Pages → Run workflow → enter the exact tag name as it exists in Git  
+Old tags have no `v` prefix (e.g. `0.13.0`); new tags do (e.g. `v0.14.0`).  
+The `v` prefix is added to the *destination path* if not present, but the tag input must match Git exactly or checkout will fail.
 
 ## Key dependencies
 

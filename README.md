@@ -29,7 +29,7 @@ Replace `v0.13.0` with whichever version you want to pin to. Versioned releases 
 
 ## Development
 
-**Requirements:** Node v18 (see `.node-version`), Yarn v3
+**Requirements:** Node v18 (see `.nvmrc`), Yarn v3
 
 ```bash
 yarn install       # Install dependencies

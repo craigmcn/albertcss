@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build and deploy (e.g. 0.13.0). A "v" prefix will be added to the URL path if not present.'
+        required: true
 
 jobs:
   build-and-deploy:
@@ -12,8 +17,23 @@ jobs:
       contents: write
 
     steps:
+      - name: Resolve tag and version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ github.event.inputs.tag }}"
+            [[ "$TAG" == v* ]] && VERSION="$TAG" || VERSION="v$TAG"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+            VERSION="$TAG"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.version.outputs.tag }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,14 +49,10 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Get version from tag
-        id: version
-        run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          destination_dir: ${{ steps.version.outputs.tag }}
+          destination_dir: ${{ steps.version.outputs.version }}
           keep_files: true

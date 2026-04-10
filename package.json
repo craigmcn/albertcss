@@ -27,9 +27,6 @@
     "url": "https://github.com/craigmcn/albertcss/issues"
   },
   "homepage": "https://github.com/craigmcn/albertcss#readme",
-  "resolutions": {
-    "neostandard/find-up": "^5.0.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",

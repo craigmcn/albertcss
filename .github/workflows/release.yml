@@ -31,8 +31,8 @@ jobs:
             TAG="${GITHUB_REF#refs/tags/}"
             VERSION="$TAG"
           fi
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Checkout
         uses: actions/checkout@v4

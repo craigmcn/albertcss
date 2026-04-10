@@ -21,6 +21,15 @@ A personal CSS framework built loosely on Bootstrap v4. Covers common layout, co
 Include the compiled CSS and JS in your project:
 
 ```html
+<link rel="stylesheet" href="https://www.craigmcn.com/albertcss/css/albert.min.css">
+<script src="https://www.craigmcn.com/albertcss/js/albert.min.js" defer></script>
+```
+
+The site root always serves the latest published release.
+
+If you want to pin to a specific version instead, use the versioned GitHub Pages URLs:
+
+```html
 <link rel="stylesheet" href="https://albertcss.craigmcn.com/vX.Y.Z/css/albert.min.css">
 <script src="https://albertcss.craigmcn.com/vX.Y.Z/js/albert.min.js" defer></script>
 ```
@@ -29,12 +38,13 @@ Replace `vX.Y.Z` with the version you want to pin to. Versioned releases are hos
 
 ## Development
 
-**Requirements:** Node v18 (see `.nvmrc`), Yarn v3
+**Requirements:** Node v24 (see `.nvmrc`), Yarn v3
 
 ```bash
 yarn install       # Install dependencies
 yarn serve         # Dev server with live reload at http://localhost:3020
 yarn build         # Production build → ./dist/
+yarn test          # Run the Vitest suite
 ```
 
 See [CLAUDE.md](CLAUDE.md) for full architecture and build system details.

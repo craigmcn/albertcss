@@ -10,6 +10,10 @@ on:
         description: 'Exact tag name as it exists in Git (e.g. 0.13.0 for old tags, v0.14.0 for new ones). The "v" prefix is added to the URL path if not present, but the tag must match Git exactly.'
         required: true
 
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

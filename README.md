@@ -35,7 +35,7 @@ Replace `v0.13.0` with whichever version you want to pin to. Versioned releases 
 yarn install       # Install dependencies
 yarn serve         # Dev server with live reload at http://localhost:3020
 yarn build         # Production build → ./dist/
-yarn lint          # Lint JavaScript
+yarn lint <file-or-glob>  # Lint JavaScript
 ```
 
 See [CLAUDE.md](CLAUDE.md) for full architecture and build system details.

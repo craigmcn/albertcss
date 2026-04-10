@@ -9,7 +9,7 @@ yarn serve          # Dev server with live reload (BrowserSync, port 3020) → .
 yarn dev            # One-off development build → ./tmp/
 yarn build          # Production build → ./dist/
 yarn build:netlify  # Netlify build → ./netlify/ and ./netlify/albertcss/
-yarn lint           # ESLint on JS files
+yarn lint <file-or-glob>  # ESLint on JS files
 ```
 
 ## Architecture

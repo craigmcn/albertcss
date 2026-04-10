@@ -9,7 +9,7 @@
     "build:netlify": "gulp build --env=netlify",
     "dev": "gulp develop",
     "serve": "gulp serve",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint src/js"
   },
   "repository": {
     "type": "git",
@@ -31,13 +31,9 @@
     "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",
     "browserify": "^17.0.1",
-    "eslint": "^10.2.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-n": "^17.24.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^7.2.1",
+    "eslint": "^9.39.4",
     "formbouncerjs": "^1.4.6",
+    "globals": "^17.4.0",
     "gulp": "^5.0.1",
     "gulp-autoprefixer": "^10.0.0",
     "gulp-if": "^3.0.0",
@@ -46,6 +42,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "minimist": "^1.2.8",
+    "neostandard": "^0.13.0",
     "sass": "^1.99.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"

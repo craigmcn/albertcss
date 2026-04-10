@@ -9,7 +9,6 @@ yarn serve          # Dev server with live reload (BrowserSync, port 3020) → .
 yarn dev            # One-off development build → ./tmp/
 yarn build          # Production build → ./dist/
 yarn build:netlify  # Netlify build → ./netlify/ and ./netlify/albertcss/
-yarn lint <file-or-glob>  # ESLint on JS files
 ```
 
 ## Architecture
@@ -115,7 +114,7 @@ git push origin v0.14.0
 ```
 
 The workflow builds and deploys to the `gh-pages` branch at `/v0.14.0/`, served at:  
-`https://craigmcn.github.io/albertcss/v0.14.0/css/albert.min.css`
+`https://albertcss.craigmcn.com/v0.14.0/css/albert.min.css`
 
 **Backfill an older tag:**
 

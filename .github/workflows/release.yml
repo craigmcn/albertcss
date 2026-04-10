@@ -54,6 +54,9 @@ jobs:
         run: yarn build
 
       - name: Deploy to GitHub Pages
+        # Pinned to @v4 (not a commit SHA) — this is a personal project with
+        # no external contributors, so the maintenance cost of SHA pinning
+        # outweighs the supply-chain benefit.
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

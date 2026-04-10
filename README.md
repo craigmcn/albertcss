@@ -21,11 +21,11 @@ A personal CSS framework built loosely on Bootstrap v4. Covers common layout, co
 Include the compiled CSS and JS in your project:
 
 ```html
-<link rel="stylesheet" href="https://craigmcn.github.io/albertcss/v0.13.0/css/albert.min.css">
-<script src="https://craigmcn.github.io/albertcss/v0.13.0/js/albert.min.js" defer></script>
+<link rel="stylesheet" href="https://albertcss.craigmcn.com/vX.Y.Z/css/albert.min.css">
+<script src="https://albertcss.craigmcn.com/vX.Y.Z/js/albert.min.js" defer></script>
 ```
 
-Replace `v0.13.0` with whichever version you want to pin to. Versioned releases are hosted on GitHub Pages and older versions remain available indefinitely.
+Replace `vX.Y.Z` with the version you want to pin to. Versioned releases are hosted on GitHub Pages and older versions remain available indefinitely.
 
 ## Development
 
@@ -35,7 +35,6 @@ Replace `v0.13.0` with whichever version you want to pin to. Versioned releases 
 yarn install       # Install dependencies
 yarn serve         # Dev server with live reload at http://localhost:3020
 yarn build         # Production build → ./dist/
-yarn lint <file-or-glob>  # Lint JavaScript
 ```
 
 See [CLAUDE.md](CLAUDE.md) for full architecture and build system details.

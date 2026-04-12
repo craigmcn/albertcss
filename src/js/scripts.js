@@ -1,6 +1,7 @@
 import Bouncer from 'formbouncerjs'
 import { initAlertClose } from './alerts'
 import { initMenuToggle } from './menuToggle'
+import { initModal } from './modal'
 import scrollHeader from './scrollHeader'
 
 window.addEventListener('load', function () {
@@ -13,6 +14,7 @@ window.addEventListener('load', function () {
 
   initAlertClose()
   initMenuToggle()
+  initModal()
 
   scrollHeader()
 })

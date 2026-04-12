@@ -661,8 +661,8 @@
 
         <form class="form">
           <div class="form__group">
-            <label class="form__label">Input large label</label>
-            <input class="form__control input input--large" type="text" />
+            <label class="form__label form__label--lg">Input large label</label>
+            <input class="form__control form__control--lg" type="text" />
             <p class="text--muted text--small">
               Some help text for this input.
             </p>
@@ -671,6 +671,11 @@
           <div class="form__group">
             <label class="form__label">Input label</label>
             <input class="form__control" type="text" required />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label form__label--sm">Input label small</label>
+            <input class="form__control form__control--sm" type="text" required />
           </div>
 
           <div class="form__group">
@@ -1375,6 +1380,130 @@
             Alerts <span class="badge badge--pill badge--danger">3</span>
           </a>
         </p>
+      </section>
+
+      <section class="section">
+        <h1>Modals</h1>
+
+        <p>
+          Modals use the native <code>&lt;dialog&gt;</code> element with
+          <code>showModal()</code>. Use <code>data-modal-target</code> on a
+          trigger and a matching <code>id</code> on the dialog. A
+          <code>&lt;form method="dialog"&gt;</code> inside the modal closes it
+          natively via any submit button — no extra JavaScript needed.
+        </p>
+
+        <p>
+          <button class="button button--primary" data-modal-target="modal-basic">Basic modal</button>
+          <button class="button" data-modal-target="modal-sm">Small modal</button>
+          <button class="button" data-modal-target="modal-lg">Large modal</button>
+          <button class="button" data-modal-target="modal-form">Modal with form</button>
+          <button class="button" data-modal-target="modal-centered">Centered modal</button>
+        </p>
+
+        <!-- Basic modal -->
+        <dialog id="modal-basic" class="modal">
+          <form method="dialog">
+            <div class="modal__header">
+              <h2 class="modal__title">Modal title</h2>
+              <button class="modal__close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal__body">
+              <p>This is a basic modal dialog. It blocks interaction with the rest of the page until dismissed.</p>
+              <p>Click outside the modal or press <kbd>Escape</kbd> to close.</p>
+            </div>
+            <div class="modal__footer">
+              <button type="submit" class="button">Close</button>
+              <button type="submit" class="button button--primary">Save changes</button>
+            </div>
+          </form>
+        </dialog>
+
+        <!-- Small modal -->
+        <dialog id="modal-sm" class="modal modal--sm">
+          <form method="dialog">
+            <div class="modal__header">
+              <h2 class="modal__title">Confirm</h2>
+              <button class="modal__close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal__body">
+              <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+            </div>
+            <div class="modal__footer">
+              <button type="submit" class="button">Cancel</button>
+              <button type="submit" class="button button--danger">Delete</button>
+            </div>
+          </form>
+        </dialog>
+
+        <!-- Large modal -->
+        <dialog id="modal-lg" class="modal modal--lg">
+          <form method="dialog">
+            <div class="modal__header">
+              <h2 class="modal__title">Terms and conditions</h2>
+              <button class="modal__close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="modal__footer">
+              <button type="submit" class="button">Decline</button>
+              <button type="submit" class="button button--primary">Accept</button>
+            </div>
+          </form>
+        </dialog>
+
+        <!-- Modal with form -->
+        <dialog id="modal-form" class="modal">
+          <form method="dialog">
+            <div class="modal__header">
+              <h2 class="modal__title">Edit profile</h2>
+              <button class="modal__close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal__body">
+              <div class="form__group">
+                <label class="form__label" for="modal-name">Name</label>
+                <input id="modal-name" class="form__control" type="text" placeholder="Your name" />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="modal-email">Email</label>
+                <input id="modal-email" class="form__control" type="email" placeholder="your@email.com" />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="modal-role">Role</label>
+                <select id="modal-role" class="form__control">
+                  <option value="">Select a role</option>
+                  <option value="admin">Admin</option>
+                  <option value="editor">Editor</option>
+                  <option value="viewer">Viewer</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal__footer">
+              <button type="submit" class="button">Cancel</button>
+              <button type="submit" class="button button--primary">Save</button>
+            </div>
+          </form>
+        </dialog>
+
+        <!-- Centered modal -->
+        <dialog id="modal-centered" class="modal modal--centered">
+          <form method="dialog">
+            <div class="modal__header">
+              <h2 class="modal__title">Centered modal</h2>
+              <button class="modal__close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal__body">
+              <p>This modal uses <code>.modal--centered</code> to restore the browser's default vertical centering.</p>
+            </div>
+            <div class="modal__footer">
+              <button type="submit" class="button button--primary">Got it</button>
+            </div>
+          </form>
+        </dialog>
       </section>
 
       <section class="section">

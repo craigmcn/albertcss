@@ -45,6 +45,15 @@
   &__label {
     display: block;
     padding-bottom: math.div($spacing, 2);
+
+    &--lg {
+        font-size: $font-size-lg;
+    }
+
+    &--sm {
+        font-size: $font-size-sm;
+        padding-bottom: 0.25rem;
+    }
   }
 
   &__control {
@@ -93,7 +102,11 @@
 
     &--lg {
         border-radius: $border-radius-lg;
-        font-size: 1.25em;
+        font-size: $font-size-lg;
+    }
+
+    &--sm {
+        font-size: $font-size-sm;
     }
   }
 
@@ -105,13 +118,6 @@
       margin-right: math.div($spacing, 4);
       /* spacing between control and text */
     }
-  }
-}
-
-.input {
-  &--large {
-    border-radius: $border-radius-lg;
-    font-size: 1.25em;
   }
 }
 

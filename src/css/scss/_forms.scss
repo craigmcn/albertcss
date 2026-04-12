@@ -55,20 +55,18 @@
     border: 1px solid;
     border-color: $grey-600;
     border-color: var(--grey600);
-    border-radius: 0.25em;
+    border-radius: $border-radius;
     color: $black;
     color: var(--black);
     display: block;
-    /* stolen from getbootstrap.com
-           corrects <select> size */
-    height: calc(1.5em + 0.75rem + 2px);
     margin-bottom: math.div($spacing, 4);
     outline: none;
     padding: 0.5em;
     width: 100%;
 
     @at-root #{selector.append(select, &)} {
-      padding: 0.25em 0.25em;
+      /* Hack to size height the same as other inputs */
+      height: calc(2.5em + 2px);
     }
 
     &:focus {
@@ -100,6 +98,11 @@
         box-shadow: 0 0 0 0.2rem var(--errorShadow);
       }
     }
+
+    &--lg {
+        border-radius: $border-radius-lg;
+        font-size: 1.25em;
+    }
   }
 
   &__check {
@@ -115,6 +118,7 @@
 
 .input {
   &--large {
+    border-radius: $border-radius-lg;
     font-size: 1.25em;
   }
 }

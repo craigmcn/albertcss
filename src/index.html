@@ -98,7 +98,7 @@
       </nav>
 
       <div id="toolbar" class="toolbar toolbar--right collapsed">
-        <span class="fa-duotone fa-user-hair-buns"></span>
+        <span class="fa-duotone fa-sharp fa-light fa-user-hair-buns"></span>
         <span>User Name</span>
 
         <button
@@ -107,7 +107,7 @@
           title="Toggle dark mode"
           data-mode="dark"
         >
-          <span class="fa-duotone fa-eclipse-alt"></span>
+          <span class="fa-duotone fa-sharp fa-light fa-eclipse-alt"></span>
           <span class="visually-hidden">Toggle dark mode</span>
         </button>
 
@@ -116,7 +116,7 @@
           type="button"
           title="Settings"
         >
-          <span class="fa-duotone fa-cog"></span>
+          <span class="fa-duotone fa-sharp fa-light fa-cog"></span>
           <span class="visually-hidden">Settings</span>
         </button>
 
@@ -125,7 +125,7 @@
           type="button"
           title="Sign out"
         >
-          <span class="fa-duotone fa-sign-out-alt"></span>
+          <span class="fa-duotone fa-sharp fa-light fa-sign-out-alt"></span>
           <span class="visually-hidden">Sign out</span>
         </button>
       </div>
@@ -138,7 +138,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation and toolbar"
       >
-        <span class="fa-solid fa-bars"></span
+        <span class="fa-duotone fa-sharp fa-light fa-bars"></span
         ><span class="visually-hidden">Menu</span>
       </button>
     </header>
@@ -889,19 +889,19 @@
 
         <div class="alert" role="alert">
           <div class="alert__icon">
-            <i class="fa-light fa-2xl fa-circle-question"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-2xl fa-circle-question"></i>
           </div>
           <div class="alert__text">Single line message</div>
         </div>
 
         <div class="alert alert--info" role="alert">
           <div class="alert__icon">
-            <i class="fa-light fa-2xl fa-circle-info"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-2xl fa-circle-info"></i>
           </div>
           <div class="alert__text">Single line informational message</div>
         </div>
         <div class="alert alert--sm alert--info" role="alert">
-          <div class="alert__icon"><i class="fa-light fa-circle-info"></i></div>
+          <div class="alert__icon"><i class="fa-duotone fa-sharp fa-light fa-circle-info"></i></div>
           <div class="alert__text">
             Small single line informational message using
             <code>alert--sm</code> modifier
@@ -909,14 +909,14 @@
         </div>
         <div class="alert alert--success alert--removable" role="alert">
           <div class="alert__icon">
-            <i class="fa-light fa-2xl fa-circle-check"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-2xl fa-circle-check"></i>
           </div>
           <div class="alert__text">
             Single <a href="#">line success</a> message that&rsquo;s a little
             long
           </div>
           <button type="button" class="alert__close" aria-label="Close">
-            <i class="fa-solid fa-xl fa-xmark"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-xl fa-xmark"></i>
           </button>
         </div>
         <div
@@ -924,25 +924,25 @@
           role="alert"
         >
           <div class="alert__icon">
-            <i class="fa-light fa-circle-check"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-circle-check"></i>
           </div>
           <div class="alert__text">
             Small single <a href="#">line success</a> message that&rsquo;s a
             little long
           </div>
           <button type="button" class="alert__close" aria-label="Close">
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-xmark"></i>
           </button>
         </div>
         <div class="alert alert--warning" role="alert">
           <div class="alert__icon">
-            <i class="fa-light fa-2xl fa-triangle-exclamation"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-2xl fa-triangle-exclamation"></i>
           </div>
           <div class="alert__text">Single line warning message</div>
         </div>
         <div class="alert alert--danger" role="alert">
           <div class="alert__icon">
-            <i class="fa-light fa-2xl fa-circle-exclamation"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-2xl fa-circle-exclamation"></i>
           </div>
           <div class="alert__text">
             <p>Multiple line error message that&rsquo;s a little long</p>
@@ -954,7 +954,7 @@
             </ul>
           </div>
           <button type="button" class="alert__close" aria-label="Close">
-            <i class="fa-solid fa-xl fa-xmark"></i>
+            <i class="fa-duotone fa-sharp fa-light fa-xl fa-xmark"></i>
           </button>
         </div>
       </section>
@@ -1319,7 +1319,7 @@
         </div>
 
         <p class="text--small text--muted">
-          <i class="fa-solid fa-asterisk"></i> Images from
+          <i class="fa-duotone fa-sharp fa-light fa-asterisk"></i> Images from
           <a href="https://placebeard.it/">placebeard.it</a>.
         </p>
       </section>
@@ -1504,6 +1504,74 @@
             </div>
           </form>
         </dialog>
+      </section>
+
+      <section class="section">
+        <h1>Accordion / Disclosure</h1>
+
+        <p>
+          Built on the native <code>&lt;details&gt;</code> and
+          <code>&lt;summary&gt;</code> elements — no JavaScript required for
+          basic expand/collapse behaviour.
+        </p>
+
+        <h2>Standalone disclosure</h2>
+
+        <details class="disclosure">
+          <summary class="disclosure__trigger">What is Albert CSS? <span class="disclosure__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+          <div class="disclosure__body">
+            <p>Albert CSS is a personal CSS framework based on Bootstrap v4, built with vanilla JS and no framework dependencies.</p>
+          </div>
+        </details>
+
+        <details class="disclosure">
+          <summary class="disclosure__trigger">How do I use it? <span class="disclosure__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+          <div class="disclosure__body">
+            <p>Include the compiled CSS and JS files in your HTML. Use the provided class names to style your components.</p>
+          </div>
+        </details>
+
+        <details class="disclosure" open>
+          <summary class="disclosure__trigger">This one starts open <span class="disclosure__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+          <div class="disclosure__body">
+            <p>Add the <code>open</code> attribute to a <code>&lt;details&gt;</code> element to have it expanded on load.</p>
+          </div>
+        </details>
+
+        <h2>Accordion</h2>
+
+        <p>
+          Wrap multiple items in <code>.accordion</code> to connect them
+          visually. Each <code>.accordion__item</code> closes its siblings when
+          opened.
+        </p>
+
+        <div class="accordion">
+          <details class="accordion__item">
+            <summary class="accordion__trigger">Getting started <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <div class="accordion__body">
+              <p>Download or link to the CSS and JS files. No build tools required for basic usage.</p>
+            </div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">Customisation <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <div class="accordion__body">
+              <p>Override CSS custom properties in your own stylesheet to change colours, spacing, and typography without touching the source.</p>
+            </div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">Browser support <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <div class="accordion__body">
+              <p>All modern browsers. The <code>&lt;details&gt;</code> element is supported in every evergreen browser and has been since 2020.</p>
+            </div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__trigger">Accessibility <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <div class="accordion__body">
+              <p><code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> are natively keyboard accessible and exposed correctly to assistive technology — no ARIA attributes required.</p>
+            </div>
+          </details>
+        </div>
       </section>
 
       <section class="section">

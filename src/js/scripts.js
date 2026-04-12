@@ -1,4 +1,5 @@
 import Bouncer from 'formbouncerjs'
+import { initAccordion } from './accordion'
 import { initAlertClose } from './alerts'
 import { initMenuToggle } from './menuToggle'
 import { initModal } from './modal'
@@ -12,6 +13,7 @@ window.addEventListener('load', function () {
     errorClass: 'form__control-error',
   })
 
+  initAccordion()
   initAlertClose()
   initMenuToggle()
   initModal()

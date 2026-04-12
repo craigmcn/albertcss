@@ -79,7 +79,7 @@ a {
   }
 
   &:focus {
-    border-radius: 0.25em;
+    border-radius: $border-radius;
     box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
     box-shadow: 0 0 0 0.2rem var(--focusShadow);
     outline: none;

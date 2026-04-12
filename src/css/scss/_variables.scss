@@ -57,13 +57,22 @@ $spacing: 1rem;
 
 /** Border radius
   */
-$border-radius: 0.125rem;
+$border-radius: 0.125rem; /* 2px */
+$border-radius-sm: calc($border-radius / 2); /* 1px */
+$border-radius-md: $border-radius; /* 2px */
+$border-radius-lg: calc($border-radius * 2); /* 4px */
+$border-radius-xl: calc($border-radius * 4); /* 8px */
+$border-radius-xxl: calc($border-radius * 6); /* 12px */
+$border-radius-pill: 50rem;
+$border-radius-circle: 50%;
+$border-radius-0: 0;
 
 /* Font sizes
   */
 $font-size-base: 1rem;
 $font-size-lg: 1.25rem;
 $font-size-sm: 0.875rem;
+$line-height-base: 1.5;
 
 /**
   * Breakpoints

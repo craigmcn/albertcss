@@ -11,7 +11,7 @@
   border: 1px solid $grey-400;
   border-color: $grey-400;
   border-color: var(--grey400);
-  border-radius: 0.25rem;
+  border-radius: $border-radius;
   overflow: hidden;
 
   &--primary {

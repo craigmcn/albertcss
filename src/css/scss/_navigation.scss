@@ -13,10 +13,8 @@
   }
 
   &__list {
-    background-color: $white;
     background-color: var(--bodyBg);
     border: 1px solid;
-    border-color: $grey-100;
     border-color: var(--grey100);
     border-radius: $border-radius;
     display: flex;
@@ -37,7 +35,6 @@
 
   &__item {
     border-bottom: 1px solid;
-    border-bottom-color: $grey-100;
     border-bottom-color: var(--grey100);
     margin-bottom: 0;
     padding: math.div($spacing, 2);
@@ -56,19 +53,16 @@
   }
 
   &__link {
-    color: $grey-800;
     color: var(--grey800);
     display: block;
     text-decoration: none;
 
     &:hover {
-      color: $grey-800;
       color: var(--grey800);
       text-decoration: underline;
     }
 
     &:visited {
-      color: $grey-800;
       color: var(--grey800);
     }
 

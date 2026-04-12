@@ -1,10 +1,8 @@
 @use '../variables' as *;
 
 .toolbar {
-  background-color: $grey-100;
   background-color: var(--grey100);
   border-top: 1px solid;
-  border-top-color: $grey-200;
   border-top-color: var(--grey200);
   grid-area: toolbar;
   padding: 0.25rem 1rem;

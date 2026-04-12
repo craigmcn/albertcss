@@ -14,37 +14,30 @@
 
 .text {
   &--primary {
-    color: $primary;
     color: var(--primary);
   }
 
   &--secondary {
-    color: $secondary;
     color: var(--secondary);
   }
 
   &--info {
-    color: $info;
     color: var(--info);
   }
 
   &--success {
-    color: $green;
     color: var(--green);
   }
 
   &--warning {
-    color: $warning;
     color: var(--warn);
   }
 
   &--danger {
-    color: $red;
     color: var(--red);
   }
 
   &--muted {
-    color: $grey-700;
     color: var(--grey700);
   }
 

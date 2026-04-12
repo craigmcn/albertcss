@@ -2250,6 +2250,7 @@ __metadata:
     browser-sync: ^3.0.4
     browserify: ^17.0.1
     eslint: ^9.39.4
+    eslint-config-prettier: ^10.1.8
     formbouncerjs: ^1.4.6
     globals: ^17.4.0
     gulp: ^5.0.1
@@ -2262,6 +2263,7 @@ __metadata:
     jsdom: ^29.0.2
     minimist: ^1.2.8
     neostandard: ^0.13.0
+    prettier: ^3.8.2
     sass: ^1.99.0
     vinyl-buffer: ^1.0.1
     vinyl-source-stream: ^2.0.0
@@ -4181,6 +4183,17 @@ __metadata:
   peerDependencies:
     eslint: ">=6.0.0"
   checksum: beccf2a5bd7c7974e3584b269f8a02667c83bca64cfd4c866f3055867f187e78b00ee826721765bdee9b13efaaa248f8068c581f7bb05803e8f47abb116e68fc
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^10.1.8":
+  version: 10.1.8
+  resolution: "eslint-config-prettier@npm:10.1.8"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: 9140e19f78f0dbc888b160bb72b85f8043bada7b12a548faa56cea0ba74f8ef16653250ffd014d85d9a376a88c4941c96a3cdc9d39a07eb3def6967166635bd8
   languageName: node
   linkType: hard
 
@@ -7406,6 +7419,15 @@ __metadata:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: cd192ec0d0a8e4c6da3bb80e4f62afe336df3f76271ac6deb0e6a36187133b6073a19e9727a1ff108cd8b9982e4768850d413baa71214dd80c7979617dca827a
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "prettier@npm:3.8.2"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: f415107b70d175983f8141cd78a99d38fbd4241c99b293ed182d76a96081d00db8918b1c76b32e597101d8ed8d3ab37389057b9ff1ba330a6a0e561c873cd22f
   languageName: node
   linkType: hard
 

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /**
   * Colours
   */
@@ -7,19 +9,19 @@ $fullBlack: #000;
 $pink: #e83e8c;
 $primary: #005b99;
 /* https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/official-symbols/colour-values.html */
-$primaryDark: darken($primary, 20%);
+$primaryDark: color.adjust($primary, $lightness: -20%);
 $secondary: #993d00;
 /* 180deg from primary*/
-$secondaryDark: darken($secondary, 20%);
+$secondaryDark: color.adjust($secondary, $lightness: -20%);
 $green: #036803;
-$successDark: darken($green, 20%);
+$successDark: color.adjust($green, $lightness: -20%);
 $info: #03607d;
-$infoDark: darken($info, 20%);
+$infoDark: color.adjust($info, $lightness: -20%);
 $red: #b60202;
-$dangerDark: darken($red, 20%);
+$dangerDark: color.adjust($red, $lightness: -20%);
 $yellow: #f9d615;
 $warning: #695802;
-$warningDark: darken($warning, 20%);
+$warningDark: color.adjust($warning, $lightness: -20%);
 $linkColor: $primary;
 
 $primaryDarkMode: #4cb5fa;
@@ -30,11 +32,11 @@ $redDarkMode: #f49090;
 $warnDarkMode: #f9d615;
 $pinkDarkMode: #f28cbc;
 
-$primaryActive: darken($primary, 12%);
-$primaryVisited: lighten($primary, 8%);
+$primaryActive: color.adjust($primary, $lightness: -12%);
+$primaryVisited: color.adjust($primary, $lightness: 8%);
 
-$primaryDarkModeActive: darken($primaryDarkMode, 12%);
-$primaryDarkModeVisited: lighten($primaryDarkMode, 8%);
+$primaryDarkModeActive: color.adjust($primaryDarkMode, $lightness: -12%);
+$primaryDarkModeVisited: color.adjust($primaryDarkMode, $lightness: 8%);
 
 /* Greys */
 $grey-900: #363640;
@@ -52,6 +54,16 @@ $silver: #ebebef;
   * Spacing
   */
 $spacing: 1rem;
+
+/** Border radius
+  */
+$border-radius: 0.125rem;
+
+/* Font sizes
+  */
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.875rem;
 
 /**
   * Breakpoints

@@ -1,123 +1,128 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../fonts' as *;
+
 /**
   * Header
   */
 
 .header {
-    align-items: center;
-    background-color: var(--headerBg);
-    border-bottom: 1px solid;
-    border-bottom-color: $grey-300;
-    border-bottom-color: var(--grey300);
-    color: $grey-800;
-    color: var(--grey800);
-    column-gap: 1rem;
-    display: grid;
-    grid-template-areas:
-        'brand brand navToggle'
-        'site site site'
-        'navigation navigation navigation'
-        'toolbar toolbar toolbar';
-    grid-template-columns: min-content auto min-content;
+  align-items: center;
+  background-color: var(--headerBg);
+  border-bottom: 1px solid;
+  border-bottom-color: $grey-300;
+  border-bottom-color: var(--grey300);
+  color: $grey-800;
+  color: var(--grey800);
+  column-gap: 1rem;
+  display: grid;
+  grid-template-areas:
+    'brand brand navToggle'
+    'site site site'
+    'navigation navigation navigation'
+    'toolbar toolbar toolbar';
+  grid-template-columns: min-content auto min-content;
 
-    &--fixed {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 10;
+  &--fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  @include layout-sm {
+    grid-template-areas:
+      'brand site navToggle'
+      'navigation navigation navigation'
+      'toolbar toolbar toolbar';
+  }
+
+  @include layout-md {
+    grid-template-areas:
+      'brand navigation site'
+      'toolbar toolbar toolbar';
+  }
+
+  &--scroll {
+    // https://codingreflections.com/hide-header-on-scroll-down/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: top 0.3s ease;
+
+    &.hidden {
+      top: calc((var(--headerHeight) * -1) - 1px);
     }
+  }
+
+  h1 {
+    font-family: $raleway-stack;
+    font-size: 1.25rem;
+    grid-area: site;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    white-space: nowrap;
 
     @include layout-sm {
-        grid-template-areas:
-            'brand site navToggle'
-            'navigation navigation navigation'
-            'toolbar toolbar toolbar';
+      margin-left: auto;
+      margin-top: 0.5rem;
     }
 
     @include layout-md {
-        grid-template-areas: 'brand navigation site'
-            'toolbar toolbar toolbar';
+      margin-right: 1rem;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+      color: inherit;
     }
 
-    &--scroll {
-        // https://codingreflections.com/hide-header-on-scroll-down/
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 100;
-        transition: top .3s ease;
-
-        &.hidden {
-            top: calc((var(--headerHeight) * -1) - 1px);
-        }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(var(--grey800), 0.5);
     }
-
-    h1 {
-        font-family: $raleway-stack;
-        font-size: 1.25rem;
-        grid-area: site;
-        margin-bottom: 0.5rem;
-        margin-left: 1rem;
-        margin-top: 0;
-        padding-bottom: 0.5rem;
-        padding-top: 0.5rem;
-        white-space: nowrap;
-
-        @include layout-sm {
-            margin-left: auto;
-            margin-top: 0.5rem;
-        }
-
-        @include layout-md {
-            margin-right: 1rem;
-        }
-    }
-
-    &__link {
-        color: inherit;
-        text-decoration: none;
-
-        &:hover,
-        &:visited {
-            color: inherit;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem rgba($grey-800, 0.5);
-            box-shadow: 0 0 0 0.2rem rgba(var(--grey800), 0.5);
-        }
-    }
+  }
 }
 
 .brand {
-    font-weight: 600; // aligned with standard h*
-    font-family: $raleway-stack;
-    font-size: 1.25rem;
-    grid-area: brand;
-    margin: 0.5rem 0 0.5rem 1rem;
+  font-weight: 600; // aligned with standard h*
+  font-family: $raleway-stack;
+  font-size: 1.25rem;
+  grid-area: brand;
+  margin: 0.5rem 0 0.5rem 1rem;
 
-    &>a {
-        align-items: center;
-        color: $grey-800;
-        color: var(--grey800);
-        display: flex;
-        text-decoration: none;
+  & > a {
+    align-items: center;
+    color: $grey-800;
+    color: var(--grey800);
+    display: flex;
+    text-decoration: none;
+  }
+
+  img,
+  svg {
+    margin-right: 0.5rem;
+    width: 40px;
+  }
+
+  svg {
+    .np__bg {
+      fill: $white;
+      fill: var(--npBg);
     }
 
-    img,
-    svg {
-        margin-right: 0.5rem;
-        width: 40px;
+    .np__txt {
+      fill: $primary;
+      fill: var(--npTxt);
     }
-
-    svg {
-        .np__bg {
-            fill: $white;
-            fill: var(--npBg);
-        }
-
-        .np__txt {
-            fill: $primary;
-            fill: var(--npTxt);
-        }
-    }
+  }
 }

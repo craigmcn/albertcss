@@ -1,145 +1,148 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
 /**
   * Alerts
   */
 
 .alert {
-    $self: &;
+  $self: &;
+  background-color: $white;
+  background-color: var(--white);
+  border: 1px solid;
+  border-color: var(--grey400);
+  border-radius: 0.25em;
+  color: $grey-800;
+  color: var(--grey800);
+  display: flex;
+  display: -ms-flexbox;
+  justify-content: space-between;
+  padding: 0.5em 0.5rem;
+  margin-bottom: 1rem;
+
+  a {
+    color: inherit;
+    font-weight: bold;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
+    }
+  }
+
+  &__text {
+    line-height: 1.6;
+    margin-right: auto;
+    padding: 0.25em 0;
+  }
+
+  &__icon {
+    margin-right: 0.5em;
+    opacity: 0.5;
+  }
+
+  &__close {
+    align-self: baseline;
+    margin-left: auto;
+    opacity: 0.5;
+    outline: none;
+    padding: 0;
+
+    &:focus,
+    &:hover {
+      opacity: 1 !important;
+    }
+
+    &:focus {
+      border-radius: 0.25em;
+      box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
+    }
+  }
+
+  &--overlay {
     background-color: $white;
     background-color: var(--white);
-    border: 1px solid;
-    border-color: var(--grey400);
-    border-radius: 0.25em;
-    color: $grey-800;
-    color: var(--grey800);
-    display: flex;
-    display: -ms-flexbox;
-    justify-content: space-between;
-    padding: 0.5em 0.5rem;
-    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px $grey-600;
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    z-index: 1000;
 
-    a {
-        color: inherit;
-        font-weight: bold;
+    @include layout-md {
+      & {
+        left: 50%;
+        margin-left: -33.333%;
+        width: 66.667%;
+      }
+    }
+  }
 
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
-        }
+  &--info {
+    border-color: $info;
+    border-color: var(--info);
+    color: $info;
+    color: var(--info);
+
+    a:focus,
+    & > #{ $self }__close:focus {
+      box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
+    }
+  }
+
+  &--success {
+    border-color: $green;
+    border-color: var(--green);
+    color: $green;
+    color: var(--green);
+
+    a:focus,
+    & > #{ $self }__close:focus {
+      box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
+    }
+  }
+
+  &--danger {
+    border-color: $red;
+    border-color: var(--red);
+    color: $red;
+    color: var(--red);
+
+    a:focus,
+    & > #{ $self }__close:focus {
+      box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
+    }
+  }
+
+  &--warning {
+    border-color: $warning;
+    border-color: var(--warn);
+    color: $warning;
+    color: var(--warn);
+
+    a:focus,
+    & > #{ $self }__close:focus {
+      box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
+    }
+  }
+
+  &--sm {
+    padding: 0 0.5rem;
+
+    & > #{ $self }__text {
+      line-height: normal;
+
+      & > p {
+        line-height: normal;
+      }
     }
 
-    &__text {
-        line-height: 1.6;
-        margin-right: auto;
-        padding: 0.25em 0;
+    & > #{ $self }__icon {
+      margin-right: 0.25em;
     }
 
-    &__icon {
-        margin-right: 0.5em;
-        opacity: 0.5;
+    & > #{ $self }__icon,
+    & > #{ $self }__close {
+      margin-top: 0.25em;
+      opacity: 0.75;
     }
-
-    &__close {
-        align-self: baseline;
-        margin-left: auto;
-        opacity: 0.5;
-        outline: none;
-        padding: 0;
-
-        &:focus,
-        &:hover {
-            opacity: 1 !important;
-        }
-
-        &:focus {
-            border-radius: 0.25em;
-            box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
-        }
-    }
-
-    &--overlay {
-        background-color: $white;
-        background-color: var(--white);
-        box-shadow: 0 1px 3px $grey-600;
-        position: absolute;
-        top: 5rem;
-        width: 100%;
-        z-index: 1000;
-
-        @include layout-md {
-            & {
-                left: 50%;
-                margin-left: -33.333%;
-                width: 66.667%;
-            }
-        }
-    }
-
-    &--info {
-        border-color: $info;
-        border-color: var(--info);
-        color: $info;
-        color: var(--info);
-
-        a:focus,
-        &>#{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
-        }
-    }
-
-    &--success {
-        border-color: $green;
-        border-color: var(--green);
-        color: $green;
-        color: var(--green);
-
-        a:focus,
-        &>#{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
-        }
-    }
-
-    &--danger {
-        border-color: $red;
-        border-color: var(--red);
-        color: $red;
-        color: var(--red);
-
-        a:focus,
-        &>#{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
-        }
-    }
-
-    &--warning {
-        border-color: $warning;
-        border-color: var(--warn);
-        color: $warning;
-        color: var(--warn);
-
-        a:focus,
-        &>#{ $self }__close:focus {
-            box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
-        }
-    }
-
-    &--sm {
-        padding: 0 0.5rem;
-
-        &>#{ $self }__text {
-            line-height: normal;
-
-            &>p {
-                line-height: normal;
-            }
-        }
-
-        &>#{ $self }__icon {
-            margin-right: 0.25em;
-        }
-
-        &>#{ $self }__icon,
-        &>#{ $self }__close {
-            margin-top: 0.25em;
-            opacity: 0.75;
-        }
-    }
+  }
 }

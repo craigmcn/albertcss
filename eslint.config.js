@@ -1,8 +1,10 @@
 import neostandard from 'neostandard'
 import globals from 'globals'
+import prettierConfig from 'eslint-config-prettier'
 
 export default [
     ...neostandard(),
+    prettierConfig,
     {
         languageOptions: {
             globals: {
@@ -10,11 +12,7 @@ export default [
             },
         },
         rules: {
-            '@stylistic/indent': ['error', 4, { SwitchCase: 1 }],
-            '@stylistic/comma-dangle': ['error', 'always-multiline'],
-            '@stylistic/arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
             'no-console': 'warn',
-            'no-multi-spaces': 'error',
         },
     },
 ]

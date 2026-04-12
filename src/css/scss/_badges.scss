@@ -5,10 +5,8 @@
  */
 
 .badge {
-    background-color: $grey-700;
     background-color: var(--grey700);
     border-radius: $border-radius;
-    color: $white;
     color: var(--white);
     display: inline-block;
     font-size: $font-size-sm;
@@ -25,58 +23,42 @@
     }
 
     &--primary {
-        background-color: $primary;
         background-color: var(--primary);
-        color: $white;
         color: var(--white);
     }
 
     &--secondary {
-        background-color: $secondary;
         background-color: var(--secondary);
-        color: $white;
         color: var(--white);
     }
 
     &--success {
-        background-color: $green;
         background-color: var(--green);
-        color: $white;
         color: var(--white);
     }
 
     &--danger {
-        background-color: $red;
         background-color: var(--red);
-        color: $white;
         color: var(--white);
     }
 
     &--warning {
-        background-color: $warning;
         background-color: var(--warn);
-        color: $white;
         color: var(--white);
     }
 
     &--info {
-        background-color: $info;
         background-color: var(--info);
-        color: $white;
         color: var(--white);
     }
 
     &--light {
-        background-color: $silver;
         background-color: var(--silver);
-        color: $black;
         color: var(--black);
     }
 
     &--dark {
-        background-color: $grey-900;
         background-color: var(--grey900);
-        color: $white;
         color: var(--white);
     }
 }

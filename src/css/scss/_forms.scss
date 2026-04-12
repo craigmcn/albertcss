@@ -9,7 +9,6 @@
 .form {
   input[type='radio']:focus,
   input[type='checkbox']:focus {
-    box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
     box-shadow: 0 0 0 0.2rem var(--focusShadow);
     outline: none;
   }
@@ -49,14 +48,11 @@
   }
 
   &__control {
-    background-color: $white;
     background-color: var(--white);
     background-clip: padding-box;
     border: 1px solid;
-    border-color: $grey-600;
     border-color: var(--grey600);
     border-radius: $border-radius;
-    color: $black;
     color: var(--black);
     display: block;
     margin-bottom: math.div($spacing, 4);
@@ -70,7 +66,6 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
       box-shadow: 0 0 0 0.2rem var(--focusShadow);
     }
 
@@ -84,17 +79,14 @@
     }
 
     &-error {
-      color: $red;
       color: var(--red);
       margin-bottom: math.div($spacing, 4);
     }
 
     &--hasError {
-      border-color: $red;
       border-color: var(--red);
 
       &:focus {
-        box-shadow: 0 0 0 0.2rem rgba($red, 0.5);
         box-shadow: 0 0 0 0.2rem var(--errorShadow);
       }
     }

@@ -12,9 +12,7 @@ html {
 }
 
 body {
-  background-color: $white;
   background-color: var(--bodyBg);
-  color: $black;
   color: var(--black);
   font-family: $system-stack;
   font-variant-ligatures: common-ligatures;
@@ -40,7 +38,6 @@ h6 {
 }
 
 .subheading {
-  color: $grey-700;
   color: var(--grey700);
 
   h1 &,
@@ -64,23 +61,19 @@ p + div {
 }
 
 a {
-  color: $primary;
   color: var(--primary);
 
   &:hover,
   &:active {
-    color: color.adjust($primary, $lightness: -12%);
     color: var(--primaryActive);
   }
 
   &:visited {
-    color: color.adjust($primary, $lightness: 8%);
     color: var(--primaryVisited);
   }
 
   &:focus {
     border-radius: $border-radius;
-    box-shadow: 0 0 0 0.2rem rgba($primary, 0.5);
     box-shadow: 0 0 0 0.2rem var(--focusShadow);
     outline: none;
   }
@@ -89,7 +82,6 @@ a {
     &:hover,
     &:active,
     &:visited {
-      color: $primary;
       color: var(--primary);
     }
   }
@@ -105,7 +97,6 @@ a {
 
     &:hover,
     &:active {
-      color: color.adjust($primary, $lightness: -12%);
       color: var(--primaryActive);
       text-decoration: underline;
     }
@@ -158,7 +149,6 @@ blockquote {
 }
 
 code {
-  color: $pink;
   color: var(--pink);
   display: inline-block;
   font-family: monospace;
@@ -167,14 +157,12 @@ code {
 }
 
 pre {
-  background-color: $silver;
   background-color: var(--silver);
   padding: math.div($spacing, 2);
   white-space: pre-wrap;
   width: 100%;
 
   code {
-    color: $grey-800;
     color: var(--grey800);
   }
 }

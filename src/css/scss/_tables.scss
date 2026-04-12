@@ -10,7 +10,6 @@
   width: 100%;
 
   caption {
-    color: $grey-700;
     color: var(--grey700);
     font-size: $font-size-sm;
     padding-top: 0.5rem;
@@ -31,7 +30,6 @@
   }
 
   thead {
-    background-color: $silver;
     background-color: var(--silver);
 
     th,
@@ -51,7 +49,6 @@
 
   &--striped {
     tbody tr:nth-of-type(even) {
-      background-color: $silver;
       background-color: var(--silver);
     }
   }
@@ -79,7 +76,6 @@
 
   &--hover {
     tbody tr:hover {
-      background-color: $grey-100;
       background-color: var(--grey100);
     }
   }

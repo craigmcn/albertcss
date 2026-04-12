@@ -1,403 +1,406 @@
+@use 'sass:color';
+@use 'variables' as *;
+
 /**
   * Buttons
   */
 
 // button reset
 button,
-[type="button"],
-[type="submit"],
-[type="reset"] {
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    font: inherit;
-    outline: none;
-    padding: 0;
+[type='button'],
+[type='submit'],
+[type='reset'] {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+  padding: 0;
 }
 
 .button {
-    background-color: $white;
-    background-color: var(--white);
-    border: solid 1px;
-    border-color: $grey-400;
-    border-color: var(--grey400);
-    border-radius: 0.25em;
+  background-color: $white;
+  background-color: var(--white);
+  border: solid 1px;
+  border-color: $grey-400;
+  border-color: var(--grey400);
+  border-radius: 0.25em;
+  color: $black;
+  color: var(--black);
+  display: inline-block;
+  margin-top: 4px;
+  padding: calc(0.5em + 1px) 1em;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+
+  &:focus,
+  &:hover,
+  &:hover:visited,
+  &:active {
+    background-color: $grey-700;
+    border-color: $black;
+    border-color: var(--black);
+    border-width: 1px;
+    box-shadow: none;
+    color: $white;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem var(--grey700FocusShadow);
+  }
+
+  &:visited {
     color: $black;
     color: var(--black);
-    display: inline-block;
-    margin-top: 4px;
-    padding: calc(0.5em + 1px) 1em;
-    text-decoration: none;
-    transition: all 0.15s ease-in-out;
+  }
+
+  &--dark {
+    background-color: $grey-700;
+    border-color: $black;
+    color: $white;
 
     &:focus,
     &:hover,
     &:hover:visited,
     &:active {
-        background-color: $grey-700;
-        border-color: $black;
-        border-color: var(--black);
-        border-width: 1px;
-        box-shadow: none;
-        color: $white;
+      background-color: $grey-900;
+      border-color: $black;
     }
 
     &:focus {
-        box-shadow: 0 0 0 0.2rem var(--grey700FocusShadow);
+      box-shadow: 0 0 0 0.2rem var(--grey900FocusShadow);
     }
 
     &:visited {
-        color: $black;
-        color: var(--black);
+      color: $white;
+    }
+  }
+
+  &--primary {
+    border-color: $primary;
+    border-color: var(--primary);
+    color: $primary;
+    color: var(--primary);
+
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: $primary;
+      border-color: $primaryDark;
+      border-color: var(--primaryDark);
+      color: $white;
     }
 
-    &--dark {
-        background-color: $grey-700;
-        border-color: $black;
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--focusShadow);
+    }
+
+    &:visited {
+      color: $primary;
+      color: var(--primary);
+    }
+
+    &-dark {
+      background-color: $primary;
+      border-color: $primary;
+      color: $white;
+
+      &:focus,
+      &:hover,
+      &:hover:visited,
+      &:active {
+        background-color: color.adjust($primary, $lightness: -8%);
+        border-color: $primaryDark;
         color: $white;
+      }
 
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $grey-900;
-            border-color: $black;
-        }
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--focusShadow);
+      }
 
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--grey900FocusShadow);
-        }
+      &:visited {
+        color: $white;
+      }
+    }
+  }
 
-        &:visited {
-            color: $white;
-        }
+  &--secondary {
+    border-color: $secondary;
+    border-color: var(--secondary);
+    color: $secondary;
+    color: var(--secondary);
+
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: $secondary;
+      border-color: $secondaryDark;
+      border-color: var(--secondaryDark);
+      color: $white;
     }
 
-    &--primary {
-        border-color: $primary;
-        border-color: var(--primary);
-        color: $primary;
-        color: var(--primary);
-
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $primary;
-            border-color: $primaryDark;
-            border-color: var(--primaryDark);
-            color: $white;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--focusShadow);
-        }
-
-        &:visited {
-            color: $primary;
-            color: var(--primary);
-        }
-
-        &-dark {
-            background-color: $primary;
-            border-color: $primary;
-            color: $white;
-
-            &:focus,
-            &:hover,
-            &:hover:visited,
-            &:active {
-                background-color: darken($primary, 8%);
-                border-color: $primaryDark;
-                color: $white;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 0.2rem var(--focusShadow);
-            }
-
-            &:visited {
-                color: $white;
-            }
-        }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
     }
 
-    &--secondary {
-        border-color: $secondary;
-        border-color: var(--secondary);
-        color: $secondary;
-        color: var(--secondary);
-
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $secondary;
-            border-color: $secondaryDark;
-            border-color: var(--secondaryDark);
-            color: $white;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
-        }
-
-        &:visited {
-            color: $secondary;
-        }
-
-        &-dark {
-            background-color: $secondary;
-            border-color: $secondary;
-            color: $white;
-
-            &:focus,
-            &:hover,
-            &:hover:visited,
-            &:active {
-                background-color: darken($secondary, 8%);
-                border-color: $secondaryDark;
-                color: $white;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
-            }
-
-            &:visited {
-                color: $white;
-            }
-        }
+    &:visited {
+      color: $secondary;
     }
 
-    &--danger {
-        border-color: $red;
-        border-color: var(--red);
-        color: $red;
-        color: var(--red);
+    &-dark {
+      background-color: $secondary;
+      border-color: $secondary;
+      color: $white;
 
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $red;
-            border-color: $dangerDark;
-            border-color: var(--dangerDark);
-            color: $white;
-        }
+      &:focus,
+      &:hover,
+      &:hover:visited,
+      &:active {
+        background-color: color.adjust($secondary, $lightness: -8%);
+        border-color: $secondaryDark;
+        color: $white;
+      }
 
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
-        }
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
+      }
 
-        &:visited {
-            color: $red;
-        }
+      &:visited {
+        color: $white;
+      }
+    }
+  }
 
-        &-dark {
-            background-color: $red;
-            border-color: $red;
-            color: $white;
+  &--danger {
+    border-color: $red;
+    border-color: var(--red);
+    color: $red;
+    color: var(--red);
 
-            &:focus,
-            &:hover,
-            &:hover:visited,
-            &:active {
-                background-color: darken($red, 8%);
-                border-color: $dangerDark;
-                color: $white;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
-            }
-
-            &:visited {
-                color: $white;
-            }
-        }
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: $red;
+      border-color: $dangerDark;
+      border-color: var(--dangerDark);
+      color: $white;
     }
 
-    &--warning {
-        border-color: $warning;
-        border-color: var(--warn);
-        color: $warning;
-        color: var(--warn);
-
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $warning;
-            border-color: $warningDark;
-            border-color: var(--warningDark);
-            color: $white;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
-        }
-
-        &:visited {
-            color: $warning;
-        }
-
-        &-dark {
-            background-color: $warning;
-            border-color: $warning;
-            color: $white;
-
-            &:focus,
-            &:hover,
-            &:hover:visited,
-            &:active {
-                background-color: darken($warning, 8%);
-                border-color: $warningDark;
-                color: $white;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
-            }
-
-            &:visited {
-                color: $white;
-            }
-        }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
     }
 
-    &--success {
-        border-color: $green;
-        border-color: var(--green);
-        color: $green;
-        color: var(--green);
-
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $green;
-            border-color: $successDark;
-            border-color: var(--successDark);
-            color: $white;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
-        }
-
-        &:visited {
-            color: $green;
-        }
-
-        &-dark {
-            background-color: $green;
-            border-color: $green;
-            color: $white;
-
-            &:focus,
-            &:hover,
-            &:hover:visited,
-            &:active {
-                background-color: darken($green, 8%);
-                border-color: $successDark;
-                color: $white;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
-            }
-
-            &:visited {
-                color: $white;
-            }
-        }
+    &:visited {
+      color: $red;
     }
 
-    &--info {
-        border-color: $info;
-        border-color: var(--info);
-        color: $info;
-        color: var(--info);
+    &-dark {
+      background-color: $red;
+      border-color: $red;
+      color: $white;
 
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: $info;
-            border-color: $infoDark;
-            border-color: var(--infoDark);
-            color: $white;
-        }
+      &:focus,
+      &:hover,
+      &:hover:visited,
+      &:active {
+        background-color: color.adjust($red, $lightness: -8%);
+        border-color: $dangerDark;
+        color: $white;
+      }
 
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
-        }
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
+      }
 
-        &:visited {
-            color: $info;
-        }
+      &:visited {
+        color: $white;
+      }
+    }
+  }
 
-        &-dark {
-            background-color: $info;
-            border-color: $info;
-            color: $white;
+  &--warning {
+    border-color: $warning;
+    border-color: var(--warn);
+    color: $warning;
+    color: var(--warn);
 
-            &:focus,
-            &:hover,
-            &:hover:visited,
-            &:active {
-                background-color: darken($info, 8%);
-                border-color: $infoDark;
-                color: $white;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
-            }
-
-            &:visited {
-                color: $white;
-            }
-        }
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: $warning;
+      border-color: $warningDark;
+      border-color: var(--warningDark);
+      color: $white;
     }
 
-    &--link {
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-        color: $primary;
-        color: var(--primary);
-        padding: calc(0.5em + 1px) calc(1em + 1px);
-        text-decoration: underline;
-
-        &:focus,
-        &:hover,
-        &:hover:visited,
-        &:active {
-            background-color: inherit;
-            color: $primaryActive;
-            color: var(--primaryActive);
-        }
-
-        &:focus {
-            box-shadow: 0 0 0 0.2rem var(--focusShadow);
-        }
-
-        &:visited {
-            color: $primary;
-            color: var(--primary);
-        }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
     }
 
-    &--lg {
-        font-size: 1.25em;
-        padding: 0.5em 1em calc(0.5em - 1px) 1em;
+    &:visited {
+      color: $warning;
     }
 
-    &--sm {
-        font-size: 0.9em;
-        padding: 0.25em 0.5em;
+    &-dark {
+      background-color: $warning;
+      border-color: $warning;
+      color: $white;
+
+      &:focus,
+      &:hover,
+      &:hover:visited,
+      &:active {
+        background-color: color.adjust($warning, $lightness: -8%);
+        border-color: $warningDark;
+        color: $white;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
+      }
+
+      &:visited {
+        color: $white;
+      }
     }
+  }
+
+  &--success {
+    border-color: $green;
+    border-color: var(--green);
+    color: $green;
+    color: var(--green);
+
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: $green;
+      border-color: $successDark;
+      border-color: var(--successDark);
+      color: $white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
+    }
+
+    &:visited {
+      color: $green;
+    }
+
+    &-dark {
+      background-color: $green;
+      border-color: $green;
+      color: $white;
+
+      &:focus,
+      &:hover,
+      &:hover:visited,
+      &:active {
+        background-color: color.adjust($green, $lightness: -8%);
+        border-color: $successDark;
+        color: $white;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
+      }
+
+      &:visited {
+        color: $white;
+      }
+    }
+  }
+
+  &--info {
+    border-color: $info;
+    border-color: var(--info);
+    color: $info;
+    color: var(--info);
+
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: $info;
+      border-color: $infoDark;
+      border-color: var(--infoDark);
+      color: $white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
+    }
+
+    &:visited {
+      color: $info;
+    }
+
+    &-dark {
+      background-color: $info;
+      border-color: $info;
+      color: $white;
+
+      &:focus,
+      &:hover,
+      &:hover:visited,
+      &:active {
+        background-color: color.adjust($info, $lightness: -8%);
+        border-color: $infoDark;
+        color: $white;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
+      }
+
+      &:visited {
+        color: $white;
+      }
+    }
+  }
+
+  &--link {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: $primary;
+    color: var(--primary);
+    padding: calc(0.5em + 1px) calc(1em + 1px);
+    text-decoration: underline;
+
+    &:focus,
+    &:hover,
+    &:hover:visited,
+    &:active {
+      background-color: inherit;
+      color: $primaryActive;
+      color: var(--primaryActive);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--focusShadow);
+    }
+
+    &:visited {
+      color: $primary;
+      color: var(--primary);
+    }
+  }
+
+  &--lg {
+    font-size: 1.25em;
+    padding: 0.5em 1em calc(0.5em - 1px) 1em;
+  }
+
+  &--sm {
+    font-size: 0.9em;
+    padding: 0.25em 0.5em;
+  }
 }

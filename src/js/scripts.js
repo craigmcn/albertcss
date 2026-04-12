@@ -4,14 +4,15 @@ import { initMenuToggle } from './menuToggle'
 import scrollHeader from './scrollHeader'
 
 window.addEventListener('load', function () {
-    const validate = new Bouncer('form', { // eslint-disable-line
-        messageAfterField: false,
-        fieldClass: 'form__control--hasError',
-        errorClass: 'form__control-error',
-    })
+  const validate = new Bouncer('form', {
+    // eslint-disable-line
+    messageAfterField: false,
+    fieldClass: 'form__control--hasError',
+    errorClass: 'form__control-error',
+  })
 
-    initAlertClose()
-    initMenuToggle()
+  initAlertClose()
+  initMenuToggle()
 
-    scrollHeader()
+  scrollHeader()
 })

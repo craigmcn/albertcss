@@ -1,37 +1,28 @@
-/* Dependencies
- *
- * Normalize 8.0.1 - github.com/necolas/normalize.css
- */
-
-// Core variables and mixins
-@import "scss/variables";
-@import "scss/mixins";
-
 // Reset and dependencies
-@import "scss/normalize";
-@import "scss/fonts";
+@use 'scss/reset';
+@use 'scss/fonts';
 
 // Core
-@import "scss/root";
-@import "scss/base";
+@use 'scss/root';
+@use 'scss/base';
 
 // Layouts
-@import "scss/layouts/header";
-@import "scss/layouts/main";
-@import "scss/layouts/sections";
-@import "scss/layouts/toolbar";
+@use 'scss/layouts/header';
+@use 'scss/layouts/main';
+@use 'scss/layouts/sections';
+@use 'scss/layouts/toolbar';
 
 // Components
-@import "scss/alerts";
-@import "scss/buttons";
-@import "scss/cards";
-@import "scss/forms";
-@import "scss/icons";
-@import "scss/images";
-@import "scss/lists";
-@import "scss/navigation";
+@use 'scss/alerts';
+@use 'scss/buttons';
+@use 'scss/cards';
+@use 'scss/forms';
+@use 'scss/icons';
+@use 'scss/images';
+@use 'scss/lists';
+@use 'scss/navigation';
 
 // Utilities
-@import "scss/utilities/flex";
-@import "scss/utilities/spacing";
-@import "scss/utilities/text";
+@use 'scss/utilities/flex';
+@use 'scss/utilities/spacing';
+@use 'scss/utilities/text';

@@ -1,103 +1,105 @@
 @use 'sass:math';
+@use 'variables' as *;
+@use 'mixins' as *;
 
 .nav {
+  display: flex;
+  grid-area: navigation;
+  margin: 0 1rem 0.5rem 1rem;
+
+  @include layout-md {
+    margin-bottom: 0;
+    margin-left: auto;
+  }
+
+  &__list {
+    background-color: $white;
+    background-color: var(--bodyBg);
+    border: 1px solid;
+    border-color: $grey-100;
+    border-color: var(--grey100);
+    border-radius: math.div($spacing, 4);
     display: flex;
-    grid-area: navigation;
-    margin: 0 1rem 0.5rem 1rem;
+    flex-basis: 100%;
+    flex-direction: column;
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: 0;
 
     @include layout-md {
-        margin-bottom: 0;
-        margin-left: auto;
+      background-color: transparent;
+      border: none;
+      flex-basis: auto;
+      flex-direction: row;
+      margin-top: 0;
     }
+  }
 
-    &__list {
-        background-color: $white;
-        background-color: var(--bodyBg);
-        border: 1px solid;
-        border-color: $grey-100;
-        border-color: var(--grey100);
-        border-radius: math.div($spacing, 4);
-        display: flex;
-        flex-basis: 100%;
-        flex-direction: column;
-        list-style: none;
-        margin-bottom: 0;
-        margin-left: 0;
-
-        @include layout-md {
-            background-color: transparent;
-            border: none;
-            flex-basis: auto;
-            flex-direction: row;
-            margin-top: 0;
-        }
-    }
-
-    &__item {
-        border-bottom: 1px solid;
-        border-bottom-color: $grey-100;
-        border-bottom-color: var(--grey100);
-        margin-bottom: 0;
-        padding: math.div($spacing, 2);
-
-        @include layout-md {
-            background-color: transparent;
-            border-bottom: none;
-            margin-right: math.div($spacing, 2);
-            padding: 0;
-        }
-
-        &:last-child {
-            border-bottom: none;
-            margin-right: 0;
-        }
-    }
-
-    &__link {
-        color: $grey-800;
-        color: var(--grey800);
-        display: block;
-        text-decoration: none;
-
-        &:hover {
-            color: $grey-800;
-            color: var(--grey800);
-            text-decoration: underline;
-        }
-
-        &:visited {
-            color: $grey-800;
-            color: var(--grey800);
-        }
-
-        // focus style uses primary (default) color box shadow
-    }
-
-    &__control {
-        display: block;
-        grid-area: navToggle;
-        margin-left: auto;
-        margin-right: 1rem;
-        margin-top: 0;
-
-        @include layout-md {
-            display: none;
-        }
-    }
+  &__item {
+    border-bottom: 1px solid;
+    border-bottom-color: $grey-100;
+    border-bottom-color: var(--grey100);
+    margin-bottom: 0;
+    padding: math.div($spacing, 2);
 
     @include layout-md {
-        margin-left: 0;
+      background-color: transparent;
+      border-bottom: none;
+      margin-right: math.div($spacing, 2);
+      padding: 0;
     }
+
+    &:last-child {
+      border-bottom: none;
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    color: $grey-800;
+    color: var(--grey800);
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+      color: $grey-800;
+      color: var(--grey800);
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $grey-800;
+      color: var(--grey800);
+    }
+
+    // focus style uses primary (default) color box shadow
+  }
+
+  &__control {
+    display: block;
+    grid-area: navToggle;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-top: 0;
+
+    @include layout-md {
+      display: none;
+    }
+  }
+
+  @include layout-md {
+    margin-left: 0;
+  }
 }
 
 .collapsed {
-    display: none;
+  display: none;
 
-    @include layout-md {
-        display: block;
-    }
+  @include layout-md {
+    display: block;
+  }
 }
 
 .expanded {
-    display: block;
+  display: block;
 }

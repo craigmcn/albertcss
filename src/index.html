@@ -1786,6 +1786,133 @@
       </section>
 
       <section class="section">
+        <h1>Dropdowns</h1>
+
+        <p>
+          A <code>.dropdown__trigger</code> button toggles a
+          <code>.dropdown__menu</code>. Arrow keys navigate items; <kbd>Escape</kbd>
+          closes the menu and returns focus to the trigger.
+        </p>
+
+        <h2>Basic dropdown</h2>
+
+        <div class="dropdown">
+          <button
+            class="button dropdown__trigger"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="dropdown-basic"
+          >
+            Options
+            <i
+              class="dropdown__icon fa-duotone fa-sharp fa-light fa-chevron-down"
+              aria-hidden="true"
+            ></i>
+          </button>
+          <ul
+            class="dropdown__menu"
+            id="dropdown-basic"
+            role="menu"
+            hidden
+          >
+            <li class="dropdown__item" role="none">
+              <a class="dropdown__link" href="#" role="menuitem">Profile</a>
+            </li>
+            <li class="dropdown__item" role="none">
+              <a class="dropdown__link" href="#" role="menuitem">Settings</a>
+            </li>
+            <li class="dropdown__item" role="none">
+              <button class="dropdown__button" role="menuitem" disabled>
+                Disabled action
+              </button>
+            </li>
+            <li class="dropdown__divider" role="separator"></li>
+            <li class="dropdown__item" role="none">
+              <button class="dropdown__button dropdown__button--danger" role="menuitem">
+                Delete account
+              </button>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="dropdown">
+          <button
+            class="button dropdown__trigger"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="dropdown-basic"
+          >
+            Options
+          </button>
+          <ul
+            class="dropdown__menu"
+            id="dropdown-basic"
+            role="menu"
+            hidden
+          >
+            <li class="dropdown__item" role="none">
+              <a class="dropdown__link" href="#" role="menuitem">Profile</a>
+            </li>
+            <li class="dropdown__item" role="none">
+              <a class="dropdown__link" href="#" role="menuitem">Settings</a>
+            </li>
+            <li class="dropdown__item" role="none">
+              <button class="dropdown__button" role="menuitem" disabled>
+                Disabled action
+              </button>
+            </li>
+            <li class="dropdown__divider" role="separator"></li>
+            <li class="dropdown__item" role="none">
+              <button class="dropdown__button dropdown__button--danger" role="menuitem">
+                Delete account
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <h2>Right-aligned dropdown</h2>
+
+        <p>
+          Add <code>.dropdown--right</code> to align the menu to the right edge
+          of the trigger.
+        </p>
+
+        <div style="text-align: right">
+          <div class="dropdown dropdown--right">
+            <button
+              class="button dropdown__trigger"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="dropdown-right"
+            >
+              Account
+              <i
+                class="dropdown__icon fa-duotone fa-sharp fa-light fa-chevron-down"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <ul
+              class="dropdown__menu"
+              id="dropdown-right"
+              role="menu"
+              hidden
+            >
+              <li class="dropdown__item" role="none">
+                <a class="dropdown__link" href="#" role="menuitem">Profile</a>
+              </li>
+              <li class="dropdown__item" role="none">
+                <a class="dropdown__link" href="#" role="menuitem">Billing</a>
+              </li>
+              <li class="dropdown__divider" role="separator"></li>
+              <li class="dropdown__item" role="none">
+                <a class="dropdown__link" href="#" role="menuitem">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <h1>Utilities</h1>
 
         <p>

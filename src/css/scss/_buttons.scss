@@ -24,8 +24,10 @@ button,
   border: solid 1px;
   border-color: var(--grey400);
   border-radius: $border-radius;
+  align-items: center;
   color: var(--black);
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
   margin-top: 4px;
   padding: 0.5em 1em;
   text-decoration: none;

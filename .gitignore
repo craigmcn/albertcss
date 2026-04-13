@@ -6,6 +6,7 @@ Fiverr
 tmp
 dist
 netlify
+coverage
 .vscode
 .pnp.*
 .yarn/*

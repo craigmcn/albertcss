@@ -47,12 +47,12 @@
     padding-bottom: math.div($spacing, 2);
 
     &--lg {
-        font-size: $font-size-lg;
+      font-size: $font-size-lg;
     }
 
     &--sm {
-        font-size: $font-size-sm;
-        padding-bottom: 0.25rem;
+      font-size: $font-size-sm;
+      padding-bottom: 0.25rem;
     }
   }
 
@@ -101,12 +101,12 @@
     }
 
     &--lg {
-        border-radius: $border-radius-lg;
-        font-size: $font-size-lg;
+      border-radius: $border-radius-lg;
+      font-size: $font-size-lg;
     }
 
     &--sm {
-        font-size: $font-size-sm;
+      font-size: $font-size-sm;
     }
   }
 

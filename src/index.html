@@ -901,8 +901,8 @@
           <div class="alert__text">Single line informational message</div>
         </div>
         <div class="alert alert--sm alert--info" role="alert">
-          <div class="alert__icon"><i class="fa-duotone fa-sharp fa-light fa-circle-info"></i></div>
-          <div class="alert__text">
+          <i class="accordion__icon fa-duotone fa-sharp fa-light fa-circle-info"></i></div>
+          <div class__text">
             Small single line informational message using
             <code>alert--sm</code> modifier
           </div>
@@ -1518,21 +1518,21 @@
         <h2>Standalone disclosure</h2>
 
         <details class="disclosure">
-          <summary class="disclosure__trigger">What is Albert CSS? <span class="disclosure__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+          <summary class="disclosure__trigger">What is Albert CSS?</summary>
           <div class="disclosure__body">
             <p>Albert CSS is a personal CSS framework based on Bootstrap v4, built with vanilla JS and no framework dependencies.</p>
           </div>
         </details>
 
         <details class="disclosure">
-          <summary class="disclosure__trigger">How do I use it? <span class="disclosure__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+          <summary class="disclosure__trigger">How do I use it?</summary>
           <div class="disclosure__body">
             <p>Include the compiled CSS and JS files in your HTML. Use the provided class names to style your components.</p>
           </div>
         </details>
 
         <details class="disclosure" open>
-          <summary class="disclosure__trigger">This one starts open <span class="disclosure__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+          <summary class="disclosure__trigger">This one starts open</summary>
           <div class="disclosure__body">
             <p>Add the <code>open</code> attribute to a <code>&lt;details&gt;</code> element to have it expanded on load.</p>
           </div>
@@ -1548,29 +1548,102 @@
 
         <div class="accordion">
           <details class="accordion__item">
-            <summary class="accordion__trigger">Getting started <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <summary class="accordion__trigger">Getting started <i class="accordion__icon fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></summary>
             <div class="accordion__body">
               <p>Download or link to the CSS and JS files. No build tools required for basic usage.</p>
             </div>
           </details>
           <details class="accordion__item">
-            <summary class="accordion__trigger">Customisation <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <summary class="accordion__trigger">Customisation <i class="accordion__icon fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></summary>
             <div class="accordion__body">
               <p>Override CSS custom properties in your own stylesheet to change colours, spacing, and typography without touching the source.</p>
             </div>
           </details>
           <details class="accordion__item">
-            <summary class="accordion__trigger">Browser support <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <summary class="accordion__trigger">Browser support <i class="accordion__icon fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></summary>
             <div class="accordion__body">
               <p>All modern browsers. The <code>&lt;details&gt;</code> element is supported in every evergreen browser and has been since 2020.</p>
             </div>
           </details>
           <details class="accordion__item">
-            <summary class="accordion__trigger">Accessibility <span class="accordion__icon"><i class="fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></span></summary>
+            <summary class="accordion__trigger">Accessibility <i class="accordion__icon fa-duotone fa-sharp fa-light fa-chevron-down" aria-hidden="true"></i></summary>
             <div class="accordion__body">
               <p><code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> are natively keyboard accessible and exposed correctly to assistive technology — no ARIA attributes required.</p>
             </div>
           </details>
+        </div>
+
+        <p class="m-t-md">Add custom details marker icons by including an element with the <code>disclosure__icon</code> or <code>accordion__icon</code> class inside the <code>summary</code> element.</p>
+      </section>
+
+      <section class="section">
+        <h1>Tabs</h1>
+
+        <p>
+          Use <code>role="tablist"</code>, <code>role="tab"</code>, and
+          <code>role="tabpanel"</code> with matching <code>aria-controls</code>
+          / <code>id</code> pairs. The active tab is indicated by
+          <code>aria-selected="true"</code>; inactive panels use the
+          <code>hidden</code> attribute. Arrow keys, <kbd>Home</kbd>, and
+          <kbd>End</kbd> navigate between tabs.
+        </p>
+
+        <div class="tabs">
+          <div class="tabs__list" role="tablist" aria-label="Example tabs">
+            <button
+              class="tabs__tab"
+              role="tab"
+              id="tab-overview"
+              aria-controls="panel-overview"
+              aria-selected="true"
+              tabindex="0"
+            >Overview</button>
+            <button
+              class="tabs__tab"
+              role="tab"
+              id="tab-usage"
+              aria-controls="panel-usage"
+              aria-selected="false"
+              tabindex="-1"
+            >Usage</button>
+            <button
+              class="tabs__tab"
+              role="tab"
+              id="tab-accessibility"
+              aria-controls="panel-accessibility"
+              aria-selected="false"
+              tabindex="-1"
+            >Accessibility</button>
+          </div>
+
+          <div
+            class="tabs__panel"
+            role="tabpanel"
+            id="panel-overview"
+            aria-labelledby="tab-overview"
+          >
+            <p>Tabs organize content into separate views where only one is visible at a time. Use them when content can be meaningfully grouped into distinct, parallel sections.</p>
+          </div>
+
+          <div
+            class="tabs__panel"
+            role="tabpanel"
+            id="panel-usage"
+            aria-labelledby="tab-usage"
+            hidden
+          >
+            <p>Add <code>aria-selected="true"</code> and <code>tabindex="0"</code> to the initially active tab. All other tabs get <code>aria-selected="false"</code> and <code>tabindex="-1"</code>. Match each tab's <code>aria-controls</code> to its panel's <code>id</code>.</p>
+          </div>
+
+          <div
+            class="tabs__panel"
+            role="tabpanel"
+            id="panel-accessibility"
+            aria-labelledby="tab-accessibility"
+            hidden
+          >
+            <p>The tab list follows the ARIA authoring practices roving-tabindex pattern. Only the active tab is in the tab sequence; arrow keys move focus between tabs and activate the focused tab.</p>
+          </div>
         </div>
       </section>
 

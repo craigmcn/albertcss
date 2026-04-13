@@ -5,60 +5,60 @@
  */
 
 .badge {
-    background-color: var(--grey700);
-    border-radius: $border-radius;
+  background-color: var(--grey700);
+  border-radius: $border-radius;
+  color: var(--white);
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25em 0.5em;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+  &--pill {
+    border-radius: $border-radius-pill;
+    padding-inline: 0.6em; /* adjust horizontal padding for pill shape */
+  }
+
+  &--primary {
+    background-color: var(--primary);
     color: var(--white);
-    display: inline-block;
-    font-size: $font-size-sm;
-    font-weight: 600;
-    line-height: 1;
-    padding: 0.25em 0.5em;
-    text-align: center;
-    vertical-align: baseline;
-    white-space: nowrap;
+  }
 
-    &--pill {
-        border-radius: $border-radius-pill;
-        padding-inline: 0.6em; /* adjust horizontal padding for pill shape */
-    }
+  &--secondary {
+    background-color: var(--secondary);
+    color: var(--white);
+  }
 
-    &--primary {
-        background-color: var(--primary);
-        color: var(--white);
-    }
+  &--success {
+    background-color: var(--green);
+    color: var(--white);
+  }
 
-    &--secondary {
-        background-color: var(--secondary);
-        color: var(--white);
-    }
+  &--danger {
+    background-color: var(--red);
+    color: var(--white);
+  }
 
-    &--success {
-        background-color: var(--green);
-        color: var(--white);
-    }
+  &--warning {
+    background-color: var(--warn);
+    color: var(--white);
+  }
 
-    &--danger {
-        background-color: var(--red);
-        color: var(--white);
-    }
+  &--info {
+    background-color: var(--info);
+    color: var(--white);
+  }
 
-    &--warning {
-        background-color: var(--warn);
-        color: var(--white);
-    }
+  &--light {
+    background-color: var(--silver);
+    color: var(--black);
+  }
 
-    &--info {
-        background-color: var(--info);
-        color: var(--white);
-    }
-
-    &--light {
-        background-color: var(--silver);
-        color: var(--black);
-    }
-
-    &--dark {
-        background-color: var(--grey900);
-        color: var(--white);
-    }
+  &--dark {
+    background-color: var(--grey900);
+    color: var(--white);
+  }
 }

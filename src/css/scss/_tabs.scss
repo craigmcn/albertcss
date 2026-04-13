@@ -5,56 +5,59 @@
  */
 
 .tabs {
-    &__list {
-        border-bottom: 2px solid var(--grey200);
-        display: flex;
-        gap: 0.25rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+  &__list {
+    border-bottom: 2px solid var(--grey200);
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: $border-radius $border-radius 0 0;
+    color: var(--grey700);
+    cursor: pointer;
+    font: inherit;
+    margin-bottom: -2px;
+    outline: none;
+    padding: 0.625rem 1rem;
+    text-decoration: none;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: var(--silver);
+      color: var(--black);
     }
 
-    &__tab {
-        background: none;
-        border: none;
-        border-bottom: 2px solid transparent;
-        border-radius: $border-radius $border-radius 0 0;
-        color: var(--grey700);
-        cursor: pointer;
-        font: inherit;
-        margin-bottom: -2px;
-        outline: none;
-        padding: 0.625rem 1rem;
-        text-decoration: none;
-        transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
-        user-select: none;
-        white-space: nowrap;
-
-        &:hover {
-            background-color: var(--silver);
-            color: var(--black);
-        }
-
-        &:focus {
-            box-shadow: inset 0 0 0 0.2rem var(--focusShadow);
-        }
-
-        &[aria-selected='true'] {
-            border-bottom-color: var(--primary);
-            color: var(--primary);
-            font-weight: 600;
-        }
+    &:focus {
+      box-shadow: inset 0 0 0 0.2rem var(--focusShadow);
     }
 
-    &__panel {
-        padding: 1rem 0;
-
-        > * + * {
-            margin-top: $spacing;
-        }
-
-        &[hidden] {
-            display: none;
-        }
+    &[aria-selected='true'] {
+      border-bottom-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
     }
+  }
+
+  &__panel {
+    padding: 1rem 0;
+
+    > * + * {
+      margin-top: $spacing;
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
 }

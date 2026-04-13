@@ -6,83 +6,83 @@
  */
 
 dialog {
-    background-color: var(--bodyBg);
-    border: 1px solid var(--grey200);
-    border-radius: $border-radius;
-    color: var(--black);
-    margin-block-start: $spacing * 4;
-    margin-inline: auto;
-    max-height: 90dvh;
-    max-width: min(90vw, 40rem);
-    overflow: auto;
-    padding: 0;
+  background-color: var(--bodyBg);
+  border: 1px solid var(--grey200);
+  border-radius: $border-radius;
+  color: var(--black);
+  margin-block-start: $spacing * 4;
+  margin-inline: auto;
+  max-height: 90dvh;
+  max-width: min(90vw, 40rem);
+  overflow: auto;
+  padding: 0;
 
-    &::backdrop {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .modal {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
 
-    &__header {
-        align-items: center;
-        background-color: var(--silver);
-        border-bottom: 1px solid var(--grey200);
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
+  &__header {
+    align-items: center;
+    background-color: var(--silver);
+    border-bottom: 1px solid var(--grey200);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__close {
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.6;
+    padding: 0.25rem;
+
+    &:hover {
+      opacity: 1;
     }
 
-    &__title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin: 0;
+    &:focus {
+      border-radius: $border-radius;
+      box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
+      opacity: 1;
+      outline: none;
     }
+  }
 
-    &__close {
-        font-size: 1.25rem;
-        line-height: 1;
-        opacity: 0.6;
-        padding: 0.25rem;
+  &__body {
+    padding: 1rem;
 
-        &:hover {
-            opacity: 1;
-        }
-
-        &:focus {
-            border-radius: $border-radius;
-            box-shadow: 0 0 0 0.2rem var(--greyFocusShadow);
-            opacity: 1;
-            outline: none;
-        }
+    > * + * {
+      margin-top: $spacing;
     }
+  }
 
-    &__body {
-        padding: 1rem;
+  &__footer {
+    border-top: 1px solid var(--grey200);
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
 
-        > * + * {
-            margin-top: $spacing;
-        }
-    }
+  &--centered {
+    margin: auto;
+  }
 
-    &__footer {
-        border-top: 1px solid var(--grey200);
-        display: flex;
-        gap: 0.5rem;
-        justify-content: flex-end;
-        padding: 1rem;
-    }
+  &--sm {
+    max-width: min(90vw, 25rem);
+  }
 
-    &--centered {
-        margin: auto;
-    }
-
-    &--sm {
-        max-width: min(90vw, 25rem);
-    }
-
-    &--lg {
-        max-width: min(90vw, 60rem);
-    }
+  &--lg {
+    max-width: min(90vw, 60rem);
+  }
 }

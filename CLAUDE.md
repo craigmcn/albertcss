@@ -90,20 +90,20 @@ JS pipeline: Browserify + Babelify (@babel/preset-env) → Uglify (min only) →
 - Use CSS custom properties (from `_root.scss`) for colours and theme-sensitive values; use SCSS variables for build-time constants
 - Dark mode: `prefers-color-scheme: dark` media query + `html[data-mode="dark"]` / `body.theme--dark` manual override
 - BEM-style class naming (`.block`, `.block__element`, `.block--modifier`)
-- 4-space indentation
+- 2-space indentation
 
 ### JavaScript
 
 - ES6 modules (`import`/`export`); bundled by Browserify
 - No frameworks — vanilla JS only
-- Single quotes, no semicolons (enforced by ESLint)
-- 4-space indentation
+- Single quotes, semicolons (enforced by Prettier)
+- 2-space indentation
 - Accessibility: always manage `aria-*` attributes alongside visual state changes
 
 ### ESLint
 
 Config in `eslint.config.js` using ESLint flat config with `neostandard` and overrides:
-- Single quotes, no semicolons, 4-space indent
+- Single quotes, 2-space indent (semicolons handled by Prettier)
 - `console` statements: warn
 
 Run `yarn lint` before committing JS changes.

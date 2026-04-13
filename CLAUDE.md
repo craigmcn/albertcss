@@ -100,6 +100,10 @@ JS pipeline: Browserify + Babelify (@babel/preset-env) → Uglify (min only) →
 - 2-space indentation
 - Accessibility: always manage `aria-*` attributes alongside visual state changes
 
+### Testing
+
+When modifying any JS module under `src/js/` (excluding `scripts.js`), add or update the corresponding test file in `src/js/__tests__/` to cover the changed behaviour. Run `yarn test` to confirm all tests pass.
+
 ### ESLint
 
 Config in `eslint.config.js` using ESLint flat config with `neostandard` and overrides:

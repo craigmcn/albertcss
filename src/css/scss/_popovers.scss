@@ -1,0 +1,171 @@
+@use 'variables' as *;
+
+/**
+ * Popovers
+ *
+ * A .popover wrapper contains a .popover__trigger button and a .popover__panel.
+ * Toggle visibility is managed by JavaScript (initPopover).
+ *
+ * Default placement: bottom. Add .popover__panel--top / --left / --right
+ * to the panel element to change direction.
+ *
+ * The directional arrow uses a stacked two-triangle technique:
+ *   ::before — outer triangle in border colour (creates the 1px border edge)
+ *   ::after  — inner triangle in background colour (fills the arrow interior)
+ */
+
+$_ao: 0.5625rem; // outer arrow border-width (9px)
+$_ai: 0.5rem;    // inner arrow border-width (8px)
+$_gap: 0.625rem; // gap between trigger edge and panel edge
+
+.popover {
+  display: inline-block;
+  position: relative;
+
+  &__panel {
+    background-color: var(--bodyBg);
+    border: 1px solid var(--grey200);
+    border-radius: $border-radius-xl;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    min-width: 12rem;
+    max-width: 16rem;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    z-index: 1060;
+    // Default: bottom placement, centred under the trigger
+    left: 50%;
+    top: calc(100% + #{$_gap});
+    transform: translateX(-50%);
+
+    &[hidden] {
+      display: none;
+    }
+
+    // Arrow pseudo-elements — shared setup
+    &::before,
+    &::after {
+      content: '';
+      height: 0;
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+    }
+
+    // Default: bottom placement — up-pointing arrow at top of panel
+
+    // Outer triangle (border colour)
+    &::before {
+      border-bottom: $_ao solid var(--grey200);
+      border-left: $_ao solid transparent;
+      border-right: $_ao solid transparent;
+      border-top: 0;
+      left: 50%;
+      top: -#{$_ao};
+      transform: translateX(-50%);
+    }
+
+    // Inner triangle (background colour)
+    &::after {
+      border-bottom: $_ai solid var(--bodyBg);
+      border-left: $_ai solid transparent;
+      border-right: $_ai solid transparent;
+      border-top: 0;
+      left: 50%;
+      top: -#{$_ai};
+      transform: translateX(-50%);
+    }
+
+    // Top placement — down-pointing arrow at bottom of panel
+    &--top {
+      bottom: calc(100% + #{$_gap});
+      top: auto;
+
+      &::before {
+        border-bottom: 0;
+        border-left: $_ao solid transparent;
+        border-right: $_ao solid transparent;
+        border-top: $_ao solid var(--grey200);
+        bottom: -#{$_ao};
+        top: auto;
+      }
+
+      &::after {
+        border-bottom: 0;
+        border-left: $_ai solid transparent;
+        border-right: $_ai solid transparent;
+        border-top: $_ai solid var(--bodyBg);
+        bottom: -#{$_ai};
+        top: auto;
+      }
+    }
+
+    // Left placement — right-pointing arrow at right edge of panel
+    &--left {
+      left: auto;
+      right: calc(100% + #{$_gap});
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::before {
+        border-bottom: $_ao solid transparent;
+        border-left: $_ao solid var(--grey200);
+        border-right: 0;
+        border-top: $_ao solid transparent;
+        left: auto;
+        right: -#{$_ao};
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        border-bottom: $_ai solid transparent;
+        border-left: $_ai solid var(--bodyBg);
+        border-right: 0;
+        border-top: $_ai solid transparent;
+        left: auto;
+        right: -#{$_ai};
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    // Right placement — left-pointing arrow at left edge of panel
+    &--right {
+      left: calc(100% + #{$_gap});
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::before {
+        border-bottom: $_ao solid transparent;
+        border-left: 0;
+        border-right: $_ao solid var(--grey200);
+        border-top: $_ao solid transparent;
+        left: -#{$_ao};
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        border-bottom: $_ai solid transparent;
+        border-left: 0;
+        border-right: $_ai solid var(--bodyBg);
+        border-top: $_ai solid transparent;
+        left: -#{$_ai};
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: $font-size-base;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  &__body {
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+}

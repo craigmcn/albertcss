@@ -1910,10 +1910,17 @@
             </ul>
           </div>
         </div>
+
+        <p class="m-t-md">
+          Add custom dropdown arrow icons by including an element with the
+          <code>dropdown__icon</code> class inside the <code>button</code> element.
+        </p>
       </section>
 
       <section class="section">
-        <h1>Tooltips</h1>
+        <h1>Tooltips and Popovers</h1>
+
+        <h2>Tooltips</h2>
 
         <p>
           Add the <code>.tooltip</code> class and a <code>data-tooltip</code>
@@ -1927,7 +1934,7 @@
           <code>.tooltip--right</code> to change direction.
         </p>
 
-        <h2>Placements</h2>
+        <h3>Placements</h3>
 
         <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
           <button
@@ -1959,7 +1966,7 @@
           </button>
         </div>
 
-        <h2>On inline text</h2>
+        <h3>On inline text</h3>
 
         <p>
           Wrap an inline element to add a tooltip to a word or phrase.
@@ -1971,6 +1978,86 @@
           >
           is a good candidate.
         </p>
+
+        <h2>Popovers</h2>
+
+        <p>
+          A <code>.popover</code> wrapper contains a
+          <code>.popover__trigger</code> button and a
+          <code>.popover__panel</code>. Clicking the trigger toggles the panel;
+          <kbd>Escape</kbd> closes it and returns focus to the trigger.
+        </p>
+
+        <p>
+          Placement is set via a modifier on the panel:
+          <code>.popover__panel--top</code>, <code>.popover__panel--left</code>,
+          or <code>.popover__panel--right</code>. Default placement is
+          <strong>bottom</strong>.
+        </p>
+
+        <h3>Placements</h3>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <div class="popover">
+            <button
+              class="button popover__trigger"
+              aria-expanded="false"
+              aria-controls="pop-bottom"
+              aria-haspopup="dialog"
+            >
+              Bottom (default)
+            </button>
+            <div class="popover__panel" id="pop-bottom" hidden>
+              <strong class="popover__title">Bottom popover</strong>
+              <p class="popover__body">This panel appears below the trigger.</p>
+            </div>
+          </div>
+
+          <div class="popover">
+            <button
+              class="button popover__trigger"
+              aria-expanded="false"
+              aria-controls="pop-top"
+              aria-haspopup="dialog"
+            >
+              Top
+            </button>
+            <div class="popover__panel popover__panel--top" id="pop-top" hidden>
+              <strong class="popover__title">Top popover</strong>
+              <p class="popover__body">This panel appears above the trigger.</p>
+            </div>
+          </div>
+
+          <div class="popover">
+            <button
+              class="button popover__trigger"
+              aria-expanded="false"
+              aria-controls="pop-left"
+              aria-haspopup="dialog"
+            >
+              Left
+            </button>
+            <div class="popover__panel popover__panel--left" id="pop-left" hidden>
+              <strong class="popover__title">Left popover</strong>
+              <p class="popover__body">This panel appears to the left of the trigger.</p>
+            </div>
+          </div>
+
+          <div class="popover">
+            <button
+              class="button popover__trigger"
+              aria-expanded="false"
+              aria-controls="pop-right"
+              aria-haspopup="dialog"
+            >
+              Right
+            </button>
+            <div class="popover__panel popover__panel--right" id="pop-right" hidden>
+              <strong class="popover__title">Right popover</strong>
+              <p class="popover__body">This panel appears to the right of the trigger.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="section">

@@ -25,7 +25,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10;
+    z-index: $z-index-above;
   }
 
   @include layout-sm {
@@ -46,7 +46,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100;
+    z-index: $z-index-raised;
     transition: top 0.3s ease;
 
     &.hidden {

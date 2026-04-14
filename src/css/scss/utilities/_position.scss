@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 /**
  * Position utilities
  */
@@ -9,8 +11,8 @@
 .position-sticky   { position: sticky; }
 
 /* Sticky helpers */
-.sticky-top    { position: sticky; top: 0; z-index: 100; }
-.sticky-bottom { position: sticky; bottom: 0; z-index: 100; }
+.sticky-top    { position: sticky; top: 0; z-index: $z-index-raised; }
+.sticky-bottom { position: sticky; bottom: 0; z-index: $z-index-raised; }
 
 /* Edge placement — use with position-absolute / position-fixed */
 .top-0    { top: 0; }

@@ -1,0 +1,23 @@
+@use '../variables' as *;
+
+/**
+ * Z-index utilities
+ */
+
+/* Numeric scale */
+.z-0  { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-auto { z-index: auto; }
+
+/* Named semantic scale */
+.z-dropdown { z-index: $z-index-dropdown; }
+.z-sticky   { z-index: $z-index-sticky; }
+.z-fixed    { z-index: $z-index-fixed; }
+.z-backdrop { z-index: $z-index-backdrop; }
+.z-modal    { z-index: $z-index-modal; }
+.z-popover  { z-index: $z-index-popover; }
+.z-tooltip  { z-index: $z-index-tooltip; }

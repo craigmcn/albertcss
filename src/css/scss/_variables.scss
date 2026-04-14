@@ -67,6 +67,18 @@ $border-radius-pill: 50rem;
 $border-radius-circle: 50%;
 $border-radius-0: 0;
 
+/** Z-index
+  */
+$z-index-above:    10;    // slightly above normal flow (e.g. header scrolled)
+$z-index-raised:   100;   // raised above most content (e.g. header fixed, sticky helpers)
+$z-index-dropdown: 1000;
+$z-index-sticky:   1020;
+$z-index-fixed:    1030;
+$z-index-backdrop: 1040;
+$z-index-modal:    1050;
+$z-index-popover:  1060;
+$z-index-tooltip:  1070;
+
 /* Font sizes
   */
 $font-size-base: 1rem;

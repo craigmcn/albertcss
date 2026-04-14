@@ -2071,36 +2071,107 @@
         <h2>Spacing</h2>
 
         <p>
-          Spacing utilities can be used to apply margins and padding on
-          inline-block or block-level elements. Margin classes use the
-          <code>m-</code> prefix and padding uses <code>p-</code>.
+          Pattern: <code>.{m|p}{axis}{n}</code> — margin or padding, axis, and
+          a numeric scale where each step is 0.25rem (0–8, reaching 2rem).
+          Uses CSS logical properties, so axes respect writing direction.
         </p>
 
-        <p>
-          Spacing can be applied on each side (top, right, bottom, left),
-          horizontally (left, right), vertically (top, bottom) or on all sides.
-        </p>
+        <table class="table table--striped table--sm">
+          <thead>
+            <tr>
+              <th>Axis</th>
+              <th>Margin</th>
+              <th>Padding</th>
+              <th>Property</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(none)</td>
+              <td><code>m-{n}</code></td>
+              <td><code>p-{n}</code></td>
+              <td>all sides</td>
+            </tr>
+            <tr>
+              <td><code>t</code></td>
+              <td><code>mt-{n}</code></td>
+              <td><code>pt-{n}</code></td>
+              <td><code>block-start</code> (top in LTR)</td>
+            </tr>
+            <tr>
+              <td><code>b</code></td>
+              <td><code>mb-{n}</code></td>
+              <td><code>pb-{n}</code></td>
+              <td><code>block-end</code> (bottom in LTR)</td>
+            </tr>
+            <tr>
+              <td><code>s</code></td>
+              <td><code>ms-{n}</code></td>
+              <td><code>ps-{n}</code></td>
+              <td><code>inline-start</code> (left in LTR)</td>
+            </tr>
+            <tr>
+              <td><code>e</code></td>
+              <td><code>me-{n}</code></td>
+              <td><code>pe-{n}</code></td>
+              <td><code>inline-end</code> (right in LTR)</td>
+            </tr>
+            <tr>
+              <td><code>x</code></td>
+              <td><code>mx-{n}</code></td>
+              <td><code>px-{n}</code></td>
+              <td><code>inline</code> (left + right in LTR)</td>
+            </tr>
+            <tr>
+              <td><code>y</code></td>
+              <td><code>my-{n}</code></td>
+              <td><code>py-{n}</code></td>
+              <td><code>block</code> (top + bottom in LTR)</td>
+            </tr>
+          </tbody>
+        </table>
 
-        <p>
-          Spacing has six sizes: 0 (0px), <code>xs</code> (0.25rem),
-          <code>sm</code> (0.5rem), <code>md</code>
-          (1rem),
-          <code>lg</code> (1.5rem), <code>xl</code> (2rem).
-        </p>
+        <p>Scale: <code>0</code>=0 &nbsp; <code>1</code>=0.25rem &nbsp; <code>2</code>=0.5rem &nbsp; <code>3</code>=0.75rem &nbsp; <code>4</code>=1rem &nbsp; <code>5</code>=1.25rem &nbsp; <code>6</code>=1.5rem &nbsp; <code>7</code>=1.75rem &nbsp; <code>8</code>=2rem</p>
+
+        <p>Auto margin utilities: <code>mx-auto</code>, <code>my-auto</code>, <code>ms-auto</code>, <code>me-auto</code>, <code>mt-auto</code>, <code>mb-auto</code>.</p>
 
         <p>For example:</p>
 
         <ul>
-          <li>Extra-large (2rem) top margin: <code>m-t-xl</code></li>
-          <li>Large (1.5rem) right padding: <code>p-r-lg</code></li>
-          <li>
-            Medium (1rem) horizontal (left, right) margins: <code>m-h-md</code>
-          </li>
-          <li>
-            Small (0.5rem) vertical (top, bottom) padding: <code>p-v-sm</code>
-          </li>
-          <li>Extra-small (0.25rem) margins: <code>m-sm</code></li>
-          <li>No padding (0): <code>p-0</code></li>
+          <li>2rem top margin: <code>mt-8</code></li>
+          <li>1.5rem inline-end (right) padding: <code>pe-6</code></li>
+          <li>1rem horizontal margins: <code>mx-4</code></li>
+          <li>0.5rem vertical padding: <code>py-2</code></li>
+          <li>0.25rem inline-start (left) padding: <code>ps-1</code></li>
+          <li>No padding: <code>p-0</code></li>
+        </ul>
+
+        <h3>Legacy utilities</h3>
+
+        <div class="alert alert--warning alert--sm" role="alert">
+          <div class="alert__icon">
+            <i class="fa-duotone fa-sharp fa-light fa-triangle-exclamation"></i>
+          </div>
+          <div class="alert__text">These utilities are deprecated and will be removed in a future version.</div>
+        </div>
+
+        <p>
+          The original spacing classes remain available. Pattern:
+          <code>.{m|p}-{side}-{size}</code>.
+          Sides: <code>t</code> (top), <code>b</code> (bottom),
+          <code>l</code> (left), <code>r</code> (right),
+          <code>h</code> (left + right), <code>v</code> (top + bottom).
+          Sizes: <code>xs</code> (0.25rem), <code>sm</code> (0.5rem),
+          <code>md</code> (1rem), <code>lg</code> (1.5rem),
+          <code>xl</code> (2rem).
+        </p>
+
+        <ul>
+          <li>2rem top margin: <code>m-t-xl</code></li>
+          <li>1.5rem right padding: <code>p-r-lg</code></li>
+          <li>1rem horizontal margins: <code>m-h-md</code></li>
+          <li>0.5rem vertical padding: <code>p-v-sm</code></li>
+          <li>No padding: <code>p-0</code></li>
         </ul>
 
         <h2>Text</h2>

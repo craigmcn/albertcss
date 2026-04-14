@@ -1913,6 +1913,67 @@
       </section>
 
       <section class="section">
+        <h1>Tooltips</h1>
+
+        <p>
+          Add the <code>.tooltip</code> class and a <code>data-tooltip</code>
+          attribute directly to any interactive element. No JavaScript required.
+          The tooltip appears on hover and keyboard focus.
+        </p>
+
+        <p>
+          Placement defaults to <strong>top</strong>. Use
+          <code>.tooltip--bottom</code>, <code>.tooltip--left</code>, or
+          <code>.tooltip--right</code> to change direction.
+        </p>
+
+        <h2>Placements</h2>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+          <button
+            class="button tooltip"
+            data-tooltip="Top tooltip (default)"
+          >
+            Top (default)
+          </button>
+
+          <button
+            class="button tooltip tooltip--bottom"
+            data-tooltip="Bottom tooltip"
+          >
+            Bottom
+          </button>
+
+          <button
+            class="button tooltip tooltip--left"
+            data-tooltip="Left tooltip"
+          >
+            Left
+          </button>
+
+          <button
+            class="button tooltip tooltip--right"
+            data-tooltip="Right tooltip"
+          >
+            Right
+          </button>
+        </div>
+
+        <h2>On inline text</h2>
+
+        <p>
+          Wrap an inline element to add a tooltip to a word or phrase.
+          <abbr
+            class="tooltip"
+            data-tooltip="HyperText Markup Language"
+            style="cursor: help"
+            >HTML</abbr
+          >
+          is a good candidate.
+        </p>
+      </section>
+
+      <section class="section">
         <h1>Utilities</h1>
 
         <p>

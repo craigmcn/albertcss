@@ -31,7 +31,7 @@ $_gap: 0.625rem; // gap between trigger edge and panel edge
     max-width: 16rem;
     padding: 0.5rem 1rem;
     position: absolute;
-    z-index: 1060;
+    z-index: $z-index-popover;
     // Default: bottom placement, centred under the trigger
     left: 50%;
     top: calc(100% + #{$_gap});

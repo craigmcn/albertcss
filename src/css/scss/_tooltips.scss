@@ -25,7 +25,7 @@ $_total: $_gap + $_arrow + 0.1rem; // 0.75rem — element edge to bubble edge
     pointer-events: none;
     position: absolute;
     transition: opacity 0.15s ease;
-    z-index: 1070;
+    z-index: $z-index-tooltip;
   }
 
   // Bubble — always dark regardless of colour scheme

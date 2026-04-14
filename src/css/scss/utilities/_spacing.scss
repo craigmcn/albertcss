@@ -1,6 +1,17 @@
 @use 'sass:string';
 @use '../variables' as *;
 
+// =============================================================================
+// Legacy spacing utilities
+//
+// @deprecated Use the Bootstrap-compatible classes below instead.
+//
+// Pattern: .{m|p}-{side}-{size}
+// Sides:   t (top), b (bottom), l (left), r (right)
+//          h (left + right), v (top + bottom)
+// Sizes:   0, xs (0.25rem), sm (0.5rem), md (1rem), lg (1.5rem), xl (2rem)
+// =============================================================================
+
 $spaceamounts: (
   0: 0,
   xs: 0.25,
@@ -85,4 +96,45 @@ $sides: (top, bottom, left, right, horiz, vert, all);
       }
     }
   }
+}
+
+// =============================================================================
+// Bootstrap-compatible spacing utilities (CSS logical properties)
+//
+// Pattern: .{m|p}{axis}{n}
+// Axes:    (none) all sides
+//          t  block-start  (top in LTR)
+//          b  block-end    (bottom in LTR)
+//          s  inline-start (left in LTR)
+//          e  inline-end   (right in LTR)
+//          x  inline axis  (left + right in LTR)
+//          y  block axis   (top + bottom in LTR)
+// Scale:   n × 0.25rem  —  0=0  1=0.25rem  2=0.5rem … 8=2rem
+// =============================================================================
+
+.mx-auto { margin-inline: auto; }
+.my-auto { margin-block: auto; }
+.ms-auto { margin-inline-start: auto; }
+.me-auto { margin-inline-end: auto; }
+.mt-auto { margin-block-start: auto; }
+.mb-auto { margin-block-end: auto; }
+
+@for $n from 0 through 8 {
+  $val: 0.25rem * $n;
+
+  .m-#{$n}  { margin: $val; }
+  .mt-#{$n} { margin-block-start: $val; }
+  .mb-#{$n} { margin-block-end: $val; }
+  .ms-#{$n} { margin-inline-start: $val; }
+  .me-#{$n} { margin-inline-end: $val; }
+  .mx-#{$n} { margin-inline: $val; }
+  .my-#{$n} { margin-block: $val; }
+
+  .p-#{$n}  { padding: $val; }
+  .pt-#{$n} { padding-block-start: $val; }
+  .pb-#{$n} { padding-block-end: $val; }
+  .ps-#{$n} { padding-inline-start: $val; }
+  .pe-#{$n} { padding-inline-end: $val; }
+  .px-#{$n} { padding-inline: $val; }
+  .py-#{$n} { padding-block: $val; }
 }

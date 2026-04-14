@@ -1,0 +1,130 @@
+@use 'variables' as *;
+
+/**
+ * Tooltips
+ *
+ * Apply the .tooltip class directly to any interactive element and set the
+ * data-tooltip attribute to the label text. No JavaScript required.
+ *
+ * Placement modifiers: .tooltip--top (default), .tooltip--bottom,
+ * .tooltip--left, .tooltip--right
+ */
+
+$_arrow: 0.4rem;   // border-width that forms the triangle
+$_gap: 0.25rem;    // space between element edge and arrow tip
+$_total: $_gap + $_arrow + 0.1rem; // 0.75rem — element edge to bubble edge
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+
+  // Shared pseudo-element defaults
+  &::before,
+  &::after {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.15s ease;
+    z-index: 1070;
+  }
+
+  // Bubble — always dark regardless of colour scheme
+  &::before {
+    background-color: $grey-900;
+    border-radius: $border-radius;
+    color: $white;
+    content: attr(data-tooltip);
+    font-size: $font-size-sm;
+    line-height: $line-height-base;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+    // Top (default) position
+    bottom: calc(100% + #{$_total});
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // Arrow — top (default), pointing down
+  &::after {
+    border-left: $_arrow solid transparent;
+    border-right: $_arrow solid transparent;
+    border-top: $_arrow solid $grey-900;
+    border-bottom: 0;
+    content: '';
+    height: 0;
+    width: 0;
+    // Top (default) position
+    bottom: calc(100% + #{$_gap});
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:hover,
+  &:focus-within {
+    &::before,
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  // Bottom placement
+  &--bottom {
+    &::before {
+      bottom: auto;
+      top: calc(100% + #{$_total});
+    }
+
+    &::after {
+      border-top: 0;
+      border-bottom: $_arrow solid $grey-900;
+      border-left: $_arrow solid transparent;
+      border-right: $_arrow solid transparent;
+      bottom: auto;
+      top: calc(100% + #{$_gap});
+    }
+  }
+
+  // Left placement
+  &--left {
+    &::before {
+      bottom: auto;
+      top: 50%;
+      left: auto;
+      right: calc(100% + #{$_total});
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      border-top: $_arrow solid transparent;
+      border-bottom: $_arrow solid transparent;
+      border-left: $_arrow solid $grey-900;
+      border-right: 0;
+      bottom: auto;
+      top: 50%;
+      left: auto;
+      right: calc(100% + #{$_gap});
+      transform: translateY(-50%);
+    }
+  }
+
+  // Right placement
+  &--right {
+    &::before {
+      bottom: auto;
+      top: 50%;
+      left: calc(100% + #{$_total});
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      border-top: $_arrow solid transparent;
+      border-bottom: $_arrow solid transparent;
+      border-right: $_arrow solid $grey-900;
+      border-left: 0;
+      bottom: auto;
+      top: 50%;
+      left: calc(100% + #{$_gap});
+      transform: translateY(-50%);
+    }
+  }
+}

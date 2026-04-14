@@ -2215,7 +2215,7 @@
         <h3>Text size</h3>
 
         <p>
-          Font size utilities use a Tailwind-compatible scale with paired
+          Font size utilities use a <a href="https://tailwindcss.com/docs/font-size">Tailwind-style</a> scale with paired
           <code>line-height</code> values (all in <code>rem</code>):
         </p>
 
@@ -2226,7 +2226,7 @@
         <p class="text-xl">Extra large text using <code>class="text-xl"</code> (1.25rem).</p>
         <p class="text-2xl">2× large text using <code>class="text-2xl"</code> (1.5rem).</p>
 
-        <h3>Text alignment</h3>
+        <h3 class="mt-5">Text alignment</h3>
 
         <p>
           <code>text-start</code>, <code>text-center</code>, and
@@ -2332,6 +2332,78 @@
           <li><code>gap-x-{n}</code> — columns only</li>
           <li><code>gap-y-{n}</code> — rows only</li>
         </ul>
+
+        <h2>Overflow</h2>
+
+        <table class="table table--striped table--sm">
+          <thead>
+            <tr><th>Class</th><th>Property</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>overflow-auto</code></td><td><code>overflow: auto</code></td></tr>
+            <tr><td><code>overflow-hidden</code></td><td><code>overflow: hidden</code></td></tr>
+            <tr><td><code>overflow-visible</code></td><td><code>overflow: visible</code></td></tr>
+            <tr><td><code>overflow-scroll</code></td><td><code>overflow: scroll</code></td></tr>
+            <tr><td><code>overflow-clip</code></td><td><code>overflow: clip</code></td></tr>
+            <tr><td><code>overflow-x-auto</code></td><td><code>overflow-x: auto</code></td></tr>
+            <tr><td><code>overflow-x-hidden</code></td><td><code>overflow-x: hidden</code></td></tr>
+            <tr><td><code>overflow-x-scroll</code></td><td><code>overflow-x: scroll</code></td></tr>
+            <tr><td><code>overflow-y-auto</code></td><td><code>overflow-y: auto</code></td></tr>
+            <tr><td><code>overflow-y-hidden</code></td><td><code>overflow-y: hidden</code></td></tr>
+            <tr><td><code>overflow-y-scroll</code></td><td><code>overflow-y: scroll</code></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Position</h2>
+
+        <table class="table table--striped table--sm">
+          <thead>
+            <tr><th>Class</th><th>Property</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>position-static</code></td><td><code>position: static</code></td></tr>
+            <tr><td><code>position-relative</code></td><td><code>position: relative</code></td></tr>
+            <tr><td><code>position-absolute</code></td><td><code>position: absolute</code></td></tr>
+            <tr><td><code>position-fixed</code></td><td><code>position: fixed</code></td></tr>
+            <tr><td><code>position-sticky</code></td><td><code>position: sticky</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Sticky helpers</h3>
+
+        <p>
+          <code>sticky-top</code> and <code>sticky-bottom</code> apply
+          <code>position: sticky</code> with a fixed edge and a default
+          <code>z-index</code> of 100.
+        </p>
+
+        <h3>Edge placement</h3>
+
+        <p>
+          Use with <code>position-absolute</code> or <code>position-fixed</code>
+          to anchor an element to an edge of its container. Values: <code>0</code>,
+          <code>50%</code>, <code>100%</code>.
+        </p>
+
+        <ul>
+          <li><code>top-{0|50|100}</code></li>
+          <li><code>bottom-{0|50|100}</code></li>
+          <li><code>start-{0|50|100}</code> — <code>inset-inline-start</code></li>
+          <li><code>end-{0|50|100}</code> — <code>inset-inline-end</code></li>
+        </ul>
+
+        <p>
+          Add <code>translate-middle</code> alongside <code>top-50 start-50</code>
+          to centre an absolutely-positioned element within its parent.
+        </p>
+
+        <div class="position-relative" style="height: 6rem; background: var(--grey100); border: 1px solid var(--grey300);">
+          <span class="position-absolute top-0 start-0 badge badge--secondary">top / start</span>
+          <span class="position-absolute top-0 end-0 badge badge--secondary">top / end</span>
+          <span class="position-absolute top-50 start-50 translate-middle badge badge--primary">centre</span>
+          <span class="position-absolute bottom-0 start-0 badge badge--secondary">bottom / start</span>
+          <span class="position-absolute bottom-0 end-0 badge badge--secondary">bottom / end</span>
+        </div>
       </section>
     </main>
 

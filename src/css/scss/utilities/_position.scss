@@ -1,0 +1,35 @@
+/**
+ * Position utilities
+ */
+
+.position-static   { position: static; }
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed    { position: fixed; }
+.position-sticky   { position: sticky; }
+
+/* Sticky helpers */
+.sticky-top    { position: sticky; top: 0; z-index: 100; }
+.sticky-bottom { position: sticky; bottom: 0; z-index: 100; }
+
+/* Edge placement — use with position-absolute / position-fixed */
+.top-0    { top: 0; }
+.top-50   { top: 50%; }
+.top-100  { top: 100%; }
+
+.bottom-0   { bottom: 0; }
+.bottom-50  { bottom: 50%; }
+.bottom-100 { bottom: 100%; }
+
+.start-0   { inset-inline-start: 0; }
+.start-50  { inset-inline-start: 50%; }
+.start-100 { inset-inline-start: 100%; }
+
+.end-0   { inset-inline-end: 0; }
+.end-50  { inset-inline-end: 50%; }
+.end-100 { inset-inline-end: 100%; }
+
+/* Centering helper — pair with top-50 / start-50 */
+.translate-middle {
+  transform: translate(-50%, -50%);
+}

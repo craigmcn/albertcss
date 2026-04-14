@@ -386,31 +386,31 @@
 
         <h2>Text variants</h2>
 
-        <p class="text--primary">
+        <p class="text-primary">
           Primary lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <p class="text--secondary">
+        <p class="text-secondary">
           Secondary lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <p class="text--info">
+        <p class="text-info">
           Information lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <p class="text--success">
+        <p class="text-success">
           Success lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <p class="text--warning">
+        <p class="text-warning">
           Warning lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <p class="text--danger">
+        <p class="text-danger">
           Danger lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <p class="text--muted">
+        <p class="text-muted">
           Muted lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
       </section>
@@ -663,7 +663,7 @@
           <div class="form__group">
             <label class="form__label form__label--lg">Input large label</label>
             <input class="form__control form__control--lg" type="text" />
-            <p class="text--muted text--small">
+            <p class="text-muted text-sm">
               Some help text for this input.
             </p>
           </div>
@@ -1237,7 +1237,7 @@
               src="https://placebeard.it/320x240"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--default</code>
             </figcaption>
           </figure>
@@ -1250,7 +1250,7 @@
               src="https://placebeard.it/640x640"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--round</code>. A circle requires a square image.
             </figcaption>
           </figure>
@@ -1263,7 +1263,7 @@
               src="https://placebeard.it/360x270"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--rounded</code>
             </figcaption>
           </figure>
@@ -1276,7 +1276,7 @@
               src="https://placebeard.it/480x360"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--padded</code>
             </figcaption>
           </figure>
@@ -1289,7 +1289,7 @@
               src="https://placebeard.it/400x300"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--round img--padded</code>
             </figcaption>
           </figure>
@@ -1302,7 +1302,7 @@
               src="https://placebeard.it/640x480"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--border img--padded</code>
             </figcaption>
           </figure>
@@ -1315,7 +1315,7 @@
               src="https://placebeard.it/240x180"
               alt=""
             />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img img--border img--rounded</code>
             </figcaption>
           </figure>
@@ -1324,13 +1324,13 @@
             class="flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
           >
             <img class="img" src="https://placebeard.it/520x390" alt="" />
-            <figcaption class="text--small text--muted">
+            <figcaption class="text-sm text-muted">
               <code>img</code>
             </figcaption>
           </figure>
         </div>
 
-        <p class="text--small text--muted">
+        <p class="text-sm text-muted">
           <i class="fa-duotone fa-sharp fa-light fa-asterisk"></i> Images from
           <a href="https://placebeard.it/">placebeard.it</a>.
         </p>
@@ -1877,7 +1877,7 @@
           of the trigger.
         </p>
 
-        <div style="text-align: right">
+        <div class="text-end">
           <div class="dropdown dropdown--right">
             <button
               class="button dropdown__trigger"
@@ -1936,7 +1936,7 @@
 
         <h3>Placements</h3>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <div class="d-flex flex-wrap align-items-center gap-4">
           <button
             class="button tooltip"
             data-tooltip="Top tooltip (default)"
@@ -1997,7 +1997,7 @@
 
         <h3>Placements</h3>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <div class="d-flex flex-wrap align-items-center gap-4">
           <div class="popover">
             <button
               class="button popover__trigger"
@@ -2184,80 +2184,154 @@
           Text colour utilities match the alerts, buttons and cards colours:
         </p>
 
-        <p class="text--primary">
-          Primary colour text using <code>class="text--primary"</code>.
+        <p class="text-primary">
+          Primary colour text using <code>class="text-primary"</code>.
         </p>
 
-        <p class="text--secondary">
-          Secondary colour text using <code>class="text--secondary"</code>.
+        <p class="text-secondary">
+          Secondary colour text using <code>class="text-secondary"</code>.
         </p>
 
-        <p class="text--info">
-          Information colour text using <code>class="text--info"</code>.
+        <p class="text-info">
+          Information colour text using <code>class="text-info"</code>.
         </p>
 
-        <p class="text--success">
-          Success colour text using <code>class="text--success"</code>.
+        <p class="text-success">
+          Success colour text using <code>class="text-success"</code>.
         </p>
 
-        <p class="text--warning">
-          Warning colour text using <code>class="text--warning"</code>.
+        <p class="text-warning">
+          Warning colour text using <code>class="text-warning"</code>.
         </p>
 
-        <p class="text--danger">
-          Danger colour text using <code>class="text--danger"</code>.
+        <p class="text-danger">
+          Danger colour text using <code>class="text-danger"</code>.
         </p>
 
-        <p class="text--muted">
-          Muted colour text using <code>class="text--muted"</code>.
+        <p class="text-muted">
+          Muted colour text using <code>class="text-muted"</code>.
         </p>
 
         <h3>Text size</h3>
 
         <p>
-          Text size utilities are relative to the containing element (<code
-            >em</code
-          >
-          not <code>rem</code>):
+          Font size utilities use a Tailwind-compatible scale with paired
+          <code>line-height</code> values (all in <code>rem</code>):
         </p>
 
-        <p class="text--small">
-          Small text using <code>class="text--small"</code>. This size matches
-          the <code>&lt;small&gt;</code> tag.
+        <p class="text-xs">Extra small text using <code>class="text-xs"</code> (0.75rem).</p>
+        <p class="text-sm">Small text using <code>class="text-sm"</code> (0.875rem).</p>
+        <p class="text-base">Base text using <code>class="text-base"</code> (1rem).</p>
+        <p class="text-lg">Large text using <code>class="text-lg"</code> (1.125rem).</p>
+        <p class="text-xl">Extra large text using <code>class="text-xl"</code> (1.25rem).</p>
+        <p class="text-2xl">2× large text using <code>class="text-2xl"</code> (1.5rem).</p>
+
+        <h3>Text alignment</h3>
+
+        <p>
+          <code>text-start</code>, <code>text-center</code>, and
+          <code>text-end</code> use CSS logical values and respect writing
+          direction.
         </p>
 
-        <p class="text--large">
-          Large text using <code>class="text--large"</code>.
-        </p>
+        <p class="text-start">Left-aligned text (<code>text-start</code>).</p>
+        <p class="text-center">Centred text (<code>text-center</code>).</p>
+        <p class="text-end">Right-aligned text (<code>text-end</code>).</p>
 
         <h3>Other text utilities</h3>
 
-        <h4 class="text--normal">
+        <h4 class="fw-normal">
           &ldquo;Normal&rdquo; weight <code>h4</code> heading with
-          <code>class="text--normal"</code>. It can be used to reset font weight
+          <code>class="fw-normal"</code>. It can be used to reset font weight
           in headings or bold text.
         </h4>
 
         <p>
-          <span class="text--bold">
-            Bold text using <code>class="text--bold"</code>. It&rsquo;s not
+          <span class="fw-bold">
+            Bold text using <code>class="fw-bold"</code>. It&rsquo;s not
             quite as bold as <code>&lt;strong&gt;</code> </span
           >.<br />
           <strong>Strong text, for reference.</strong>
         </p>
 
-        <p class="text--light">
-          Light text using <code>class="text--light"</code>.
+        <p class="fw-light">
+          Light text using <code>class="fw-light"</code>.
         </p>
 
         <p>
-          <span class="text--upper"
-            >Uppercase text using <code>class="text--upper"</code></span
-          >. For example, use it with <code>text--small</code> and
-          <code>text--light</code> for
-          <span class="text--upper text--light text--small">fun variations</span
+          <span class="text-uppercase"
+            >Uppercase text using <code>class="text-uppercase"</code></span
+          >. For example, use it with <code>text-sm</code> and
+          <code>fw-light</code> for
+          <span class="text-uppercase fw-light text-sm">fun variations</span
           >.
         </p>
+
+        <h2>Display</h2>
+
+        <h3>Display values</h3>
+
+        <p>
+          Set the <code>display</code> property directly with a utility class.
+        </p>
+
+        <table class="table table--striped table--sm">
+          <thead>
+            <tr><th>Class</th><th>Property</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>d-none</code></td><td><code>display: none</code></td></tr>
+            <tr><td><code>d-block</code></td><td><code>display: block</code></td></tr>
+            <tr><td><code>d-inline</code></td><td><code>display: inline</code></td></tr>
+            <tr><td><code>d-inline-block</code></td><td><code>display: inline-block</code></td></tr>
+            <tr><td><code>d-flex</code></td><td><code>display: flex</code></td></tr>
+            <tr><td><code>d-inline-flex</code></td><td><code>display: inline-flex</code></td></tr>
+            <tr><td><code>d-grid</code></td><td><code>display: grid</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Flex helpers</h3>
+
+        <p>
+          Use alongside <code>d-flex</code> or <code>d-inline-flex</code> to
+          control direction, wrapping, alignment, and justification.
+        </p>
+
+        <table class="table table--striped table--sm">
+          <thead>
+            <tr><th>Class</th><th>Property</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>flex-row</code></td><td><code>flex-direction: row</code></td></tr>
+            <tr><td><code>flex-column</code></td><td><code>flex-direction: column</code></td></tr>
+            <tr><td><code>flex-wrap</code></td><td><code>flex-wrap: wrap</code></td></tr>
+            <tr><td><code>flex-nowrap</code></td><td><code>flex-wrap: nowrap</code></td></tr>
+            <tr><td><code>align-items-start</code></td><td><code>align-items: flex-start</code></td></tr>
+            <tr><td><code>align-items-end</code></td><td><code>align-items: flex-end</code></td></tr>
+            <tr><td><code>align-items-center</code></td><td><code>align-items: center</code></td></tr>
+            <tr><td><code>align-items-stretch</code></td><td><code>align-items: stretch</code></td></tr>
+            <tr><td><code>align-items-baseline</code></td><td><code>align-items: baseline</code></td></tr>
+            <tr><td><code>justify-content-start</code></td><td><code>justify-content: flex-start</code></td></tr>
+            <tr><td><code>justify-content-end</code></td><td><code>justify-content: flex-end</code></td></tr>
+            <tr><td><code>justify-content-center</code></td><td><code>justify-content: center</code></td></tr>
+            <tr><td><code>justify-content-between</code></td><td><code>justify-content: space-between</code></td></tr>
+            <tr><td><code>justify-content-around</code></td><td><code>justify-content: space-around</code></td></tr>
+            <tr><td><code>justify-content-evenly</code></td><td><code>justify-content: space-evenly</code></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Gap</h3>
+
+        <p>
+          Set <code>gap</code>, <code>column-gap</code>, or <code>row-gap</code>
+          on flex and grid containers. Same 0–8 scale as spacing (n × 0.25rem).
+        </p>
+
+        <ul>
+          <li><code>gap-{n}</code> — both axes</li>
+          <li><code>gap-x-{n}</code> — columns only</li>
+          <li><code>gap-y-{n}</code> — rows only</li>
+        </ul>
       </section>
     </main>
 

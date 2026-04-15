@@ -1,0 +1,140 @@
+@use 'variables' as *;
+
+/**
+ * Button group
+ *
+ * Connects .button elements in a horizontal row with shared borders.
+ *
+ * Basic usage:
+ *   <div class="btn-group" role="group" aria-label="...">
+ *     <button class="button button--primary">Left</button>
+ *     <button class="button button--primary">Middle</button>
+ *     <button class="button button--primary">Right</button>
+ *   </div>
+ *
+ * Radio/checkbox usage — input immediately precedes its label:
+ *   <div class="btn-group" role="group" aria-label="...">
+ *     <input class="btn-group__input" type="radio" id="r1" name="grp">
+ *     <label class="button button--secondary" for="r1">Option 1</label>
+ *     <input class="btn-group__input" type="radio" id="r2" name="grp">
+ *     <label class="button button--secondary" for="r2">Option 2</label>
+ *   </div>
+ */
+
+.btn-group {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+
+  .button {
+    border-radius: 0;
+    margin-top: 0;
+    position: relative;
+
+    // Bring focused/hovered button to front so its border isn't clipped
+    &:focus,
+    &:hover,
+    &:active {
+      z-index: 1;
+    }
+
+    // Collapse shared border between adjacent buttons
+    + .button {
+      margin-inline-start: -1px;
+    }
+
+    // Restore radius on outermost buttons (pure button groups)
+    &:first-child {
+      border-start-start-radius: $border-radius;
+      border-end-start-radius: $border-radius;
+    }
+
+    &:last-child {
+      border-start-end-radius: $border-radius;
+      border-end-end-radius: $border-radius;
+    }
+  }
+}
+
+// =============================================================================
+// Radio / checkbox inputs
+//
+// Visually hidden but accessible — pointer-events removed so the label
+// handles all interaction. The input:checked + label pattern drives state.
+// =============================================================================
+
+.btn-group__input {
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  position: absolute;
+
+  // Labels follow inputs in DOM so they are never :first-child.
+  // All labels get the collapsed border by default …
+  + .button {
+    margin-inline-start: -1px;
+  }
+
+  // … except the very first label, which starts the visual group.
+  &:first-child + .button {
+    border-start-start-radius: $border-radius;
+    border-end-start-radius: $border-radius;
+    margin-inline-start: 0;
+  }
+
+  // Focus ring on the label when the hidden input is focused
+  &:focus + .button {
+    box-shadow: 0 0 0 0.2rem var(--grey700FocusShadow);
+    z-index: 1;
+  }
+
+  &:focus + .button--primary   { box-shadow: 0 0 0 0.2rem var(--focusShadow); }
+  &:focus + .button--secondary { box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow); }
+  &:focus + .button--danger    { box-shadow: 0 0 0 0.2rem var(--redFocusShadow); }
+  &:focus + .button--warning   { box-shadow: 0 0 0 0.2rem var(--warnFocusShadow); }
+  &:focus + .button--success   { box-shadow: 0 0 0 0.2rem var(--greenFocusShadow); }
+  &:focus + .button--info      { box-shadow: 0 0 0 0.2rem var(--infoFocusShadow); }
+
+  // Checked state — match each variant's filled (hover/active) appearance
+  &:checked + .button {
+    background-color: $grey-700;
+    border-color: $black;
+    color: $white;
+    z-index: 1;
+  }
+
+  &:checked + .button--primary {
+    background-color: $primary;
+    border-color: $primaryDark;
+    color: $white;
+  }
+
+  &:checked + .button--secondary {
+    background-color: $secondary;
+    border-color: $secondaryDark;
+    color: $white;
+  }
+
+  &:checked + .button--danger {
+    background-color: $red;
+    border-color: $dangerDark;
+    color: $white;
+  }
+
+  &:checked + .button--warning {
+    background-color: $warning;
+    border-color: $warningDark;
+    color: $white;
+  }
+
+  &:checked + .button--success {
+    background-color: $green;
+    border-color: $successDark;
+    color: $white;
+  }
+
+  &:checked + .button--info {
+    background-color: $info;
+    border-color: $infoDark;
+    color: $white;
+  }
+}

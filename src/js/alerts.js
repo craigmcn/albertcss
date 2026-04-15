@@ -3,7 +3,7 @@ export const initAlertClose = () => {
     a.addEventListener('click', (e) => {
       const alertBlock = a.parentNode;
 
-      alertBlock.style.display = 'none';
+      alertBlock.classList.add('d-none');
 
       if (alertBlock.classList.contains('alert--removable'))
         alertBlock.remove();

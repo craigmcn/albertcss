@@ -41,10 +41,18 @@ export const initPopover = () => {
     });
   });
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    popovers.forEach((popover) => {
-      if (!popover.contains(e.target)) close(popover);
-    });
-  });
+  // Close on outside click — registered once per init call via the returned
+  // AbortController; callers that re-initialize should abort the prior one.
+  const controller = new AbortController();
+  document.addEventListener(
+    'click',
+    (e) => {
+      popovers.forEach((popover) => {
+        if (!popover.contains(e.target)) close(popover);
+      });
+    },
+    { signal: controller.signal },
+  );
+
+  return controller;
 };

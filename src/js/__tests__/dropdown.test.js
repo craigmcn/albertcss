@@ -206,7 +206,7 @@ describe("initDropdown", () => {
   });
 
   it("skips disabled items in keyboard navigation", () => {
-    const { dropdown, trigger, menu } = buildDropdown();
+    const { trigger, menu } = buildDropdown();
 
     // Disable the second item
     const items = menu.querySelectorAll('[role="menuitem"]');

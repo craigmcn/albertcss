@@ -77,7 +77,7 @@ describe('initPopover', () => {
   });
 
   it('closes on Escape from inside the panel and returns focus', () => {
-    const { wrapper, trigger, panel } = buildPopover();
+    const { trigger, panel } = buildPopover();
     initPopover();
 
     trigger.click();

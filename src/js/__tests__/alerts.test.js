@@ -24,7 +24,7 @@ describe('initAlertClose', () => {
 
     closeBtn.click();
 
-    expect(alert.style.display).toBe('none');
+    expect(alert.classList.contains('d-none')).toBe(true);
   });
 
   it('does not remove a non-removable alert from the DOM', () => {
@@ -52,9 +52,9 @@ describe('initAlertClose', () => {
 
     first.closeBtn.click();
 
-    expect(first.alert.style.display).toBe('none');
+    expect(first.alert.classList.contains('d-none')).toBe(true);
     expect(document.body.contains(first.alert)).toBe(true);
-    expect(second.alert.style.display).toBe('');
+    expect(second.alert.classList.contains('d-none')).toBe(false);
     expect(document.body.contains(second.alert)).toBe(true);
   });
 

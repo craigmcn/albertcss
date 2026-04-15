@@ -12,6 +12,8 @@
 }
 
 /* Text colour */
+.text-black     { color: var(--black); }
+.text-white     { color: var(--white); }
 .text-primary   { color: var(--primary); }
 .text-secondary { color: var(--secondary); }
 .text-info      { color: var(--info); }

@@ -2214,17 +2214,31 @@
 
         <h3>Background colour</h3>
 
-        <p>Background colour utilities mirror the semantic colour set.</p>
+        <p>
+          Use <code>text-bg-*</code> to set both background and a
+          theme-aware contrasting text colour in one class:
+        </p>
 
         <div class="d-flex flex-wrap gap-3 mt-4">
-          <div class="bg-primary text-xs p-3 rounded" style="color: var(--white);">bg-primary</div>
-          <div class="bg-secondary text-xs p-3 rounded" style="color: var(--white);">bg-secondary</div>
-          <div class="bg-info text-xs p-3 rounded" style="color: var(--white);">bg-info</div>
-          <div class="bg-success text-xs p-3 rounded" style="color: var(--white);">bg-success</div>
-          <div class="bg-warning text-xs p-3 rounded">bg-warning</div>
-          <div class="bg-danger text-xs p-3 rounded" style="color: var(--white);">bg-danger</div>
+          <div class="text-bg-primary text-xs p-3 rounded">text-bg-primary</div>
+          <div class="text-bg-secondary text-xs p-3 rounded">text-bg-secondary</div>
+          <div class="text-bg-info text-xs p-3 rounded">text-bg-info</div>
+          <div class="text-bg-success text-xs p-3 rounded">text-bg-success</div>
+          <div class="text-bg-warning text-xs p-3 rounded">text-bg-warning</div>
+          <div class="text-bg-danger text-xs p-3 rounded">text-bg-danger</div>
+        </div>
+
+        <p class="mt-4">Use <code>bg-*</code> alone when you only need the background:</p>
+
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <div class="bg-primary text-white text-xs p-3 rounded">bg-primary</div>
+          <div class="bg-secondary text-white text-xs p-3 rounded">bg-secondary</div>
+          <div class="bg-info text-white text-xs p-3 rounded">bg-info</div>
+          <div class="bg-success text-white text-xs p-3 rounded">bg-success</div>
+          <div class="bg-warning text-white text-xs p-3 rounded">bg-warning</div>
+          <div class="bg-danger text-white text-xs p-3 rounded">bg-danger</div>
           <div class="bg-muted text-xs p-3 rounded">bg-muted</div>
-          <div class="bg-dark text-xs p-3 rounded" style="color: var(--white);">bg-dark</div>
+          <div class="bg-dark text-white text-xs p-3 rounded">bg-dark</div>
           <div class="bg-white text-xs p-3 rounded border">bg-white</div>
           <div class="bg-transparent text-xs p-3 rounded border">bg-transparent</div>
         </div>

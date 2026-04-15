@@ -2428,7 +2428,7 @@
           to centre an absolutely-positioned element within its parent.
         </p>
 
-        <div class="position-relative" style="height: 6rem; background: var(--grey100); border: 1px solid var(--grey300);">
+        <div class="position-relative border" style="height: 6rem; background: var(--grey100);">
           <span class="position-absolute top-0 start-0 badge badge--secondary">top / start</span>
           <span class="position-absolute top-0 end-0 badge badge--secondary">top / end</span>
           <span class="position-absolute top-50 start-50 translate-middle badge badge--primary">centre</span>
@@ -2497,7 +2497,7 @@
           <div class="border rounded-xl p-3">rounded-xl</div>
           <div class="border rounded-xxl p-3">rounded-xxl</div>
           <div class="border rounded-pill px-4 py-3">rounded-pill</div>
-          <div class="border rounded-full p-3" style="width: 4rem; height: 4rem; display: grid; place-items: center;">rounded-full</div>
+          <div class="border rounded-full d-grid place-items-center p-3" style="width: 4rem; height: 4rem;">rounded-full</div>
         </div>
 
         <h2>Z-index</h2>
@@ -2575,30 +2575,99 @@
 
         <div class="d-flex flex-wrap gap-4 align-items-start mt-4">
           <div style="width: 10rem;">
-            <div class="ratio ratio--1x1" style="background: var(--grey200);">
+            <div class="ratio ratio--1x1 bg-muted">
               <div class="d-flex align-items-center justify-content-center text-muted text-sm">1×1</div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--1x1</code></p>
           </div>
           <div style="width: 14rem;">
-            <div class="ratio ratio--4x3" style="background: var(--grey200);">
+            <div class="ratio ratio--4x3 bg-muted">
               <div class="d-flex align-items-center justify-content-center text-muted text-sm">4×3</div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--4x3</code></p>
           </div>
           <div style="width: 16rem;">
-            <div class="ratio ratio--16x9" style="background: var(--grey200);">
+            <div class="ratio ratio--16x9 bg-muted">
               <div class="d-flex align-items-center justify-content-center text-muted text-sm">16×9</div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--16x9</code></p>
           </div>
           <div style="width: 20rem;">
-            <div class="ratio ratio--21x9" style="background: var(--grey200);">
+            <div class="ratio ratio--21x9 bg-muted">
               <div class="d-flex align-items-center justify-content-center text-muted text-sm">21×9</div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--21x9</code></p>
           </div>
         </div>
+
+        <h2>Grid</h2>
+
+        <p>
+          <code>grid</code> sets a 12-column CSS grid. Use
+          <code>grid-cols-{n}</code> for equal-width columns, or
+          <code>col-{n}</code> to span a specific number of columns.
+          Combine with <code>gap-*</code> for gutters.
+        </p>
+
+        <h3>Equal-width columns</h3>
+
+        <p><code>grid grid-cols-{n}</code> — each child fills one column:</p>
+
+        <div class="grid grid-cols-2 gap-3 mt-4">
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mt-3">
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-3 mt-3">
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+          <div class="bg-muted p-3 rounded text-center text-sm">col</div>
+        </div>
+
+        <h3>Column spans</h3>
+
+        <p>
+          Use <code>col-{n}</code> on children of a <code>grid</code> container
+          to span a specific number of the 12 columns:
+        </p>
+
+        <div class="grid gap-3 mt-4">
+          <div class="col-12 text-bg-secondary p-3 rounded text-center text-sm">col-12</div>
+          <div class="col-6 bg-muted p-3 rounded text-center text-sm">col-6</div>
+          <div class="col-6 bg-muted p-3 rounded text-center text-sm">col-6</div>
+          <div class="col-8 bg-muted p-3 rounded text-center text-sm">col-8</div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
+        </div>
+
+        <h3>Row and full-width helpers</h3>
+
+        <ul>
+          <li><code>col-full</code> — spans all 12 columns (<code>1 / -1</code>)</li>
+          <li><code>col-auto</code> — auto-sized column</li>
+          <li><code>row-span-{1–6}</code> — span multiple rows</li>
+          <li><code>row-span-full</code> — span all rows</li>
+        </ul>
+
+        <h3>Cell alignment</h3>
+
+        <ul>
+          <li><code>place-items-{center|start|end|stretch}</code> — align all cells within the grid</li>
+          <li><code>place-self-{center|start|end|stretch}</code> — align a single cell within its area</li>
+        </ul>
       </section>
     </main>
 

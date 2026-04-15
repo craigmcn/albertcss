@@ -1,0 +1,54 @@
+/**
+ * Grid utilities
+ *
+ * .grid sets a 12-column grid. Use .grid-cols-{n} for equal-width
+ * column layouts, or .col-{n} to span a specific number of columns.
+ *
+ *   <div class="grid grid-cols-3 gap-4">
+ *     <div>...</div>
+ *     <div>...</div>
+ *     <div>...</div>
+ *   </div>
+ *
+ *   <div class="grid gap-4">
+ *     <div class="col-8">Main</div>
+ *     <div class="col-4">Aside</div>
+ *   </div>
+ */
+
+/* Grid container */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Equal-width column shorthand — overrides the 12-col template */
+@for $n from 1 through 12 {
+  .grid-cols-#{$n} { grid-template-columns: repeat(#{$n}, 1fr); }
+}
+
+/* Column span */
+@for $n from 1 through 12 {
+  .col-#{$n} { grid-column: span #{$n} / span #{$n}; }
+}
+
+.col-auto { grid-column: auto; }
+.col-full { grid-column: 1 / -1; }
+
+/* Row span */
+@for $n from 1 through 6 {
+  .row-span-#{$n} { grid-row: span #{$n} / span #{$n}; }
+}
+
+.row-span-full { grid-row: 1 / -1; }
+
+/* Alignment within cells */
+.place-items-center  { place-items: center; }
+.place-items-start   { place-items: start; }
+.place-items-end     { place-items: end; }
+.place-items-stretch { place-items: stretch; }
+
+.place-self-center  { place-self: center; }
+.place-self-start   { place-self: start; }
+.place-self-end     { place-self: end; }
+.place-self-stretch { place-self: stretch; }

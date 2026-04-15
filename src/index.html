@@ -2511,6 +2511,61 @@
             <tr><td><code>z-tooltip</code></td><td><code>1070</code></td><td>Tooltip</td></tr>
           </tbody>
         </table>
+
+        <h2>Aspect ratio</h2>
+
+        <p>
+          Apply <code>ratio</code> to a wrapper element, then add a modifier
+          for the desired ratio. The direct child (iframe, img, video, etc.)
+          is stretched to fill the container via absolute positioning.
+        </p>
+
+        <pre><code>&lt;div class="ratio ratio--16x9"&gt;
+  &lt;iframe src="..." title="..."&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+
+        <table class="table table--striped table--sm mt-4">
+          <thead>
+            <tr><th>Class</th><th>Ratio</th><th>Common use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>ratio--1x1</code></td><td>1:1</td><td>Square thumbnails, avatars</td></tr>
+            <tr><td><code>ratio--4x3</code></td><td>4:3</td><td>Standard SD video</td></tr>
+            <tr><td><code>ratio--3x2</code></td><td>3:2</td><td>Photography</td></tr>
+            <tr><td><code>ratio--16x9</code></td><td>16:9</td><td>HD video, embeds</td></tr>
+            <tr><td><code>ratio--21x9</code></td><td>21:9</td><td>Cinematic / wide banners</td></tr>
+            <tr><td><code>ratio--9x16</code></td><td>9:16</td><td>Vertical / portrait video</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Examples</h3>
+
+        <div class="d-flex flex-wrap gap-4 align-items-start mt-4">
+          <div style="width: 10rem;">
+            <div class="ratio ratio--1x1" style="background: var(--grey200);">
+              <div class="d-flex align-items-center justify-content-center text-muted text-sm">1×1</div>
+            </div>
+            <p class="text-center text-sm mt-2"><code>ratio--1x1</code></p>
+          </div>
+          <div style="width: 14rem;">
+            <div class="ratio ratio--4x3" style="background: var(--grey200);">
+              <div class="d-flex align-items-center justify-content-center text-muted text-sm">4×3</div>
+            </div>
+            <p class="text-center text-sm mt-2"><code>ratio--4x3</code></p>
+          </div>
+          <div style="width: 16rem;">
+            <div class="ratio ratio--16x9" style="background: var(--grey200);">
+              <div class="d-flex align-items-center justify-content-center text-muted text-sm">16×9</div>
+            </div>
+            <p class="text-center text-sm mt-2"><code>ratio--16x9</code></p>
+          </div>
+          <div style="width: 20rem;">
+            <div class="ratio ratio--21x9" style="background: var(--grey200);">
+              <div class="d-flex align-items-center justify-content-center text-muted text-sm">21×9</div>
+            </div>
+            <p class="text-center text-sm mt-2"><code>ratio--21x9</code></p>
+          </div>
+        </div>
       </section>
     </main>
 

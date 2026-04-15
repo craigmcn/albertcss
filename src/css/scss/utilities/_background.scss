@@ -1,0 +1,18 @@
+/**
+ * Background colour utilities
+ */
+
+/* Semantic colours — match text-* and alert/button variants */
+.bg-primary   { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-info      { background-color: var(--info); }
+.bg-success   { background-color: var(--green); }
+.bg-warning   { background-color: var(--warn); }
+.bg-danger    { background-color: var(--red); }
+
+/* Neutral */
+.bg-white     { background-color: var(--white); }
+.bg-body      { background-color: var(--bodyBg); }
+.bg-muted     { background-color: var(--grey200); }
+.bg-dark      { background-color: var(--grey900); }
+.bg-transparent { background-color: transparent; }

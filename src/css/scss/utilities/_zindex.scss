@@ -14,6 +14,8 @@
 .z-auto { z-index: auto; }
 
 /* Named semantic scale */
+.z-above    { z-index: $z-index-above; }
+.z-raised   { z-index: $z-index-raised; }
 .z-dropdown { z-index: $z-index-dropdown; }
 .z-sticky   { z-index: $z-index-sticky; }
 .z-fixed    { z-index: $z-index-fixed; }

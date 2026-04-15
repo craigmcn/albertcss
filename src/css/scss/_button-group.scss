@@ -6,22 +6,22 @@
  * Connects .button elements in a horizontal row with shared borders.
  *
  * Basic usage:
- *   <div class="btn-group" role="group" aria-label="...">
+ *   <div class="button-group" role="group" aria-label="...">
  *     <button class="button button--primary">Left</button>
  *     <button class="button button--primary">Middle</button>
  *     <button class="button button--primary">Right</button>
  *   </div>
  *
  * Radio/checkbox usage — input immediately precedes its label:
- *   <div class="btn-group" role="group" aria-label="...">
- *     <input class="btn-group__input" type="radio" id="r1" name="grp">
+ *   <div class="button-group" role="group" aria-label="...">
+ *     <input class="button-group__input" type="radio" id="r1" name="grp">
  *     <label class="button button--secondary" for="r1">Option 1</label>
- *     <input class="btn-group__input" type="radio" id="r2" name="grp">
+ *     <input class="button-group__input" type="radio" id="r2" name="grp">
  *     <label class="button button--secondary" for="r2">Option 2</label>
  *   </div>
  */
 
-.btn-group {
+.button-group {
   display: inline-flex;
   position: relative;
   vertical-align: middle;
@@ -63,7 +63,7 @@
 // handles all interaction. The input:checked + label pattern drives state.
 // =============================================================================
 
-.btn-group__input {
+.button-group__input {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
   position: absolute;

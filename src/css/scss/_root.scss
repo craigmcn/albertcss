@@ -39,6 +39,8 @@
 
   --sectionAltBg: #{$silver};
 
+  --semanticContrast: #{$white};
+
   --focusShadow: #{rgba($primary, 0.5)};
   --errorShadow: #{rgba($red, 0.5)};
   --secondaryFocusShadow: #{rgba(
@@ -91,6 +93,8 @@
   --npTxt: #{$primaryDarkMode};
 
   --sectionAltBg: #{$black};
+
+  --semanticContrast: #{$black};
 
   --focusShadow: #{rgba($primaryDarkMode, 0.5)};
   --errorShadow: #{rgba($redDarkMode, 0.5)};

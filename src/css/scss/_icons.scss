@@ -1,9 +1,13 @@
-.icon {
+.icon,
+.svg-inline--fa {
   font-size: inherit;
   height: 1em;
+  overflow: visible;
   vertical-align: -0.125em;
+  width: auto;
 
-  &--fw {
+  &--fw,
+  &.fa-fw {
     width: 0.875em;
   }
 }

@@ -6,6 +6,7 @@ import { initTabs } from './tabs';
 import { initAlertClose } from './alerts';
 import { initMenuToggle } from './menuToggle';
 import { initModal } from './modal';
+import { initTooltip } from './tooltip';
 import scrollHeader from './scrollHeader';
 
 window.addEventListener('load', function () {
@@ -24,6 +25,7 @@ window.addEventListener('load', function () {
   initAlertClose();
   initMenuToggle();
   initModal();
+  initTooltip();
 
   scrollHeader();
 });

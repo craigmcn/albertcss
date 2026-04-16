@@ -155,6 +155,125 @@ $_gap: 0.625rem; // gap between trigger edge and panel edge
         transform: translateY(-50%);
       }
     }
+
+    // --- Flip overrides set by popover.js when the preferred placement overflows the viewport.
+    // Attribute selector specificity (0,2,0) beats single placement-class modifiers (0,1,0).
+
+    &[data-popover-flip='top'] {
+      bottom: calc(100% + #{$_gap});
+      left: 50%;
+      top: auto;
+      transform: translateX(-50%);
+
+      &::before {
+        border-bottom: 0;
+        border-left: $_ao solid transparent;
+        border-right: $_ao solid transparent;
+        border-top: $_ao solid var(--grey200);
+        bottom: -#{$_ao};
+        left: 50%;
+        top: auto;
+        transform: translateX(-50%);
+      }
+
+      &::after {
+        border-bottom: 0;
+        border-left: $_ai solid transparent;
+        border-right: $_ai solid transparent;
+        border-top: $_ai solid var(--bodyBg);
+        bottom: -#{$_ai};
+        left: 50%;
+        top: auto;
+        transform: translateX(-50%);
+      }
+    }
+
+    &[data-popover-flip='bottom'] {
+      bottom: auto;
+      left: 50%;
+      top: calc(100% + #{$_gap});
+      transform: translateX(-50%);
+
+      &::before {
+        border-bottom: $_ao solid var(--grey200);
+        border-left: $_ao solid transparent;
+        border-right: $_ao solid transparent;
+        border-top: 0;
+        bottom: auto;
+        left: 50%;
+        top: -#{$_ao};
+        transform: translateX(-50%);
+      }
+
+      &::after {
+        border-bottom: $_ai solid var(--bodyBg);
+        border-left: $_ai solid transparent;
+        border-right: $_ai solid transparent;
+        border-top: 0;
+        bottom: auto;
+        left: 50%;
+        top: -#{$_ai};
+        transform: translateX(-50%);
+      }
+    }
+
+    &[data-popover-flip='right'] {
+      left: calc(100% + #{$_gap});
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::before {
+        border-bottom: $_ao solid transparent;
+        border-left: 0;
+        border-right: $_ao solid var(--grey200);
+        border-top: $_ao solid transparent;
+        left: -#{$_ao};
+        right: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        border-bottom: $_ai solid transparent;
+        border-left: 0;
+        border-right: $_ai solid var(--bodyBg);
+        border-top: $_ai solid transparent;
+        left: -#{$_ai};
+        right: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &[data-popover-flip='left'] {
+      left: auto;
+      right: calc(100% + #{$_gap});
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::before {
+        border-bottom: $_ao solid transparent;
+        border-left: $_ao solid var(--grey200);
+        border-right: 0;
+        border-top: $_ao solid transparent;
+        left: auto;
+        right: -#{$_ao};
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        border-bottom: $_ai solid transparent;
+        border-left: $_ai solid var(--bodyBg);
+        border-right: 0;
+        border-top: $_ai solid transparent;
+        left: auto;
+        right: -#{$_ai};
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
   }
 
   &__title {

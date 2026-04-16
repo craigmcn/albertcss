@@ -10,9 +10,9 @@
  * .tooltip--left, .tooltip--right
  */
 
-$_arrow: 0.4rem;   // border-width that forms the triangle
+$_arrow: 0.41rem;   // border-width that forms the triangle
 $_gap: 0.25rem;    // space between element edge and arrow tip
-$_total: $_gap + $_arrow + 0.1rem; // 0.75rem — element edge to bubble edge
+$_total: $_gap + $_arrow; // 0.66rem — element edge to bubble edge
 
 .tooltip {
   display: inline-block;

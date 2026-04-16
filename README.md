@@ -14,7 +14,7 @@ A personal CSS framework built loosely on Bootstrap v4. Covers common layout, co
 
 **Utilities** — aspect ratio, background colours (`bg-*`, `text-bg-*`), borders (per-side, colour, width, radius), display (`d-*`), flex (`flex-*`, `align-items-*`, `justify-content-*`, `gap-*`), grid (12-column CSS grid, `grid-cols-*`, `col-*`), overflow, position (static through fixed, sticky top/bottom), shadows (`shadow-none` → `shadow-xl`), spacing (Bootstrap-compatible `mt-*`/`ps-*` etc., 0–8 scale), text (colour, size, weight, transform), z-index (numeric + semantic scale)
 
-**JavaScript** — accordion/disclosure, alert dismissal, dropdown toggle, modal (focus-trapped), popover, responsive menu toggle, scroll-aware header, tab panel switching, form validation via [Formbouncer](https://github.com/cferdinandi/bouncer)
+**JavaScript** — accordion/disclosure, alert dismissal, dropdown toggle, modal (focus-trapped), popover (with viewport-aware flip), responsive menu toggle, scroll-aware header, tab panel switching, tooltip (viewport-aware flip), form validation via [Formbouncer](https://github.com/cferdinandi/bouncer)
 
 ## Usage
 

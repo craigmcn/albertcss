@@ -56,10 +56,15 @@ figcaption {
 img,
 picture,
 video,
-canvas,
-svg {
+canvas {
   display: block;
   max-width: 100%;
+}
+
+/* Keep SVGs out of the shared media max-width rule so icons and inline artwork
+   retain their intrinsic sizing unless a component opts into responsive scaling. */
+svg {
+  display: block;
 }
 
 /* Form elements inherit font */

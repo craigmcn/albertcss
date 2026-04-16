@@ -162,4 +162,18 @@ describe('initTabs', () => {
     expect(first.tabs[0].getAttribute('aria-selected')).toBe('true');
     expect(second.tabs[1].getAttribute('aria-selected')).toBe('true');
   });
+
+  it('does not re-initialize when called a second time on the same tablist', () => {
+    const { tablist, tabs, panels } = buildTabs();
+    initTabs();
+    initTabs(); // second call should be a no-op
+
+    expect(tablist.dataset.tabsInitialized).toBe('true');
+
+    // Behaviour still works correctly after double-init
+    tabs[1].click();
+
+    expect(tabs[1].getAttribute('aria-selected')).toBe('true');
+    expect(panels[1].hidden).toBe(false);
+  });
 });

@@ -13,7 +13,7 @@
     display: inline-flex;
     gap: 0.5rem;
 
-    &:not(:has(> [class$="__icon"])) {
+    &:not(:has(> [class$='__icon'])) {
       // CSS chevron fallback when no __icon element is provided
       &::after {
         border-color: currentcolor;
@@ -29,7 +29,7 @@
       }
     }
 
-    &[aria-expanded="true"]:not(:has(> [class$="__icon"])) {
+    &[aria-expanded='true']:not(:has(> [class$='__icon'])) {
       &::after {
         transform: translateY(2px) rotate(-45deg); // a little vertical adjustment down to center the chevron better with text
       }
@@ -40,7 +40,7 @@
     transition: transform 0.2s ease;
   }
 
-  &__trigger[aria-expanded="true"] &__icon {
+  &__trigger[aria-expanded='true'] &__icon {
     transform: rotate(180deg);
   }
 
@@ -108,7 +108,7 @@
     }
 
     &[disabled],
-    &[aria-disabled="true"] {
+    &[aria-disabled='true'] {
       color: var(--grey400);
       cursor: default;
       pointer-events: none;

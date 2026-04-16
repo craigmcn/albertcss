@@ -143,15 +143,15 @@ Releases are automated via GitHub Actions (`.github/workflows/release.yml`).
 **New release — use the `/release` slash command** (handles tests, build, version bump, commit, tag, and push):
 
 ```bash
-/release 0.16.0
+/release X.Y.Z
 ```
 
 Or manually:
 
 ```bash
 # Bump version in package.json first
-git tag v0.16.0
-git push origin v0.16.0
+git tag vX.Y.Z
+git push origin vX.Y.Z
 ```
 
 The workflow builds and deploys to the `gh-pages` branch at `/vX.Y.Z/`, served at:  

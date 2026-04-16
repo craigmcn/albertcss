@@ -193,6 +193,16 @@ describe('scrollHeader', () => {
     expect(header.classList.contains('hidden')).toBe(true);
   });
 
+  it('does not re-initialize when called a second time on the same header', () => {
+    buildHeader({ offsetHeight: 80 });
+    scrollHeader();
+    scrollHeader(); // second call should be a no-op
+
+    // ResizeObserver constructor should only have been called once
+    expect(global.ResizeObserver).toHaveBeenCalledTimes(1);
+    expect(observeMock).toHaveBeenCalledTimes(1);
+  });
+
   it('throttles scroll handler to 100ms', () => {
     const header = buildHeader({ offsetHeight: 80 });
     scrollHeader();

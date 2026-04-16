@@ -10,7 +10,7 @@
  * .tooltip--left, .tooltip--right
  */
 
-$_arrow: 0.41rem;   // border-width that forms the triangle
+$_arrow: 0.41rem;   // border-width that forms the triangle, slightly larger than expected to account for anti-aliasing bleed
 $_gap: 0.25rem;    // space between element edge and arrow tip
 $_total: $_gap + $_arrow; // 0.66rem — element edge to bubble edge
 

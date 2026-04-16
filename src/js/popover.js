@@ -1,5 +1,6 @@
 export const initPopover = () => {
   const popovers = Array.from(document.querySelectorAll('.popover'));
+  if (!popovers.length) return;
 
   const getPanel = (popover) => popover.querySelector('.popover__panel');
   const getTrigger = (popover) => popover.querySelector('.popover__trigger');

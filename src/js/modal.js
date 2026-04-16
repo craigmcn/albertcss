@@ -3,7 +3,7 @@ export const initModal = () => {
   document.querySelectorAll('[data-modal-target]').forEach((trigger) => {
     const modal = document.getElementById(trigger.dataset.modalTarget);
 
-    if (!modal || !(modal instanceof HTMLDialogElement)) return;
+    if (!modal || modal.tagName !== 'DIALOG' || typeof modal.showModal !== 'function') return;
 
     trigger.addEventListener('click', () => {
       modal.showModal();

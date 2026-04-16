@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { initPopover } from '../popover';
 
-const buildPopover = ({ id = 'test-pop', placement = 'bottom' } = {}) => {
+const buildPopover = ({ id = 'test-pop', placement = 'bottom', panelRect = null } = {}) => {
   const wrapper = document.createElement('div');
   wrapper.className = 'popover';
 
@@ -12,9 +12,16 @@ const buildPopover = ({ id = 'test-pop', placement = 'bottom' } = {}) => {
   wrapper.appendChild(trigger);
 
   const panel = document.createElement('div');
-  panel.className = `popover__panel popover__panel--${placement}`;
+  // Default placement is bottom; only add the modifier class for non-default placements
+  panel.className = placement === 'bottom'
+    ? 'popover__panel'
+    : `popover__panel popover__panel--${placement}`;
   panel.id = id;
   panel.hidden = true;
+
+  if (panelRect) {
+    panel.getBoundingClientRect = () => ({ bottom: 0, top: 0, left: 0, right: 0, ...panelRect });
+  }
 
   const title = document.createElement('strong');
   title.className = 'popover__title';
@@ -131,5 +138,89 @@ describe('initPopover', () => {
     expect(first.panel.hidden).toBe(true);
     expect(second.trigger.getAttribute('aria-expanded')).toBe('true');
     expect(second.panel.hidden).toBe(false);
+  });
+
+  // Viewport flip -----------------------------------------------------------
+  // jsdom default viewport: innerWidth=1024, innerHeight=768
+
+  it('flips bottom→top when the panel overflows below the viewport', () => {
+    const { trigger, panel } = buildPopover({
+      id: 'pop-flip-bt',
+      placement: 'bottom',
+      panelRect: { bottom: 780 }, // past innerHeight 768
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBe('top');
+  });
+
+  it('flips top→bottom when the panel overflows above the viewport', () => {
+    const { trigger, panel } = buildPopover({
+      id: 'pop-flip-tb',
+      placement: 'top',
+      panelRect: { top: 4 }, // less than EDGE (8)
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBe('bottom');
+  });
+
+  it('flips left→right when the panel overflows the left edge', () => {
+    const { trigger, panel } = buildPopover({
+      id: 'pop-flip-lr',
+      placement: 'left',
+      panelRect: { left: 4 }, // less than EDGE (8)
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBe('right');
+  });
+
+  it('flips right→left when the panel overflows the right edge', () => {
+    const { trigger, panel } = buildPopover({
+      id: 'pop-flip-rl',
+      placement: 'right',
+      panelRect: { right: 1030 }, // past innerWidth 1024
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBe('left');
+  });
+
+  it('does not set data-popover-flip when the panel fits', () => {
+    const { trigger, panel } = buildPopover({
+      id: 'pop-no-flip',
+      placement: 'bottom',
+      panelRect: { bottom: 400 }, // well within viewport
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBeUndefined();
+  });
+
+  it('removes data-popover-flip on close', () => {
+    const { trigger, panel } = buildPopover({
+      id: 'pop-flip-close',
+      placement: 'bottom',
+      panelRect: { bottom: 780 },
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBe('top');
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBeUndefined();
+  });
+
+  it('removes data-popover-flip when closed via Escape', () => {
+    const { wrapper, trigger, panel } = buildPopover({
+      id: 'pop-flip-esc',
+      placement: 'bottom',
+      panelRect: { bottom: 780 },
+    });
+    initPopover();
+    trigger.click();
+    expect(panel.dataset.popoverFlip).toBe('top');
+    keydown(wrapper, 'Escape');
+    expect(panel.dataset.popoverFlip).toBeUndefined();
   });
 });

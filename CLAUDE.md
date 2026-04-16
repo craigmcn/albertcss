@@ -2,6 +2,8 @@
 
 Personal CSS framework based on Bootstrap v4. Vanilla JS, no framework dependencies.
 
+The public-facing project overview is in [`README.md`](README.md) at the project root — update it when components, JS behaviour, or utilities change.
+
 ## Requirements
 
 - Node v24 (see `.nvmrc`)
@@ -76,10 +78,11 @@ src/
 │   ├── dropdown.js           # Dropdown menu toggle
 │   ├── menuToggle.js         # Responsive nav toggle, aria-expanded
 │   ├── modal.js              # Modal open/close, focus trap
-│   ├── popover.js            # Popover toggle and positioning
+│   ├── popover.js            # Popover toggle, positioning, and viewport flip
 │   ├── scrollHeader.js       # Hide/show header on scroll, --headerHeight CSS var
 │   ├── tabs.js               # Tab panel switching
-│   └── throttle.js           # Scroll event throttle utility
+│   ├── throttle.js           # Scroll event throttle utility
+│   └── tooltip.js            # Tooltip viewport-aware flip (sets data-tooltip-flip)
 └── index.html
 ```
 

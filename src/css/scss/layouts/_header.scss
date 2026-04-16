@@ -24,7 +24,7 @@
   &--fixed {
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: 100%;
     z-index: $z-index-above;
   }
 
@@ -45,7 +45,7 @@
     // https://codingreflections.com/hide-header-on-scroll-down/
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: 100%;
     z-index: $z-index-raised;
     transition: top 0.3s ease;
 

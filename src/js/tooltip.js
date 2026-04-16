@@ -3,7 +3,7 @@ export const initTooltip = () => {
   if (!tooltips.length) return;
 
   const rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-  const TOTAL = 0.75 * rootPx; // $_total: $_gap + $_arrow converted to px
+  const TOTAL = 0.66 * rootPx; // $_total: $_gap + $_arrow converted to px
   const EDGE = 8; // minimum px clearance from viewport edge
 
   const getPlacement = (el) => {

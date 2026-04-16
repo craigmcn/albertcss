@@ -127,4 +127,95 @@ $_total: $_gap + $_arrow; // 0.66rem — element edge to bubble edge
       transform: translateY(-50%);
     }
   }
+
+  // Flip overrides set by tooltip.js when the preferred placement overflows the viewport.
+  // Attribute selector specificity (0,2,0) beats single placement-class modifiers (0,1,0).
+
+  &[data-tooltip-flip='top'] {
+    &::before {
+      bottom: calc(100% + #{$_total});
+      left: 50%;
+      right: auto;
+      top: auto;
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      border-bottom: 0;
+      border-left: $_arrow solid transparent;
+      border-right: $_arrow solid transparent;
+      border-top: $_arrow solid $grey-900;
+      bottom: calc(100% + #{$_gap});
+      left: 50%;
+      right: auto;
+      top: auto;
+      transform: translateX(-50%);
+    }
+  }
+
+  &[data-tooltip-flip='bottom'] {
+    &::before {
+      bottom: auto;
+      left: 50%;
+      right: auto;
+      top: calc(100% + #{$_total});
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      border-bottom: $_arrow solid $grey-900;
+      border-left: $_arrow solid transparent;
+      border-right: $_arrow solid transparent;
+      border-top: 0;
+      bottom: auto;
+      left: 50%;
+      right: auto;
+      top: calc(100% + #{$_gap});
+      transform: translateX(-50%);
+    }
+  }
+
+  &[data-tooltip-flip='left'] {
+    &::before {
+      bottom: auto;
+      left: auto;
+      right: calc(100% + #{$_total});
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      border-bottom: $_arrow solid transparent;
+      border-left: $_arrow solid $grey-900;
+      border-right: 0;
+      border-top: $_arrow solid transparent;
+      bottom: auto;
+      left: auto;
+      right: calc(100% + #{$_gap});
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &[data-tooltip-flip='right'] {
+    &::before {
+      bottom: auto;
+      left: calc(100% + #{$_total});
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      border-bottom: $_arrow solid transparent;
+      border-left: 0;
+      border-right: $_arrow solid $grey-900;
+      border-top: $_arrow solid transparent;
+      bottom: auto;
+      left: calc(100% + #{$_gap});
+      right: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
 }

@@ -2,7 +2,7 @@ export const initMenuToggle = () => {
   const menuToggle = document.getElementById('menu-toggle');
 
   if (menuToggle) {
-    menuToggle.addEventListener('click', (e) => {
+    menuToggle.addEventListener('click', () => {
       const targets = [
         document.getElementById('navigation'),
         document.getElementById('toolbar'),

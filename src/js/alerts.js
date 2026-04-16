@@ -1,7 +1,7 @@
 export const initAlertClose = () => {
-  document.querySelectorAll('.alert__close').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const alertBlock = a.parentNode;
+  document.querySelectorAll('.alert__close').forEach((closeBtn) => {
+    closeBtn.addEventListener('click', () => {
+      const alertBlock = closeBtn.parentNode;
 
       alertBlock.classList.add('d-none');
 

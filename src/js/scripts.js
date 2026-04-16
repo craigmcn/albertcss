@@ -16,6 +16,8 @@ window.addEventListener('load', function () {
   });
 
   initAccordion();
+  // Both return an AbortController for cleanup if the component is ever re-initialized.
+  // Not needed here — the page has a single load lifetime.
   initDropdown();
   initPopover();
   initTabs();

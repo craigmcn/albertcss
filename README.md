@@ -8,13 +8,13 @@ A personal CSS framework built loosely on Bootstrap v4. Covers common layout, co
 
 ## What's included
 
-**Components** — alerts, buttons, cards, forms, navigation, images, icons, lists
+**Components** — accordions, alerts, badges, button groups, buttons, cards, dropdowns, forms, modals, navigation, images, icons, lists, tables, tabs, tooltips, popovers
 
 **Layouts** — header (fixed/scrolling), main content area, sections, toolbar
 
-**Utilities** — flexbox grid (12-unit, responsive), spacing (margin/padding), text (colour, size, weight, transform)
+**Utilities** — aspect ratio, background colours (`bg-*`, `text-bg-*`), borders (per-side, colour, width, radius), display (`d-*`), flex (`flex-*`, `align-items-*`, `justify-content-*`, `gap-*`), grid (12-column CSS grid, `grid-cols-*`, `col-*`), overflow, position (static through fixed, sticky top/bottom), shadows (`shadow-none` → `shadow-xl`), spacing (Bootstrap-compatible `mt-*`/`ps-*` etc., 0–8 scale), text (colour, size, weight, transform), z-index (numeric + semantic scale)
 
-**JavaScript** — alert dismissal, responsive menu toggle, scroll-aware header, form validation via [Formbouncer](https://github.com/cferdinandi/bouncer)
+**JavaScript** — accordion/disclosure, alert dismissal, dropdown toggle, modal (focus-trapped), popover, responsive menu toggle, scroll-aware header, tab panel switching, form validation via [Formbouncer](https://github.com/cferdinandi/bouncer)
 
 ## Usage
 
@@ -45,6 +45,7 @@ yarn install       # Install dependencies
 yarn serve         # Dev server with live reload at http://localhost:3020
 yarn build         # Production build → ./dist/
 yarn test          # Run the Vitest suite
+yarn lint          # Run ESLint on JS source files
 ```
 
 See [CLAUDE.md](CLAUDE.md) for full architecture and build system details.
@@ -54,8 +55,8 @@ See [CLAUDE.md](CLAUDE.md) for full architecture and build system details.
 Push a `v*` tag to trigger an automated GitHub Actions build and deploy to GitHub Pages:
 
 ```bash
-git tag v0.14.0
-git push origin v0.14.0
+git tag v0.16.0
+git push origin v0.16.0
 ```
 
 ## License

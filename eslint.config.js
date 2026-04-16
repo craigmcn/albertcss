@@ -4,7 +4,6 @@ import prettierConfig from 'eslint-config-prettier'
 
 export default [
     ...neostandard(),
-    prettierConfig,
     {
         languageOptions: {
             globals: {
@@ -15,4 +14,5 @@ export default [
             'no-console': 'warn',
         },
     },
+    prettierConfig,
 ]

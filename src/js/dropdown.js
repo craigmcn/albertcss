@@ -1,5 +1,6 @@
 export const initDropdown = () => {
   const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+  if (!dropdowns.length) return;
 
   const getMenu = (dropdown) => dropdown.querySelector('.dropdown__menu');
   const getTrigger = (dropdown) => dropdown.querySelector('.dropdown__trigger');

@@ -24,27 +24,39 @@ export const initPopover = () => {
     if (panel) panel.hidden = false;
   };
 
+  // Create the controller before attaching listeners so all of them — both
+  // per-element and the global outside-click — can be removed with one abort.
+  const controller = new AbortController();
+  const { signal } = controller;
+
   popovers.forEach((popover) => {
     const trigger = getTrigger(popover);
     const panel = getPanel(popover);
     if (!trigger || !panel) return;
 
-    trigger.addEventListener('click', () => {
-      isOpen(popover) ? close(popover) : open(popover);
-    });
+    trigger.addEventListener(
+      'click',
+      () => {
+        isOpen(popover) ? close(popover) : open(popover);
+      },
+      { signal },
+    );
 
     // Escape closes from anywhere within the popover wrapper (trigger or panel)
-    popover.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen(popover)) {
-        close(popover);
-        trigger.focus();
-      }
-    });
+    popover.addEventListener(
+      'keydown',
+      (e) => {
+        if (e.key === 'Escape' && isOpen(popover)) {
+          close(popover);
+          trigger.focus();
+        }
+      },
+      { signal },
+    );
   });
 
-  // Close on outside click — registered once per init call via the returned
-  // AbortController; callers that re-initialize should abort the prior one.
-  const controller = new AbortController();
+  // Close on outside click — all listeners share the same AbortController so
+  // callers that re-initialize can abort the prior one for full cleanup.
   document.addEventListener(
     'click',
     (e) => {
@@ -52,7 +64,7 @@ export const initPopover = () => {
         if (!popover.contains(e.target)) close(popover);
       });
     },
-    { signal: controller.signal },
+    { signal },
   );
 
   return controller;

@@ -32,43 +32,55 @@ export const initDropdown = () => {
     getItems(dropdown)[0]?.focus();
   };
 
+  // Create the controller before attaching listeners so all of them — both
+  // per-element and the global outside-click — can be removed with one abort.
+  const controller = new AbortController();
+  const { signal } = controller;
+
   dropdowns.forEach((dropdown) => {
     const trigger = getTrigger(dropdown);
     const menu = getMenu(dropdown);
     if (!trigger || !menu) return;
 
-    trigger.addEventListener('click', () => {
-      isOpen(dropdown) ? close(dropdown) : open(dropdown);
-    });
+    trigger.addEventListener(
+      'click',
+      () => {
+        isOpen(dropdown) ? close(dropdown) : open(dropdown);
+      },
+      { signal },
+    );
 
-    menu.addEventListener('keydown', (e) => {
-      const items = getItems(dropdown);
-      const index = items.indexOf(document.activeElement);
+    menu.addEventListener(
+      'keydown',
+      (e) => {
+        const items = getItems(dropdown);
+        const index = items.indexOf(document.activeElement);
 
-      if (e.key === 'Escape') {
-        close(dropdown);
-        trigger.focus();
-      } else if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        items[(index + 1) % items.length]?.focus();
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        items[(index - 1 + items.length) % items.length]?.focus();
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        items[0]?.focus();
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        items[items.length - 1]?.focus();
-      } else if (e.key === 'Tab') {
-        close(dropdown);
-      }
-    });
+        if (e.key === 'Escape') {
+          close(dropdown);
+          trigger.focus();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          items[(index + 1) % items.length]?.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          items[(index - 1 + items.length) % items.length]?.focus();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          items[0]?.focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          items[items.length - 1]?.focus();
+        } else if (e.key === 'Tab') {
+          close(dropdown);
+        }
+      },
+      { signal },
+    );
   });
 
-  // Close on outside click — registered once per init call via the returned
-  // AbortController; callers that re-initialize should abort the prior one.
-  const controller = new AbortController();
+  // Close on outside click — all listeners share the same AbortController so
+  // callers that re-initialize can abort the prior one for full cleanup.
   document.addEventListener(
     'click',
     (e) => {
@@ -76,7 +88,7 @@ export const initDropdown = () => {
         if (!dropdown.contains(e.target)) close(dropdown);
       });
     },
-    { signal: controller.signal },
+    { signal },
   );
 
   return controller;

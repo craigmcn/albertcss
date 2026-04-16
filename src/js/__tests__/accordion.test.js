@@ -102,4 +102,23 @@ describe('initAccordion', () => {
 
     expect(nestedItem.open).toBe(true);
   });
+
+  it('does not re-initialize when called a second time on the same accordion', () => {
+    const { accordion, items } = buildAccordion(2);
+    initAccordion();
+    initAccordion(); // second call should be a no-op
+
+    // If listeners were duplicated, item[1] would be closed twice — harmless
+    // but we can verify the guard by checking the dataset flag was set once.
+    expect(accordion.dataset.accordionInitialized).toBe('true');
+
+    // Behaviour still works correctly after double-init
+    items[0].open = true;
+    items[0].dispatchEvent(new Event('toggle'));
+    items[1].open = true;
+    items[1].dispatchEvent(new Event('toggle'));
+
+    expect(items[0].open).toBe(false);
+    expect(items[1].open).toBe(true);
+  });
 });

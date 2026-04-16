@@ -55,8 +55,8 @@ See [CLAUDE.md](CLAUDE.md) for full architecture and build system details.
 Push a `v*` tag to trigger an automated GitHub Actions build and deploy to GitHub Pages:
 
 ```bash
-git tag v0.16.0
-git push origin v0.16.0
+git tag vX.Y.Z
+git push origin vX.Y.Z
 ```
 
 ## License

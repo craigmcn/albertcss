@@ -1,6 +1,9 @@
 export const initAccordion = () => {
   // Exclusive open: closing sibling items when one opens
   document.querySelectorAll('.accordion').forEach((accordion) => {
+    if (accordion.dataset.accordionInitialized) return;
+    accordion.dataset.accordionInitialized = 'true';
+
     const items = accordion.querySelectorAll(':scope > .accordion__item');
 
     items.forEach((item) => {

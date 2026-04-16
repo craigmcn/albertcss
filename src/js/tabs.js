@@ -1,5 +1,8 @@
 export const initTabs = () => {
   document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
+    if (tablist.dataset.tabsInitialized) return;
+    tablist.dataset.tabsInitialized = 'true';
+
     const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
 
     const activate = (tab) => {

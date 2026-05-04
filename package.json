@@ -35,7 +35,7 @@
     "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",
     "browserify": "^17.0.1",
-    "eslint": "^10.2.1",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "formbouncerjs": "^1.4.6",
     "globals": "^17.5.0",

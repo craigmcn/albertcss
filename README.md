@@ -21,8 +21,14 @@ A personal CSS framework built loosely on Bootstrap v4. Covers common layout, co
 Include the compiled CSS and JS in your project:
 
 ```html
-<link rel="stylesheet" href="https://www.craigmcn.com/albertcss/css/albert.min.css">
-<script src="https://www.craigmcn.com/albertcss/js/albert.min.js" defer></script>
+<link
+  rel="stylesheet"
+  href="https://www.craigmcn.com/albertcss/css/albert.min.css"
+/>
+<script
+  src="https://www.craigmcn.com/albertcss/js/albert.min.js"
+  defer
+></script>
 ```
 
 The site root always serves the latest published release.
@@ -30,8 +36,14 @@ The site root always serves the latest published release.
 If you want to pin to a specific version instead, use the versioned GitHub Pages URLs:
 
 ```html
-<link rel="stylesheet" href="https://albertcss.craigmcn.com/vX.Y.Z/css/albert.min.css">
-<script src="https://albertcss.craigmcn.com/vX.Y.Z/js/albert.min.js" defer></script>
+<link
+  rel="stylesheet"
+  href="https://albertcss.craigmcn.com/vX.Y.Z/css/albert.min.css"
+/>
+<script
+  src="https://albertcss.craigmcn.com/vX.Y.Z/js/albert.min.js"
+  defer
+></script>
 ```
 
 Replace `vX.Y.Z` with the version you want to pin to. Versioned releases are hosted on GitHub Pages and older versions remain available indefinitely.

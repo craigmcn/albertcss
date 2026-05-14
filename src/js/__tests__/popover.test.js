@@ -1,7 +1,11 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { initPopover } from '../popover';
 
-const buildPopover = ({ id = 'test-pop', placement = 'bottom', panelRect = null } = {}) => {
+const buildPopover = ({
+  id = 'test-pop',
+  placement = 'bottom',
+  panelRect = null,
+} = {}) => {
   const wrapper = document.createElement('div');
   wrapper.className = 'popover';
 
@@ -13,14 +17,21 @@ const buildPopover = ({ id = 'test-pop', placement = 'bottom', panelRect = null 
 
   const panel = document.createElement('div');
   // Default placement is bottom; only add the modifier class for non-default placements
-  panel.className = placement === 'bottom'
-    ? 'popover__panel'
-    : `popover__panel popover__panel--${placement}`;
+  panel.className =
+    placement === 'bottom'
+      ? 'popover__panel'
+      : `popover__panel popover__panel--${placement}`;
   panel.id = id;
   panel.hidden = true;
 
   if (panelRect) {
-    panel.getBoundingClientRect = () => ({ bottom: 0, top: 0, left: 0, right: 0, ...panelRect });
+    panel.getBoundingClientRect = () => ({
+      bottom: 0,
+      top: 0,
+      left: 0,
+      right: 0,
+      ...panelRect,
+    });
   }
 
   const title = document.createElement('strong');

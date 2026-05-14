@@ -3,6 +3,7 @@ Release a new version of Albert CSS.
 $ARGUMENTS should be the new version number without the `v` prefix (e.g. `0.16.0`). If not provided, ask the user for it before proceeding.
 
 Steps:
+
 1. Confirm you are on the `main` branch. If not, warn the user and stop — releases must come from main.
 2. Run `yarn test` — abort if any tests fail. Show the failure output.
 3. Run `yarn build` — abort if the build fails. Show the failure output.

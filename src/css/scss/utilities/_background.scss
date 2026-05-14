@@ -3,24 +3,64 @@
  */
 
 /* Semantic colours — match text-* and alert/button variants */
-.bg-primary   { background-color: var(--primary); }
-.bg-secondary { background-color: var(--secondary); }
-.bg-info      { background-color: var(--info); }
-.bg-success   { background-color: var(--green); }
-.bg-warning   { background-color: var(--warn); }
-.bg-danger    { background-color: var(--red); }
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-info {
+  background-color: var(--info);
+}
+.bg-success {
+  background-color: var(--green);
+}
+.bg-warning {
+  background-color: var(--warn);
+}
+.bg-danger {
+  background-color: var(--red);
+}
 
 /* Combined background + contrasting text colour */
-.text-bg-primary   { background-color: var(--primary);   color: var(--semanticContrast); }
-.text-bg-secondary { background-color: var(--secondary); color: var(--semanticContrast); }
-.text-bg-info      { background-color: var(--info);      color: var(--semanticContrast); }
-.text-bg-success   { background-color: var(--green);     color: var(--semanticContrast); }
-.text-bg-warning   { background-color: var(--warn);      color: var(--semanticContrast); }
-.text-bg-danger    { background-color: var(--red);       color: var(--semanticContrast); }
+.text-bg-primary {
+  background-color: var(--primary);
+  color: var(--semanticContrast);
+}
+.text-bg-secondary {
+  background-color: var(--secondary);
+  color: var(--semanticContrast);
+}
+.text-bg-info {
+  background-color: var(--info);
+  color: var(--semanticContrast);
+}
+.text-bg-success {
+  background-color: var(--green);
+  color: var(--semanticContrast);
+}
+.text-bg-warning {
+  background-color: var(--warn);
+  color: var(--semanticContrast);
+}
+.text-bg-danger {
+  background-color: var(--red);
+  color: var(--semanticContrast);
+}
 
 /* Neutral */
-.bg-white     { background-color: var(--white); }
-.bg-body      { background-color: var(--bodyBg); }
-.bg-muted     { background-color: var(--grey200); }
-.bg-dark      { background-color: var(--grey900); }
-.bg-transparent { background-color: transparent; }
+.bg-white {
+  background-color: var(--white);
+}
+.bg-body {
+  background-color: var(--bodyBg);
+}
+.bg-muted {
+  background-color: var(--grey200);
+}
+.bg-dark {
+  background-color: var(--grey900);
+}
+.bg-transparent {
+  background-color: transparent;
+}

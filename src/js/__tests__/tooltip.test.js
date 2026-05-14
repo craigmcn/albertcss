@@ -3,7 +3,12 @@ import { initTooltip } from '../tooltip';
 
 // jsdom default viewport: innerWidth=1024, innerHeight=768
 
-const buildTooltip = ({ placement = null, text = 'Tip', top = 400, left = 400 } = {}) => {
+const buildTooltip = ({
+  placement = null,
+  text = 'Tip',
+  top = 400,
+  left = 400,
+} = {}) => {
   const el = document.createElement('button');
   el.className = placement ? `tooltip tooltip--${placement}` : 'tooltip';
   el.setAttribute('data-tooltip', text);

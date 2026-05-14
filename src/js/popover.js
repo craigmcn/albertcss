@@ -17,7 +17,12 @@ export const initPopover = () => {
     return 'bottom';
   };
 
-  const opposite = { top: 'bottom', bottom: 'top', left: 'right', right: 'left' };
+  const opposite = {
+    top: 'bottom',
+    bottom: 'top',
+    left: 'right',
+    right: 'left',
+  };
 
   // Called after the panel is shown so getBoundingClientRect() returns real dimensions.
   const applyFlip = (panel) => {
@@ -25,11 +30,20 @@ export const initPopover = () => {
     const rect = panel.getBoundingClientRect();
     let overflows;
     switch (placement) {
-      case 'bottom': overflows = rect.bottom > window.innerHeight - EDGE; break;
-      case 'top':    overflows = rect.top    < EDGE;                       break;
-      case 'left':   overflows = rect.left   < EDGE;                       break;
-      case 'right':  overflows = rect.right  > window.innerWidth  - EDGE;  break;
-      default:       overflows = false;
+      case 'bottom':
+        overflows = rect.bottom > window.innerHeight - EDGE;
+        break;
+      case 'top':
+        overflows = rect.top < EDGE;
+        break;
+      case 'left':
+        overflows = rect.left < EDGE;
+        break;
+      case 'right':
+        overflows = rect.right > window.innerWidth - EDGE;
+        break;
+      default:
+        overflows = false;
     }
     if (overflows) {
       panel.dataset.popoverFlip = opposite[placement];

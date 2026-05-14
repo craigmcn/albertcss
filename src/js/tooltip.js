@@ -1,8 +1,11 @@
 export const initTooltip = () => {
-  const tooltips = Array.from(document.querySelectorAll('.tooltip[data-tooltip]'));
+  const tooltips = Array.from(
+    document.querySelectorAll('.tooltip[data-tooltip]'),
+  );
   if (!tooltips.length) return;
 
-  const rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+  const rootPx =
+    parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
   const TOTAL = 0.66 * rootPx; // $_total: $_gap + $_arrow converted to px
   const EDGE = 8; // minimum px clearance from viewport edge
 
@@ -13,7 +16,12 @@ export const initTooltip = () => {
     return 'top';
   };
 
-  const opposite = { top: 'bottom', bottom: 'top', left: 'right', right: 'left' };
+  const opposite = {
+    top: 'bottom',
+    bottom: 'top',
+    left: 'right',
+    right: 'left',
+  };
 
   // Measure the bubble text at the same font/padding as the CSS ::before pseudo-element.
   const measureBubble = (text) => {
@@ -32,11 +40,16 @@ export const initTooltip = () => {
   const needsFlip = (el, rect, placement) => {
     const { width: bw, height: bh } = measureBubble(el.dataset.tooltip);
     switch (placement) {
-      case 'top':    return rect.top    - bh - TOTAL < EDGE;
-      case 'bottom': return rect.bottom + bh + TOTAL > window.innerHeight - EDGE;
-      case 'left':   return rect.left   - bw - TOTAL < EDGE;
-      case 'right':  return rect.right  + bw + TOTAL > window.innerWidth  - EDGE;
-      default:       return false;
+      case 'top':
+        return rect.top - bh - TOTAL < EDGE;
+      case 'bottom':
+        return rect.bottom + bh + TOTAL > window.innerHeight - EDGE;
+      case 'left':
+        return rect.left - bw - TOTAL < EDGE;
+      case 'right':
+        return rect.right + bw + TOTAL > window.innerWidth - EDGE;
+      default:
+        return false;
     }
   };
 

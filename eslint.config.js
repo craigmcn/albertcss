@@ -1,18 +1,18 @@
-import neostandard from 'neostandard'
-import globals from 'globals'
-import prettierConfig from 'eslint-config-prettier'
+import neostandard from 'neostandard';
+import globals from 'globals';
+import prettierConfig from 'eslint-config-prettier';
 
 export default [
-    ...neostandard(),
-    {
-        languageOptions: {
-            globals: {
-                ...globals.browser,
-            },
-        },
-        rules: {
-            'no-console': 'warn',
-        },
+  ...neostandard(),
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
     },
-    prettierConfig,
-]
+    rules: {
+      'no-console': 'warn',
+    },
+  },
+  prettierConfig,
+];

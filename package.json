@@ -2,7 +2,7 @@
   "name": "albertcss",
   "version": "0.15.0",
   "description": "Personal CSS framework",
-  "packageManager": "yarn@3.3.1",
+  "packageManager": "yarn@4.14.1",
   "type": "module",
   "scripts": {
     "build": "gulp build --env=production",
@@ -12,7 +12,8 @@
     "format": "prettier --write src/",
     "lint": "./node_modules/.bin/eslint src/js",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "gulp-sass": "^6.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "minimist": "^1.2.8",
     "neostandard": "^0.13.0",

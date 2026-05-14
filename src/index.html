@@ -7,9 +7,9 @@
     <title>Style Guide</title>
 
     <script>
-      ;(() =>
+      (() =>
         !window.location.pathname.endsWith('/') &&
-        window.location.replace(window.location.href + '/'))()
+        window.location.replace(window.location.href + '/'))();
     </script>
 
     <link
@@ -99,7 +99,9 @@
       </nav>
 
       <div id="toolbar" class="toolbar toolbar--right collapsed">
-        <span class="fa-duotone fa-sharp fa-light fa-user-hair-buns icon"></span>
+        <span
+          class="fa-duotone fa-sharp fa-light fa-user-hair-buns icon"
+        ></span>
         <span>User Name</span>
 
         <button
@@ -127,7 +129,9 @@
           type="button"
           title="Sign out"
         >
-          <span class="fa-duotone fa-sharp fa-light fa-sign-out-alt icon"></span>
+          <span
+            class="fa-duotone fa-sharp fa-light fa-sign-out-alt icon"
+          ></span>
           <span class="visually-hidden">Sign out</span>
         </button>
       </div>
@@ -149,7 +153,9 @@
       <section class="section">
         <h1>Colours</h1>
         <div class="flex flex--grid">
-          <div class="card flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Default</h2>
             </div>
@@ -169,7 +175,9 @@
             </div>
           </div>
 
-          <div class="card card--primary flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card card--primary flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Primary</h2>
             </div>
@@ -189,7 +197,9 @@
             </div>
           </div>
 
-          <div class="card card--secondary flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card card--secondary flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Secondary</h2>
             </div>
@@ -209,7 +219,9 @@
             </div>
           </div>
 
-          <div class="card card--info flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card card--info flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Information</h2>
             </div>
@@ -229,7 +241,9 @@
             </div>
           </div>
 
-          <div class="card card--success flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card card--success flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Success</h2>
             </div>
@@ -249,7 +263,9 @@
             </div>
           </div>
 
-          <div class="card card--warning flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card card--warning flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Warning</h2>
             </div>
@@ -269,7 +285,9 @@
             </div>
           </div>
 
-          <div class="card card--danger flex__item flex__item--12 flex__item--6-sm flex__item--4-md">
+          <div
+            class="card card--danger flex__item flex__item--12 flex__item--6-sm flex__item--4-md"
+          >
             <div class="card__title">
               <h2>Danger</h2>
             </div>
@@ -666,9 +684,7 @@
           <div class="form__group">
             <label class="form__label form__label--lg">Input large label</label>
             <input class="form__control form__control--lg" type="text" />
-            <p class="text-muted text-sm">
-              Some help text for this input.
-            </p>
+            <p class="text-muted text-sm">Some help text for this input.</p>
           </div>
 
           <div class="form__group">
@@ -769,7 +785,10 @@
 
         <h2>Inline</h2>
 
-        <p><code>.form--inline</code> class can be used to display form controls inline. On smaller screens, the controls will wrap to the next line.</p>
+        <p>
+          <code>.form--inline</code> class can be used to display form controls
+          inline. On smaller screens, the controls will wrap to the next line.
+        </p>
 
         <form class="form form--inline">
           <div class="form__group">
@@ -871,46 +890,64 @@
           group has a continuous border-radius on its outer edges.
         </p>
 
-        <p>
+        <div>
           <div class="button-group" role="group" aria-label="Text formatting">
             <button class="button">Default</button>
             <button class="button">Middle</button>
             <button class="button">Right</button>
           </div>
-        </p>
+        </div>
 
-        <p>
+        <div>
           <div class="button-group" role="group" aria-label="Primary actions">
             <button class="button button--primary">Left</button>
             <button class="button button--primary">Middle</button>
             <button class="button button--primary">Right</button>
           </div>
-        </p>
+        </div>
 
         <p>Mixed variants work too:</p>
 
-        <p>
+        <div>
           <div class="button-group" role="group" aria-label="Mixed">
             <button class="button button--success">Save</button>
             <button class="button button--warning">Draft</button>
             <button class="button button--danger">Delete</button>
           </div>
-        </p>
+        </div>
 
         <h3>Radio button group</h3>
 
         <p>
           Place a <code>.button-group__input</code> input immediately before its
-          label. The input is visually hidden; the checked state fills the
-          label with the variant colour.
+          label. The input is visually hidden; the checked state fills the label
+          with the variant colour.
         </p>
 
         <div class="button-group" role="group" aria-label="Text alignment">
-          <input class="button-group__input" type="radio" id="align-start" name="align" checked>
+          <input
+            class="button-group__input"
+            type="radio"
+            id="align-start"
+            name="align"
+            checked
+          />
           <label class="button button--primary" for="align-start">Left</label>
-          <input class="button-group__input" type="radio" id="align-center" name="align">
-          <label class="button button--primary" for="align-center">Centre</label>
-          <input class="button-group__input" type="radio" id="align-end" name="align">
+          <input
+            class="button-group__input"
+            type="radio"
+            id="align-center"
+            name="align"
+          />
+          <label class="button button--primary" for="align-center"
+            >Centre</label
+          >
+          <input
+            class="button-group__input"
+            type="radio"
+            id="align-end"
+            name="align"
+          />
           <label class="button button--primary" for="align-end">Right</label>
         </div>
 
@@ -919,12 +956,32 @@
         <p>Same pattern with <code>type="checkbox"</code> for multi-select:</p>
 
         <div class="button-group" role="group" aria-label="Text style">
-          <input class="button-group__input" type="checkbox" id="style-bold" name="style-bold">
+          <input
+            class="button-group__input"
+            type="checkbox"
+            id="style-bold"
+            name="style-bold"
+          />
           <label class="button button--secondary" for="style-bold">Bold</label>
-          <input class="button-group__input" type="checkbox" id="style-italic" name="style-italic" checked>
-          <label class="button button--secondary" for="style-italic">Italic</label>
-          <input class="button-group__input" type="checkbox" id="style-underline" name="style-underline">
-          <label class="button button--secondary" for="style-underline">Underline</label>
+          <input
+            class="button-group__input"
+            type="checkbox"
+            id="style-italic"
+            name="style-italic"
+            checked
+          />
+          <label class="button button--secondary" for="style-italic"
+            >Italic</label
+          >
+          <input
+            class="button-group__input"
+            type="checkbox"
+            id="style-underline"
+            name="style-underline"
+          />
+          <label class="button button--secondary" for="style-underline"
+            >Underline</label
+          >
         </div>
       </section>
 
@@ -1139,7 +1196,9 @@
         </p>
 
         <div class="flex flex--grid">
-          <div class="card flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Default</h2>
             </div>
@@ -1148,7 +1207,9 @@
             </div>
           </div>
 
-          <div class="card card--primary flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card card--primary flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Primary</h2>
             </div>
@@ -1157,7 +1218,9 @@
             </div>
           </div>
 
-          <div class="card card--secondary flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card card--secondary flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Secondary</h2>
             </div>
@@ -1166,7 +1229,9 @@
             </div>
           </div>
 
-          <div class="card card--info flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card card--info flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Information</h2>
             </div>
@@ -1175,7 +1240,9 @@
             </div>
           </div>
 
-          <div class="card card--success flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card card--success flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Success</h2>
             </div>
@@ -1184,7 +1251,9 @@
             </div>
           </div>
 
-          <div class="card card--warning flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card card--warning flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Warning</h2>
             </div>
@@ -1193,7 +1262,9 @@
             </div>
           </div>
 
-          <div class="card card--danger flex__item flex__item--12 flex__item--6-sm flex__item--3-md">
+          <div
+            class="card card--danger flex__item flex__item--12 flex__item--6-sm flex__item--3-md"
+          >
             <div class="card__title">
               <h2>Danger</h2>
             </div>
@@ -1205,7 +1276,9 @@
 
         <h2>Dark variants</h2>
 
-        <p class="mb-4">As with buttons, cards also come in a <code>-dark</code> variant.</p>
+        <p class="mb-4">
+          As with buttons, cards also come in a <code>-dark</code> variant.
+        </p>
 
         <div class="flex flex--grid">
           <div
@@ -1859,7 +1932,8 @@
 
         <p>
           A <code>.dropdown__trigger</code> button toggles a
-          <code>.dropdown__menu</code>. Arrow keys navigate items; <kbd>Escape</kbd>
+          <code>.dropdown__menu</code>. Arrow keys navigate items;
+          <kbd>Escape</kbd>
           closes the menu and returns focus to the trigger.
         </p>
 
@@ -1878,12 +1952,7 @@
               aria-hidden="true"
             ></i>
           </button>
-          <ul
-            class="dropdown__menu"
-            id="dropdown-basic"
-            role="menu"
-            hidden
-          >
+          <ul class="dropdown__menu" id="dropdown-basic" role="menu" hidden>
             <li class="dropdown__item" role="none">
               <a class="dropdown__link" href="#" role="menuitem">Profile</a>
             </li>
@@ -1897,13 +1966,16 @@
             </li>
             <li class="dropdown__divider" role="separator"></li>
             <li class="dropdown__item" role="none">
-              <button class="dropdown__button dropdown__button--danger" role="menuitem">
+              <button
+                class="dropdown__button dropdown__button--danger"
+                role="menuitem"
+              >
                 Delete account
               </button>
             </li>
           </ul>
         </div>
-        
+
         <div class="dropdown">
           <button
             class="button dropdown__trigger"
@@ -1913,12 +1985,7 @@
           >
             Options
           </button>
-          <ul
-            class="dropdown__menu"
-            id="dropdown-basic"
-            role="menu"
-            hidden
-          >
+          <ul class="dropdown__menu" id="dropdown-basic" role="menu" hidden>
             <li class="dropdown__item" role="none">
               <a class="dropdown__link" href="#" role="menuitem">Profile</a>
             </li>
@@ -1932,7 +1999,10 @@
             </li>
             <li class="dropdown__divider" role="separator"></li>
             <li class="dropdown__item" role="none">
-              <button class="dropdown__button dropdown__button--danger" role="menuitem">
+              <button
+                class="dropdown__button dropdown__button--danger"
+                role="menuitem"
+              >
                 Delete account
               </button>
             </li>
@@ -1960,12 +2030,7 @@
                 aria-hidden="true"
               ></i>
             </button>
-            <ul
-              class="dropdown__menu"
-              id="dropdown-right"
-              role="menu"
-              hidden
-            >
+            <ul class="dropdown__menu" id="dropdown-right" role="menu" hidden>
               <li class="dropdown__item" role="none">
                 <a class="dropdown__link" href="#" role="menuitem">Profile</a>
               </li>
@@ -1982,7 +2047,8 @@
 
         <p class="m-t-md">
           Add custom dropdown arrow icons by including an element with the
-          <code>dropdown__icon</code> class inside the <code>button</code> element.
+          <code>dropdown__icon</code> class inside the
+          <code>button</code> element.
         </p>
       </section>
 
@@ -2006,10 +2072,7 @@
         <h3>Placements</h3>
 
         <div class="d-flex flex-wrap align-items-center gap-4">
-          <button
-            class="button tooltip"
-            data-tooltip="Top tooltip (default)"
-          >
+          <button class="button tooltip" data-tooltip="Top tooltip (default)">
             Top (default)
           </button>
 
@@ -2106,9 +2169,15 @@
             >
               Left
             </button>
-            <div class="popover__panel popover__panel--left" id="pop-left" hidden>
+            <div
+              class="popover__panel popover__panel--left"
+              id="pop-left"
+              hidden
+            >
               <strong class="popover__title">Left popover</strong>
-              <p class="popover__body">This panel appears to the left of the trigger.</p>
+              <p class="popover__body">
+                This panel appears to the left of the trigger.
+              </p>
             </div>
           </div>
 
@@ -2121,9 +2190,15 @@
             >
               Right
             </button>
-            <div class="popover__panel popover__panel--right" id="pop-right" hidden>
+            <div
+              class="popover__panel popover__panel--right"
+              id="pop-right"
+              hidden
+            >
               <strong class="popover__title">Right popover</strong>
-              <p class="popover__body">This panel appears to the right of the trigger.</p>
+              <p class="popover__body">
+                This panel appears to the right of the trigger.
+              </p>
             </div>
           </div>
         </div>
@@ -2140,9 +2215,9 @@
         <h2>Spacing</h2>
 
         <p>
-          Pattern: <code>.{m|p}{axis}{n}</code> — margin or padding, axis, and
-          a numeric scale where each step is 0.25rem (0–8, reaching 2rem).
-          Uses CSS logical properties, so axes respect writing direction.
+          Pattern: <code>.{m|p}{axis}{n}</code> — margin or padding, axis, and a
+          numeric scale where each step is 0.25rem (0–8, reaching 2rem). Uses
+          CSS logical properties, so axes respect writing direction.
         </p>
 
         <table class="table table--striped table--sm">
@@ -2200,9 +2275,19 @@
           </tbody>
         </table>
 
-        <p>Scale: <code>0</code>=0 &nbsp; <code>1</code>=0.25rem &nbsp; <code>2</code>=0.5rem &nbsp; <code>3</code>=0.75rem &nbsp; <code>4</code>=1rem &nbsp; <code>5</code>=1.25rem &nbsp; <code>6</code>=1.5rem &nbsp; <code>7</code>=1.75rem &nbsp; <code>8</code>=2rem</p>
+        <p>
+          Scale: <code>0</code>=0 &nbsp; <code>1</code>=0.25rem &nbsp;
+          <code>2</code>=0.5rem &nbsp; <code>3</code>=0.75rem &nbsp;
+          <code>4</code>=1rem &nbsp; <code>5</code>=1.25rem &nbsp;
+          <code>6</code>=1.5rem &nbsp; <code>7</code>=1.75rem &nbsp;
+          <code>8</code>=2rem
+        </p>
 
-        <p>Auto margin utilities: <code>mx-auto</code>, <code>my-auto</code>, <code>ms-auto</code>, <code>me-auto</code>, <code>mt-auto</code>, <code>mb-auto</code>.</p>
+        <p>
+          Auto margin utilities: <code>mx-auto</code>, <code>my-auto</code>,
+          <code>ms-auto</code>, <code>me-auto</code>, <code>mt-auto</code>,
+          <code>mb-auto</code>.
+        </p>
 
         <p>For example:</p>
 
@@ -2221,18 +2306,20 @@
           <div class="alert__icon">
             <i class="fa-duotone fa-sharp fa-light fa-triangle-exclamation"></i>
           </div>
-          <div class="alert__text">These utilities are deprecated and will be removed in a future version.</div>
+          <div class="alert__text">
+            These utilities are deprecated and will be removed in a future
+            version.
+          </div>
         </div>
 
         <p>
           The original spacing classes remain available. Pattern:
-          <code>.{m|p}-{side}-{size}</code>.
-          Sides: <code>t</code> (top), <code>b</code> (bottom),
-          <code>l</code> (left), <code>r</code> (right),
-          <code>h</code> (left + right), <code>v</code> (top + bottom).
-          Sizes: <code>xs</code> (0.25rem), <code>sm</code> (0.5rem),
-          <code>md</code> (1rem), <code>lg</code> (1.5rem),
-          <code>xl</code> (2rem).
+          <code>.{m|p}-{side}-{size}</code>. Sides: <code>t</code> (top),
+          <code>b</code> (bottom), <code>l</code> (left),
+          <code>r</code> (right), <code>h</code> (left + right),
+          <code>v</code> (top + bottom). Sizes: <code>xs</code> (0.25rem),
+          <code>sm</code> (0.5rem), <code>md</code> (1rem),
+          <code>lg</code> (1.5rem), <code>xl</code> (2rem).
         </p>
 
         <ul>
@@ -2286,47 +2373,75 @@
         <h3>Background colour</h3>
 
         <p>
-          Use <code>text-bg-*</code> to set both background and a
-          theme-aware contrasting text colour in one class:
+          Use <code>text-bg-*</code> to set both background and a theme-aware
+          contrasting text colour in one class:
         </p>
 
         <div class="d-flex flex-wrap gap-3 mt-4">
           <div class="text-bg-primary text-xs p-3 rounded">text-bg-primary</div>
-          <div class="text-bg-secondary text-xs p-3 rounded">text-bg-secondary</div>
+          <div class="text-bg-secondary text-xs p-3 rounded">
+            text-bg-secondary
+          </div>
           <div class="text-bg-info text-xs p-3 rounded">text-bg-info</div>
           <div class="text-bg-success text-xs p-3 rounded">text-bg-success</div>
           <div class="text-bg-warning text-xs p-3 rounded">text-bg-warning</div>
           <div class="text-bg-danger text-xs p-3 rounded">text-bg-danger</div>
         </div>
 
-        <p class="mt-4">Use <code>bg-*</code> alone when you only need the background:</p>
+        <p class="mt-4">
+          Use <code>bg-*</code> alone when you only need the background:
+        </p>
 
         <div class="d-flex flex-wrap gap-3 mt-4">
-          <div class="bg-primary text-white text-xs p-3 rounded">bg-primary</div>
-          <div class="bg-secondary text-white text-xs p-3 rounded">bg-secondary</div>
+          <div class="bg-primary text-white text-xs p-3 rounded">
+            bg-primary
+          </div>
+          <div class="bg-secondary text-white text-xs p-3 rounded">
+            bg-secondary
+          </div>
           <div class="bg-info text-white text-xs p-3 rounded">bg-info</div>
-          <div class="bg-success text-white text-xs p-3 rounded">bg-success</div>
-          <div class="bg-warning text-white text-xs p-3 rounded">bg-warning</div>
+          <div class="bg-success text-white text-xs p-3 rounded">
+            bg-success
+          </div>
+          <div class="bg-warning text-white text-xs p-3 rounded">
+            bg-warning
+          </div>
           <div class="bg-danger text-white text-xs p-3 rounded">bg-danger</div>
           <div class="bg-muted text-xs p-3 rounded">bg-muted</div>
           <div class="bg-dark text-white text-xs p-3 rounded">bg-dark</div>
           <div class="bg-white text-xs p-3 rounded border">bg-white</div>
-          <div class="bg-transparent text-xs p-3 rounded border">bg-transparent</div>
+          <div class="bg-transparent text-xs p-3 rounded border">
+            bg-transparent
+          </div>
         </div>
 
         <h3>Text size</h3>
 
         <p>
-          Font size utilities use a <a href="https://tailwindcss.com/docs/font-size">Tailwind-style</a> scale with paired
-          <code>line-height</code> values (all in <code>rem</code>):
+          Font size utilities use a
+          <a href="https://tailwindcss.com/docs/font-size">Tailwind-style</a>
+          scale with paired <code>line-height</code> values (all in
+          <code>rem</code>):
         </p>
 
-        <p class="text-xs">Extra small text using <code>class="text-xs"</code> (0.75rem).</p>
-        <p class="text-sm">Small text using <code>class="text-sm"</code> (0.875rem).</p>
-        <p class="text-base">Base text using <code>class="text-base"</code> (1rem).</p>
-        <p class="text-lg">Large text using <code>class="text-lg"</code> (1.125rem).</p>
-        <p class="text-xl">Extra large text using <code>class="text-xl"</code> (1.25rem).</p>
-        <p class="text-2xl">2× large text using <code>class="text-2xl"</code> (1.5rem).</p>
+        <p class="text-xs">
+          Extra small text using <code>class="text-xs"</code> (0.75rem).
+        </p>
+        <p class="text-sm">
+          Small text using <code>class="text-sm"</code> (0.875rem).
+        </p>
+        <p class="text-base">
+          Base text using <code>class="text-base"</code> (1rem).
+        </p>
+        <p class="text-lg">
+          Large text using <code>class="text-lg"</code> (1.125rem).
+        </p>
+        <p class="text-xl">
+          Extra large text using <code>class="text-xl"</code> (1.25rem).
+        </p>
+        <p class="text-2xl">
+          2× large text using <code>class="text-2xl"</code> (1.5rem).
+        </p>
 
         <h3 class="mt-5">Text alignment</h3>
 
@@ -2344,29 +2459,26 @@
 
         <h4 class="fw-normal">
           &ldquo;Normal&rdquo; weight <code>h4</code> heading with
-          <code>class="fw-normal"</code>. It can be used to reset font weight
-          in headings or bold text.
+          <code>class="fw-normal"</code>. It can be used to reset font weight in
+          headings or bold text.
         </h4>
 
         <p>
           <span class="fw-bold">
-            Bold text using <code>class="fw-bold"</code>. It&rsquo;s not
-            quite as bold as <code>&lt;strong&gt;</code> </span
+            Bold text using <code>class="fw-bold"</code>. It&rsquo;s not quite
+            as bold as <code>&lt;strong&gt;</code> </span
           >.<br />
           <strong>Strong text, for reference.</strong>
         </p>
 
-        <p class="fw-light">
-          Light text using <code>class="fw-light"</code>.
-        </p>
+        <p class="fw-light">Light text using <code>class="fw-light"</code>.</p>
 
         <p>
           <span class="text-uppercase"
             >Uppercase text using <code>class="text-uppercase"</code></span
           >. For example, use it with <code>text-sm</code> and
           <code>fw-light</code> for
-          <span class="text-uppercase fw-light text-sm">fun variations</span
-          >.
+          <span class="text-uppercase fw-light text-sm">fun variations</span>.
         </p>
       </section>
 
@@ -2381,16 +2493,40 @@
 
         <table class="table table--striped table--sm">
           <thead>
-            <tr><th>Class</th><th>Property</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Property</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>d-none</code></td><td><code>display: none</code></td></tr>
-            <tr><td><code>d-block</code></td><td><code>display: block</code></td></tr>
-            <tr><td><code>d-inline</code></td><td><code>display: inline</code></td></tr>
-            <tr><td><code>d-inline-block</code></td><td><code>display: inline-block</code></td></tr>
-            <tr><td><code>d-flex</code></td><td><code>display: flex</code></td></tr>
-            <tr><td><code>d-inline-flex</code></td><td><code>display: inline-flex</code></td></tr>
-            <tr><td><code>d-grid</code></td><td><code>display: grid</code></td></tr>
+            <tr>
+              <td><code>d-none</code></td>
+              <td><code>display: none</code></td>
+            </tr>
+            <tr>
+              <td><code>d-block</code></td>
+              <td><code>display: block</code></td>
+            </tr>
+            <tr>
+              <td><code>d-inline</code></td>
+              <td><code>display: inline</code></td>
+            </tr>
+            <tr>
+              <td><code>d-inline-block</code></td>
+              <td><code>display: inline-block</code></td>
+            </tr>
+            <tr>
+              <td><code>d-flex</code></td>
+              <td><code>display: flex</code></td>
+            </tr>
+            <tr>
+              <td><code>d-inline-flex</code></td>
+              <td><code>display: inline-flex</code></td>
+            </tr>
+            <tr>
+              <td><code>d-grid</code></td>
+              <td><code>display: grid</code></td>
+            </tr>
           </tbody>
         </table>
 
@@ -2403,24 +2539,72 @@
 
         <table class="table table--striped table--sm">
           <thead>
-            <tr><th>Class</th><th>Property</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Property</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>flex-row</code></td><td><code>flex-direction: row</code></td></tr>
-            <tr><td><code>flex-column</code></td><td><code>flex-direction: column</code></td></tr>
-            <tr><td><code>flex-wrap</code></td><td><code>flex-wrap: wrap</code></td></tr>
-            <tr><td><code>flex-nowrap</code></td><td><code>flex-wrap: nowrap</code></td></tr>
-            <tr><td><code>align-items-start</code></td><td><code>align-items: flex-start</code></td></tr>
-            <tr><td><code>align-items-end</code></td><td><code>align-items: flex-end</code></td></tr>
-            <tr><td><code>align-items-center</code></td><td><code>align-items: center</code></td></tr>
-            <tr><td><code>align-items-stretch</code></td><td><code>align-items: stretch</code></td></tr>
-            <tr><td><code>align-items-baseline</code></td><td><code>align-items: baseline</code></td></tr>
-            <tr><td><code>justify-content-start</code></td><td><code>justify-content: flex-start</code></td></tr>
-            <tr><td><code>justify-content-end</code></td><td><code>justify-content: flex-end</code></td></tr>
-            <tr><td><code>justify-content-center</code></td><td><code>justify-content: center</code></td></tr>
-            <tr><td><code>justify-content-between</code></td><td><code>justify-content: space-between</code></td></tr>
-            <tr><td><code>justify-content-around</code></td><td><code>justify-content: space-around</code></td></tr>
-            <tr><td><code>justify-content-evenly</code></td><td><code>justify-content: space-evenly</code></td></tr>
+            <tr>
+              <td><code>flex-row</code></td>
+              <td><code>flex-direction: row</code></td>
+            </tr>
+            <tr>
+              <td><code>flex-column</code></td>
+              <td><code>flex-direction: column</code></td>
+            </tr>
+            <tr>
+              <td><code>flex-wrap</code></td>
+              <td><code>flex-wrap: wrap</code></td>
+            </tr>
+            <tr>
+              <td><code>flex-nowrap</code></td>
+              <td><code>flex-wrap: nowrap</code></td>
+            </tr>
+            <tr>
+              <td><code>align-items-start</code></td>
+              <td><code>align-items: flex-start</code></td>
+            </tr>
+            <tr>
+              <td><code>align-items-end</code></td>
+              <td><code>align-items: flex-end</code></td>
+            </tr>
+            <tr>
+              <td><code>align-items-center</code></td>
+              <td><code>align-items: center</code></td>
+            </tr>
+            <tr>
+              <td><code>align-items-stretch</code></td>
+              <td><code>align-items: stretch</code></td>
+            </tr>
+            <tr>
+              <td><code>align-items-baseline</code></td>
+              <td><code>align-items: baseline</code></td>
+            </tr>
+            <tr>
+              <td><code>justify-content-start</code></td>
+              <td><code>justify-content: flex-start</code></td>
+            </tr>
+            <tr>
+              <td><code>justify-content-end</code></td>
+              <td><code>justify-content: flex-end</code></td>
+            </tr>
+            <tr>
+              <td><code>justify-content-center</code></td>
+              <td><code>justify-content: center</code></td>
+            </tr>
+            <tr>
+              <td><code>justify-content-between</code></td>
+              <td><code>justify-content: space-between</code></td>
+            </tr>
+            <tr>
+              <td><code>justify-content-around</code></td>
+              <td><code>justify-content: space-around</code></td>
+            </tr>
+            <tr>
+              <td><code>justify-content-evenly</code></td>
+              <td><code>justify-content: space-evenly</code></td>
+            </tr>
           </tbody>
         </table>
 
@@ -2443,20 +2627,56 @@
 
         <table class="table table--striped table--sm">
           <thead>
-            <tr><th>Class</th><th>Property</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Property</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>overflow-auto</code></td><td><code>overflow: auto</code></td></tr>
-            <tr><td><code>overflow-hidden</code></td><td><code>overflow: hidden</code></td></tr>
-            <tr><td><code>overflow-visible</code></td><td><code>overflow: visible</code></td></tr>
-            <tr><td><code>overflow-scroll</code></td><td><code>overflow: scroll</code></td></tr>
-            <tr><td><code>overflow-clip</code></td><td><code>overflow: clip</code></td></tr>
-            <tr><td><code>overflow-x-auto</code></td><td><code>overflow-x: auto</code></td></tr>
-            <tr><td><code>overflow-x-hidden</code></td><td><code>overflow-x: hidden</code></td></tr>
-            <tr><td><code>overflow-x-scroll</code></td><td><code>overflow-x: scroll</code></td></tr>
-            <tr><td><code>overflow-y-auto</code></td><td><code>overflow-y: auto</code></td></tr>
-            <tr><td><code>overflow-y-hidden</code></td><td><code>overflow-y: hidden</code></td></tr>
-            <tr><td><code>overflow-y-scroll</code></td><td><code>overflow-y: scroll</code></td></tr>
+            <tr>
+              <td><code>overflow-auto</code></td>
+              <td><code>overflow: auto</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-hidden</code></td>
+              <td><code>overflow: hidden</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-visible</code></td>
+              <td><code>overflow: visible</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-scroll</code></td>
+              <td><code>overflow: scroll</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-clip</code></td>
+              <td><code>overflow: clip</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-x-auto</code></td>
+              <td><code>overflow-x: auto</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-x-hidden</code></td>
+              <td><code>overflow-x: hidden</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-x-scroll</code></td>
+              <td><code>overflow-x: scroll</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-y-auto</code></td>
+              <td><code>overflow-y: auto</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-y-hidden</code></td>
+              <td><code>overflow-y: hidden</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-y-scroll</code></td>
+              <td><code>overflow-y: scroll</code></td>
+            </tr>
           </tbody>
         </table>
       </section>
@@ -2466,14 +2686,32 @@
 
         <table class="table table--striped table--sm">
           <thead>
-            <tr><th>Class</th><th>Property</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Property</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>position-static</code></td><td><code>position: static</code></td></tr>
-            <tr><td><code>position-relative</code></td><td><code>position: relative</code></td></tr>
-            <tr><td><code>position-absolute</code></td><td><code>position: absolute</code></td></tr>
-            <tr><td><code>position-fixed</code></td><td><code>position: fixed</code></td></tr>
-            <tr><td><code>position-sticky</code></td><td><code>position: sticky</code></td></tr>
+            <tr>
+              <td><code>position-static</code></td>
+              <td><code>position: static</code></td>
+            </tr>
+            <tr>
+              <td><code>position-relative</code></td>
+              <td><code>position: relative</code></td>
+            </tr>
+            <tr>
+              <td><code>position-absolute</code></td>
+              <td><code>position: absolute</code></td>
+            </tr>
+            <tr>
+              <td><code>position-fixed</code></td>
+              <td><code>position: fixed</code></td>
+            </tr>
+            <tr>
+              <td><code>position-sticky</code></td>
+              <td><code>position: sticky</code></td>
+            </tr>
           </tbody>
         </table>
 
@@ -2488,36 +2726,58 @@
         <h3>Edge placement</h3>
 
         <p>
-          Use with <code>position-absolute</code> or <code>position-fixed</code>
-          to anchor an element to an edge of its container. Values: <code>0</code>,
-          <code>50%</code>, <code>100%</code>.
+          Use with <code>position-absolute</code> or
+          <code>position-fixed</code> to anchor an element to an edge of its
+          container. Values: <code>0</code>, <code>50%</code>,
+          <code>100%</code>.
         </p>
 
         <ul>
           <li><code>top-{0|50|100}</code></li>
           <li><code>bottom-{0|50|100}</code></li>
-          <li><code>start-{0|50|100}</code> — <code>inset-inline-start</code></li>
+          <li>
+            <code>start-{0|50|100}</code> — <code>inset-inline-start</code>
+          </li>
           <li><code>end-{0|50|100}</code> — <code>inset-inline-end</code></li>
         </ul>
 
         <p>
-          Add <code>translate-middle</code> alongside <code>top-50 start-50</code>
+          Add <code>translate-middle</code> alongside
+          <code>top-50 start-50</code>
           to centre an absolutely-positioned element within its parent.
         </p>
 
-        <div class="position-relative border" style="height: 6rem; background: var(--grey100);">
-          <span class="position-absolute top-0 start-0 badge badge--secondary">top / start</span>
-          <span class="position-absolute top-0 end-0 badge badge--secondary">top / end</span>
-          <span class="position-absolute top-50 start-50 translate-middle badge badge--primary">centre</span>
-          <span class="position-absolute bottom-0 start-0 badge badge--secondary">bottom / start</span>
-          <span class="position-absolute bottom-0 end-0 badge badge--secondary">bottom / end</span>
+        <div
+          class="position-relative border"
+          style="height: 6rem; background: var(--grey100)"
+        >
+          <span class="position-absolute top-0 start-0 badge badge--secondary"
+            >top / start</span
+          >
+          <span class="position-absolute top-0 end-0 badge badge--secondary"
+            >top / end</span
+          >
+          <span
+            class="position-absolute top-50 start-50 translate-middle badge badge--primary"
+            >centre</span
+          >
+          <span
+            class="position-absolute bottom-0 start-0 badge badge--secondary"
+            >bottom / start</span
+          >
+          <span class="position-absolute bottom-0 end-0 badge badge--secondary"
+            >bottom / end</span
+          >
         </div>
       </section>
 
       <section class="section">
         <h2>Shadows</h2>
 
-        <p>Box-shadow utility scale — values use <code>px</code> as is standard for decorative effects.</p>
+        <p>
+          Box-shadow utility scale — values use <code>px</code> as is standard
+          for decorative effects.
+        </p>
 
         <div class="d-flex flex-wrap gap-4 mt-4">
           <div class="shadow-sm p-4 rounded">shadow-sm</div>
@@ -2578,7 +2838,12 @@
           <div class="border rounded-xl p-3">rounded-xl</div>
           <div class="border rounded-xxl p-3">rounded-xxl</div>
           <div class="border rounded-pill px-4 py-3">rounded-pill</div>
-          <div class="border rounded-full d-grid place-items-center p-3" style="width: 4rem; height: 4rem;">rounded-full</div>
+          <div
+            class="border rounded-full d-grid place-items-center p-3"
+            style="width: 4rem; height: 4rem"
+          >
+            rounded-full
+          </div>
         </div>
       </section>
 
@@ -2588,43 +2853,109 @@
         <h3>Numeric scale</h3>
 
         <p>
-          General-purpose scale for stacking elements within a component.
-          Use with <code>position-relative</code> or <code>position-absolute</code>.
+          General-purpose scale for stacking elements within a component. Use
+          with <code>position-relative</code> or <code>position-absolute</code>.
         </p>
 
         <table class="table table--striped table--sm">
           <thead>
-            <tr><th>Class</th><th>Value</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Value</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>z-0</code></td><td><code>0</code></td></tr>
-            <tr><td><code>z-10</code></td><td><code>10</code></td></tr>
-            <tr><td><code>z-20</code></td><td><code>20</code></td></tr>
-            <tr><td><code>z-30</code></td><td><code>30</code></td></tr>
-            <tr><td><code>z-40</code></td><td><code>40</code></td></tr>
-            <tr><td><code>z-50</code></td><td><code>50</code></td></tr>
-            <tr><td><code>z-auto</code></td><td><code>auto</code></td></tr>
+            <tr>
+              <td><code>z-0</code></td>
+              <td><code>0</code></td>
+            </tr>
+            <tr>
+              <td><code>z-10</code></td>
+              <td><code>10</code></td>
+            </tr>
+            <tr>
+              <td><code>z-20</code></td>
+              <td><code>20</code></td>
+            </tr>
+            <tr>
+              <td><code>z-30</code></td>
+              <td><code>30</code></td>
+            </tr>
+            <tr>
+              <td><code>z-40</code></td>
+              <td><code>40</code></td>
+            </tr>
+            <tr>
+              <td><code>z-50</code></td>
+              <td><code>50</code></td>
+            </tr>
+            <tr>
+              <td><code>z-auto</code></td>
+              <td><code>auto</code></td>
+            </tr>
           </tbody>
         </table>
 
         <h3>Semantic scale</h3>
 
-        <p>Named values that match the layering used by framework components.</p>
+        <p>
+          Named values that match the layering used by framework components.
+        </p>
 
         <table class="table table--striped table--sm">
           <thead>
-            <tr><th>Class</th><th>Value</th><th>Used by</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Value</th>
+              <th>Used by</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>z-above</code></td><td><code>10</code></td><td>Above normal flow</td></tr>
-            <tr><td><code>z-raised</code></td><td><code>100</code></td><td>Raised elements</td></tr>
-            <tr><td><code>z-dropdown</code></td><td><code>1000</code></td><td>Dropdown</td></tr>
-            <tr><td><code>z-sticky</code></td><td><code>1020</code></td><td><code>sticky-top</code>, <code>sticky-bottom</code></td></tr>
-            <tr><td><code>z-fixed</code></td><td><code>1030</code></td><td>Fixed headers/footers</td></tr>
-            <tr><td><code>z-backdrop</code></td><td><code>1040</code></td><td>Modal backdrop</td></tr>
-            <tr><td><code>z-modal</code></td><td><code>1050</code></td><td>Modal</td></tr>
-            <tr><td><code>z-popover</code></td><td><code>1060</code></td><td>Popover</td></tr>
-            <tr><td><code>z-tooltip</code></td><td><code>1070</code></td><td>Tooltip</td></tr>
+            <tr>
+              <td><code>z-above</code></td>
+              <td><code>10</code></td>
+              <td>Above normal flow</td>
+            </tr>
+            <tr>
+              <td><code>z-raised</code></td>
+              <td><code>100</code></td>
+              <td>Raised elements</td>
+            </tr>
+            <tr>
+              <td><code>z-dropdown</code></td>
+              <td><code>1000</code></td>
+              <td>Dropdown</td>
+            </tr>
+            <tr>
+              <td><code>z-sticky</code></td>
+              <td><code>1020</code></td>
+              <td><code>sticky-top</code>, <code>sticky-bottom</code></td>
+            </tr>
+            <tr>
+              <td><code>z-fixed</code></td>
+              <td><code>1030</code></td>
+              <td>Fixed headers/footers</td>
+            </tr>
+            <tr>
+              <td><code>z-backdrop</code></td>
+              <td><code>1040</code></td>
+              <td>Modal backdrop</td>
+            </tr>
+            <tr>
+              <td><code>z-modal</code></td>
+              <td><code>1050</code></td>
+              <td>Modal</td>
+            </tr>
+            <tr>
+              <td><code>z-popover</code></td>
+              <td><code>1060</code></td>
+              <td>Popover</td>
+            </tr>
+            <tr>
+              <td><code>z-tooltip</code></td>
+              <td><code>1070</code></td>
+              <td>Tooltip</td>
+            </tr>
           </tbody>
         </table>
       </section>
@@ -2633,9 +2964,9 @@
         <h2>Aspect ratio</h2>
 
         <p>
-          Apply <code>ratio</code> to a wrapper element, then add a modifier
-          for the desired ratio. The direct child (iframe, img, video, etc.)
-          is stretched to fill the container via absolute positioning.
+          Apply <code>ratio</code> to a wrapper element, then add a modifier for
+          the desired ratio. The direct child (iframe, img, video, etc.) is
+          stretched to fill the container via absolute positioning.
         </p>
 
         <pre><code>&lt;div class="ratio ratio--16x9"&gt;
@@ -2644,42 +2975,86 @@
 
         <table class="table table--striped table--sm mt-4">
           <thead>
-            <tr><th>Class</th><th>Ratio</th><th>Common use</th></tr>
+            <tr>
+              <th>Class</th>
+              <th>Ratio</th>
+              <th>Common use</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td><code>ratio--1x1</code></td><td>1:1</td><td>Square thumbnails, avatars</td></tr>
-            <tr><td><code>ratio--4x3</code></td><td>4:3</td><td>Standard SD video</td></tr>
-            <tr><td><code>ratio--3x2</code></td><td>3:2</td><td>Photography</td></tr>
-            <tr><td><code>ratio--16x9</code></td><td>16:9</td><td>HD video, embeds</td></tr>
-            <tr><td><code>ratio--21x9</code></td><td>21:9</td><td>Cinematic / wide banners</td></tr>
-            <tr><td><code>ratio--9x16</code></td><td>9:16</td><td>Vertical / portrait video</td></tr>
+            <tr>
+              <td><code>ratio--1x1</code></td>
+              <td>1:1</td>
+              <td>Square thumbnails, avatars</td>
+            </tr>
+            <tr>
+              <td><code>ratio--4x3</code></td>
+              <td>4:3</td>
+              <td>Standard SD video</td>
+            </tr>
+            <tr>
+              <td><code>ratio--3x2</code></td>
+              <td>3:2</td>
+              <td>Photography</td>
+            </tr>
+            <tr>
+              <td><code>ratio--16x9</code></td>
+              <td>16:9</td>
+              <td>HD video, embeds</td>
+            </tr>
+            <tr>
+              <td><code>ratio--21x9</code></td>
+              <td>21:9</td>
+              <td>Cinematic / wide banners</td>
+            </tr>
+            <tr>
+              <td><code>ratio--9x16</code></td>
+              <td>9:16</td>
+              <td>Vertical / portrait video</td>
+            </tr>
           </tbody>
         </table>
 
         <h3>Examples</h3>
 
         <div class="d-flex flex-wrap gap-4 align-items-start mt-4">
-          <div style="width: 10rem;">
+          <div style="width: 10rem">
             <div class="ratio ratio--1x1 bg-muted">
-              <div class="d-flex align-items-center justify-content-center text-muted text-sm">1×1</div>
+              <div
+                class="d-flex align-items-center justify-content-center text-muted text-sm"
+              >
+                1×1
+              </div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--1x1</code></p>
           </div>
-          <div style="width: 14rem;">
+          <div style="width: 14rem">
             <div class="ratio ratio--4x3 bg-muted">
-              <div class="d-flex align-items-center justify-content-center text-muted text-sm">4×3</div>
+              <div
+                class="d-flex align-items-center justify-content-center text-muted text-sm"
+              >
+                4×3
+              </div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--4x3</code></p>
           </div>
-          <div style="width: 16rem;">
+          <div style="width: 16rem">
             <div class="ratio ratio--16x9 bg-muted">
-              <div class="d-flex align-items-center justify-content-center text-muted text-sm">16×9</div>
+              <div
+                class="d-flex align-items-center justify-content-center text-muted text-sm"
+              >
+                16×9
+              </div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--16x9</code></p>
           </div>
-          <div style="width: 20rem;">
+          <div style="width: 20rem">
             <div class="ratio ratio--21x9 bg-muted">
-              <div class="d-flex align-items-center justify-content-center text-muted text-sm">21×9</div>
+              <div
+                class="d-flex align-items-center justify-content-center text-muted text-sm"
+              >
+                21×9
+              </div>
             </div>
             <p class="text-center text-sm mt-2"><code>ratio--21x9</code></p>
           </div>
@@ -2692,8 +3067,8 @@
         <p>
           <code>grid</code> sets a 12-column CSS grid. Use
           <code>grid-cols-{n}</code> for equal-width columns, or
-          <code>col-{n}</code> to span a specific number of columns.
-          Combine with <code>gap-*</code> for gutters.
+          <code>col-{n}</code> to span a specific number of columns. Combine
+          with <code>gap-*</code> for gutters.
         </p>
 
         <h3>Equal-width columns</h3>
@@ -2726,24 +3101,50 @@
         </p>
 
         <div class="grid gap-3 mt-4">
-          <div class="col-12 text-bg-secondary p-3 rounded text-center text-sm">col-12</div>
-          <div class="col-6 bg-muted p-3 rounded text-center text-sm">col-6</div>
-          <div class="col-6 bg-muted p-3 rounded text-center text-sm">col-6</div>
-          <div class="col-8 bg-muted p-3 rounded text-center text-sm">col-8</div>
-          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
-          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
-          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
-          <div class="col-4 bg-muted p-3 rounded text-center text-sm">col-4</div>
-          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
-          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
-          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
-          <div class="col-3 bg-muted p-3 rounded text-center text-sm">col-3</div>
+          <div class="col-12 text-bg-secondary p-3 rounded text-center text-sm">
+            col-12
+          </div>
+          <div class="col-6 bg-muted p-3 rounded text-center text-sm">
+            col-6
+          </div>
+          <div class="col-6 bg-muted p-3 rounded text-center text-sm">
+            col-6
+          </div>
+          <div class="col-8 bg-muted p-3 rounded text-center text-sm">
+            col-8
+          </div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">
+            col-4
+          </div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">
+            col-4
+          </div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">
+            col-4
+          </div>
+          <div class="col-4 bg-muted p-3 rounded text-center text-sm">
+            col-4
+          </div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">
+            col-3
+          </div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">
+            col-3
+          </div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">
+            col-3
+          </div>
+          <div class="col-3 bg-muted p-3 rounded text-center text-sm">
+            col-3
+          </div>
         </div>
 
         <h3>Row and full-width helpers</h3>
 
         <ul>
-          <li><code>col-full</code> — spans all 12 columns (<code>1 / -1</code>)</li>
+          <li>
+            <code>col-full</code> — spans all 12 columns (<code>1 / -1</code>)
+          </li>
           <li><code>col-auto</code> — auto-sized column</li>
           <li><code>row-span-{1–6}</code> — span multiple rows</li>
           <li><code>row-span-full</code> — span all rows</li>
@@ -2752,8 +3153,14 @@
         <h3>Cell alignment</h3>
 
         <ul>
-          <li><code>place-items-{center|start|end|stretch}</code> — align all cells within the grid</li>
-          <li><code>place-self-{center|start|end|stretch}</code> — align a single cell within its area</li>
+          <li>
+            <code>place-items-{center|start|end|stretch}</code> — align all
+            cells within the grid
+          </li>
+          <li>
+            <code>place-self-{center|start|end|stretch}</code> — align a single
+            cell within its area
+          </li>
         </ul>
       </section>
     </main>
@@ -2761,28 +3168,29 @@
     <script>
       const dark =
         window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      const toggleDarkModeButtons =
-        document.querySelectorAll('[data-toggle-dark-mode]')
-      const body = document.querySelector('body')
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const toggleDarkModeButtons = document.querySelectorAll(
+        '[data-toggle-dark-mode]',
+      );
+      const body = document.querySelector('body');
       toggleDarkModeButtons.forEach((button) => {
-        button.dataset.mode = dark ? 'light' : 'dark'
+        button.dataset.mode = dark ? 'light' : 'dark';
         button.addEventListener('click', () => {
-          const mode = button.dataset.mode
-          const inverseMode = mode === 'dark' ? 'light' : 'dark'
-          body.classList.add(`theme--${mode}`)
-          body.classList.remove(`theme--${inverseMode}`)
+          const mode = button.dataset.mode;
+          const inverseMode = mode === 'dark' ? 'light' : 'dark';
+          body.classList.add(`theme--${mode}`);
+          body.classList.remove(`theme--${inverseMode}`);
           toggleDarkModeButtons.forEach((toggle) => {
-            toggle.dataset.mode = inverseMode
-          })
+            toggle.dataset.mode = inverseMode;
+          });
           document
             .querySelectorAll(`[data-color="${mode}"]`)
-            .forEach((el) => (el.classList.remove('d-none')))
+            .forEach((el) => el.classList.remove('d-none'));
           document
             .querySelectorAll(`[data-color="${inverseMode}"]`)
-            .forEach((el) => (el.classList.add('d-none')))
-        })
-      })
+            .forEach((el) => el.classList.add('d-none'));
+        });
+      });
     </script>
   </body>
 </html>

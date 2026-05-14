@@ -12,36 +12,86 @@
 }
 
 /* Text colour */
-.text-black     { color: var(--black); }
-.text-white     { color: var(--white); }
-.text-primary   { color: var(--primary); }
-.text-secondary { color: var(--secondary); }
-.text-info      { color: var(--info); }
-.text-success   { color: var(--green); }
-.text-warning   { color: var(--warn); }
-.text-danger    { color: var(--red); }
-.text-muted     { color: var(--grey700); }
+.text-black {
+  color: var(--black);
+}
+.text-white {
+  color: var(--white);
+}
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-info {
+  color: var(--info);
+}
+.text-success {
+  color: var(--green);
+}
+.text-warning {
+  color: var(--warn);
+}
+.text-danger {
+  color: var(--red);
+}
+.text-muted {
+  color: var(--grey700);
+}
 
 /* Font size — Tailwind-compatible scale */
-.text-xs   { font-size: 0.75rem;  line-height: 1rem; }
-.text-sm   { font-size: 0.875rem; line-height: 1.25rem; }
-.text-base { font-size: 1rem;     line-height: 1.5rem; }
-.text-lg   { font-size: 1.125rem; line-height: 1.75rem; }
-.text-xl   { font-size: 1.25rem;  line-height: 1.75rem; }
-.text-2xl  { font-size: 1.5rem;   line-height: 2rem; }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 
 /* Font weight */
-.fw-normal { font-weight: normal; }
-.fw-bold   { font-weight: 600; } /* not quite font-weight: bold == 700 */
-.fw-light  { font-weight: 300; }
+.fw-normal {
+  font-weight: normal;
+}
+.fw-bold {
+  font-weight: 600;
+} /* not quite font-weight: bold == 700 */
+.fw-light {
+  font-weight: 300;
+}
 
 /* Text transform */
-.text-uppercase { text-transform: uppercase; }
+.text-uppercase {
+  text-transform: uppercase;
+}
 
 /* Text alignment */
-.text-start  { text-align: start; }
-.text-center { text-align: center; }
-.text-end    { text-align: end; }
+.text-start {
+  text-align: start;
+}
+.text-center {
+  text-align: center;
+}
+.text-end {
+  text-align: end;
+}
 
 // =============================================================================
 // Legacy text utilities
@@ -57,19 +107,45 @@
 // =============================================================================
 
 .text {
-  &--primary   { color: var(--primary); }
-  &--secondary { color: var(--secondary); }
-  &--info      { color: var(--info); }
-  &--success   { color: var(--green); }
-  &--warning   { color: var(--warn); }
-  &--danger    { color: var(--red); }
-  &--muted     { color: var(--grey700); }
-  &--small     { font-size: 0.8em; }
-  &--large     { font-size: 2em; }
-  &--normal    { font-weight: normal; }
-  &--bold      { font-weight: 600; }
-  &--light     { font-weight: 300; }
-  &--upper     { text-transform: uppercase; }
+  &--primary {
+    color: var(--primary);
+  }
+  &--secondary {
+    color: var(--secondary);
+  }
+  &--info {
+    color: var(--info);
+  }
+  &--success {
+    color: var(--green);
+  }
+  &--warning {
+    color: var(--warn);
+  }
+  &--danger {
+    color: var(--red);
+  }
+  &--muted {
+    color: var(--grey700);
+  }
+  &--small {
+    font-size: 0.8em;
+  }
+  &--large {
+    font-size: 2em;
+  }
+  &--normal {
+    font-weight: normal;
+  }
+  &--bold {
+    font-weight: 600;
+  }
+  &--light {
+    font-weight: 300;
+  }
+  &--upper {
+    text-transform: uppercase;
+  }
 }
 
 /* https://a11yproject.com/posts/how-to-hide-content/ */

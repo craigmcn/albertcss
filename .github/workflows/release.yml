@@ -88,16 +88,27 @@ jobs:
             --arg js_sri   "${{ steps.sri.outputs.js }}" \
             '{version:$version,date:$date,css:{url:$css_url,integrity:$css_sri},js:{url:$js_url,integrity:$js_sri}}')
 
-          # Read existing versions.json (or start fresh)
-          EXISTING_RESPONSE=$(gh api "repos/${REPO}/contents/versions.json?ref=gh-pages" 2>/dev/null || echo '{}')
-          EXISTING_SHA=$(echo "$EXISTING_RESPONSE" | jq -r '.sha // empty')
-          EXISTING_CONTENT=$(echo "$EXISTING_RESPONSE" | jq -r '.content // ""' \
-            | tr -d '\n' | base64 -d 2>/dev/null || echo '[]')
+          # Read existing versions.json from gh-pages.
+          # Use if/else so a 404 body written to stdout by `gh api` on failure
+          # never gets mixed with the fallback value.
+          if EXISTING_RESPONSE=$(gh api "repos/${REPO}/contents/versions.json?ref=gh-pages" 2>/dev/null); then
+            EXISTING_SHA=$(echo "$EXISTING_RESPONSE" | jq -r '.sha')
+            # Decode and validate; fall back to [] if content is empty or corrupt.
+            EXISTING_CONTENT=$(echo "$EXISTING_RESPONSE" | jq -r '.content' \
+              | tr -d '\n' | base64 -d | jq '.' 2>/dev/null || echo '[]')
+          else
+            EXISTING_SHA=''
+            EXISTING_CONTENT='[]'
+          fi
 
           # Prepend new entry (dedup by version in case of re-run)
           UPDATED=$(echo "$EXISTING_CONTENT" | jq \
             --argjson e "$NEW_ENTRY" \
             '[$e] + map(select(.version != $e.version))')
+          if [ -z "$UPDATED" ]; then
+            echo "Error: failed to build updated versions array" >&2
+            exit 1
+          fi
           CONTENT_B64=$(printf '%s' "$UPDATED" | base64 -w 0)
 
           # Upsert versions.json on gh-pages

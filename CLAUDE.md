@@ -206,9 +206,10 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 
 ### Future improvements (TODO)
 
-- **SRI hashes for releases**: generate Subresource Integrity SHA-384 hashes for CSS and JS build artefacts; relevant for any cross-origin/CDN use of the release files
-- **GitHub Pages version index**: a published index page listing each released version with its CDN URL and SRI hash, ready to copy-paste into `<link>`/`<script>` tags
+- **SRI hashes for releases**: ✅ done — computed at release time, stored in `versions.json` on `gh-pages`
+- **GitHub Pages version index**: ✅ done — `index.html` at `albertcss.craigmcn.com/` lists all versions with SRI copy buttons
 - **Example page with HTML snippets**: a living demo page that shows each component with the actual markup, so consumers can copy code directly
+- **Netlify CSS not minified**: `www.craigmcn.com/albertcss/css/albert.min.css` is unminified for v0.14.0 and v0.15.0 (v0.13.0 and earlier are minified). Investigate the Gulp CSS pipeline — likely a regression in the `gulp-sass` or `gulp-if` minification path introduced in the modernise-and-expand work.
 
 ### Key decisions
 

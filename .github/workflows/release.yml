@@ -50,6 +50,14 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Compute SRI hashes
+        id: sri
+        run: |
+          CSS_SRI="sha384-$(openssl dgst -sha384 -binary dist/css/albert.min.css | openssl base64 -A)"
+          JS_SRI="sha384-$(openssl dgst -sha384 -binary dist/js/albert.min.js | openssl base64 -A)"
+          echo "css=$CSS_SRI" >> "$GITHUB_OUTPUT"
+          echo "js=$JS_SRI" >> "$GITHUB_OUTPUT"
+
       - name: Deploy to GitHub Pages
         # Pinned to @v4 (not a commit SHA) — this is a personal project with
         # no external contributors, so the maintenance cost of SHA pinning
@@ -60,3 +68,94 @@ jobs:
           publish_dir: ./dist
           destination_dir: ${{ steps.version.outputs.version }}
           keep_files: true
+
+      - name: Update versions index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          DATE="$(date -u +%Y-%m-%d)"
+          BASE_URL="https://albertcss.craigmcn.com"
+          REPO="${{ github.repository }}"
+
+          # Build the new entry
+          NEW_ENTRY=$(jq -nc \
+            --arg version  "$VERSION" \
+            --arg date     "$DATE" \
+            --arg css_url  "${BASE_URL}/${VERSION}/css/albert.min.css" \
+            --arg css_sri  "${{ steps.sri.outputs.css }}" \
+            --arg js_url   "${BASE_URL}/${VERSION}/js/albert.min.js" \
+            --arg js_sri   "${{ steps.sri.outputs.js }}" \
+            '{version:$version,date:$date,css:{url:$css_url,integrity:$css_sri},js:{url:$js_url,integrity:$js_sri}}')
+
+          # Read existing versions.json from gh-pages.
+          # Use if/else so a 404 body written to stdout by `gh api` on failure
+          # never gets mixed with the fallback value.
+          if EXISTING_RESPONSE=$(gh api "repos/${REPO}/contents/versions.json?ref=gh-pages" 2>/dev/null); then
+            EXISTING_SHA=$(echo "$EXISTING_RESPONSE" | jq -r '.sha')
+            # Extract the raw base64 string; check for emptiness before decoding.
+            # jq '.' of empty input exits 0 on Linux, so a pipeline `|| echo '[]'`
+            # fallback would never fire — check the b64 string directly instead.
+            CONTENT_B64=$(echo "$EXISTING_RESPONSE" | jq -r '.content' | tr -d '\n')
+            if [ -n "$CONTENT_B64" ]; then
+              EXISTING_CONTENT=$(printf '%s' "$CONTENT_B64" | base64 -d | jq '.' 2>/dev/null || echo '[]')
+            else
+              EXISTING_CONTENT='[]'
+            fi
+          else
+            EXISTING_SHA=''
+            EXISTING_CONTENT='[]'
+          fi
+
+          # Prepend new entry (dedup by version in case of re-run)
+          UPDATED=$(echo "$EXISTING_CONTENT" | jq \
+            --argjson e "$NEW_ENTRY" \
+            '[$e] + map(select(.version != $e.version))')
+          if [ -z "$UPDATED" ]; then
+            echo "Error: failed to build updated versions array" >&2
+            exit 1
+          fi
+          CONTENT_B64=$(printf '%s' "$UPDATED" | base64 -w 0)
+
+          # Upsert versions.json on gh-pages
+          if [ -n "$EXISTING_SHA" ]; then
+            gh api "repos/${REPO}/contents/versions.json" -X PUT \
+              -f message="chore: update versions index for ${VERSION}" \
+              -f content="$CONTENT_B64" \
+              -f sha="$EXISTING_SHA" \
+              -f branch=gh-pages
+          else
+            gh api "repos/${REPO}/contents/versions.json" -X PUT \
+              -f message="chore: create versions index" \
+              -f content="$CONTENT_B64" \
+              -f branch=gh-pages
+          fi
+
+          # Upsert index.html — always read from the default branch so
+          # re-runs against old tags (which predate index.html) still work.
+          INDEX_SHA=$(gh api "repos/${REPO}/contents/index.html?ref=gh-pages" \
+            --jq '.sha' 2>/dev/null || echo '')
+          INDEX_B64=$(gh api "repos/${REPO}/contents/index.html" \
+            --jq '.content' | tr -d '\n')
+          if [ -n "$INDEX_SHA" ]; then
+            gh api "repos/${REPO}/contents/index.html" -X PUT \
+              -f message="chore: update version index page" \
+              -f content="$INDEX_B64" \
+              -f sha="$INDEX_SHA" \
+              -f branch=gh-pages
+          else
+            gh api "repos/${REPO}/contents/index.html" -X PUT \
+              -f message="chore: add version index page" \
+              -f content="$INDEX_B64" \
+              -f branch=gh-pages
+          fi
+
+          # Remove legacy versions.html if still present on gh-pages
+          LEGACY_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
+            --jq '.sha' 2>/dev/null || echo '')
+          if [ -n "$LEGACY_SHA" ]; then
+            gh api "repos/${REPO}/contents/versions.html" -X DELETE \
+              -f message="chore: remove legacy versions.html (replaced by index.html)" \
+              -f sha="$LEGACY_SHA" \
+              -f branch=gh-pages
+          fi

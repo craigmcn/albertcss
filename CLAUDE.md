@@ -7,7 +7,7 @@ The public-facing project overview is in [`README.md`](README.md) at the project
 ## Requirements
 
 - Node v24 (see `.nvmrc`)
-- Yarn v3
+- Yarn v4 (managed by Corepack)
 
 ## Commands
 
@@ -90,24 +90,24 @@ src/
 
 Three environments, set with `--env`:
 
-| Env | Output | Used by |
-|---|---|---|
-| `development` (default) | `./tmp/` | Local dev |
-| `production` | `./dist/` | Releases |
-| `netlify` | `./netlify/` + `./netlify/albertcss/` | Netlify host |
+| Env                     | Output                                | Used by      |
+| ----------------------- | ------------------------------------- | ------------ |
+| `development` (default) | `./tmp/`                              | Local dev    |
+| `production`            | `./dist/`                             | Releases     |
+| `netlify`               | `./netlify/` + `./netlify/albertcss/` | Netlify host |
 
 CSS pipeline: SCSS → Sass (expanded + compressed) → Autoprefixer → output  
 JS pipeline: Browserify + Babelify (@babel/preset-env) → Uglify (min only) → source maps
 
 ### Responsive breakpoints (defined in `_mixins.scss`)
 
-| Name | Width |
-|---|---|
-| xs | < 544px |
-| sm | ≥ 544px |
-| md | ≥ 768px |
-| lg | ≥ 1012px |
-| xl | ≥ 1280px |
+| Name | Width    |
+| ---- | -------- |
+| xs   | < 544px  |
+| sm   | ≥ 544px  |
+| md   | ≥ 768px  |
+| lg   | ≥ 1012px |
+| xl   | ≥ 1280px |
 
 ## Code conventions
 
@@ -134,6 +134,7 @@ When modifying any JS module under `src/js/` (excluding `scripts.js`), add or up
 ### ESLint
 
 Config in `eslint.config.js` using ESLint flat config with `neostandard` and overrides:
+
 - Single quotes, 2-space indent (semicolons handled by Prettier)
 - `console` statements: warn
 
@@ -168,33 +169,62 @@ The latest published release is always available at:
 Run the workflow manually from the Actions tab:  
 Actions → Release to GitHub Pages → Run workflow → enter the exact tag name as it exists in Git  
 Old tags have no `v` prefix (e.g. `0.13.0`); new tags do (e.g. `v0.15.0`).  
-The `v` prefix is added to the *destination path* if not present, but the tag input must match Git exactly or checkout will fail.
+The `v` prefix is added to the _destination path_ if not present, but the tag input must match Git exactly or checkout will fail.
 
 ## Slash commands
 
 Custom Claude Code slash commands live in `.claude/commands/` (project-scoped):
 
-| Command | What it does |
-|---|---|
+| Command              | What it does                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `/release [version]` | Runs tests + build, bumps `package.json`, commits, tags with `v` prefix, and pushes to trigger the GitHub Actions release |
 
 Global slash commands (in `~/.claude/commands/`) available in any project:
 
-| Command | What it does |
-|---|---|
-| `/commit-push [title]` | Stage, commit (following conventions), and push |
-| `/create-pr [title]` | Create a PR against `main`, then automatically run a code review |
-| `/review-pr [pr]` | Review the current branch's PR or a specified PR number |
+| Command                | What it does                                                     |
+| ---------------------- | ---------------------------------------------------------------- |
+| `/commit-push [title]` | Stage, commit (following conventions), and push                  |
+| `/create-pr [title]`   | Create a PR against `main`, then automatically run a code review |
+| `/review-pr [pr]`      | Review the current branch's PR or a specified PR number          |
+
+## Project status (2026-05-14)
+
+### Completed
+
+- **Modernise and expand** (PR #278, merged 2026-04-16): badges, modal, accordion, tabs, dropdown, tooltips, popovers, spacing/display/text/overflow/position/shadow/border/z-index/aspect-ratio/background/grid utilities, button group
+- **Post-review fixes** (PR #279, merged 2026-04-16): brand SVG sizing, FA icon overflow, viewport-aware flip for tooltips + popovers
+- **Dep bumps**: ESLint 9 → 10, Prettier 3.8.3, Vitest 4.1.5 (PRs #280–#283); @babel/preset-env, globals, jsdom, eslint, ip-address, @babel/plugin-transform-modules-systemjs (PRs #284–#290)
+- **Repo hygiene**: `.github/CODEOWNERS` (`* @craigmcn`), branch protection ruleset (1 approval, Admin bypass, `test` status check, block force push + deletion) — both already in place, confirmed 2026-05-01
+
+### Outstanding
+
+- Yarn 3.3.1 → 4 upgrade + Husky pre-commit hook (`yarn prettier --check . && yarn lint`)
+
+### Deferred (out of scope)
+
+- Toasts/Snackbars, Progress bars, Spinners, Breadcrumbs, Pagination, Stepper/Wizard, Avatars, Chips/Tags
+
+### Future improvements (TODO)
+
+- **SRI hashes for releases**: generate Subresource Integrity SHA-384 hashes for CSS and JS build artefacts; relevant for any cross-origin/CDN use of the release files
+- **GitHub Pages version index**: a published index page listing each released version with its CDN URL and SRI hash, ready to copy-paste into `<link>`/`<script>` tags
+- **Example page with HTML snippets**: a living demo page that shows each component with the actual markup, so consumers can copy code directly
+
+### Key decisions
+
+- Viewport-aware flip for tooltips and popovers implemented in JS (`tooltip.js`, `popover.js`) using `data-tooltip-flip` / `data-popover-flip` attributes; CSS handles the visual swap
+- Spacing utilities use CSS logical properties (e.g. `padding-inline-start`) with Bootstrap-compatible class names; legacy classes kept for backward compatibility
+- `text-bg-*` classes set both background and foreground colour via `--semanticContrast` CSS var for dark-mode safety
 
 ## Key dependencies
 
-| Package | Purpose |
-|---|---|
-| `gulp` v5 | Build orchestration |
-| `sass` (Dart) | SCSS compilation |
-| `gulp-autoprefixer` | Vendor prefixes |
-| `browserify` + `babelify` | JS bundling + transpilation |
-| `browser-sync` | Dev server with live reload |
-| `vitest` | Unit test runner |
-| `formbouncerjs` | Client-side form validation |
-| `minimist` | CLI arg parsing (`--env` flag) |
+| Package                   | Purpose                        |
+| ------------------------- | ------------------------------ |
+| `gulp` v5                 | Build orchestration            |
+| `sass` (Dart)             | SCSS compilation               |
+| `gulp-autoprefixer`       | Vendor prefixes                |
+| `browserify` + `babelify` | JS bundling + transpilation    |
+| `browser-sync`            | Dev server with live reload    |
+| `vitest`                  | Unit test runner               |
+| `formbouncerjs`           | Client-side form validation    |
+| `minimist`                | CLI arg parsing (`--env` flag) |

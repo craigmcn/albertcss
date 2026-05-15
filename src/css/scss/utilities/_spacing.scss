@@ -112,29 +112,69 @@ $sides: (top, bottom, left, right, horiz, vert, all);
 // Scale:   n × 0.25rem  —  0=0  1=0.25rem  2=0.5rem … 8=2rem
 // =============================================================================
 
-.mx-auto { margin-inline: auto; }
-.my-auto { margin-block: auto; }
-.ms-auto { margin-inline-start: auto; }
-.me-auto { margin-inline-end: auto; }
-.mt-auto { margin-block-start: auto; }
-.mb-auto { margin-block-end: auto; }
+.mx-auto {
+  margin-inline: auto;
+}
+.my-auto {
+  margin-block: auto;
+}
+.ms-auto {
+  margin-inline-start: auto;
+}
+.me-auto {
+  margin-inline-end: auto;
+}
+.mt-auto {
+  margin-block-start: auto;
+}
+.mb-auto {
+  margin-block-end: auto;
+}
 
 @for $n from 0 through 8 {
   $val: 0.25rem * $n;
 
-  .m-#{$n}  { margin: $val; }
-  .mt-#{$n} { margin-block-start: $val; }
-  .mb-#{$n} { margin-block-end: $val; }
-  .ms-#{$n} { margin-inline-start: $val; }
-  .me-#{$n} { margin-inline-end: $val; }
-  .mx-#{$n} { margin-inline: $val; }
-  .my-#{$n} { margin-block: $val; }
+  .m-#{$n} {
+    margin: $val;
+  }
+  .mt-#{$n} {
+    margin-block-start: $val;
+  }
+  .mb-#{$n} {
+    margin-block-end: $val;
+  }
+  .ms-#{$n} {
+    margin-inline-start: $val;
+  }
+  .me-#{$n} {
+    margin-inline-end: $val;
+  }
+  .mx-#{$n} {
+    margin-inline: $val;
+  }
+  .my-#{$n} {
+    margin-block: $val;
+  }
 
-  .p-#{$n}  { padding: $val; }
-  .pt-#{$n} { padding-block-start: $val; }
-  .pb-#{$n} { padding-block-end: $val; }
-  .ps-#{$n} { padding-inline-start: $val; }
-  .pe-#{$n} { padding-inline-end: $val; }
-  .px-#{$n} { padding-inline: $val; }
-  .py-#{$n} { padding-block: $val; }
+  .p-#{$n} {
+    padding: $val;
+  }
+  .pt-#{$n} {
+    padding-block-start: $val;
+  }
+  .pb-#{$n} {
+    padding-block-end: $val;
+  }
+  .ps-#{$n} {
+    padding-inline-start: $val;
+  }
+  .pe-#{$n} {
+    padding-inline-end: $val;
+  }
+  .px-#{$n} {
+    padding-inline: $val;
+  }
+  .py-#{$n} {
+    padding-block: $val;
+  }
 }

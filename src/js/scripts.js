@@ -10,7 +10,8 @@ import { initTooltip } from './tooltip';
 import scrollHeader from './scrollHeader';
 
 window.addEventListener('load', function () {
-  const validate = new Bouncer('form', { // eslint-disable-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
+  const validate = new Bouncer('form', {
     messageAfterField: false,
     fieldClass: 'form__control--hasError',
     errorClass: 'form__control-error',

@@ -87,12 +87,24 @@
     z-index: 1;
   }
 
-  &:focus + .button--primary   { box-shadow: 0 0 0 0.2rem var(--focusShadow); }
-  &:focus + .button--secondary { box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow); }
-  &:focus + .button--danger    { box-shadow: 0 0 0 0.2rem var(--redFocusShadow); }
-  &:focus + .button--warning   { box-shadow: 0 0 0 0.2rem var(--warnFocusShadow); }
-  &:focus + .button--success   { box-shadow: 0 0 0 0.2rem var(--greenFocusShadow); }
-  &:focus + .button--info      { box-shadow: 0 0 0 0.2rem var(--infoFocusShadow); }
+  &:focus + .button--primary {
+    box-shadow: 0 0 0 0.2rem var(--focusShadow);
+  }
+  &:focus + .button--secondary {
+    box-shadow: 0 0 0 0.2rem var(--secondaryFocusShadow);
+  }
+  &:focus + .button--danger {
+    box-shadow: 0 0 0 0.2rem var(--redFocusShadow);
+  }
+  &:focus + .button--warning {
+    box-shadow: 0 0 0 0.2rem var(--warnFocusShadow);
+  }
+  &:focus + .button--success {
+    box-shadow: 0 0 0 0.2rem var(--greenFocusShadow);
+  }
+  &:focus + .button--info {
+    box-shadow: 0 0 0 0.2rem var(--infoFocusShadow);
+  }
 
   // Checked state — match each variant's filled (hover/active) appearance
   &:checked + .button {

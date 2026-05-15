@@ -50,6 +50,14 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Compute SRI hashes
+        id: sri
+        run: |
+          CSS_SRI="sha384-$(openssl dgst -sha384 -binary dist/css/albert.min.css | openssl base64 -A)"
+          JS_SRI="sha384-$(openssl dgst -sha384 -binary dist/js/albert.min.js | openssl base64 -A)"
+          echo "css=$CSS_SRI" >> "$GITHUB_OUTPUT"
+          echo "js=$JS_SRI" >> "$GITHUB_OUTPUT"
+
       - name: Deploy to GitHub Pages
         # Pinned to @v4 (not a commit SHA) — this is a personal project with
         # no external contributors, so the maintenance cost of SHA pinning
@@ -60,3 +68,65 @@ jobs:
           publish_dir: ./dist
           destination_dir: ${{ steps.version.outputs.version }}
           keep_files: true
+
+      - name: Update versions index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          DATE="$(date -u +%Y-%m-%d)"
+          BASE_URL="https://albertcss.craigmcn.com"
+          REPO="${{ github.repository }}"
+
+          # Build the new entry
+          NEW_ENTRY=$(jq -nc \
+            --arg version  "$VERSION" \
+            --arg date     "$DATE" \
+            --arg css_url  "${BASE_URL}/${VERSION}/css/albert.min.css" \
+            --arg css_sri  "${{ steps.sri.outputs.css }}" \
+            --arg js_url   "${BASE_URL}/${VERSION}/js/albert.min.js" \
+            --arg js_sri   "${{ steps.sri.outputs.js }}" \
+            '{version:$version,date:$date,css:{url:$css_url,integrity:$css_sri},js:{url:$js_url,integrity:$js_sri}}')
+
+          # Read existing versions.json (or start fresh)
+          EXISTING_RESPONSE=$(gh api "repos/${REPO}/contents/versions.json?ref=gh-pages" 2>/dev/null || echo '{}')
+          EXISTING_SHA=$(echo "$EXISTING_RESPONSE" | jq -r '.sha // empty')
+          EXISTING_CONTENT=$(echo "$EXISTING_RESPONSE" | jq -r '.content // ""' \
+            | tr -d '\n' | base64 -d 2>/dev/null || echo '[]')
+
+          # Prepend new entry (dedup by version in case of re-run)
+          UPDATED=$(echo "$EXISTING_CONTENT" | jq \
+            --argjson e "$NEW_ENTRY" \
+            '[$e] + map(select(.version != $e.version))')
+          CONTENT_B64=$(printf '%s' "$UPDATED" | base64 -w 0)
+
+          # Upsert versions.json on gh-pages
+          if [ -n "$EXISTING_SHA" ]; then
+            gh api "repos/${REPO}/contents/versions.json" -X PUT \
+              -f message="chore: update versions index for ${VERSION}" \
+              -f content="$CONTENT_B64" \
+              -f sha="$EXISTING_SHA" \
+              -f branch=gh-pages
+          else
+            gh api "repos/${REPO}/contents/versions.json" -X PUT \
+              -f message="chore: create versions index" \
+              -f content="$CONTENT_B64" \
+              -f branch=gh-pages
+          fi
+
+          # Upsert versions.html (always — keeps the page template current)
+          HTML_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
+            --jq '.sha' 2>/dev/null || echo '')
+          HTML_B64=$(base64 -w 0 < versions.html)
+          if [ -n "$HTML_SHA" ]; then
+            gh api "repos/${REPO}/contents/versions.html" -X PUT \
+              -f message="chore: update versions page" \
+              -f content="$HTML_B64" \
+              -f sha="$HTML_SHA" \
+              -f branch=gh-pages
+          else
+            gh api "repos/${REPO}/contents/versions.html" -X PUT \
+              -f message="chore: add versions page" \
+              -f content="$HTML_B64" \
+              -f branch=gh-pages
+          fi

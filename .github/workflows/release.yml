@@ -93,9 +93,15 @@ jobs:
           # never gets mixed with the fallback value.
           if EXISTING_RESPONSE=$(gh api "repos/${REPO}/contents/versions.json?ref=gh-pages" 2>/dev/null); then
             EXISTING_SHA=$(echo "$EXISTING_RESPONSE" | jq -r '.sha')
-            # Decode and validate; fall back to [] if content is empty or corrupt.
-            EXISTING_CONTENT=$(echo "$EXISTING_RESPONSE" | jq -r '.content' \
-              | tr -d '\n' | base64 -d | jq '.' 2>/dev/null || echo '[]')
+            # Extract the raw base64 string; check for emptiness before decoding.
+            # jq '.' of empty input exits 0 on Linux, so a pipeline `|| echo '[]'`
+            # fallback would never fire — check the b64 string directly instead.
+            CONTENT_B64=$(echo "$EXISTING_RESPONSE" | jq -r '.content' | tr -d '\n')
+            if [ -n "$CONTENT_B64" ]; then
+              EXISTING_CONTENT=$(printf '%s' "$CONTENT_B64" | base64 -d | jq '.' 2>/dev/null || echo '[]')
+            else
+              EXISTING_CONTENT='[]'
+            fi
           else
             EXISTING_SHA=''
             EXISTING_CONTENT='[]'

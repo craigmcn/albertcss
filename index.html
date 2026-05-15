@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Albert CSS — Version Index</title>
+    <link
+      rel="stylesheet"
+      href="https://www.craigmcn.com/albertcss/css/albert.min.css"
+    />
+    <style>
+      .version-card + .version-card {
+        margin-top: 1.5rem;
+      }
+      .snippet-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+        align-items: start;
+        margin-bottom: 1rem;
+      }
+      .snippet-row pre {
+        margin: 0;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a class="header__brand" href="https://www.craigmcn.com/albertcss/"
+          >Albert CSS</a
+        >
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <h1>Version Index</h1>
+
+        <section>
+          <h2>Latest</h2>
+          <p>
+            Served by Netlify — always the most recent release. No SRI hash; use
+            a pinned version below for integrity-protected loads.
+          </p>
+          <div class="card">
+            <div class="card__body">
+              <p><strong>CSS</strong></p>
+              <div class="snippet-row">
+                <pre><code id="latest-css-tag"></code></pre>
+                <button class="button button--sm" id="latest-css-copy">
+                  Copy
+                </button>
+              </div>
+              <p><strong>JS</strong></p>
+              <div class="snippet-row">
+                <pre><code id="latest-js-tag"></code></pre>
+                <button class="button button--sm" id="latest-js-copy">
+                  Copy
+                </button>
+              </div>
+              <button
+                class="button button--primary button--sm"
+                id="latest-both-copy"
+              >
+                Copy both
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Pinned versions</h2>
+          <p>
+            Copy the <code>&lt;link&gt;</code> and
+            <code>&lt;script&gt;</code> tags to load a specific version with
+            Subresource Integrity (SRI).
+          </p>
+          <div id="versions-list">
+            <p>Loading&hellip;</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      var LATEST_CSS = 'https://www.craigmcn.com/albertcss/css/albert.min.css';
+      var LATEST_JS = 'https://www.craigmcn.com/albertcss/js/albert.min.js';
+      var latestCssTag = '<link rel="stylesheet" href="' + LATEST_CSS + '">';
+      var latestJsTag = '<script src="' + LATEST_JS + '" defer><' + '/script>';
+      var latestBoth = latestCssTag + '\n' + latestJsTag;
+
+      document.getElementById('latest-css-tag').textContent = latestCssTag;
+      document.getElementById('latest-js-tag').textContent = latestJsTag;
+
+      function copyText(text, btn) {
+        navigator.clipboard.writeText(text).then(function () {
+          var original = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function () {
+            btn.textContent = original;
+          }, 2000);
+        });
+      }
+
+      document
+        .getElementById('latest-css-copy')
+        .addEventListener('click', function () {
+          copyText(latestCssTag, this);
+        });
+      document
+        .getElementById('latest-js-copy')
+        .addEventListener('click', function () {
+          copyText(latestJsTag, this);
+        });
+      document
+        .getElementById('latest-both-copy')
+        .addEventListener('click', function () {
+          copyText(latestBoth, this);
+        });
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function escapeAttr(str) {
+        return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+      }
+
+      function makeSnippets(v) {
+        var cssTag =
+          '<link rel="stylesheet" href="' +
+          v.css.url +
+          '" integrity="' +
+          v.css.integrity +
+          '" crossorigin="anonymous">';
+        var jsTag =
+          '<script src="' +
+          v.js.url +
+          '" integrity="' +
+          v.js.integrity +
+          '" crossorigin="anonymous" defer><' +
+          '/script>';
+        return { cssTag: cssTag, jsTag: jsTag, both: cssTag + '\n' + jsTag };
+      }
+
+      function renderVersion(v, isLatest) {
+        var s = makeSnippets(v);
+        var latestBadge = isLatest
+          ? ' <span class="badge badge--primary">latest</span>'
+          : '';
+        return (
+          '<div class="card version-card">' +
+          '<div class="card__title d-flex justify-content-between align-items-center">' +
+          '<span><strong>' +
+          escapeHtml(v.version) +
+          '</strong>' +
+          latestBadge +
+          '</span>' +
+          '<span class="text-muted">' +
+          escapeHtml(v.date) +
+          '</span>' +
+          '</div>' +
+          '<div class="card__body">' +
+          '<p><strong>CSS</strong></p>' +
+          '<div class="snippet-row">' +
+          '<pre><code>' +
+          escapeHtml(s.cssTag) +
+          '</code></pre>' +
+          '<button class="button button--sm" data-copy="' +
+          escapeAttr(s.cssTag) +
+          '">Copy</button>' +
+          '</div>' +
+          '<p><strong>JS</strong></p>' +
+          '<div class="snippet-row">' +
+          '<pre><code>' +
+          escapeHtml(s.jsTag) +
+          '</code></pre>' +
+          '<button class="button button--sm" data-copy="' +
+          escapeAttr(s.jsTag) +
+          '">Copy</button>' +
+          '</div>' +
+          '<button class="button button--primary button--sm" data-copy="' +
+          escapeAttr(s.both) +
+          '">Copy both</button>' +
+          '</div>' +
+          '</div>'
+        );
+      }
+
+      var list = document.getElementById('versions-list');
+
+      list.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-copy]');
+        if (!btn) return;
+        copyText(btn.dataset.copy, btn);
+      });
+
+      fetch('/versions.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        })
+        .then(function (versions) {
+          if (!versions.length) {
+            list.innerHTML = '<p>No versions published yet.</p>';
+            return;
+          }
+          list.innerHTML = versions
+            .map(function (v, i) {
+              return renderVersion(v, i === 0);
+            })
+            .join('');
+        })
+        .catch(function () {
+          list.innerHTML =
+            '<p class="text-danger">Failed to load version data.</p>';
+        });
+    </script>
+  </body>
+</html>

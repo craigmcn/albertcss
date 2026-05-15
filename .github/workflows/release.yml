@@ -131,21 +131,31 @@ jobs:
               -f branch=gh-pages
           fi
 
-          # Upsert versions.html — always read from the default branch so
-          # re-runs against old tags (which predate versions.html) still work.
-          HTML_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
+          # Upsert index.html — always read from the default branch so
+          # re-runs against old tags (which predate index.html) still work.
+          INDEX_SHA=$(gh api "repos/${REPO}/contents/index.html?ref=gh-pages" \
             --jq '.sha' 2>/dev/null || echo '')
-          HTML_B64=$(gh api "repos/${REPO}/contents/versions.html" \
+          INDEX_B64=$(gh api "repos/${REPO}/contents/index.html" \
             --jq '.content' | tr -d '\n')
-          if [ -n "$HTML_SHA" ]; then
-            gh api "repos/${REPO}/contents/versions.html" -X PUT \
-              -f message="chore: update versions page" \
-              -f content="$HTML_B64" \
-              -f sha="$HTML_SHA" \
+          if [ -n "$INDEX_SHA" ]; then
+            gh api "repos/${REPO}/contents/index.html" -X PUT \
+              -f message="chore: update version index page" \
+              -f content="$INDEX_B64" \
+              -f sha="$INDEX_SHA" \
               -f branch=gh-pages
           else
-            gh api "repos/${REPO}/contents/versions.html" -X PUT \
-              -f message="chore: add versions page" \
-              -f content="$HTML_B64" \
+            gh api "repos/${REPO}/contents/index.html" -X PUT \
+              -f message="chore: add version index page" \
+              -f content="$INDEX_B64" \
+              -f branch=gh-pages
+          fi
+
+          # Remove legacy versions.html if still present on gh-pages
+          LEGACY_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
+            --jq '.sha' 2>/dev/null || echo '')
+          if [ -n "$LEGACY_SHA" ]; then
+            gh api "repos/${REPO}/contents/versions.html" -X DELETE \
+              -f message="chore: remove legacy versions.html (replaced by index.html)" \
+              -f sha="$LEGACY_SHA" \
               -f branch=gh-pages
           fi

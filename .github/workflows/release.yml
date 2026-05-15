@@ -114,10 +114,12 @@ jobs:
               -f branch=gh-pages
           fi
 
-          # Upsert versions.html (always — keeps the page template current)
+          # Upsert versions.html — always read from the default branch so
+          # re-runs against old tags (which predate versions.html) still work.
           HTML_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
             --jq '.sha' 2>/dev/null || echo '')
-          HTML_B64=$(base64 -w 0 < versions.html)
+          HTML_B64=$(gh api "repos/${REPO}/contents/versions.html" \
+            --jq '.content' | tr -d '\n')
           if [ -n "$HTML_SHA" ]; then
             gh api "repos/${REPO}/contents/versions.html" -X PUT \
               -f message="chore: update versions page" \

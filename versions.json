@@ -1,0 +1,14 @@
+[
+  {
+    "version": "v0.11.0",
+    "date": "2026-05-15",
+    "css": {
+      "url": "https://albertcss.craigmcn.com/v0.11.0/css/albert.min.css",
+      "integrity": "sha384-Wt9BEvHj+5FJpDJsw1AdpjQ73cpIVfbfMgtjIu2dCgmPh5f4VqQYXG/FQZRS/2Ee"
+    },
+    "js": {
+      "url": "https://albertcss.craigmcn.com/v0.11.0/js/albert.min.js",
+      "integrity": "sha384-5MxqacIgcYetkvIulxUt9UkmDBDiAe7XTHoVbLeeErGNoidpFWYXr4YgvHInlvlk"
+    }
+  }
+]

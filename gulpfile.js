@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import parseArgs from 'minimist';
+import { Transform } from 'stream';
 import * as sassInit from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
@@ -120,9 +121,38 @@ gulp.task('js-min', function () {
 });
 
 // HTML
+function stripSnippets() {
+  return new Transform({
+    objectMode: true,
+    transform(file, _, callback) {
+      if (file.isBuffer()) {
+        let html = file.contents.toString('utf8');
+        // Remove <details class="sg-snippet">…</details> elements
+        html = html.replace(
+          /[ \t]*<details class="sg-snippet">[\s\S]*?<\/details>\n?/g,
+          '',
+        );
+        // Remove the dead /* ---- Code snippets ---- */ CSS block
+        html = html.replace(
+          /\n      \/\* ---- Code snippets ---- \*\/[\s\S]*?(?=\n\n      \/\*)/,
+          '',
+        );
+        // Remove the dead copy-button JS block
+        html = html.replace(
+          /\n\n      \/\/ Copy buttons\n      document\.querySelectorAll\('\.sg-snippet__copy'\)[\s\S]*?\}\);\n/,
+          '\n',
+        );
+        file.contents = Buffer.from(html, 'utf8');
+      }
+      callback(null, file);
+    },
+  });
+}
+
 gulp.task('html', function () {
   return gulp
     .src('./src/**/*.html')
+    .pipe(gulpif(env === 'netlify', stripSnippets()))
     .pipe(gulp.dest(output[env]))
     .pipe(gulpif(env === 'netlify', gulp.dest(outputNetlify)));
 });

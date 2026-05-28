@@ -1,8 +1,11 @@
 @use '../variables' as *;
 
 /**
-  * Main
-  */
+ * Main (deprecated)
+ *
+ * Use .container / .container-{sm|md|lg|xl|fluid} instead.
+ * These classes are kept for backwards compatibility and will be removed in a future version.
+ */
 
 .main {
   margin: $spacing auto 0 auto;

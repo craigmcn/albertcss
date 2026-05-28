@@ -8,8 +8,10 @@
 
 // Layouts
 @use 'scss/layouts/header';
+@use 'scss/layouts/container';
 @use 'scss/layouts/main';
 @use 'scss/layouts/sections';
+@use 'scss/layouts/sidebar-layout';
 @use 'scss/layouts/toolbar';
 
 // Components

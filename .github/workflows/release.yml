@@ -58,7 +58,7 @@ jobs:
           echo "css=$CSS_SRI" >> "$GITHUB_OUTPUT"
           echo "js=$JS_SRI" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy versioned release to GitHub Pages
         # Pinned to @v4 (not a commit SHA) — this is a personal project with
         # no external contributors, so the maintenance cost of SHA pinning
         # outweighs the supply-chain benefit.
@@ -67,6 +67,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           destination_dir: ${{ steps.version.outputs.version }}
+          keep_files: true
+
+      - name: Deploy latest to GitHub Pages root
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
           keep_files: true
 
       - name: Update versions index
@@ -131,31 +138,21 @@ jobs:
               -f branch=gh-pages
           fi
 
-          # Upsert index.html — always read from the default branch so
-          # re-runs against old tags (which predate index.html) still work.
-          INDEX_SHA=$(gh api "repos/${REPO}/contents/index.html?ref=gh-pages" \
+          # Upsert versions.html — always read from the default branch so
+          # re-runs against old tags still deploy the current versions page.
+          VERSIONS_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
             --jq '.sha' 2>/dev/null || echo '')
-          INDEX_B64=$(gh api "repos/${REPO}/contents/index.html" \
+          VERSIONS_B64=$(gh api "repos/${REPO}/contents/versions.html" \
             --jq '.content' | tr -d '\n')
-          if [ -n "$INDEX_SHA" ]; then
-            gh api "repos/${REPO}/contents/index.html" -X PUT \
-              -f message="chore: update version index page" \
-              -f content="$INDEX_B64" \
-              -f sha="$INDEX_SHA" \
+          if [ -n "$VERSIONS_SHA" ]; then
+            gh api "repos/${REPO}/contents/versions.html" -X PUT \
+              -f message="chore: update versions page for ${VERSION}" \
+              -f content="$VERSIONS_B64" \
+              -f sha="$VERSIONS_SHA" \
               -f branch=gh-pages
           else
-            gh api "repos/${REPO}/contents/index.html" -X PUT \
-              -f message="chore: add version index page" \
-              -f content="$INDEX_B64" \
-              -f branch=gh-pages
-          fi
-
-          # Remove legacy versions.html if still present on gh-pages
-          LEGACY_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
-            --jq '.sha' 2>/dev/null || echo '')
-          if [ -n "$LEGACY_SHA" ]; then
-            gh api "repos/${REPO}/contents/versions.html" -X DELETE \
-              -f message="chore: remove legacy versions.html (replaced by index.html)" \
-              -f sha="$LEGACY_SHA" \
+            gh api "repos/${REPO}/contents/versions.html" -X PUT \
+              -f message="chore: add versions page" \
+              -f content="$VERSIONS_B64" \
               -f branch=gh-pages
           fi

@@ -23,6 +23,17 @@
   }
 }
 
+/**
+ * sections--divided adds a top border between adjacent sections.
+ * Prefer this over sections--alternating inside constrained layouts
+ * (e.g. alongside a sidebar) where the full-bleed ::before trick breaks.
+ */
+.sections--divided {
+  > .section + .section {
+    border-top: 1px solid var(--grey200);
+  }
+}
+
 .sections--alternating {
   > .section:nth-of-type(even)::before {
     background-color: var(--sectionAltBg);

@@ -77,6 +77,7 @@ src/
 │   ├── scripts.js            # Entry point — imports all modules
 │   ├── accordion.js          # Accordion/disclosure component
 │   ├── alerts.js             # Alert close/remove behaviour
+│   ├── darkMode.js           # Dark mode toggle (html[data-mode], data-color spans)
 │   ├── dropdown.js           # Dropdown menu toggle
 │   ├── menuToggle.js         # Responsive nav toggle, aria-expanded
 │   ├── modal.js              # Modal open/close, focus trap
@@ -201,13 +202,16 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - **Repo hygiene**: `.github/CODEOWNERS` (`* @craigmcn`), branch protection ruleset (1 approval, Admin bypass, `test` status check, block force push + deletion) — both already in place, confirmed 2026-05-01
 - **Yarn 3.3.1 → 4 + Husky** (PR #291, merged 2026-05-20): Yarn 4.14.1 via Corepack, Husky pre-commit hook, full Prettier reformat
 - **SRI + versions index** (PR #295, merged 2026-05-20): SRI hashes computed at release time, `versions.json` upserted on `gh-pages`, `versions.html` page with copy buttons
-- **gh-pages canonical site + HTML snippets** (PR #303, open 2026-05-28): style guide restructured with sidebar nav and `<details class="sg-snippet">` copy drawers per component; `versions.html` at repo root with URL-update warning; `versions.html` linked from side nav; `stripSnippets()` Transform in gulpfile strips drawers for Netlify build; release workflow deploys `dist/` to gh-pages root so `albertcss.craigmcn.com/css/albert.min.css` works after next release; new layout partials (`_container.scss`, `_sidebar-layout.scss`, `_sections--divided`)
+- **gh-pages canonical site + HTML snippets** (PR #303, merged 2026-05-28): style guide restructured with sidebar nav and `<details class="sg-snippet">` copy drawers per component; `versions.html` at repo root with URL-update warning; `versions.html` linked from side nav; `stripSnippets()` Transform in gulpfile strips drawers for Netlify build; release workflow deploys `dist/` to gh-pages root so `albertcss.craigmcn.com/css/albert.min.css` works after next release; new layout partials (`_container.scss`, `_sidebar-layout.scss`, `_sections--divided`)
+- **Dark mode toggle + nav fixes** (PR #304, open 2026-05-28): add `darkMode.js` module (`initDarkMode()`), rename title/h1 "Style Guide" → "Albert CSS", replace placeholder nav links with "Style Guide" (`./`) and "Versions" (absolute gh-pages URL); 7 new unit tests
 
 ### In progress / next steps
 
-- Merge PR #303 and trigger a release — first release after merge completes the gh-pages restructuring (style guide at root, latest CSS/JS at `albertcss.craigmcn.com/`)
+- **Merge PR #304** (fix/dark-mode-nav) — dark mode toggle, nav, title fixes; [#304](https://github.com/craigmcn/albertcss/pull/304)
+- **Trigger a release** after PR #304 merges — first release since PR #303 will update `albertcss.craigmcn.com/` root with new `index.html` (snippets, dark mode, correct nav)
 - Add Vitest unit test for `stripSnippets()` to catch regex regressions (flagged in PR #303 review, non-blocking)
 - Add `VERSIONS_B64` empty-check guard in `release.yml` bash script — silent failure if `versions.html` missing from default branch (non-blocking)
+- Add multi-button dark mode sync test (flagged in PR #304 review, non-blocking)
 - Deprecate `.main` / `.main--fixed` in `_main.scss` — already noted in source; remove in a future version once consumers have migrated to `.container`
 
 ### Deferred (out of scope)
@@ -230,6 +234,9 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - "Version history" link in style guide side nav uses an absolute gh-pages URL so it works from gh-pages, Netlify, and local dev
 - `_sections--divided` (border-top separator) replaces `_sections--alternating` inside constrained sidebar layouts — the full-bleed `::before` trick on `--alternating` breaks in constrained columns
 - `stripSnippets()` uses three sequential regex replacements: (1) `<details class="sg-snippet">` elements, (2) the `/* ---- Code snippets ---- */` CSS block, (3) the `// Copy buttons` JS event handler block — all three must be present or the Netlify output contains dead code
+- `initDarkMode()` reads `html.dataset.mode` (not the button's `data-mode`) as the source of truth for current state — button attribute is derived/display-only, not authoritative
+- Nav "Versions" link uses the absolute `https://albertcss.craigmcn.com/versions.html` URL (same as sidebar nav) so it resolves correctly from both Netlify (`/albertcss/`) and gh-pages (`/`) contexts; "Style Guide" uses `./` (relative) for the same reason
+- System-preference sync on load (OS dark mode → initial button state) is a known gap; `prefers-color-scheme` already styles via CSS but `html.dataset.mode` and button state are not initialized to match — deferred, non-blocking
 
 ## Key dependencies
 

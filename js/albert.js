@@ -48,6 +48,35 @@ var initAlertClose = exports.initAlertClose = function initAlertClose() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.initDarkMode = initDarkMode;
+function initDarkMode() {
+  var html = document.documentElement;
+  var buttons = document.querySelectorAll('[data-toggle-dark-mode]');
+  if (!buttons.length) return;
+  function applyMode(dark) {
+    html.dataset.mode = dark ? 'dark' : 'light';
+    buttons.forEach(function (btn) {
+      btn.dataset.mode = dark ? 'light' : 'dark';
+      btn.querySelectorAll('[data-color="light"]').forEach(function (el) {
+        el.classList.toggle('d-none', dark);
+      });
+      btn.querySelectorAll('[data-color="dark"]').forEach(function (el) {
+        el.classList.toggle('d-none', !dark);
+      });
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyMode(html.dataset.mode !== 'dark');
+    });
+  });
+}
+},{}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.initDropdown = void 0;
 var initDropdown = exports.initDropdown = function initDropdown() {
   var dropdowns = Array.from(document.querySelectorAll('.dropdown'));
@@ -138,7 +167,7 @@ var initDropdown = exports.initDropdown = function initDropdown() {
   });
   return controller;
 };
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -166,7 +195,7 @@ var initMenuToggle = exports.initMenuToggle = function initMenuToggle() {
     });
   }
 };
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -192,7 +221,7 @@ var initModal = exports.initModal = function initModal() {
     });
   });
 };
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -311,11 +340,12 @@ var initPopover = exports.initPopover = function initPopover() {
   });
   return controller;
 };
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 var _formbouncerjs = _interopRequireDefault(require("formbouncerjs"));
 var _accordion = require("./accordion");
+var _darkMode = require("./darkMode");
 var _dropdown = require("./dropdown");
 var _popover = require("./popover");
 var _tabs = require("./tabs");
@@ -326,13 +356,14 @@ var _tooltip = require("./tooltip");
 var _scrollHeader = _interopRequireDefault(require("./scrollHeader"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 window.addEventListener('load', function () {
+  // eslint-disable-next-line no-unused-vars
   var validate = new _formbouncerjs["default"]('form', {
-    // eslint-disable-line no-unused-vars
     messageAfterField: false,
     fieldClass: 'form__control--hasError',
     errorClass: 'form__control-error'
   });
   (0, _accordion.initAccordion)();
+  (0, _darkMode.initDarkMode)();
   // Both return an AbortController for cleanup if the component is ever re-initialized.
   // Not needed here — the page has a single load lifetime.
   (0, _dropdown.initDropdown)();
@@ -344,7 +375,7 @@ window.addEventListener('load', function () {
   (0, _tooltip.initTooltip)();
   (0, _scrollHeader["default"])();
 });
-},{"./accordion":2,"./alerts":3,"./dropdown":4,"./menuToggle":5,"./modal":6,"./popover":7,"./scrollHeader":9,"./tabs":10,"./tooltip":12,"formbouncerjs":1}],9:[function(require,module,exports){
+},{"./accordion":2,"./alerts":3,"./darkMode":4,"./dropdown":5,"./menuToggle":6,"./modal":7,"./popover":8,"./scrollHeader":10,"./tabs":11,"./tooltip":13,"formbouncerjs":1}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -402,7 +433,7 @@ function scrollHeader() {
   };
   window.addEventListener('scroll', (0, _throttle["default"])(checkScroll, 100));
 }
-},{"./throttle":11}],10:[function(require,module,exports){
+},{"./throttle":12}],11:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -456,7 +487,7 @@ var initTabs = exports.initTabs = function initTabs() {
     });
   });
 };
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -472,7 +503,7 @@ function throttle(fn, wait) {
     }
   };
 }
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -548,4 +579,4 @@ var initTooltip = exports.initTooltip = function initTooltip() {
     el.addEventListener('focusout', hide);
   });
 };
-},{}]},{},[8]);
+},{}]},{},[9]);

@@ -568,8 +568,94 @@ pre code {
 }
 
 /**
-  * Main
-  */
+ * Containers
+ *
+ * Bootstrap 5-compatible responsive containers.
+ * Replaces .main / .main--fixed (deprecated).
+ *
+ * .container       — fluid at xs; constrained at sm and above
+ * .container-sm    — same as .container
+ * .container-md    — fluid below md; constrained from md up
+ * .container-lg    — fluid below lg; constrained from lg up
+ * .container-xl    — fluid below xl; constrained at xl only
+ * .container-fluid — always 100% wide
+ */
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-fluid {
+  width: 100%;
+  padding-inline: 1rem;
+  margin-inline: auto;
+  margin-block-start: 1rem;
+}
+
+@media (min-width: 544px) {
+  .container,
+  .container-sm {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container,
+  .container-sm {
+    max-width: 720px;
+  }
+}
+@media (min-width: 1012px) {
+  .container,
+  .container-sm {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1280px) {
+  .container,
+  .container-sm {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-md {
+    max-width: 720px;
+  }
+}
+@media (min-width: 1012px) {
+  .container-md {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1280px) {
+  .container-md {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1012px) {
+  .container-lg {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1280px) {
+  .container-lg {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-xl {
+    max-width: 1140px;
+  }
+}
+
+/**
+ * Main (deprecated)
+ *
+ * Use .container / .container-{sm|md|lg|xl|fluid} instead.
+ * These classes are kept for backwards compatibility and will be removed in a future version.
+ */
 .main {
   margin: 1rem auto 0 auto;
   padding: 0 1rem;
@@ -599,6 +685,15 @@ pre code {
   z-index: -1;
 }
 
+/**
+ * sections--divided adds a top border between adjacent sections.
+ * Prefer this over sections--alternating inside constrained layouts
+ * (e.g. alongside a sidebar) where the full-bleed ::before trick breaks.
+ */
+.sections--divided > .section + .section {
+  border-top: 1px solid var(--grey200);
+}
+
 .sections--alternating > .section:nth-of-type(even)::before {
   background-color: var(--sectionAltBg);
   content: "";
@@ -613,6 +708,34 @@ pre code {
 }
 .sections--alternating > .section--plain::before {
   content: none;
+}
+
+/**
+ * Sidebar layout
+ *
+ * Two-column grid: a fixed-width aside and a flexible main column.
+ * Override the sidebar width with --layout-sidebar-width on the element.
+ * On small screens the columns stack vertically; consumers may hide the
+ * aside column at small sizes with a responsive display utility.
+ *
+ * Usage:
+ *   <div class="layout-sidebar">
+ *     <aside>...</aside>
+ *     <main>...</main>
+ *   </div>
+ */
+.layout-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .layout-sidebar {
+    grid-template-columns: var(--layout-sidebar-width, 15rem) 1fr;
+  }
+}
+.layout-sidebar > * {
+  min-width: 0;
 }
 
 .toolbar {

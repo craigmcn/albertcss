@@ -54,9 +54,11 @@ src/
 │       ├── _tabs.scss
 │       ├── _tooltips.scss
 │       ├── layouts/
+│       │   ├── _container.scss    # Bootstrap-compatible responsive containers; replaces .main/.main--fixed
 │       │   ├── _header.scss
-│       │   ├── _main.scss
-│       │   ├── _sections.scss
+│       │   ├── _main.scss         # Deprecated — kept for backward compat; use .container instead
+│       │   ├── _sections.scss     # Includes .sections--divided (border-top separator)
+│       │   ├── _sidebar-layout.scss  # Two-column CSS Grid: sidebar + main; stacks at sm
 │       │   └── _toolbar.scss
 │       └── utilities/
 │           ├── _aspect-ratio.scss
@@ -161,8 +163,10 @@ git push origin vX.Y.Z
 The workflow builds and deploys to the `gh-pages` branch at `/vX.Y.Z/`, served at:  
 `https://albertcss.craigmcn.com/vX.Y.Z/css/albert.min.css`
 
-The latest published release is always available at:  
-`https://www.craigmcn.com/albertcss/`
+The latest published release is available at both:
+
+- **`https://albertcss.craigmcn.com/css/albert.min.css`** (canonical — gh-pages root, set by release workflow)
+- `https://www.craigmcn.com/albertcss/css/albert.min.css` (legacy Netlify URL — still works)
 
 **Backfill an older tag:**
 
@@ -187,7 +191,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 | `/create-pr [title]`   | Create a PR against `main`, then automatically run a code review |
 | `/review-pr [pr]`      | Review the current branch's PR or a specified PR number          |
 
-## Project status (2026-05-14)
+## Project status (2026-05-28)
 
 ### Completed
 
@@ -195,10 +199,16 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - **Post-review fixes** (PR #279, merged 2026-04-16): brand SVG sizing, FA icon overflow, viewport-aware flip for tooltips + popovers
 - **Dep bumps**: ESLint 9 → 10, Prettier 3.8.3, Vitest 4.1.5 (PRs #280–#283); @babel/preset-env, globals, jsdom, eslint, ip-address, @babel/plugin-transform-modules-systemjs (PRs #284–#290)
 - **Repo hygiene**: `.github/CODEOWNERS` (`* @craigmcn`), branch protection ruleset (1 approval, Admin bypass, `test` status check, block force push + deletion) — both already in place, confirmed 2026-05-01
+- **Yarn 3.3.1 → 4 + Husky** (PR #291, merged 2026-05-20): Yarn 4.14.1 via Corepack, Husky pre-commit hook, full Prettier reformat
+- **SRI + versions index** (PR #295, merged 2026-05-20): SRI hashes computed at release time, `versions.json` upserted on `gh-pages`, `versions.html` page with copy buttons
+- **gh-pages canonical site + HTML snippets** (PR #303, open 2026-05-28): style guide restructured with sidebar nav and `<details class="sg-snippet">` copy drawers per component; `versions.html` at repo root with URL-update warning; `versions.html` linked from side nav; `stripSnippets()` Transform in gulpfile strips drawers for Netlify build; release workflow deploys `dist/` to gh-pages root so `albertcss.craigmcn.com/css/albert.min.css` works after next release; new layout partials (`_container.scss`, `_sidebar-layout.scss`, `_sections--divided`)
 
-### Outstanding
+### In progress / next steps
 
-- Yarn 3.3.1 → 4 upgrade + Husky pre-commit hook (`yarn prettier --check . && yarn lint`)
+- Merge PR #303 and trigger a release — first release after merge completes the gh-pages restructuring (style guide at root, latest CSS/JS at `albertcss.craigmcn.com/`)
+- Add Vitest unit test for `stripSnippets()` to catch regex regressions (flagged in PR #303 review, non-blocking)
+- Add `VERSIONS_B64` empty-check guard in `release.yml` bash script — silent failure if `versions.html` missing from default branch (non-blocking)
+- Deprecate `.main` / `.main--fixed` in `_main.scss` — already noted in source; remove in a future version once consumers have migrated to `.container`
 
 ### Deferred (out of scope)
 
@@ -207,15 +217,19 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 ### Future improvements (TODO)
 
 - **SRI hashes for releases**: ✅ done — computed at release time, stored in `versions.json` on `gh-pages`
-- **GitHub Pages version index**: ✅ done — `index.html` at `albertcss.craigmcn.com/` lists all versions with SRI copy buttons
-- **Example page with HTML snippets**: a living demo page that shows each component with the actual markup, so consumers can copy code directly
-- **Netlify CSS not minified**: `www.craigmcn.com/albertcss/css/albert.min.css` is unminified for v0.14.0 and v0.15.0 (v0.13.0 and earlier are minified). Investigate the Gulp CSS pipeline — likely a regression in the `gulp-sass` or `gulp-if` minification path introduced in the modernise-and-expand work.
+- **GitHub Pages canonical site**: ✅ done (PR #303) — `albertcss.craigmcn.com/` serves full style guide with HTML snippets; `versions.html` linked from nav; Netlify serves snippet-less style guide
+- **Example page with HTML snippets**: ✅ done (PR #303) — `<details class="sg-snippet">` drawers inline in `src/index.html`; stripped for Netlify via `stripSnippets()` in `gulpfile.js`
+- **Netlify CSS not minified**: `www.craigmcn.com/albertcss/css/albert.min.css` was unminified for v0.14.0 and v0.15.0 (v0.13.0 and earlier are minified). Still unresolved — investigate the Gulp CSS pipeline; likely a regression in the `gulp-sass` or `gulp-if` minification path.
 
 ### Key decisions
 
 - Viewport-aware flip for tooltips and popovers implemented in JS (`tooltip.js`, `popover.js`) using `data-tooltip-flip` / `data-popover-flip` attributes; CSS handles the visual swap
 - Spacing utilities use CSS logical properties (e.g. `padding-inline-start`) with Bootstrap-compatible class names; legacy classes kept for backward compatibility
 - `text-bg-*` classes set both background and foreground colour via `--semanticContrast` CSS var for dark-mode safety
+- `albertcss.craigmcn.com` is the canonical home; `www.craigmcn.com/albertcss/` is backward-compat only (snippet-less style guide + latest CSS/JS)
+- "Version history" link in style guide side nav uses an absolute gh-pages URL so it works from gh-pages, Netlify, and local dev
+- `_sections--divided` (border-top separator) replaces `_sections--alternating` inside constrained sidebar layouts — the full-bleed `::before` trick on `--alternating` breaks in constrained columns
+- `stripSnippets()` uses three sequential regex replacements: (1) `<details class="sg-snippet">` elements, (2) the `/* ---- Code snippets ---- */` CSS block, (3) the `// Copy buttons` JS event handler block — all three must be present or the Netlify output contains dead code
 
 ## Key dependencies
 

@@ -1,5 +1,6 @@
 import Bouncer from 'formbouncerjs';
 import { initAccordion } from './accordion';
+import { initDarkMode } from './darkMode';
 import { initDropdown } from './dropdown';
 import { initPopover } from './popover';
 import { initTabs } from './tabs';
@@ -18,6 +19,7 @@ window.addEventListener('load', function () {
   });
 
   initAccordion();
+  initDarkMode();
   // Both return an AbortController for cleanup if the component is ever re-initialized.
   // Not needed here — the page has a single load lifetime.
   initDropdown();

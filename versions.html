@@ -3,11 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Albert CSS — Version Index</title>
+    <title>Albert CSS — Version History</title>
     <link
       rel="stylesheet"
       href="https://www.craigmcn.com/albertcss/css/albert.min.css"
     />
+    <script
+      src="https://kit.fontawesome.com/453b852cdd.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <style>
       .version-card + .version-card {
         margin-top: 1.5rem;
@@ -59,19 +64,49 @@
       </div>
 
       <h1>
-        <a href="https://www.craigmcn.com/albertcss/">Albert CSS</a>
+        <a href="./">Albert CSS</a>
       </h1>
+
+      <nav class="nav" aria-label="Site navigation">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="./">Style Guide</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="versions.html">Versions</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main class="main">
       <div class="container">
-        <h1>Version Index</h1>
+        <div
+          class="alert alert--warning"
+          role="alert"
+          style="margin-block-start: 1.5rem"
+        >
+          <div class="alert__icon">
+            <i
+              class="fa-duotone fa-sharp fa-light fa-2xl fa-triangle-exclamation"
+            ></i>
+          </div>
+          <div class="alert__text">
+            <strong>URL update:</strong> The canonical URL for the latest
+            release is now
+            <code>https://albertcss.craigmcn.com/css/albert.min.css</code>. The
+            <code>https://www.craigmcn.com/albertcss/</code> URL continues to
+            work, but consider updating your references.
+          </div>
+        </div>
+
+        <h1>Version History</h1>
 
         <section>
           <h2>Latest</h2>
           <p>
-            Served by Netlify — always the most recent release. No SRI hash; use
-            a pinned version below for integrity-protected loads.
+            Always the most recent release. No SRI hash; use a pinned version
+            below for integrity-protected loads.
           </p>
           <div class="card">
             <div class="card__body">
@@ -95,6 +130,12 @@
               >
                 Copy both
               </button>
+              <p class="text-muted text-sm mt-2">
+                Legacy URL also works:
+                <code
+                  >https://www.craigmcn.com/albertcss/css/albert.min.css</code
+                >
+              </p>
             </div>
           </div>
         </section>
@@ -114,8 +155,8 @@
     </main>
 
     <script>
-      var LATEST_CSS = 'https://www.craigmcn.com/albertcss/css/albert.min.css';
-      var LATEST_JS = 'https://www.craigmcn.com/albertcss/js/albert.min.js';
+      var LATEST_CSS = 'https://albertcss.craigmcn.com/css/albert.min.css';
+      var LATEST_JS = 'https://albertcss.craigmcn.com/js/albert.min.js';
       var latestCssTag = '<link rel="stylesheet" href="' + LATEST_CSS + '">';
       var latestJsTag = '<script src="' + LATEST_JS + '" defer><' + '/script>';
       var latestBoth = latestCssTag + '\n' + latestJsTag;

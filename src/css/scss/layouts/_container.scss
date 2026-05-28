@@ -1,0 +1,82 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+/**
+ * Containers
+ *
+ * Bootstrap 5-compatible responsive containers.
+ * Replaces .main / .main--fixed (deprecated).
+ *
+ * .container       — fluid at xs; constrained at sm and above
+ * .container-sm    — same as .container
+ * .container-md    — fluid below md; constrained from md up
+ * .container-lg    — fluid below lg; constrained from lg up
+ * .container-xl    — fluid below xl; constrained at xl only
+ * .container-fluid — always 100% wide
+ */
+
+$container-max-sm: 540px;
+$container-max-md: 720px;
+$container-max-lg: 960px;
+$container-max-xl: 1140px;
+
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-fluid {
+  width: 100%;
+  padding-inline: $spacing;
+  margin-inline: auto;
+  margin-block-start: $spacing;
+}
+
+.container,
+.container-sm {
+  @include layout-sm {
+    max-width: $container-max-sm;
+  }
+
+  @include layout-md {
+    max-width: $container-max-md;
+  }
+
+  @include layout-lg {
+    max-width: $container-max-lg;
+  }
+
+  @include layout-xl {
+    max-width: $container-max-xl;
+  }
+}
+
+.container-md {
+  @include layout-md {
+    max-width: $container-max-md;
+  }
+
+  @include layout-lg {
+    max-width: $container-max-lg;
+  }
+
+  @include layout-xl {
+    max-width: $container-max-xl;
+  }
+}
+
+.container-lg {
+  @include layout-lg {
+    max-width: $container-max-lg;
+  }
+
+  @include layout-xl {
+    max-width: $container-max-xl;
+  }
+}
+
+.container-xl {
+  @include layout-xl {
+    max-width: $container-max-xl;
+  }
+}

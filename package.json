@@ -31,7 +31,7 @@
   "homepage": "https://github.com/craigmcn/albertcss#readme",
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-env": "^7.29.7",
     "@vitest/coverage-v8": "^4.1.7",
     "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",

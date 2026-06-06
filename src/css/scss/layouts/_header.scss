@@ -55,7 +55,7 @@
   }
 
   h1 {
-    font-family: $raleway-stack;
+    font-family: $heading-stack;
     font-size: 1.25rem;
     grid-area: site;
     margin-bottom: 0.5rem;
@@ -91,8 +91,8 @@
 }
 
 .brand {
-  font-weight: 600; // aligned with standard h*
-  font-family: $raleway-stack;
+  font-weight: 500; // aligned with standard h*
+  font-family: $heading-stack;
   font-size: 1.25rem;
   grid-area: brand;
   margin: 0.5rem 0 0.5rem 1rem;

@@ -196,7 +196,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 
 ### Completed
 
-- **Modernise and expand** (PR #278, merged 2026-04-16): badges, modal, accordion, tabs, dropdown, tooltips, popovers, spacing/display/text/overflow/position/shadow/border/z-index/aspect-ratio/background/grid utilities, button group
+- **Modernize and expand** (PR #278, merged 2026-04-16): badges, modal, accordion, tabs, dropdown, tooltips, popovers, spacing/display/text/overflow/position/shadow/border/z-index/aspect-ratio/background/grid utilities, button group
 - **Post-review fixes** (PR #279, merged 2026-04-16): brand SVG sizing, FA icon overflow, viewport-aware flip for tooltips + popovers
 - **Dep bumps**: ESLint 9 → 10, Prettier 3.8.3, Vitest 4.1.5 (PRs #280–#283); @babel/preset-env, globals, jsdom, eslint, ip-address, @babel/plugin-transform-modules-systemjs (PRs #284–#290)
 - **Repo hygiene**: `.github/CODEOWNERS` (`* @craigmcn`), branch protection ruleset (1 approval, Admin bypass, `test` status check, block force push + deletion) — both already in place, confirmed 2026-05-01
@@ -207,6 +207,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 
 ### In progress / next steps
 
+- **Font replacement** (branch `feat/font-comparison`, 2026-06-06) — Raleway → Outfit; ready to commit and PR
 - **Merge PR #304** (fix/dark-mode-nav) — dark mode toggle, nav, title fixes; [#304](https://github.com/craigmcn/albertcss/pull/304)
 - **Trigger a release** after PR #304 merges — first release since PR #303 will update `albertcss.craigmcn.com/` root with new `index.html` (snippets, dark mode, correct nav)
 - Add Vitest unit test for `stripSnippets()` to catch regex regressions (flagged in PR #303 review, non-blocking)
@@ -217,6 +218,10 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 ### Deferred (out of scope)
 
 - Toasts/Snackbars, Progress bars, Spinners, Breadcrumbs, Pagination, Stepper/Wizard, Avatars, Chips/Tags
+
+### Font
+
+- ✅ Replaced Raleway with Outfit (2026-06-06, branch `feat/font-comparison`) — single-story "a", geometric sans-serif, Google Fonts; h1–h4 at weight 500, h5–h6 at weight 600; stack: `Outfit, Futura, Avenir, 'Century Gothic', Candara, sans-serif`
 
 ### Future improvements (TODO)
 
@@ -237,6 +242,8 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - `initDarkMode()` reads `html.dataset.mode` (not the button's `data-mode`) as the source of truth for current state — button attribute is derived/display-only, not authoritative
 - Nav "Versions" link uses the absolute `https://albertcss.craigmcn.com/versions.html` URL (same as sidebar nav) so it resolves correctly from both Netlify (`/albertcss/`) and gh-pages (`/`) contexts; "Style Guide" uses `./` (relative) for the same reason
 - System-preference sync on load (OS dark mode → initial button state) is a known gap; `prefers-color-scheme` already styles via CSS but `html.dataset.mode` and button state are not initialized to match — deferred, non-blocking
+- Heading font is Outfit (not Raleway); `$heading-stack` in `_fonts.scss` replaces `$raleway-stack`; h1–h4 at weight 500, h5–h6 at weight 600 (heavier to compensate for smaller size); `.subheading` inside h5/h6 drops back to weight 500
+- Outfit fallback stack chosen for geometric character: Futura (macOS), Avenir (macOS alternate), Century Gothic (Windows), Candara (Windows humanist fallback) — do not trust web-search research on whether a font has a single-story "a"; verify visually in the browser (Montserrat and Plus Jakarta Sans were both incorrectly reported as single-story by research tools)
 
 ## Key dependencies
 

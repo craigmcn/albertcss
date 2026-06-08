@@ -6,7 +6,7 @@ The public-facing project overview is in [`README.md`](README.md) at the project
 
 ## Requirements
 
-- Node v24 (see `.nvmrc`)
+- Node v24 (see `.node-version`; managed by mise)
 - Yarn v4 (managed by Corepack)
 
 ## Commands

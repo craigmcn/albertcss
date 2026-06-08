@@ -192,7 +192,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 | `/create-pr [title]`   | Create a PR against `main`, then automatically run a code review |
 | `/review-pr [pr]`      | Review the current branch's PR or a specified PR number          |
 
-## Project status (2026-05-28)
+## Project status (2026-06-08)
 
 ### Completed
 
@@ -203,15 +203,11 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - **Yarn 3.3.1 → 4 + Husky** (PR #291, merged 2026-05-20): Yarn 4.14.1 via Corepack, Husky pre-commit hook, full Prettier reformat
 - **SRI + versions index** (PR #295, merged 2026-05-20): SRI hashes computed at release time, `versions.json` upserted on `gh-pages`, `versions.html` page with copy buttons
 - **gh-pages canonical site + HTML snippets** (PR #303, merged 2026-05-28): style guide restructured with sidebar nav and `<details class="sg-snippet">` copy drawers per component; `versions.html` at repo root with URL-update warning; `versions.html` linked from side nav; `stripSnippets()` Transform in gulpfile strips drawers for Netlify build; release workflow deploys `dist/` to gh-pages root so `albertcss.craigmcn.com/css/albert.min.css` works after next release; new layout partials (`_container.scss`, `_sidebar-layout.scss`, `_sections--divided`)
-- **Dark mode toggle + nav fixes** (PR #304, open 2026-05-28): add `darkMode.js` module (`initDarkMode()`), rename title/h1 "Style Guide" → "Albert CSS", replace placeholder nav links with "Style Guide" (`./`) and "Versions" (absolute gh-pages URL); 7 new unit tests
+- **Dark mode toggle + nav fixes** (PR #304, merged 2026-05-28): add `darkMode.js` module (`initDarkMode()`), rename title/h1 "Style Guide" → "Albert CSS", replace placeholder nav links with "Style Guide" (`./`) and "Versions" (absolute gh-pages URL); 7 new unit tests
+- **Font replacement** (PR #312, merged 2026-06-06, v0.17.0 released): Raleway → Outfit; single-story "a", geometric sans-serif; h1–h4 weight 500, h5–h6 weight 600; `$heading-stack` in `_fonts.scss`
 
 ### In progress / next steps
 
-- **Font replacement** (branch `feat/font-comparison`, 2026-06-06) — Raleway → Outfit; ready to commit and PR
-- **Merge PR #304** (fix/dark-mode-nav) — dark mode toggle, nav, title fixes; [#304](https://github.com/craigmcn/albertcss/pull/304)
-- **Trigger a release** after PR #304 merges — first release since PR #303 will update `albertcss.craigmcn.com/` root with new `index.html` (snippets, dark mode, correct nav)
-- Add Vitest unit test for `stripSnippets()` to catch regex regressions (flagged in PR #303 review, non-blocking)
-- Add `VERSIONS_B64` empty-check guard in `release.yml` bash script — silent failure if `versions.html` missing from default branch (non-blocking)
 - Add multi-button dark mode sync test (flagged in PR #304 review, non-blocking)
 - Deprecate `.main` / `.main--fixed` in `_main.scss` — already noted in source; remove in a future version once consumers have migrated to `.container`
 

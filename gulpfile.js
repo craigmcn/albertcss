@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import gulpif from 'gulp-if';
 import parseArgs from 'minimist';
 import { Transform } from 'stream';
+import { applyStripSnippets } from './src/js/stripSnippets.js';
 import * as sassInit from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
@@ -126,22 +127,7 @@ function stripSnippets() {
     objectMode: true,
     transform(file, _, callback) {
       if (file.isBuffer()) {
-        let html = file.contents.toString('utf8');
-        // Remove <details class="sg-snippet">…</details> elements
-        html = html.replace(
-          /[ \t]*<details class="sg-snippet">[\s\S]*?<\/details>\n?/g,
-          '',
-        );
-        // Remove the dead /* ---- Code snippets ---- */ CSS block
-        html = html.replace(
-          /\n      \/\* ---- Code snippets ---- \*\/[\s\S]*?(?=\n\n      \/\*)/,
-          '',
-        );
-        // Remove the dead copy-button JS block
-        html = html.replace(
-          /\n\n      \/\/ Copy buttons\n      document\.querySelectorAll\('\.sg-snippet__copy'\)[\s\S]*?\}\);\n/,
-          '\n',
-        );
+        const html = applyStripSnippets(file.contents.toString('utf8'));
         file.contents = Buffer.from(html, 'utf8');
       }
       callback(null, file);

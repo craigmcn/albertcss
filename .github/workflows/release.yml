@@ -147,8 +147,10 @@ jobs:
           VERSIONS_SHA=$(gh api "repos/${REPO}/contents/versions.html?ref=gh-pages" \
             --jq '.sha' 2>/dev/null || echo '')
           VERSIONS_B64=$(gh api "repos/${REPO}/contents/versions.html" \
-            --jq '.content' | tr -d '\n')
-          if [ -n "$VERSIONS_SHA" ]; then
+            --jq '.content' 2>/dev/null | tr -d '\n')
+          if [ -z "$VERSIONS_B64" ]; then
+            echo "Warning: versions.html not found on default branch; skipping versions page update"
+          elif [ -n "$VERSIONS_SHA" ]; then
             gh api "repos/${REPO}/contents/versions.html" -X PUT \
               -f message="chore: update versions page for ${VERSION}" \
               -f content="$VERSIONS_B64" \

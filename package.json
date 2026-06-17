@@ -29,6 +29,9 @@
     "url": "https://github.com/craigmcn/albertcss/issues"
   },
   "homepage": "https://github.com/craigmcn/albertcss#readme",
+  "resolutions": {
+    "postcss": "^8.5.15"
+  },
   "devDependencies": {
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",

@@ -192,7 +192,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 | `/create-pr [title]`   | Create a PR against `main`, then automatically run a code review |
 | `/review-pr [pr]`      | Review the current branch's PR or a specified PR number          |
 
-## Project status (2026-06-08)
+## Project status (2026-06-17)
 
 ### Completed
 
@@ -205,9 +205,11 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - **gh-pages canonical site + HTML snippets** (PR #303, merged 2026-05-28): style guide restructured with sidebar nav and `<details class="sg-snippet">` copy drawers per component; `versions.html` at repo root with URL-update warning; `versions.html` linked from side nav; `stripSnippets()` Transform in gulpfile strips drawers for Netlify build; release workflow deploys `dist/` to gh-pages root so `albertcss.craigmcn.com/css/albert.min.css` works after next release; new layout partials (`_container.scss`, `_sidebar-layout.scss`, `_sections--divided`)
 - **Dark mode toggle + nav fixes** (PR #304, merged 2026-05-28): add `darkMode.js` module (`initDarkMode()`), rename title/h1 "Style Guide" → "Albert CSS", replace placeholder nav links with "Style Guide" (`./`) and "Versions" (absolute gh-pages URL); 7 new unit tests
 - **Font replacement** (PR #312, merged 2026-06-06, v0.17.0 released): Raleway → Outfit; single-story "a", geometric sans-serif; h1–h4 weight 500, h5–h6 weight 600; `$heading-stack` in `_fonts.scss`
+- **postcss security fix** (PR #320, open 2026-06-17): Yarn `resolutions` field pins `postcss` to `^8.5.15`, closing Dependabot alert #111 (medium, CVSS 6.1 — XSS via unescaped `</style>` in CSS Stringify Output); removes stale lockfile entries for postcss 7.0.39, 8.5.9, nanoid 3.3.11, picocolors 0.2.1
 
 ### In progress / next steps
 
+- **PR #320** — postcss resolution security fix; awaiting review/merge
 - Add multi-button dark mode sync test (flagged in PR #304 review, non-blocking)
 - Deprecate `.main` / `.main--fixed` in `_main.scss` — already noted in source; remove in a future version once consumers have migrated to `.container`
 
@@ -240,6 +242,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - System-preference sync on load (OS dark mode → initial button state) is a known gap; `prefers-color-scheme` already styles via CSS but `html.dataset.mode` and button state are not initialized to match — deferred, non-blocking
 - Heading font is Outfit (not Raleway); `$heading-stack` in `_fonts.scss` replaces `$raleway-stack`; h1–h4 at weight 500, h5–h6 at weight 600 (heavier to compensate for smaller size); `.subheading` inside h5/h6 drops back to weight 500
 - Outfit fallback stack chosen for geometric character: Futura (macOS), Avenir (macOS alternate), Century Gothic (Windows), Candara (Windows humanist fallback) — do not trust web-search research on whether a font has a single-story "a"; verify visually in the browser (Montserrat and Plus Jakarta Sans were both incorrectly reported as single-story by research tools)
+- `resolutions: { postcss: "^8.5.15" }` in `package.json` is the correct Yarn 4 mechanism for forcing transitive dep versions; `@gulp-sourcemaps/identity-map` required a forced major upgrade (7 → 8) which is technically unsupported but safe in practice — the passing build confirms no breakage
 
 ## Key dependencies
 

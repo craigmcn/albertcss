@@ -256,3 +256,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 | `vitest`                  | Unit test runner               |
 | `formbouncerjs`           | Client-side form validation    |
 | `minimist`                | CLI arg parsing (`--env` flag) |
+
+### Known upgrade blockers
+
+- **`@babel/core` is pinned to `^7.x` — do not merge Dependabot's Babel 8 bumps.** `babelify@10.0.0` (the latest available, peer-locked to `@babel/core: ^7.0.0`) calls `loadPartialConfig()` synchronously. Babel 8 removed the synchronous form of that API (`Error: Starting from Babel 8.0.0, the 'loadPartialConfig' function expects a callback...`), so any `@babel/core` 8.x bump breaks `yarn build`/`yarn dev` immediately. `@babel/preset-env` 8.x is blocked for the same reason — it peer-depends on `@babel/core: ^8.0.0`. PRs #322 (`@babel/core` → 8.0.1) and #323 (`@babel/preset-env` → 8.0.2) were closed 2026-06-19 for this reason. Revisit only once `babelify` ships Babel 8 support, or if the build pipeline moves off `babelify`/Browserify.

@@ -33,7 +33,7 @@
     "postcss": "^8.5.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^8.0.1",
     "@babel/preset-env": "^7.29.7",
     "@vitest/coverage-v8": "^4.1.8",
     "babelify": "^10.0.0",

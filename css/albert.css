@@ -44,9 +44,7 @@
 
 /* Core document */
 html {
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-       text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Body */
@@ -108,8 +106,7 @@ small {
 }
 
 abbr[title] {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   cursor: help;
 }
 
@@ -146,190 +143,58 @@ sup {
 }
 
 :root {
-  --white: #fff;
-  --black: #222;
-  --primary: #005b99;
-  --primaryDark: rgb(0, 30.3333333333, 51);
-  --secondary: #993d00;
-  --secondaryDark: rgb(51, 20.3333333333, 0);
-  --green: #036803;
-  --successDark: rgb(0.1401869159, 4.8598130841, 0.1401869159);
-  --info: #03607d;
-  --infoDark: rgb(0.609375, 19.5, 25.390625);
-  --red: #b60202;
-  --dangerDark: rgb(81.1086956522, 0.8913043478, 0.8913043478);
-  --warn: #695802;
-  --warningDark: rgb(4.9065420561, 4.1121495327, 0.0934579439);
-  --pink: #e83e8c;
-  --silver: #ebebef;
-  --grey900: #363640;
-  --grey800: #4a4a4e;
-  --grey700: #5e5e62;
-  --grey600: #727276;
-  --grey500: #868690;
-  --grey400: #9b9b9f;
-  --grey300: #afafb3;
-  --grey200: #c3c3c7;
-  --grey100: #d7d7db;
-  --primaryActive: rgb(0, 54.6, 91.8);
-  --primaryVisited: rgb(0, 115.2666666667, 193.8);
-  --bodyBg: #fff;
-  --headerBg: #ebebef;
-  --npBg: #fff;
-  --npTxt: #005b99;
-  --sectionAltBg: #ebebef;
-  --semanticContrast: #fff;
-  --focusShadow: rgba(0, 91, 153, 0.5);
-  --errorShadow: rgba(182, 2, 2, 0.5);
-  --secondaryFocusShadow: rgba(112.2, 44.7333333333, 0, 0.5);
-  --greyFocusShadow: rgba(74, 74, 78, 0.5);
-  --grey900FocusShadow: rgba(54, 54, 64, 0.5);
-  --grey700FocusShadow: rgba(94, 94, 98, 0.5);
-  --infoFocusShadow: rgba(3, 96, 125, 0.5);
-  --greenFocusShadow: rgba(3, 104, 3, 0.5);
-  --redFocusShadow: rgba(182, 2, 2, 0.5);
-  --warnFocusShadow: rgba(105, 88, 2, 0.5);
+  color-scheme: light dark;
+  --white: light-dark(#fff, #222);
+  --black: light-dark(#222, #fff);
+  --primary: light-dark(#005b99, #4cb5fa);
+  --primaryDark: light-dark(rgb(0, 30.3333333333, 51), rgb(6.0869565217, 133.9130434783, 217.9130434783));
+  --secondary: light-dark(#993d00, #fa924c);
+  --secondaryDark: light-dark(rgb(51, 20.3333333333, 0), rgb(217.9130434783, 91.3043478261, 6.0869565217));
+  --green: light-dark(#036803, #09c809);
+  --successDark: light-dark(rgb(0.1401869159, 4.8598130841, 0.1401869159), rgb(4.6076555024, 102.3923444976, 4.6076555024));
+  --info: light-dark(#03607d, #0bbaef);
+  --infoDark: light-dark(rgb(0.609375, 19.5, 25.390625), rgb(6.512, 110.112, 141.488));
+  --red: light-dark(#b60202, #f49090);
+  --dangerDark: light-dark(rgb(81.1086956522, 0.8913043478, 0.8913043478), rgb(234.8032786885, 51.1967213115, 51.1967213115));
+  --warn: light-dark(#695802, #f9d615);
+  --warningDark: light-dark(rgb(4.9065420561, 4.1121495327, 0.0934579439), rgb(163.8, 139.3, 4.2));
+  --pink: light-dark(#e83e8c, #f28cbc);
+  --silver: light-dark(#ebebef, #363640);
+  --grey900: light-dark(#363640, #ebebef);
+  --grey800: light-dark(#4a4a4e, #d7d7db);
+  --grey700: light-dark(#5e5e62, #c3c3c7);
+  --grey600: light-dark(#727276, #afafb3);
+  --grey500: light-dark(#868690, #9b9b9f);
+  --grey400: light-dark(#9b9b9f, #868690);
+  --grey300: light-dark(#afafb3, #727276);
+  --grey200: light-dark(#c3c3c7, #5e5e62);
+  --grey100: light-dark(#d7d7db, #4a4a4e);
+  --primaryActive: light-dark(rgb(0, 54.6, 91.8), rgb(16.4630434783, 156.3869565217, 248.3369565217));
+  --primaryVisited: light-dark(rgb(0, 115.2666666667, 193.8), rgb(115.6913043478, 197.4086956522, 251.1086956522));
+  --bodyBg: light-dark(#fff, #000);
+  --headerBg: light-dark(#ebebef, #222);
+  --npBg: light-dark(#fff, #000);
+  --npTxt: light-dark(#005b99, #4cb5fa);
+  --sectionAltBg: light-dark(#ebebef, #222);
+  --semanticContrast: light-dark(#fff, #222);
+  --focusShadow: light-dark(rgba(0, 91, 153, 0.5), rgba(76, 181, 250, 0.5));
+  --errorShadow: light-dark(rgba(182, 2, 2, 0.5), rgba(244, 144, 144, 0.5));
+  --secondaryFocusShadow: light-dark(rgba(112.2, 44.7333333333, 0, 0.5), rgba(248.8913043478, 121.8304347826, 36.3086956522, 0.5));
+  --greyFocusShadow: light-dark(rgba(74, 74, 78, 0.5), rgba(215, 215, 219, 0.5));
+  --grey900FocusShadow: light-dark(rgba(54, 54, 64, 0.5), rgba(235, 235, 239, 0.5));
+  --grey700FocusShadow: light-dark(rgba(94, 94, 98, 0.5), rgba(195, 195, 199, 0.5));
+  --infoFocusShadow: light-dark(rgba(3, 96, 125, 0.5), rgba(11, 186, 239, 0.5));
+  --greenFocusShadow: light-dark(rgba(3, 104, 3, 0.5), rgba(9, 200, 9, 0.5));
+  --redFocusShadow: light-dark(rgba(182, 2, 2, 0.5), rgba(244, 144, 144, 0.5));
+  --warnFocusShadow: light-dark(rgba(105, 88, 2, 0.5), rgba(249, 214, 21, 0.5));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --white: #222;
-    --black: #fff;
-    --primary: #4cb5fa;
-    --primaryDark: rgb(6.0869565217, 133.9130434783, 217.9130434783);
-    --secondary: #fa924c;
-    --secondaryDark: rgb(217.9130434783, 91.3043478261, 6.0869565217);
-    --green: #09c809;
-    --successDark: rgb(4.6076555024, 102.3923444976, 4.6076555024);
-    --info: #0bbaef;
-    --infoDark: rgb(6.512, 110.112, 141.488);
-    --red: #f49090;
-    --dangerDark: rgb(234.8032786885, 51.1967213115, 51.1967213115);
-    --warn: #f9d615;
-    --warningDark: rgb(163.8, 139.3, 4.2);
-    --pink: #f28cbc;
-    --silver: #363640;
-    --grey900: #ebebef;
-    --grey800: #d7d7db;
-    --grey700: #c3c3c7;
-    --grey600: #afafb3;
-    --grey500: #9b9b9f;
-    --grey400: #868690;
-    --grey300: #727276;
-    --grey200: #5e5e62;
-    --grey100: #4a4a4e;
-    --primaryActive: rgb(16.4630434783, 156.3869565217, 248.3369565217);
-    --primaryVisited: rgb(115.6913043478, 197.4086956522, 251.1086956522);
-    --bodyBg: #000;
-    --headerBg: #222;
-    --npBg: #000;
-    --npTxt: #4cb5fa;
-    --sectionAltBg: #222;
-    --semanticContrast: #222;
-    --focusShadow: rgba(76, 181, 250, 0.5);
-    --errorShadow: rgba(244, 144, 144, 0.5);
-    --secondaryFocusShadow: rgba(248.8913043478, 121.8304347826, 36.3086956522, 0.5);
-    --greyFocusShadow: rgba(215, 215, 219, 0.5);
-    --grey900FocusShadow: rgba(235, 235, 239, 0.5);
-    --grey700FocusShadow: rgba(195, 195, 199, 0.5);
-    --infoFocusShadow: rgba(11, 186, 239, 0.5);
-    --greenFocusShadow: rgba(9, 200, 9, 0.5);
-    --redFocusShadow: rgba(244, 144, 144, 0.5);
-    --warnFocusShadow: rgba(249, 214, 21, 0.5);
-  }
-}
-html[data-mode=dark],
-body.theme--dark {
-  --white: #222;
-  --black: #fff;
-  --primary: #4cb5fa;
-  --primaryDark: rgb(6.0869565217, 133.9130434783, 217.9130434783);
-  --secondary: #fa924c;
-  --secondaryDark: rgb(217.9130434783, 91.3043478261, 6.0869565217);
-  --green: #09c809;
-  --successDark: rgb(4.6076555024, 102.3923444976, 4.6076555024);
-  --info: #0bbaef;
-  --infoDark: rgb(6.512, 110.112, 141.488);
-  --red: #f49090;
-  --dangerDark: rgb(234.8032786885, 51.1967213115, 51.1967213115);
-  --warn: #f9d615;
-  --warningDark: rgb(163.8, 139.3, 4.2);
-  --pink: #f28cbc;
-  --silver: #363640;
-  --grey900: #ebebef;
-  --grey800: #d7d7db;
-  --grey700: #c3c3c7;
-  --grey600: #afafb3;
-  --grey500: #9b9b9f;
-  --grey400: #868690;
-  --grey300: #727276;
-  --grey200: #5e5e62;
-  --grey100: #4a4a4e;
-  --primaryActive: rgb(16.4630434783, 156.3869565217, 248.3369565217);
-  --primaryVisited: rgb(115.6913043478, 197.4086956522, 251.1086956522);
-  --bodyBg: #000;
-  --headerBg: #222;
-  --npBg: #000;
-  --npTxt: #4cb5fa;
-  --sectionAltBg: #222;
-  --semanticContrast: #222;
-  --focusShadow: rgba(76, 181, 250, 0.5);
-  --errorShadow: rgba(244, 144, 144, 0.5);
-  --secondaryFocusShadow: rgba(248.8913043478, 121.8304347826, 36.3086956522, 0.5);
-  --greyFocusShadow: rgba(215, 215, 219, 0.5);
-  --grey900FocusShadow: rgba(235, 235, 239, 0.5);
-  --grey700FocusShadow: rgba(195, 195, 199, 0.5);
-  --infoFocusShadow: rgba(11, 186, 239, 0.5);
-  --greenFocusShadow: rgba(9, 200, 9, 0.5);
-  --redFocusShadow: rgba(244, 144, 144, 0.5);
-  --warnFocusShadow: rgba(249, 214, 21, 0.5);
+html[data-mode=dark] {
+  color-scheme: dark;
 }
 
-html[data-mode=light],
-body.theme--light {
-  --white: #fff;
-  --black: #222;
-  --primary: #005b99;
-  --primaryDark: rgb(0, 30.3333333333, 51);
-  --secondary: #993d00;
-  --secondaryDark: rgb(51, 20.3333333333, 0);
-  --green: #036803;
-  --successDark: rgb(0.1401869159, 4.8598130841, 0.1401869159);
-  --info: #03607d;
-  --infoDark: rgb(0.609375, 19.5, 25.390625);
-  --red: #b60202;
-  --dangerDark: rgb(81.1086956522, 0.8913043478, 0.8913043478);
-  --warn: #695802;
-  --warningDark: rgb(4.9065420561, 4.1121495327, 0.0934579439);
-  --pink: #e83e8c;
-  --silver: #ebebef;
-  --grey900: #363640;
-  --grey800: #4a4a4e;
-  --grey700: #5e5e62;
-  --grey600: #727276;
-  --grey500: #868690;
-  --grey400: #9b9b9f;
-  --grey300: #afafb3;
-  --grey200: #c3c3c7;
-  --grey100: #d7d7db;
-  --primaryActive: rgb(0, 54.6, 91.8);
-  --primaryVisited: rgb(0, 115.2666666667, 193.8);
-  --bodyBg: #fff;
-  --headerBg: #ebebef;
-  --npBg: #fff;
-  --npTxt: #005b99;
-  --sectionAltBg: #ebebef;
-  --semanticContrast: #fff;
-  --focusShadow: rgba(0, 91, 153, 0.5);
-  --errorShadow: rgba(182, 2, 2, 0.5);
-  --secondaryFocusShadow: rgba(112.2, 44.7333333333, 0, 0.5);
-  --greyFocusShadow: rgba(74, 74, 78, 0.5);
-  --grey900FocusShadow: rgba(54, 54, 64, 0.5);
-  --grey700FocusShadow: rgba(94, 94, 98, 0.5);
-  --infoFocusShadow: rgba(3, 96, 125, 0.5);
-  --greenFocusShadow: rgba(3, 104, 3, 0.5);
-  --redFocusShadow: rgba(182, 2, 2, 0.5);
-  --warnFocusShadow: rgba(105, 88, 2, 0.5);
+html[data-mode=light] {
+  color-scheme: light;
 }
 
 /**
@@ -491,8 +356,7 @@ pre code {
   border-bottom: 1px solid;
   border-bottom-color: var(--grey300);
   color: var(--grey800);
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
   display: grid;
   grid-template-areas: "brand brand navToggle" "site site site" "navigation navigation navigation" "toolbar toolbar toolbar";
   grid-template-columns: min-content auto min-content;
@@ -778,7 +642,6 @@ pre code {
   list-style: none;
   padding: 0.75rem 1rem;
   -webkit-user-select: none;
-     -moz-user-select: none;
           user-select: none;
 }
 .accordion__trigger::-webkit-details-marker, .disclosure__trigger::-webkit-details-marker {
@@ -1737,8 +1600,7 @@ fieldset.form__group {
 }
 .img--round {
   border-radius: 50%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .img--rounded {
   border-radius: 0.5rem;
@@ -1752,20 +1614,19 @@ fieldset.form__group {
   border-color: var(--grey100);
 }
 
-/* Apply a filter directly on the body tag */
-body.theme--dark img {
+img {
+  filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode=light]) img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}
+html[data-mode=dark] img {
   filter: brightness(0.8) contrast(1.2);
 }
 
-/* Or apply it via media query */
-@media (prefers-color-scheme: dark) {
-  img {
-    filter: brightness(0.8) contrast(1.2);
-  }
-  .theme--light img {
-    filter: none;
-  }
-}
 .list--none {
   list-style: none;
   margin-left: 0;
@@ -2048,7 +1909,6 @@ dialog.modal::backdrop {
   text-decoration: none;
   transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
   -webkit-user-select: none;
-     -moz-user-select: none;
           user-select: none;
   white-space: nowrap;
 }
@@ -2672,8 +2532,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-0 {
-  -moz-column-gap: 0rem;
-       column-gap: 0rem;
+  column-gap: 0rem;
 }
 
 .gap-y-0 {
@@ -2685,8 +2544,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-1 {
-  -moz-column-gap: 0.25rem;
-       column-gap: 0.25rem;
+  column-gap: 0.25rem;
 }
 
 .gap-y-1 {
@@ -2698,8 +2556,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
+  column-gap: 0.5rem;
 }
 
 .gap-y-2 {
@@ -2711,8 +2568,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-3 {
-  -moz-column-gap: 0.75rem;
-       column-gap: 0.75rem;
+  column-gap: 0.75rem;
 }
 
 .gap-y-3 {
@@ -2724,8 +2580,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-4 {
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
 }
 
 .gap-y-4 {
@@ -2737,8 +2592,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-5 {
-  -moz-column-gap: 1.25rem;
-       column-gap: 1.25rem;
+  column-gap: 1.25rem;
 }
 
 .gap-y-5 {
@@ -2750,8 +2604,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-6 {
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
+  column-gap: 1.5rem;
 }
 
 .gap-y-6 {
@@ -2763,8 +2616,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-7 {
-  -moz-column-gap: 1.75rem;
-       column-gap: 1.75rem;
+  column-gap: 1.75rem;
 }
 
 .gap-y-7 {
@@ -2776,8 +2628,7 @@ dialog.modal::backdrop {
 }
 
 .gap-x-8 {
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
+  column-gap: 2rem;
 }
 
 .gap-y-8 {
@@ -3169,8 +3020,7 @@ dialog.modal::backdrop {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .ratio--1x1 {

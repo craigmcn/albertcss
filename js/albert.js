@@ -10,22 +10,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initAccordion = void 0;
-var initAccordion = exports.initAccordion = function initAccordion() {
+const initAccordion = () => {
   // Exclusive open: closing sibling items when one opens
-  document.querySelectorAll('.accordion').forEach(function (accordion) {
+  document.querySelectorAll('.accordion').forEach(accordion => {
     if (accordion.dataset.accordionInitialized) return;
     accordion.dataset.accordionInitialized = 'true';
-    var items = accordion.querySelectorAll(':scope > .accordion__item');
-    items.forEach(function (item) {
-      item.addEventListener('toggle', function () {
+    const items = accordion.querySelectorAll(':scope > .accordion__item');
+    items.forEach(item => {
+      item.addEventListener('toggle', () => {
         if (!item.open) return;
-        items.forEach(function (sibling) {
+        items.forEach(sibling => {
           if (sibling !== item && sibling.open) sibling.open = false;
         });
       });
     });
   });
 };
+exports.initAccordion = initAccordion;
 },{}],3:[function(require,module,exports){
 "use strict";
 
@@ -33,15 +34,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initAlertClose = void 0;
-var initAlertClose = exports.initAlertClose = function initAlertClose() {
-  document.querySelectorAll('.alert__close').forEach(function (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-      var alertBlock = closeBtn.parentNode;
+const initAlertClose = () => {
+  document.querySelectorAll('.alert__close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+      const alertBlock = closeBtn.parentNode;
       alertBlock.classList.add('d-none');
       if (alertBlock.classList.contains('alert--removable')) alertBlock.remove();
     });
   });
 };
+exports.initAlertClose = initAlertClose;
 },{}],4:[function(require,module,exports){
 "use strict";
 
@@ -50,23 +52,26 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initDarkMode = initDarkMode;
 function initDarkMode() {
-  var html = document.documentElement;
-  var buttons = document.querySelectorAll('[data-toggle-dark-mode]');
+  const html = document.documentElement;
+  const buttons = document.querySelectorAll('[data-toggle-dark-mode]');
   if (!buttons.length) return;
   function applyMode(dark) {
     html.dataset.mode = dark ? 'dark' : 'light';
-    buttons.forEach(function (btn) {
+    document.querySelectorAll('[data-color="light"]').forEach(el => {
+      el.classList.toggle('d-none', dark);
+    });
+    document.querySelectorAll('[data-color="dark"]').forEach(el => {
+      el.classList.toggle('d-none', !dark);
+    });
+    buttons.forEach(btn => {
       btn.dataset.mode = dark ? 'light' : 'dark';
-      btn.querySelectorAll('[data-color="light"]').forEach(function (el) {
-        el.classList.toggle('d-none', dark);
-      });
-      btn.querySelectorAll('[data-color="dark"]').forEach(function (el) {
-        el.classList.toggle('d-none', !dark);
-      });
     });
   }
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
+  const existingMode = html.dataset.mode;
+  const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)')?.matches ?? false;
+  applyMode(existingMode ? existingMode === 'dark' : prefersDark);
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
       applyMode(html.dataset.mode !== 'dark');
     });
   });
@@ -78,95 +83,83 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initDropdown = void 0;
-var initDropdown = exports.initDropdown = function initDropdown() {
-  var dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+const initDropdown = () => {
+  const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
   if (!dropdowns.length) return;
-  var getMenu = function getMenu(dropdown) {
-    return dropdown.querySelector('.dropdown__menu');
-  };
-  var getTrigger = function getTrigger(dropdown) {
-    return dropdown.querySelector('.dropdown__trigger');
-  };
-  var getItems = function getItems(dropdown) {
-    return Array.from(dropdown.querySelectorAll('[role="menuitem"]:not([disabled]):not([aria-disabled="true"])'));
-  };
-  var isOpen = function isOpen(dropdown) {
-    var _getTrigger;
-    return ((_getTrigger = getTrigger(dropdown)) === null || _getTrigger === void 0 ? void 0 : _getTrigger.getAttribute('aria-expanded')) === 'true';
-  };
-  var close = function close(dropdown) {
-    var _getTrigger2;
-    (_getTrigger2 = getTrigger(dropdown)) === null || _getTrigger2 === void 0 || _getTrigger2.setAttribute('aria-expanded', 'false');
-    var menu = getMenu(dropdown);
+  const getMenu = dropdown => dropdown.querySelector('.dropdown__menu');
+  const getTrigger = dropdown => dropdown.querySelector('.dropdown__trigger');
+  const getItems = dropdown => Array.from(dropdown.querySelectorAll('[role="menuitem"]:not([disabled]):not([aria-disabled="true"])'));
+  const isOpen = dropdown => getTrigger(dropdown)?.getAttribute('aria-expanded') === 'true';
+  const close = dropdown => {
+    getTrigger(dropdown)?.setAttribute('aria-expanded', 'false');
+    const menu = getMenu(dropdown);
     if (menu) menu.hidden = true;
   };
-  var open = function open(dropdown) {
-    var _getTrigger3, _getItems$;
+  const open = dropdown => {
     // Close any other open dropdowns first
-    dropdowns.forEach(function (d) {
+    dropdowns.forEach(d => {
       if (d !== dropdown) close(d);
     });
-    (_getTrigger3 = getTrigger(dropdown)) === null || _getTrigger3 === void 0 || _getTrigger3.setAttribute('aria-expanded', 'true');
-    var menu = getMenu(dropdown);
+    getTrigger(dropdown)?.setAttribute('aria-expanded', 'true');
+    const menu = getMenu(dropdown);
     if (menu) menu.hidden = false;
     // Move focus to the first menu item
-    (_getItems$ = getItems(dropdown)[0]) === null || _getItems$ === void 0 || _getItems$.focus();
+    getItems(dropdown)[0]?.focus();
   };
 
   // Create the controller before attaching listeners so all of them — both
   // per-element and the global outside-click — can be removed with one abort.
-  var controller = new AbortController();
-  var signal = controller.signal;
-  dropdowns.forEach(function (dropdown) {
-    var trigger = getTrigger(dropdown);
-    var menu = getMenu(dropdown);
+  const controller = new AbortController();
+  const {
+    signal
+  } = controller;
+  dropdowns.forEach(dropdown => {
+    const trigger = getTrigger(dropdown);
+    const menu = getMenu(dropdown);
     if (!trigger || !menu) return;
-    trigger.addEventListener('click', function () {
+    trigger.addEventListener('click', () => {
       isOpen(dropdown) ? close(dropdown) : open(dropdown);
     }, {
-      signal: signal
+      signal
     });
-    menu.addEventListener('keydown', function (e) {
-      var items = getItems(dropdown);
-      var index = items.indexOf(document.activeElement);
+    menu.addEventListener('keydown', e => {
+      const items = getItems(dropdown);
+      const index = items.indexOf(document.activeElement);
       if (e.key === 'Escape') {
         close(dropdown);
         trigger.focus();
       } else if (e.key === 'ArrowDown') {
-        var _items;
         e.preventDefault();
-        (_items = items[(index + 1) % items.length]) === null || _items === void 0 || _items.focus();
+        items[(index + 1) % items.length]?.focus();
       } else if (e.key === 'ArrowUp') {
-        var _items2;
         e.preventDefault();
-        (_items2 = items[(index - 1 + items.length) % items.length]) === null || _items2 === void 0 || _items2.focus();
+        items[(index - 1 + items.length) % items.length]?.focus();
       } else if (e.key === 'Home') {
-        var _items$;
         e.preventDefault();
-        (_items$ = items[0]) === null || _items$ === void 0 || _items$.focus();
+        items[0]?.focus();
       } else if (e.key === 'End') {
-        var _items3;
         e.preventDefault();
-        (_items3 = items[items.length - 1]) === null || _items3 === void 0 || _items3.focus();
+        items[items.length - 1]?.focus();
       } else if (e.key === 'Tab') {
         close(dropdown);
       }
     }, {
-      signal: signal
+      signal
     });
   });
 
   // Close on outside click — all listeners share the same AbortController so
   // callers that re-initialize can abort the prior one for full cleanup.
-  document.addEventListener('click', function (e) {
-    dropdowns.forEach(function (dropdown) {
+  document.addEventListener('click', e => {
+    dropdowns.forEach(dropdown => {
       if (!dropdown.contains(e.target)) close(dropdown);
     });
   }, {
-    signal: signal
+    signal
   });
   return controller;
 };
+exports.initDropdown = initDropdown;
 },{}],6:[function(require,module,exports){
 "use strict";
 
@@ -174,13 +167,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initMenuToggle = void 0;
-var initMenuToggle = exports.initMenuToggle = function initMenuToggle() {
-  var menuToggle = document.getElementById('menu-toggle');
+const initMenuToggle = () => {
+  const menuToggle = document.getElementById('menu-toggle');
   if (menuToggle) {
-    menuToggle.addEventListener('click', function () {
-      var targets = [document.getElementById('navigation'), document.getElementById('toolbar')];
-      var expanded = menuToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
-      targets.forEach(function (target) {
+    menuToggle.addEventListener('click', () => {
+      const targets = [document.getElementById('navigation'), document.getElementById('toolbar')];
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true';
+      targets.forEach(target => {
         if (target) {
           if (target.classList.contains('expanded')) {
             target.classList.add('collapsed');
@@ -195,6 +188,7 @@ var initMenuToggle = exports.initMenuToggle = function initMenuToggle() {
     });
   }
 };
+exports.initMenuToggle = initMenuToggle;
 },{}],7:[function(require,module,exports){
 "use strict";
 
@@ -202,25 +196,26 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initModal = void 0;
-var initModal = exports.initModal = function initModal() {
+const initModal = () => {
   // Open modals via data-modal-target triggers
-  document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
-    var modal = document.getElementById(trigger.dataset.modalTarget);
+  document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+    const modal = document.getElementById(trigger.dataset.modalTarget);
     if (!modal || modal.tagName !== 'DIALOG' || typeof modal.showModal !== 'function') return;
-    trigger.addEventListener('click', function () {
+    trigger.addEventListener('click', () => {
       modal.showModal();
     });
   });
 
   // Close on backdrop click (click lands on dialog element itself, outside content box)
-  document.querySelectorAll('dialog').forEach(function (dialog) {
-    dialog.addEventListener('click', function (e) {
-      var rect = dialog.getBoundingClientRect();
-      var isOutside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
+  document.querySelectorAll('dialog').forEach(dialog => {
+    dialog.addEventListener('click', e => {
+      const rect = dialog.getBoundingClientRect();
+      const isOutside = e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
       if (isOutside) dialog.close();
     });
   });
 };
+exports.initModal = initModal;
 },{}],8:[function(require,module,exports){
 "use strict";
 
@@ -228,28 +223,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initPopover = void 0;
-var initPopover = exports.initPopover = function initPopover() {
-  var popovers = Array.from(document.querySelectorAll('.popover'));
+const initPopover = () => {
+  const popovers = Array.from(document.querySelectorAll('.popover'));
   if (!popovers.length) return;
-  var getPanel = function getPanel(popover) {
-    return popover.querySelector('.popover__panel');
-  };
-  var getTrigger = function getTrigger(popover) {
-    return popover.querySelector('.popover__trigger');
-  };
-  var isOpen = function isOpen(popover) {
-    var _getTrigger;
-    return ((_getTrigger = getTrigger(popover)) === null || _getTrigger === void 0 ? void 0 : _getTrigger.getAttribute('aria-expanded')) === 'true';
-  };
-  var EDGE = 8; // minimum px clearance from viewport edge
+  const getPanel = popover => popover.querySelector('.popover__panel');
+  const getTrigger = popover => popover.querySelector('.popover__trigger');
+  const isOpen = popover => getTrigger(popover)?.getAttribute('aria-expanded') === 'true';
+  const EDGE = 8; // minimum px clearance from viewport edge
 
-  var getPlacement = function getPlacement(panel) {
+  const getPlacement = panel => {
     if (panel.classList.contains('popover__panel--top')) return 'top';
     if (panel.classList.contains('popover__panel--left')) return 'left';
     if (panel.classList.contains('popover__panel--right')) return 'right';
     return 'bottom';
   };
-  var opposite = {
+  const opposite = {
     top: 'bottom',
     bottom: 'top',
     left: 'right',
@@ -257,10 +245,10 @@ var initPopover = exports.initPopover = function initPopover() {
   };
 
   // Called after the panel is shown so getBoundingClientRect() returns real dimensions.
-  var applyFlip = function applyFlip(panel) {
-    var placement = getPlacement(panel);
-    var rect = panel.getBoundingClientRect();
-    var overflows;
+  const applyFlip = panel => {
+    const placement = getPlacement(panel);
+    const rect = panel.getBoundingClientRect();
+    let overflows;
     switch (placement) {
       case 'bottom':
         overflows = rect.bottom > window.innerHeight - EDGE;
@@ -281,23 +269,21 @@ var initPopover = exports.initPopover = function initPopover() {
       panel.dataset.popoverFlip = opposite[placement];
     }
   };
-  var close = function close(popover) {
-    var _getTrigger2;
-    (_getTrigger2 = getTrigger(popover)) === null || _getTrigger2 === void 0 || _getTrigger2.setAttribute('aria-expanded', 'false');
-    var panel = getPanel(popover);
+  const close = popover => {
+    getTrigger(popover)?.setAttribute('aria-expanded', 'false');
+    const panel = getPanel(popover);
     if (panel) {
       panel.hidden = true;
       delete panel.dataset.popoverFlip;
     }
   };
-  var open = function open(popover) {
-    var _getTrigger3;
+  const open = popover => {
     // Close any other open popovers first
-    popovers.forEach(function (other) {
+    popovers.forEach(other => {
       if (other !== popover) close(other);
     });
-    (_getTrigger3 = getTrigger(popover)) === null || _getTrigger3 === void 0 || _getTrigger3.setAttribute('aria-expanded', 'true');
-    var panel = getPanel(popover);
+    getTrigger(popover)?.setAttribute('aria-expanded', 'true');
+    const panel = getPanel(popover);
     if (panel) {
       panel.hidden = false;
       applyFlip(panel);
@@ -306,40 +292,43 @@ var initPopover = exports.initPopover = function initPopover() {
 
   // Create the controller before attaching listeners so all of them — both
   // per-element and the global outside-click — can be removed with one abort.
-  var controller = new AbortController();
-  var signal = controller.signal;
-  popovers.forEach(function (popover) {
-    var trigger = getTrigger(popover);
-    var panel = getPanel(popover);
+  const controller = new AbortController();
+  const {
+    signal
+  } = controller;
+  popovers.forEach(popover => {
+    const trigger = getTrigger(popover);
+    const panel = getPanel(popover);
     if (!trigger || !panel) return;
-    trigger.addEventListener('click', function () {
+    trigger.addEventListener('click', () => {
       isOpen(popover) ? close(popover) : open(popover);
     }, {
-      signal: signal
+      signal
     });
 
     // Escape closes from anywhere within the popover wrapper (trigger or panel)
-    popover.addEventListener('keydown', function (e) {
+    popover.addEventListener('keydown', e => {
       if (e.key === 'Escape' && isOpen(popover)) {
         close(popover);
         trigger.focus();
       }
     }, {
-      signal: signal
+      signal
     });
   });
 
   // Close on outside click — all listeners share the same AbortController so
   // callers that re-initialize can abort the prior one for full cleanup.
-  document.addEventListener('click', function (e) {
-    popovers.forEach(function (popover) {
+  document.addEventListener('click', e => {
+    popovers.forEach(popover => {
       if (!popover.contains(e.target)) close(popover);
     });
   }, {
-    signal: signal
+    signal
   });
   return controller;
 };
+exports.initPopover = initPopover;
 },{}],9:[function(require,module,exports){
 "use strict";
 
@@ -354,10 +343,10 @@ var _menuToggle = require("./menuToggle");
 var _modal = require("./modal");
 var _tooltip = require("./tooltip");
 var _scrollHeader = _interopRequireDefault(require("./scrollHeader"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 window.addEventListener('load', function () {
   // eslint-disable-next-line no-unused-vars
-  var validate = new _formbouncerjs["default"]('form', {
+  const validate = new _formbouncerjs.default('form', {
     messageAfterField: false,
     fieldClass: 'form__control--hasError',
     errorClass: 'form__control-error'
@@ -373,7 +362,7 @@ window.addEventListener('load', function () {
   (0, _menuToggle.initMenuToggle)();
   (0, _modal.initModal)();
   (0, _tooltip.initTooltip)();
-  (0, _scrollHeader["default"])();
+  (0, _scrollHeader.default)();
 });
 },{"./accordion":2,"./alerts":3,"./darkMode":4,"./dropdown":5,"./menuToggle":6,"./modal":7,"./popover":8,"./scrollHeader":10,"./tabs":11,"./tooltip":13,"formbouncerjs":1}],10:[function(require,module,exports){
 "use strict";
@@ -381,40 +370,38 @@ window.addEventListener('load', function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = scrollHeader;
+exports.default = scrollHeader;
 var _throttle = _interopRequireDefault(require("./throttle"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 // https://codingreflections.com/hide-header-on-scroll-down/
 
-var setBodyProperties = function setBodyProperties(height) {
-  var body = document.querySelector('body');
+const setBodyProperties = height => {
+  const body = document.querySelector('body');
   body.style.setProperty('--headerHeight', height + 'px');
   body.style.paddingTop = height + 'px';
 };
 function scrollHeader() {
-  var _w$scrollY;
-  var header = document.querySelector('header.header--scroll');
+  const header = document.querySelector('header.header--scroll');
   if (!header || header.dataset.scrollInitialized) return;
   header.dataset.scrollInitialized = 'true';
-  var doc = document.documentElement;
-  var w = window;
-  var prevScroll = (_w$scrollY = w.scrollY) !== null && _w$scrollY !== void 0 ? _w$scrollY : doc.scrollTop;
-  var curScroll;
-  var direction = 0;
-  var prevDirection = 0;
+  const doc = document.documentElement;
+  const w = window;
+  let prevScroll = w.scrollY ?? doc.scrollTop;
+  let curScroll;
+  let direction = 0;
+  let prevDirection = 0;
 
   // headerHeight is kept in sync by the ResizeObserver so checkScroll
   // always uses the current measured height.
-  var headerHeight = header.offsetHeight;
+  let headerHeight = header.offsetHeight;
   setBodyProperties(headerHeight);
-  var observer = new ResizeObserver(function (entries) {
+  const observer = new ResizeObserver(entries => {
     headerHeight = entries[0].target.offsetHeight;
     setBodyProperties(headerHeight);
   });
   observer.observe(header);
-  var checkScroll = function checkScroll() {
-    var _w$scrollY2;
-    curScroll = (_w$scrollY2 = w.scrollY) !== null && _w$scrollY2 !== void 0 ? _w$scrollY2 : doc.scrollTop;
+  const checkScroll = () => {
+    curScroll = w.scrollY ?? doc.scrollTop;
     if (curScroll > headerHeight) {
       direction = curScroll > prevScroll ? 2 : curScroll < prevScroll ? 1 : 0;
       direction !== prevDirection && toggleHeader();
@@ -425,13 +412,13 @@ function scrollHeader() {
     }
     prevScroll = curScroll;
   };
-  var toggleHeader = function toggleHeader() {
+  const toggleHeader = () => {
     if (direction) {
       header.classList.toggle('hidden', direction === 2 && curScroll > headerHeight);
       prevDirection = direction;
     }
   };
-  window.addEventListener('scroll', (0, _throttle["default"])(checkScroll, 100));
+  window.addEventListener('scroll', (0, _throttle.default)(checkScroll, 100));
 }
 },{"./throttle":12}],11:[function(require,module,exports){
 "use strict";
@@ -440,36 +427,34 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initTabs = void 0;
-var initTabs = exports.initTabs = function initTabs() {
-  document.querySelectorAll('[role="tablist"]').forEach(function (tablist) {
+const initTabs = () => {
+  document.querySelectorAll('[role="tablist"]').forEach(tablist => {
     if (tablist.dataset.tabsInitialized) return;
     tablist.dataset.tabsInitialized = 'true';
-    var tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-    var activate = function activate(tab) {
+    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+    const activate = tab => {
       // Deactivate all tabs and hide all panels
-      tabs.forEach(function (t) {
+      tabs.forEach(t => {
         t.setAttribute('aria-selected', 'false');
         t.setAttribute('tabindex', '-1');
-        var id = t.getAttribute('aria-controls');
-        var panel = id ? document.getElementById(id) : null;
+        const id = t.getAttribute('aria-controls');
+        const panel = id ? document.getElementById(id) : null;
         if (panel) panel.hidden = true;
       });
 
       // Activate selected tab and show its panel
       tab.setAttribute('aria-selected', 'true');
       tab.setAttribute('tabindex', '0');
-      var id = tab.getAttribute('aria-controls');
-      var panel = id ? document.getElementById(id) : null;
+      const id = tab.getAttribute('aria-controls');
+      const panel = id ? document.getElementById(id) : null;
       if (panel) panel.hidden = false;
       tab.focus();
     };
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        return activate(tab);
-      });
-      tab.addEventListener('keydown', function (e) {
-        var index = tabs.indexOf(tab);
-        var next;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', e => {
+        const index = tabs.indexOf(tab);
+        let next;
         if (e.key === 'ArrowRight') {
           next = tabs[(index + 1) % tabs.length];
         } else if (e.key === 'ArrowLeft') {
@@ -487,15 +472,16 @@ var initTabs = exports.initTabs = function initTabs() {
     });
   });
 };
+exports.initTabs = initTabs;
 },{}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = throttle;
+exports.default = throttle;
 function throttle(fn, wait) {
-  var time = Date.now();
+  let time = Date.now();
   return function () {
     if (time + wait - Date.now() < 0) {
       fn();
@@ -510,20 +496,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.initTooltip = void 0;
-var initTooltip = exports.initTooltip = function initTooltip() {
-  var tooltips = Array.from(document.querySelectorAll('.tooltip[data-tooltip]'));
+const initTooltip = () => {
+  const tooltips = Array.from(document.querySelectorAll('.tooltip[data-tooltip]'));
   if (!tooltips.length) return;
-  var rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-  var TOTAL = 0.66 * rootPx; // $_total: $_gap + $_arrow converted to px
-  var EDGE = 8; // minimum px clearance from viewport edge
+  const rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+  const TOTAL = 0.66 * rootPx; // $_total: $_gap + $_arrow converted to px
+  const EDGE = 8; // minimum px clearance from viewport edge
 
-  var getPlacement = function getPlacement(el) {
+  const getPlacement = el => {
     if (el.classList.contains('tooltip--bottom')) return 'bottom';
     if (el.classList.contains('tooltip--left')) return 'left';
     if (el.classList.contains('tooltip--right')) return 'right';
     return 'top';
   };
-  var opposite = {
+  const opposite = {
     top: 'bottom',
     bottom: 'top',
     left: 'right',
@@ -531,25 +517,27 @@ var initTooltip = exports.initTooltip = function initTooltip() {
   };
 
   // Measure the bubble text at the same font/padding as the CSS ::before pseudo-element.
-  var measureBubble = function measureBubble(text) {
-    var probe = document.createElement('span');
+  const measureBubble = text => {
+    const probe = document.createElement('span');
     probe.setAttribute('aria-hidden', 'true');
     probe.style.cssText = 'position:fixed;top:0;left:0;visibility:hidden;pointer-events:none;' + 'white-space:nowrap;font-size:0.875rem;line-height:1.5;padding:0.25rem 0.5rem;';
     probe.textContent = text;
     document.body.appendChild(probe);
-    var _probe$getBoundingCli = probe.getBoundingClientRect(),
-      width = _probe$getBoundingCli.width,
-      height = _probe$getBoundingCli.height;
+    const {
+      width,
+      height
+    } = probe.getBoundingClientRect();
     probe.remove();
     return {
-      width: width,
-      height: height
+      width,
+      height
     };
   };
-  var needsFlip = function needsFlip(el, rect, placement) {
-    var _measureBubble = measureBubble(el.dataset.tooltip),
-      bw = _measureBubble.width,
-      bh = _measureBubble.height;
+  const needsFlip = (el, rect, placement) => {
+    const {
+      width: bw,
+      height: bh
+    } = measureBubble(el.dataset.tooltip);
     switch (placement) {
       case 'top':
         return rect.top - bh - TOTAL < EDGE;
@@ -563,20 +551,19 @@ var initTooltip = exports.initTooltip = function initTooltip() {
         return false;
     }
   };
-  tooltips.forEach(function (el) {
-    var show = function show() {
-      var placement = getPlacement(el);
+  tooltips.forEach(el => {
+    const show = () => {
+      const placement = getPlacement(el);
       if (needsFlip(el, el.getBoundingClientRect(), placement)) {
         el.dataset.tooltipFlip = opposite[placement];
       }
     };
-    var hide = function hide() {
-      return delete el.dataset.tooltipFlip;
-    };
+    const hide = () => delete el.dataset.tooltipFlip;
     el.addEventListener('mouseenter', show);
     el.addEventListener('focusin', show);
     el.addEventListener('mouseleave', hide);
     el.addEventListener('focusout', hide);
   });
 };
+exports.initTooltip = initTooltip;
 },{}]},{},[9]);

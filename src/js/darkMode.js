@@ -16,6 +16,10 @@ export function initDarkMode() {
     });
   }
 
+  const prefersDark =
+    window.matchMedia?.('(prefers-color-scheme: dark)')?.matches ?? false;
+  applyMode(prefersDark);
+
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       applyMode(html.dataset.mode !== 'dark');

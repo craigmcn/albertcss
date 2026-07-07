@@ -1,132 +1,194 @@
 @use 'sass:color';
+@use 'sass:list';
 @use 'variables' as *;
 
-@mixin light-vars {
-  --white: #{$white};
-  --black: #{$black};
-  --primary: #{$primary};
-  --primaryDark: #{$primaryDark};
-  --secondary: #{$secondary};
-  --secondaryDark: #{$secondaryDark};
-  --green: #{$green};
-  --successDark: #{$successDark};
-  --info: #{$info};
-  --infoDark: #{$infoDark};
-  --red: #{$red};
-  --dangerDark: #{$dangerDark};
-  --warn: #{$warning};
-  --warningDark: #{$warningDark};
-  --pink: #{$pink};
-  --silver: #{$silver};
-  --grey900: #{$grey-900};
-  --grey800: #{$grey-800};
-  --grey700: #{$grey-700};
-  --grey600: #{$grey-600};
-  --grey500: #{$grey-500};
-  --grey400: #{$grey-400};
-  --grey300: #{$grey-300};
-  --grey200: #{$grey-200};
-  --grey100: #{$grey-100};
-
-  --primaryActive: #{$primaryActive};
-  --primaryVisited: #{$primaryVisited};
-
-  --bodyBg: #{$white};
-  --headerBg: #{$silver};
-
-  --npBg: #{$white};
-  --npTxt: #{$primary};
-
-  --sectionAltBg: #{$silver};
-
-  --semanticContrast: #{$white};
-
-  --focusShadow: #{rgba($primary, 0.5)};
-  --errorShadow: #{rgba($red, 0.5)};
-  --secondaryFocusShadow: #{rgba(
-      color.adjust($secondary, $lightness: -8%),
-      0.5
-    )};
-  --greyFocusShadow: #{rgba($grey-800, 0.5)};
-  --grey900FocusShadow: #{rgba($grey-900, 0.5)};
-  --grey700FocusShadow: #{rgba($grey-700, 0.5)};
-  --infoFocusShadow: #{rgba($info, 0.5)};
-  --greenFocusShadow: #{rgba($green, 0.5)};
-  --redFocusShadow: #{rgba($red, 0.5)};
-  --warnFocusShadow: #{rgba($warning, 0.5)};
-}
-
-@mixin dark-vars {
-  --white: #{$black};
-  --black: #{$white};
-  --primary: #{$primaryDarkMode};
-  --primaryDark: #{color.adjust($primaryDarkMode, $lightness: -20%)};
-  --secondary: #{$secondaryDarkMode};
-  --secondaryDark: #{color.adjust($secondaryDarkMode, $lightness: -20%)};
-  --green: #{$greenDarkMode};
-  --successDark: #{color.adjust($greenDarkMode, $lightness: -20%)};
-  --info: #{$infoDarkMode};
-  --infoDark: #{color.adjust($infoDarkMode, $lightness: -20%)};
-  --red: #{$redDarkMode};
-  --dangerDark: #{color.adjust($redDarkMode, $lightness: -20%)};
-  --warn: #{$warnDarkMode};
-  --warningDark: #{color.adjust($warnDarkMode, $lightness: -20%)};
-  --pink: #{$pinkDarkMode};
-  --silver: #{$grey-900};
-  --grey900: #{$silver};
-  --grey800: #{$grey-100};
-  --grey700: #{$grey-200};
-  --grey600: #{$grey-300};
-  --grey500: #{$grey-400};
-  --grey400: #{$grey-500};
-  --grey300: #{$grey-600};
-  --grey200: #{$grey-700};
-  --grey100: #{$grey-800};
-
-  --primaryActive: #{$primaryDarkModeActive};
-  --primaryVisited: #{$primaryDarkModeVisited};
-
-  --bodyBg: #{$fullBlack};
-  --headerBg: #{$black};
-
-  --npBg: #{$fullBlack};
-  --npTxt: #{$primaryDarkMode};
-
-  --sectionAltBg: #{$black};
-
-  --semanticContrast: #{$black};
-
-  --focusShadow: #{rgba($primaryDarkMode, 0.5)};
-  --errorShadow: #{rgba($redDarkMode, 0.5)};
-  --secondaryFocusShadow: #{rgba(
-      color.adjust($secondaryDarkMode, $lightness: -8%),
-      0.5
-    )};
-  --greyFocusShadow: #{rgba($grey-100, 0.5)};
-  --grey900FocusShadow: #{rgba($silver, 0.5)};
-  --grey700FocusShadow: #{rgba($grey-200, 0.5)};
-  --infoFocusShadow: #{rgba($infoDarkMode, 0.5)};
-  --greenFocusShadow: #{rgba($greenDarkMode, 0.5)};
-  --redFocusShadow: #{rgba($redDarkMode, 0.5)};
-  --warnFocusShadow: #{rgba($warnDarkMode, 0.5)};
-}
+$theme-tokens: (
+  'white': (
+    $white,
+    $black,
+  ),
+  'black': (
+    $black,
+    $white,
+  ),
+  'primary': (
+    $primary,
+    $primaryDarkMode,
+  ),
+  'primaryDark': (
+    $primaryDark,
+    #{color.adjust($primaryDarkMode, $lightness: -20%)},
+  ),
+  'secondary': (
+    $secondary,
+    $secondaryDarkMode,
+  ),
+  'secondaryDark': (
+    $secondaryDark,
+    #{color.adjust($secondaryDarkMode, $lightness: -20%)},
+  ),
+  'green': (
+    $green,
+    $greenDarkMode,
+  ),
+  'successDark': (
+    $successDark,
+    #{color.adjust($greenDarkMode, $lightness: -20%)},
+  ),
+  'info': (
+    $info,
+    $infoDarkMode,
+  ),
+  'infoDark': (
+    $infoDark,
+    #{color.adjust($infoDarkMode, $lightness: -20%)},
+  ),
+  'red': (
+    $red,
+    $redDarkMode,
+  ),
+  'dangerDark': (
+    $dangerDark,
+    #{color.adjust($redDarkMode, $lightness: -20%)},
+  ),
+  'warn': (
+    $warning,
+    $warnDarkMode,
+  ),
+  'warningDark': (
+    $warningDark,
+    #{color.adjust($warnDarkMode, $lightness: -20%)},
+  ),
+  'pink': (
+    $pink,
+    $pinkDarkMode,
+  ),
+  'silver': (
+    $silver,
+    $grey-900,
+  ),
+  'grey900': (
+    $grey-900,
+    $silver,
+  ),
+  'grey800': (
+    $grey-800,
+    $grey-100,
+  ),
+  'grey700': (
+    $grey-700,
+    $grey-200,
+  ),
+  'grey600': (
+    $grey-600,
+    $grey-300,
+  ),
+  'grey500': (
+    $grey-500,
+    $grey-400,
+  ),
+  'grey400': (
+    $grey-400,
+    $grey-500,
+  ),
+  'grey300': (
+    $grey-300,
+    $grey-600,
+  ),
+  'grey200': (
+    $grey-200,
+    $grey-700,
+  ),
+  'grey100': (
+    $grey-100,
+    $grey-800,
+  ),
+  'primaryActive': (
+    $primaryActive,
+    $primaryDarkModeActive,
+  ),
+  'primaryVisited': (
+    $primaryVisited,
+    $primaryDarkModeVisited,
+  ),
+  'bodyBg': (
+    $white,
+    $fullBlack,
+  ),
+  'headerBg': (
+    $silver,
+    $black,
+  ),
+  'npBg': (
+    $white,
+    $fullBlack,
+  ),
+  'npTxt': (
+    $primary,
+    $primaryDarkMode,
+  ),
+  'sectionAltBg': (
+    $silver,
+    $black,
+  ),
+  'semanticContrast': (
+    $white,
+    $black,
+  ),
+  'focusShadow': (
+    #{rgba($primary, 0.5)},
+    #{rgba($primaryDarkMode, 0.5)},
+  ),
+  'errorShadow': (
+    #{rgba($red, 0.5)},
+    #{rgba($redDarkMode, 0.5)},
+  ),
+  'secondaryFocusShadow': (
+    #{rgba(color.adjust($secondary, $lightness: -8%), 0.5)},
+    #{rgba(color.adjust($secondaryDarkMode, $lightness: -8%), 0.5)},
+  ),
+  'greyFocusShadow': (
+    #{rgba($grey-800, 0.5)},
+    #{rgba($grey-100, 0.5)},
+  ),
+  'grey900FocusShadow': (
+    #{rgba($grey-900, 0.5)},
+    #{rgba($silver, 0.5)},
+  ),
+  'grey700FocusShadow': (
+    #{rgba($grey-700, 0.5)},
+    #{rgba($grey-200, 0.5)},
+  ),
+  'infoFocusShadow': (
+    #{rgba($info, 0.5)},
+    #{rgba($infoDarkMode, 0.5)},
+  ),
+  'greenFocusShadow': (
+    #{rgba($green, 0.5)},
+    #{rgba($greenDarkMode, 0.5)},
+  ),
+  'redFocusShadow': (
+    #{rgba($red, 0.5)},
+    #{rgba($redDarkMode, 0.5)},
+  ),
+  'warnFocusShadow': (
+    #{rgba($warning, 0.5)},
+    #{rgba($warnDarkMode, 0.5)},
+  ),
+);
 
 :root {
-  @include light-vars;
-}
+  color-scheme: light dark;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    @include dark-vars;
+  @each $name, $pair in $theme-tokens {
+    --#{$name}: #{light-dark(list.nth($pair, 1), list.nth($pair, 2))};
   }
 }
 
-html[data-mode='dark'],
-body.theme--dark {
-  @include dark-vars;
+html[data-mode='dark'] {
+  color-scheme: dark;
 }
 
-html[data-mode='light'],
-body.theme--light {
-  @include light-vars;
+html[data-mode='light'] {
+  color-scheme: light;
 }

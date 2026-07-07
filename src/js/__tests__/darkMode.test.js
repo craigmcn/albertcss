@@ -1,10 +1,11 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { initDarkMode } from '../darkMode';
 
 describe('initDarkMode', () => {
   let button;
 
   beforeEach(() => {
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: false }));
     document.documentElement.removeAttribute('data-mode');
     document.body.innerHTML = `
       <button data-toggle-dark-mode data-mode="dark" type="button">
@@ -17,6 +18,7 @@ describe('initDarkMode', () => {
   });
 
   afterEach(() => {
+    vi.unstubAllGlobals();
     document.documentElement.removeAttribute('data-mode');
     document.body.innerHTML = '';
   });
@@ -63,5 +65,23 @@ describe('initDarkMode', () => {
   it('does nothing if no toggle buttons found', () => {
     document.body.innerHTML = '';
     expect(() => initDarkMode()).not.toThrow();
+  });
+
+  it('syncs to dark mode on init when prefers-color-scheme is dark', () => {
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: true }));
+    document.documentElement.removeAttribute('data-mode');
+    initDarkMode();
+    expect(document.documentElement.dataset.mode).toBe('dark');
+  });
+
+  it('defaults to light mode on init when prefers-color-scheme is light', () => {
+    expect(document.documentElement.dataset.mode).toBe('light');
+  });
+
+  it('does not throw when matchMedia is unavailable', () => {
+    vi.stubGlobal('matchMedia', undefined);
+    document.documentElement.removeAttribute('data-mode');
+    expect(() => initDarkMode()).not.toThrow();
+    expect(document.documentElement.dataset.mode).toBe('light');
   });
 });

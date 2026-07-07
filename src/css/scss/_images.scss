@@ -29,18 +29,6 @@
   }
 }
 
-/* Apply a filter directly on the body tag */
-body.theme--dark img {
-  filter: brightness(0.8) contrast(1.2);
-}
-
-/* Or apply it via media query */
-@media (prefers-color-scheme: dark) {
-  img {
-    filter: brightness(0.8) contrast(1.2);
-
-    .theme--light & {
-      filter: none;
-    }
-  }
+img {
+  filter: light-dark(none, brightness(0.8) contrast(1.2));
 }

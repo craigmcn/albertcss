@@ -50,7 +50,7 @@ Replace `vX.Y.Z` with the version you want to pin to. Versioned releases are hos
 
 ## Development
 
-**Requirements:** Node v24 (see `.nvmrc`), Yarn v3
+**Requirements:** Node v24 (see `.node-version`), Yarn v3
 
 ```bash
 yarn install       # Install dependencies

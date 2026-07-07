@@ -29,18 +29,16 @@
   }
 }
 
-/* Apply a filter directly on the body tag */
-body.theme--dark img {
-  filter: brightness(0.8) contrast(1.2);
+img {
+  filter: none;
 }
 
-/* Or apply it via media query */
 @media (prefers-color-scheme: dark) {
-  img {
+  html:not([data-mode='light']) img {
     filter: brightness(0.8) contrast(1.2);
-
-    .theme--light & {
-      filter: none;
-    }
   }
+}
+
+html[data-mode='dark'] img {
+  filter: brightness(0.8) contrast(1.2);
 }

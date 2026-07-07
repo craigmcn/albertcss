@@ -1,6 +1,6 @@
 {
   "name": "albertcss",
-  "version": "0.16.0",
+  "version": "0.18.0",
   "description": "Personal CSS framework",
   "packageManager": "yarn@4.14.1",
   "type": "module",
@@ -29,6 +29,13 @@
     "url": "https://github.com/craigmcn/albertcss/issues"
   },
   "homepage": "https://github.com/craigmcn/albertcss#readme",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions",
+    "not dead"
+  ],
   "resolutions": {
     "postcss": "^8.5.15"
   },

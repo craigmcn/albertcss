@@ -5,20 +5,21 @@ export function initDarkMode() {
 
   function applyMode(dark) {
     html.dataset.mode = dark ? 'dark' : 'light';
+    document.querySelectorAll('[data-color="light"]').forEach((el) => {
+      el.classList.toggle('d-none', dark);
+    });
+    document.querySelectorAll('[data-color="dark"]').forEach((el) => {
+      el.classList.toggle('d-none', !dark);
+    });
     buttons.forEach((btn) => {
       btn.dataset.mode = dark ? 'light' : 'dark';
-      btn.querySelectorAll('[data-color="light"]').forEach((el) => {
-        el.classList.toggle('d-none', dark);
-      });
-      btn.querySelectorAll('[data-color="dark"]').forEach((el) => {
-        el.classList.toggle('d-none', !dark);
-      });
     });
   }
 
+  const existingMode = html.dataset.mode;
   const prefersDark =
     window.matchMedia?.('(prefers-color-scheme: dark)')?.matches ?? false;
-  applyMode(prefersDark);
+  applyMode(existingMode ? existingMode === 'dark' : prefersDark);
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {

@@ -84,4 +84,30 @@ describe('initDarkMode', () => {
     expect(() => initDarkMode()).not.toThrow();
     expect(document.documentElement.dataset.mode).toBe('light');
   });
+
+  it('preserves a pre-set data-mode on init instead of overriding it from matchMedia', () => {
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue({ matches: false }));
+    document.documentElement.dataset.mode = 'dark';
+    initDarkMode();
+    expect(document.documentElement.dataset.mode).toBe('dark');
+  });
+
+  it('toggles standalone [data-color] elements outside the toggle button', () => {
+    const standalone = document.createElement('div');
+    standalone.innerHTML = `
+      <span data-color="light">light content</span>
+      <span class="d-none" data-color="dark">dark content</span>
+    `;
+    document.body.appendChild(standalone);
+    const lightEl = standalone.querySelector('[data-color="light"]');
+    const darkEl = standalone.querySelector('[data-color="dark"]');
+
+    button.click();
+    expect(lightEl.classList.contains('d-none')).toBe(true);
+    expect(darkEl.classList.contains('d-none')).toBe(false);
+
+    button.click();
+    expect(lightEl.classList.contains('d-none')).toBe(false);
+    expect(darkEl.classList.contains('d-none')).toBe(true);
+  });
 });

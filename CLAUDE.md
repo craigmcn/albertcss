@@ -118,7 +118,7 @@ JS pipeline: Browserify + Babelify (@babel/preset-env) → Uglify (min only) →
 
 - All partials are imported through `albert.scss` — add new ones there
 - Use CSS custom properties (from `_root.scss`) for colours and theme-sensitive values; use SCSS variables for build-time constants
-- Dark mode: `prefers-color-scheme: dark` media query + `html[data-mode="dark"]` / `body.theme--dark` manual override
+- Dark mode: `color-scheme` + `light-dark()`-driven custom properties in `_root.scss`, following `prefers-color-scheme` by default; `html[data-mode="dark"]` / `html[data-mode="light"]` for manual override (the earlier `body.theme--dark` class override was removed — `html[data-mode]` is the only mechanism)
 - BEM-style class naming (`.block`, `.block__element`, `.block--modifier`)
 - 2-space indentation
 
@@ -239,7 +239,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - `stripSnippets()` uses three sequential regex replacements: (1) `<details class="sg-snippet">` elements, (2) the `/* ---- Code snippets ---- */` CSS block, (3) the `// Copy buttons` JS event handler block — all three must be present or the Netlify output contains dead code
 - `initDarkMode()` reads `html.dataset.mode` (not the button's `data-mode`) as the source of truth for current state — button attribute is derived/display-only, not authoritative
 - Nav "Versions" link uses the absolute `https://albertcss.craigmcn.com/versions.html` URL (same as sidebar nav) so it resolves correctly from both Netlify (`/albertcss/`) and gh-pages (`/`) contexts; "Style Guide" uses `./` (relative) for the same reason
-- System-preference sync on load (OS dark mode → initial button state) is a known gap; `prefers-color-scheme` already styles via CSS but `html.dataset.mode` and button state are not initialized to match — deferred, non-blocking
+- `initDarkMode()` syncs `html.dataset.mode`/button state to `prefers-color-scheme` on load, but only when no `data-mode` attribute is already set on `<html>` — preserves a static author override (e.g. `<html data-mode="dark">`) instead of clobbering it with the OS preference
 - Heading font is Outfit (not Raleway); `$heading-stack` in `_fonts.scss` replaces `$raleway-stack`; h1–h4 at weight 500, h5–h6 at weight 600 (heavier to compensate for smaller size); `.subheading` inside h5/h6 drops back to weight 500
 - Outfit fallback stack chosen for geometric character: Futura (macOS), Avenir (macOS alternate), Century Gothic (Windows), Candara (Windows humanist fallback) — do not trust web-search research on whether a font has a single-story "a"; verify visually in the browser (Montserrat and Plus Jakarta Sans were both incorrectly reported as single-story by research tools)
 - `resolutions: { postcss: "^8.5.15" }` in `package.json` is the correct Yarn 4 mechanism for forcing transitive dep versions; `@gulp-sourcemaps/identity-map` required a forced major upgrade (7 → 8) which is technically unsupported but safe in practice — the passing build confirms no breakage

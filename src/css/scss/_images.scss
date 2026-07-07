@@ -30,5 +30,15 @@
 }
 
 img {
-  filter: light-dark(none, brightness(0.8) contrast(1.2));
+  filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode='light']) img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}
+
+html[data-mode='dark'] img {
+  filter: brightness(0.8) contrast(1.2);
 }

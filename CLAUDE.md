@@ -210,8 +210,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 ### In progress / next steps
 
 - **PR #320** — postcss resolution security fix; awaiting review/merge
-- Add multi-button dark mode sync test (flagged in PR #304 review, non-blocking)
-- Deprecate `.main` / `.main--fixed` in `_main.scss` — already noted in source; remove in a future version once consumers have migrated to `.container`
+- Remaining open TODOs are tracked as issues in the [albertcss GitHub Project](https://github.com/users/craigmcn/projects/1), not inline here
 
 ### Deferred (out of scope)
 
@@ -226,7 +225,7 @@ Global slash commands (in `~/.claude/commands/`) available in any project:
 - **SRI hashes for releases**: ✅ done — computed at release time, stored in `versions.json` on `gh-pages`
 - **GitHub Pages canonical site**: ✅ done (PR #303) — `albertcss.craigmcn.com/` serves full style guide with HTML snippets; `versions.html` linked from nav; Netlify serves snippet-less style guide
 - **Example page with HTML snippets**: ✅ done (PR #303) — `<details class="sg-snippet">` drawers inline in `src/index.html`; stripped for Netlify via `stripSnippets()` in `gulpfile.js`
-- **Netlify CSS not minified**: `www.craigmcn.com/albertcss/css/albert.min.css` was unminified for v0.14.0 and v0.15.0 (v0.13.0 and earlier are minified). Still unresolved — investigate the Gulp CSS pipeline; likely a regression in the `gulp-sass` or `gulp-if` minification path.
+- Remaining items (Netlify CSS not minified investigation, etc.) tracked in the [albertcss GitHub Project](https://github.com/users/craigmcn/projects/1)
 
 ### Key decisions
 

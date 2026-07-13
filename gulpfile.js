@@ -32,11 +32,10 @@ const inputScss = './src/**/*.scss';
 
 const sassOptions = {
   default: {
-    errLogToConsole: true,
-    outputStyle: 'expanded',
+    style: 'expanded',
   },
   minified: {
-    outputStyle: 'compressed',
+    style: 'compressed',
   },
 };
 

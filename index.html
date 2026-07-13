@@ -549,8 +549,9 @@
 
             <p>
               A dark mode is available by adding
-              <code>data-mode="dark"</code> to the <code>&lt;html&gt;</code>
-              tag.
+              <code>data-mode="dark"</code> to the <code>&lt;html&gt;</code> tag
+              or <code>class="theme--dark"</code> to the
+              <code>&lt;body&gt;</code> tag.
             </p>
 
             <p>
@@ -4465,6 +4466,32 @@
     </main>
 
     <script>
+      const dark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const toggleDarkModeButtons = document.querySelectorAll(
+        '[data-toggle-dark-mode]',
+      );
+      const body = document.querySelector('body');
+      toggleDarkModeButtons.forEach((button) => {
+        button.dataset.mode = dark ? 'light' : 'dark';
+        button.addEventListener('click', () => {
+          const mode = button.dataset.mode;
+          const inverseMode = mode === 'dark' ? 'light' : 'dark';
+          body.classList.add(`theme--${mode}`);
+          body.classList.remove(`theme--${inverseMode}`);
+          toggleDarkModeButtons.forEach((toggle) => {
+            toggle.dataset.mode = inverseMode;
+          });
+          document
+            .querySelectorAll(`[data-color="${mode}"]`)
+            .forEach((el) => el.classList.remove('d-none'));
+          document
+            .querySelectorAll(`[data-color="${inverseMode}"]`)
+            .forEach((el) => el.classList.add('d-none'));
+        });
+      });
+
       // Copy buttons
       document.querySelectorAll('.sg-snippet__copy').forEach((btn) => {
         btn.addEventListener('click', () => {

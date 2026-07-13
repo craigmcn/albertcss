@@ -36,6 +36,30 @@
     }
   },
   {
+    "version": "v0.15.1",
+    "date": "2026-07-13",
+    "css": {
+      "url": "https://albertcss.craigmcn.com/v0.15.1/css/albert.min.css",
+      "integrity": "sha384-laDgZ1GNCWuzaaQzgE04DKKt2Uh9SPXe5y8lBmBW96uhVQMppIssHdW1pzsnzgae"
+    },
+    "js": {
+      "url": "https://albertcss.craigmcn.com/v0.15.1/js/albert.min.js",
+      "integrity": "sha384-hkvMuOAr/y5E13aO9Tev6zE+FZkkgMkEyntjwAKF24TzITXLxSRVx1WImEEJDbPM"
+    }
+  },
+  {
+    "version": "v0.14.1",
+    "date": "2026-07-13",
+    "css": {
+      "url": "https://albertcss.craigmcn.com/v0.14.1/css/albert.min.css",
+      "integrity": "sha384-OFOWh38i2i0+a4ZOlHd+UkT+9P0Gbbzbyz6limKFsnS4LQqX7i6h/1zPsA9469qC"
+    },
+    "js": {
+      "url": "https://albertcss.craigmcn.com/v0.14.1/js/albert.min.js",
+      "integrity": "sha384-qazwtqK6KiGEJX+a6pmkdil6I5qvWx6pBpqh6MKNypTMKGzx1JvwmohtIk7uiwuw"
+    }
+  },
+  {
     "version": "v0.18.0",
     "date": "2026-07-07",
     "css": {
@@ -45,7 +69,9 @@
     "js": {
       "url": "https://albertcss.craigmcn.com/v0.18.0/js/albert.min.js",
       "integrity": "sha384-uT//8TspRszj40BpeynJ1XEVD6nsrmG+55Drdr/m5nlypsG9O6dsrtGRdtIEybQG"
-    }
+    },
+    "supersededBy": "v0.18.1",
+    "note": "Shipped unminified CSS due to a build-tooling bug (gulp-sass API option name). Fixed in v0.18.1."
   },
   {
     "version": "v0.17.0",
@@ -57,7 +83,9 @@
     "js": {
       "url": "https://albertcss.craigmcn.com/v0.17.0/js/albert.min.js",
       "integrity": "sha384-iblcwPCX0Y43KpM9t8savBgzFLhNE5ZzOPuHYuMkDtBzh020LqHU/jjWHWysCHQ+"
-    }
+    },
+    "supersededBy": "v0.17.1",
+    "note": "Shipped unminified CSS due to a build-tooling bug (gulp-sass API option name). Fixed in v0.17.1."
   },
   {
     "version": "v0.16.0",
@@ -69,7 +97,9 @@
     "js": {
       "url": "https://albertcss.craigmcn.com/v0.16.0/js/albert.min.js",
       "integrity": "sha384-iblcwPCX0Y43KpM9t8savBgzFLhNE5ZzOPuHYuMkDtBzh020LqHU/jjWHWysCHQ+"
-    }
+    },
+    "supersededBy": "v0.16.1",
+    "note": "Shipped unminified CSS due to a build-tooling bug (gulp-sass API option name). Fixed in v0.16.1."
   },
   {
     "version": "v0.15.0",
@@ -81,7 +111,9 @@
     "js": {
       "url": "https://albertcss.craigmcn.com/v0.15.0/js/albert.min.js",
       "integrity": "sha384-hkvMuOAr/y5E13aO9Tev6zE+FZkkgMkEyntjwAKF24TzITXLxSRVx1WImEEJDbPM"
-    }
+    },
+    "supersededBy": "v0.15.1",
+    "note": "Shipped unminified CSS due to a build-tooling bug (gulp-sass API option name). Fixed in v0.15.1."
   },
   {
     "version": "v0.14.0",
@@ -93,7 +125,9 @@
     "js": {
       "url": "https://albertcss.craigmcn.com/v0.14.0/js/albert.min.js",
       "integrity": "sha384-qazwtqK6KiGEJX+a6pmkdil6I5qvWx6pBpqh6MKNypTMKGzx1JvwmohtIk7uiwuw"
-    }
+    },
+    "supersededBy": "v0.14.1",
+    "note": "Shipped unminified CSS due to a build-tooling bug (gulp-sass API option name). Fixed in v0.14.1."
   },
   {
     "version": "v0.13.0",

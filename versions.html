@@ -224,19 +224,41 @@
         var latestBadge = isLatest
           ? ' <span class="badge badge--primary">latest</span>'
           : '';
+        var supersededBadge = v.supersededBy
+          ? ' <span class="badge badge--warning">superseded</span>'
+          : '';
+        var supersededNotice = v.supersededBy
+          ? '<div class="alert alert--warning" role="alert">' +
+            '<div class="alert__icon">' +
+            '<i class="fa-duotone fa-sharp fa-light fa-triangle-exclamation"></i>' +
+            '</div>' +
+            '<div class="alert__text">' +
+            escapeHtml(v.note || 'This release has known issues.') +
+            ' See <a href="#version-' +
+            escapeAttr(v.supersededBy) +
+            '">' +
+            escapeHtml(v.supersededBy) +
+            '</a>.' +
+            '</div>' +
+            '</div>'
+          : '';
         return (
-          '<div class="card version-card">' +
+          '<div class="card version-card" id="version-' +
+          escapeAttr(v.version) +
+          '">' +
           '<div class="card__title d-flex justify-content-between align-items-center">' +
           '<span><strong>' +
           escapeHtml(v.version) +
           '</strong>' +
           latestBadge +
+          supersededBadge +
           '</span>' +
           '<span class="text-muted">' +
           escapeHtml(v.date) +
           '</span>' +
           '</div>' +
           '<div class="card__body">' +
+          supersededNotice +
           '<p><strong>CSS</strong></p>' +
           '<div class="snippet-row">' +
           '<pre><code>' +

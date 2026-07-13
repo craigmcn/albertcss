@@ -1,5 +1,17 @@
 [
   {
+    "version": "v0.18.1",
+    "date": "2026-07-13",
+    "css": {
+      "url": "https://albertcss.craigmcn.com/v0.18.1/css/albert.min.css",
+      "integrity": "sha384-YPyf/CDVuTv666JFKtHam6/yqjCWGEYkbxj7cbj4iUR0guwHT42c706/F27PRV3U"
+    },
+    "js": {
+      "url": "https://albertcss.craigmcn.com/v0.18.1/js/albert.min.js",
+      "integrity": "sha384-uT//8TspRszj40BpeynJ1XEVD6nsrmG+55Drdr/m5nlypsG9O6dsrtGRdtIEybQG"
+    }
+  },
+  {
     "version": "v0.17.1",
     "date": "2026-07-13",
     "css": {

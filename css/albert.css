@@ -3,7 +3,7 @@
 /**
  * Fonts
  */
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;500;600&display=swap");
 /**
   * Colours
   */
@@ -352,7 +352,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Raleway, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: Outfit, Futura, Avenir, "Century Gothic", Candara, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h5,
+h6 {
   font-weight: 600;
 }
 
@@ -373,6 +384,9 @@ h1 .subheading, h2 .subheading {
 }
 h3 .subheading, h4 .subheading {
   font-size: 0.9em;
+}
+h5 .subheading, h6 .subheading {
+  font-weight: 500;
 }
 
 p {
@@ -510,7 +524,7 @@ pre code {
   top: calc(var(--headerHeight) * -1 - 1px);
 }
 .header h1 {
-  font-family: Raleway, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: Outfit, Futura, Avenir, "Century Gothic", Candara, sans-serif;
   font-size: 1.25rem;
   grid-area: site;
   margin-bottom: 0.5rem;
@@ -543,8 +557,8 @@ pre code {
 }
 
 .brand {
-  font-weight: 600;
-  font-family: Raleway, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 500;
+  font-family: Outfit, Futura, Avenir, "Century Gothic", Candara, sans-serif;
   font-size: 1.25rem;
   grid-area: brand;
   margin: 0.5rem 0 0.5rem 1rem;
@@ -4579,7 +4593,7 @@ dialog.modal::backdrop {
  * Text utilities
  */
 .lede {
-  font-family: Raleway, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: Outfit, Futura, Avenir, "Century Gothic", Candara, sans-serif;
   font-size: 1.1em;
   font-weight: 200;
 }

@@ -3,6 +3,7 @@ import gulpif from 'gulp-if';
 import parseArgs from 'minimist';
 import { Transform } from 'stream';
 import { applyStripSnippets } from './src/js/stripSnippets.js';
+import { sassOptions } from './src/js/sassOptions.js';
 import * as sassInit from 'sass';
 import gulpSass from 'gulp-sass';
 import autoprefixer from 'gulp-autoprefixer';
@@ -29,15 +30,6 @@ const browserSync = browserSyncCreate.create();
 const sass = gulpSass(sassInit);
 
 const inputScss = './src/**/*.scss';
-
-const sassOptions = {
-  default: {
-    style: 'expanded',
-  },
-  minified: {
-    style: 'compressed',
-  },
-};
 
 gulp.task('sass', function () {
   return gulp

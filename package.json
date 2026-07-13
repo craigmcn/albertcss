@@ -1,6 +1,6 @@
 {
   "name": "albertcss",
-  "version": "0.16.0",
+  "version": "0.17.1",
   "description": "Personal CSS framework",
   "packageManager": "yarn@4.14.1",
   "type": "module",

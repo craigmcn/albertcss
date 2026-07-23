@@ -110,4 +110,24 @@ describe('initDarkMode', () => {
     expect(lightEl.classList.contains('d-none')).toBe(false);
     expect(darkEl.classList.contains('d-none')).toBe(true);
   });
+
+  it('syncs data-mode across multiple toggle buttons when one is clicked', () => {
+    document.body.innerHTML = `
+      <button data-toggle-dark-mode data-mode="dark" type="button" id="header-toggle"></button>
+      <button data-toggle-dark-mode data-mode="dark" type="button" id="footer-toggle"></button>
+    `;
+    initDarkMode();
+    const headerToggle = document.getElementById('header-toggle');
+    const footerToggle = document.getElementById('footer-toggle');
+
+    headerToggle.click();
+    expect(document.documentElement.dataset.mode).toBe('dark');
+    expect(headerToggle.dataset.mode).toBe('light');
+    expect(footerToggle.dataset.mode).toBe('light');
+
+    footerToggle.click();
+    expect(document.documentElement.dataset.mode).toBe('light');
+    expect(headerToggle.dataset.mode).toBe('dark');
+    expect(footerToggle.dataset.mode).toBe('dark');
+  });
 });

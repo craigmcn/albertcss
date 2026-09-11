@@ -143,6 +143,10 @@ Config in `eslint.config.js` using ESLint flat config with `neostandard` and ove
 
 Run `yarn lint` before committing JS changes.
 
+## Design system direction
+
+Longer-term goal (tracked as a pattern across `albertcss` and the sibling `albertcss-tokens` repo): move toward design tokens, SCSS variables, and CSS custom properties that are linked/synchronized rather than duplicated, and eventually manage Albert CSS as a proper design system (Figma, Storybook, etc.). This isn't a single project with its own milestone — every update and fix is an opportunity to nudge the codebase closer to it: prefer a token/custom-property source of truth over a one-off hardcoded value, and prefer reusing an existing token over introducing a new one.
+
 ## Releasing a version
 
 Releases are automated via GitHub Actions (`.github/workflows/release.yml`).

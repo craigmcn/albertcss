@@ -9,3 +9,10 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'weekly'
+    # babelify@10 (latest) calls Babel 7's sync loadPartialConfig(), removed in
+    # Babel 8 — majors break the build. Remove once babelify supports Babel 8.
+    ignore:
+      - dependency-name: '@babel/core'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@babel/preset-env'
+        update-types: ['version-update:semver-major']

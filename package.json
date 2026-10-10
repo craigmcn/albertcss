@@ -71,6 +71,6 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "vite": "^8.3.2",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.3"
   }
 }

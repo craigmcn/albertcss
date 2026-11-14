@@ -48,7 +48,7 @@
     "qs@npm:^6.12.3": "^6.16.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
+    "@babel/core": "^7.29.13",
     "@babel/preset-env": "^7.29.7",
     "@vitest/coverage-v8": "^5.1.0",
     "babelify": "^10.0.0",

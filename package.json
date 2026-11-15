@@ -45,7 +45,9 @@
     "immutable@npm:^5.1.5": "^5.1.8",
     "decode-uri-component@npm:^0.2.0": "^0.5.1",
     "decode-uri-component@npm:^0.5.0": "^0.5.1",
-    "qs@npm:^6.12.3": "^6.16.1"
+    "qs@npm:^6.12.3": "^6.16.1",
+    "minimatch@npm:^10.2.2": "^11.0.1",
+    "glob@npm:^13.0.0": "^14.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.29.13",
@@ -54,7 +56,7 @@
     "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",
     "browserify": "^17.0.1",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "eslint-config-prettier": "^10.1.8",
     "formbouncerjs": "^1.4.6",
     "globals": "^17.14.0",

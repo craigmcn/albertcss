@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.13",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-env": "^7.29.14",
     "@vitest/coverage-v8": "^5.1.0",
     "babelify": "^10.0.0",
     "browser-sync": "^3.0.4",

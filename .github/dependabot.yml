@@ -16,3 +16,12 @@ updates:
         update-types: ['version-update:semver-major']
       - dependency-name: '@babel/preset-env'
         update-types: ['version-update:semver-major']
+    groups:
+      security:
+        applies-to: security-updates
+        patterns: ['*']
+      # One PR for all minor/patch bumps; majors stay separate so a breaking
+      # upgrade can be reviewed (or ignored) on its own.
+      minor-and-patch:
+        update-types: [minor, patch]
+        patterns: ['*']
